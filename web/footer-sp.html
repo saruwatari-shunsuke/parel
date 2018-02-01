@@ -42,11 +42,11 @@
 <div id="mobile_side_down_menu" class="is_browser js-panel " style="display: none;">
 
       <ul class="left_menu_ul">
-
+<!--
                               <li class="login">
                   <a href="login-sp.php" class="gray666">Login<br><span class="font60 gray333">ログイン</span></a>
                 </li>
-              
+-->              
               <li class="top">
                 <a href="index-sp.php" class="gray666">TOP<br><span class="font60 gray333">トップ</span></a>
               </li>
@@ -113,6 +113,17 @@
     <script type="text/javascript" src="js/mb_default.js"></script>
     <script type="text/javascript" src="js/slidemenu.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery.toc.js"></script>
+    <script>
+        $(function(){
+            $("body").toc({
+                startLevel: 'h2',
+                listType: 'ol',
+                target: 'toc'
+            });
+        });
+    </script>
 
 </body>
 <script type="text/javascript" id="useragent-switcher">navigator.__defineGetter__("userAgent", function() {return "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:56.0) Gecko/20100101 Firefox/56.0"})</script>

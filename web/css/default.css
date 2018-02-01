@@ -2364,7 +2364,7 @@ p.footer_sns_mk{
     text-align:center;
     padding-top:100px;
     width:100px;
-    background-image:url("/img/index/loading_light.gif");
+    background-image:url("/img/common/loading_light.gif");
     background-position: center top;
     background-repeat: no-repeat;
 }
@@ -2372,7 +2372,7 @@ p.footer_sns_mk{
     text-align:center;
     padding-top:100px;
     width:100px;
-    background-image:url("/img/index/saved_success.png");
+    background-image:url("/img/common/saved_success.png");
     background-position: center top;
     background-repeat: no-repeat;
 }
@@ -2690,7 +2690,7 @@ p.footer_sns_mk{
 }
 .pinterest-content-wrapper .pinterest-content-credit .pinterest-image-logo {
     display: block;
-    background: url(/img/sns/pinterest/pinterset-logo-inactive.png) no-repeat;
+    background: url(/img/common/pinterset-logo-inactive.png) no-repeat;
     -webkit-background-size: 72px auto;
     -moz-background-size: 72px auto;
     -o-background-size: 72px auto;
@@ -2700,7 +2700,7 @@ p.footer_sns_mk{
     height: 19px;
 }
 .pinterest-content-wrapper .pinterest-content-credit .pinterest-image-logo:hover {
-    background: url(/img/sns/pinterest/pinterset-logo-hover.png) no-repeat;
+    background: url(/img/common/pinterset-logo-hover.png) no-repeat;
     -webkit-background-size: 72px auto;
     -moz-background-size: 72px auto;
     -o-background-size: 72px auto;

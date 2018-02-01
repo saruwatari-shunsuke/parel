@@ -1,6 +1,7 @@
 <?php include "header.html"; ?>
 
 
+
                 <div class="overflow">
                             <div class="left main_bar">
                                                     <div class="article_view"><!-- Breadcrumb -->
@@ -82,6 +83,8 @@
     <hr>
 
 
+<div id="toc"></div>
+
 <!-- Start of Content 1 to 4 -->
 
   <div class="article_row">
@@ -123,7 +126,6 @@
 
     </div>
   </div>
-
 
   <div class="article_row">
     <div class="col-md-12 col-xs-12">
@@ -717,31 +719,7 @@ L'espoir自慢のサクサクしたミルフィーユに、お茶をテーマに
         </div>
     </div>
 </div>
-<!-- お問い合わせ // -->
-             <div class="overflow center mt10 mr20 ml20">
-            <div class="left">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- pc_under_article_square -->
-                <ins class="adsbygoogle"
-                     style="display:inline-block;width:300px;height:250px"
-                     data-ad-client="ca-pub-7461376270111668"
-                     data-ad-slot="8840640031"></ins>
-                <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-            <div class="right">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- pc_under_article_square -->
-                <ins class="adsbygoogle"
-                     style="display:inline-block;width:300px;height:250px"
-                     data-ad-client="ca-pub-7461376270111668"
-                     data-ad-slot="8840640031"></ins>
-                <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        </div>
+
     <!-- Related article -->
   <div class="list_view_head">
         <div class="related_pagetitle_text">関連記事</div>
@@ -958,7 +936,8 @@ L'espoir自慢のサクサクしたミルフィーユに、お茶をテーマに
 
         </div>
 
-</div>                            </div>
+</div>
+</div>
 
 
 <?php include 'rightsidebar.html'; ?>
