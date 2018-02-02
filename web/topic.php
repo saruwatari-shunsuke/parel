@@ -21,41 +21,11 @@
 <!-- End of Breadcrumb -->
 <div class="article_row mt30" ><!-- Start of Article head -->
 
-	<div class="col-md-3 col-sm-3" id="center">
-			    	    	    		<img id="thumb_1" class="img-circle" src="img/article/middle_87096_0.jpg" alt="">
-	</div>
+	<div class="col-md-3 col-sm-3" id="center"><img id="thumb_1" class="img-circle" src="img/article/middle_87096_0.jpg" alt=""></div>
+
 	<div class="col-md-9 col-sm-9">
-
-	  
-	  <h1 class="article_text_title ">
-	    2,000円以下で買える♪2018年注目のバレンタインチョコ10選	  </h1>
-	  
-	    	  <ul class="share">
-	    <li>
-	    					<a href="/users/add" class="btn btn-danger favorite bg_subcolor">お気に入りに追加</a>
-				    </li>
-	    <li class="article_view_snsicon">
-	      <a href="https://www.facebook.com/" class="btn btn-primary btn-lg article_top_fb_link" target="_blank" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;" >
-	      <img src="/img/common/fb_mk.png" class="article_top_fb_icon"></a>
-	    </li>
-	    <li class="article_view_snsicon">
-	      <a href="https://twitter.com/share?url=&text=" class="btn btn-info btn-lg article_top_fb_link" target="_blank" >
-	        <img src="/img/common/tw_mk.png" alt="ツイートする" class="article_top_fb_icon">
-	      </a>
-	    </li>
-	    <li class="article_view_usericon">
-	      	        <span class="gray ml10">85373 Point</span>
-	      	      <span class="ml10">
-	          <a href="/users/profile/1190606">
-	              <img src="img/article/mini_1190606.jpg" alt="mana yuki" class="article_view_userimg">
-	          </a>
-	          <a href="/users/profile/1190606" class="gray">
-	              	              mana yuki	          </a>
-	      </span>
-	    </li>
-	  </ul>
-
-	
+		<h1 class="article_text_title ">2,000円以下で買える♪2018年注目のバレンタインチョコ10選</h1>
+		<div class="addthis_inline_share_toolbox"></div>
 	</div>
 
 </div><!-- End of Article head -->
@@ -78,12 +48,10 @@
   </div>
 <!-- End of Desc1 -->
 
-
-
     <hr>
 
-
 <div id="toc"></div>
+
 
 <!-- Start of Content 1 to 4 -->
 
@@ -603,37 +571,40 @@ L'espoir自慢のサクサクしたミルフィーユに、お茶をテーマに
 
 <!-- End of Content 1 to 4 -->
     <!-- Desc2 -->
-          <div class="article_view_desc2 ">
-                <div id="article_view_desc2">
-                  2,000円以下で買える！2018年のおすすめバレンタインチョコをご紹介させていただきました。<br />
+
+<div class="article_view_desc2 ">
+<div id="article_view_desc2">
+
+2,000円以下で買える！2018年のおすすめバレンタインチョコをご紹介させていただきました。<br />
 おしゃれなチョコや、ユーモア溢れるチョコなど、気になる商品はありましたか？<br />
 渡す相手のイメージに合わせて選び、喜んでもらいましょう♪<br />
 <br />
-<a href="/articles/view/227740" class="item-related-article overflow"><div class="item-thumbnail"><img src="img/article/small_227740_0.jpg" width="73" height="73"></div><div class="item-content"><p class="item-title">【関連記事】想いはチョコに託して?おすすめのメッセージ入りバレンタインチョコ6選</p><p class="item-description">待ちに待ったバレンタインデーがもうすぐやってきます。どんなチョコを、誰に渡すか、着々と...</p></div></a>                </div>
+<a href="/articles/view/227740" class="item-related-article overflow">
+<div class="item-thumbnail"><img src="img/article/small_227740_0.jpg" width="73" height="73"></div>
+<div class="item-content">
+<p class="item-title">【関連記事】想いはチョコに託して?おすすめのメッセージ入りバレンタインチョコ6選</p>
+<p class="item-description">待ちに待ったバレンタインデーがもうすぐやってきます。どんなチョコを、誰に渡すか、着々と...</p>
+</div>
+</a>
 
-                          </div>
+</div>
+</div>
+
     <!-- End of Desc2 -->
+
+
+<div class="addthis_inline_share_toolbox_ribm"></div>
+
     <!-- Category & hashtag -->
 <p class="text-muted" id="view_top_space">
                   <a href="/articles/hashtag/2,000円以下" class="btn btn-default btn-sm article_view_hashtag" ><i class="glyphicon glyphicon-tag"></i> 2,000円以下</a>
                 <a href="/articles/hashtag/2018年" class="btn btn-default btn-sm article_view_hashtag" ><i class="glyphicon glyphicon-tag"></i> 2018年</a>
                 <a href="/articles/hashtag/バレンタインチョコ" class="btn btn-default btn-sm article_view_hashtag" ><i class="glyphicon glyphicon-tag"></i> バレンタインチョコ</a>
         </p>
-<!-- End of Category & hashtag --><!-- Like -->
-<div class="article_view_likefbpage">
-    <div class="fb-like" data-href="https://www.facebook.com/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
-    <div class="gray"><small>↑「いいね」すると4MEEEの最新情報が届きます♪</small></div>
-</div>
-<!-- End of Like -->
-<!-- SNS link -->
-<div class="social_link_selection">
-  <a href="https://www.facebook.com/" class="btn btn-primary btn-lg" id="social_link_selection_position" target="_blank" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;" ><img src="/img/sns/fb_mk.png" class="social_link_selection_fb" alt="" />シェア
-  </a>
-  <a href="https://twitter.com/" class="btn btn-info btn-lg" id="social_link_selection_position" target="_blank" >
-    <img src="/img/sns/tw_mk.png" alt="ツイートする" class="social_link_selection_fb">ツイート
-  </a>
-</div>
-<!-- End of SNS link -->
+<!-- End of Category & hashtag -->
+
+
+
 <!-- Author-->
 <div class="overflow article_written_box">
     <div class="left" style="width:20%;">

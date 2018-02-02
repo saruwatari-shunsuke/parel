@@ -39,43 +39,14 @@
 
     
                       <div class="article_head_sns mt10">
-                  <div class="max-width overflow center">
+                         <div class="max-width overflow center">
 
-                      <div class="left mr15">
-                                                                                          <a href="#" data-toggle="modal" data-target="#webfav_info" class="btn btn-default article_view_btnfav push-click" data-article-id="87096" id="article_top_nologin_fav">&#9825; お気に入り</a>
-                                  <!-- sns popup-->
-                                  <div class="modal fade modal_sns" id="webfav_info">
-                                    <div class="modal-dialog">
-                                      <div class="modal-content modal_iOSvav_content">
-                                          <p>ID登録するとお気に入り機能が使えるようになります。</p>
-                                          <a href="regist-sp.php" class="btn btn-info">さっそく登録する</a>
-                                          <p class="" id="modal_sns_close" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i> close</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                                                              </div>
-
-
-                      <div>
-                                                    <a href="https://twitter.com/" id="article_top_tw_btn" class="btn btn-info article_view_fblink push-click" target="blank" data-article-id="87096">
-                            <img src="img/common/tw_mk.png" alt="twitterでシェア" class="article_view_fbimg">
-                          </a>
-                      </div>
-                      <div>
-                                                    <a href="https://www.facebook.com/sharer.php?u=87096" id="article_top_fb_btn" class="btn btn-primary article_view_fblink ml10 push-click" onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;" target="blank" data-article-id="87096">
-                            <img src="img/common/fb_mk.png" alt="facebookでシェア" class="article_view_fbimg">
-                          </a>
-                      </div>
-                      <div>
-                                                    <a href="https://line.me/R/msg/" id="article_top_line_btn" class="article_view_linelink btn btn-success line_icon ml10 mr20 push-click" target="blank" data-article-id="87096">
-                            <img src="img/common/line_mk.png" alt="LINEで送る" width="25" height="25">
-                          </a>
-                      </div>
+                           <div class="addthis_inline_share_toolbox"></div>
 
                                                 <div class="right mt3 mr5">
                             <span class="gray"><small>2018-01-21</small></span>
                           </div>
-                                        </div>
+                   </div>
 
               </div>
 
@@ -192,6 +163,7 @@
     <p class="article_pagination_guid">（1/4ページ）</p>
   </div>
   
+                           <div class="addthis_inline_share_toolbox_ribm"></div>
   
     <!-- // magazine -->
     <a href="#" target="_blank">
@@ -274,7 +246,7 @@ return concat_16$1;
                 <div class="boxview_wraper">
 	<div class="boxview_box" id="auto_box">
     
-						<a href="980606">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -305,7 +277,7 @@ return concat_16$1;
 
 	
 																		
-						<a href="521730">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -336,7 +308,7 @@ return concat_16$1;
 
 	
 																		
-						<a href="98314">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -364,7 +336,7 @@ return concat_16$1;
 
 
 
-						<a href="528080">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -395,7 +367,7 @@ return concat_16$1;
 
 	
 																		
-						<a href="391808">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -425,7 +397,7 @@ return concat_16$1;
 
 	
 																		
-						<a href="790023">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -455,7 +427,7 @@ return concat_16$1;
 
 
 
-						<a href="48391">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -486,7 +458,7 @@ return concat_16$1;
 
 	
 																		
-						<a href="554325">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -517,7 +489,7 @@ return concat_16$1;
 
 	
 																		
-						<a href="496274">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -548,7 +520,7 @@ return concat_16$1;
 
 
 
-						<a href="582333">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -579,7 +551,7 @@ return concat_16$1;
 
 	
 																		
-						<a href="663723">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -604,7 +576,7 @@ return concat_16$1;
 							</div>
 						</a>
 
-						<a href="994944">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -635,7 +607,7 @@ return concat_16$1;
 
 
 
-						<a href="655155">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -666,7 +638,7 @@ return concat_16$1;
 
 	
 																		
-						<a href="658764">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -692,12 +664,10 @@ return concat_16$1;
 						</a>
 
 				
-				
-						
 
 	
 																		
-						<a href="901459">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -728,7 +698,7 @@ return concat_16$1;
 
 
 				
-						<a href="823244">
+						<a href="#">
 							<div class="mobile_article_index_box2 max-width ">
 								<div class="boxview_left">
 									<div class="boxview_leftimg">
@@ -753,20 +723,16 @@ return concat_16$1;
 							</div>
 						</a>
 
-
-	
     
     </div><!-- overflow:hidden -->
 </div><!-- margin-top -->
-
-
 
 
 <?php include "content-ranking-sp.html"; ?>
 <?php include "content-feature-sp.html"; ?>
 <?php include "content-choco-sp.html"; ?>
 <?php include "content-push-sp.html"; ?>
-	
+
     	</div>
 
 <?php include "footer-sp.html"; ?>
