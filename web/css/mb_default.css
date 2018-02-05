@@ -2006,31 +2006,14 @@ ul.share li{
 	margin:15px 0 0;
 	border:none;
 }
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-}
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-.article_view_headline{
-	line-height:130%;
-	font-size:17px;
-}
 .view_headline{
 	font-weight:bold;
 	text-align: center;
-	padding:0 0 10px 5px;
 	color:#333;
-	line-height:170%;
+	line-height:130%;
+	font-size:17px;
 }
-.article_text{
+.article_row{
 	line-height:180%;
 	font-size:15px;
 	padding:0 3px;

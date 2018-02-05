@@ -1,10 +1,10 @@
 <?php include "header-sp.html"; ?>
 
-                <div class="content_wrapper js-main ">
-    		    		<div class="">
-    <img src="img/common/ranking.png" alt="デイリーランキング" class="ranking_title">
+<div class="content_wrapper js-main ">
+      <div class="">
+        <img src="img/common/ranking.png" alt="デイリーランキング" class="ranking_title">
 
-                        <a href="topic-sp.php">
+        <a href="topic-sp.php">
           <div class="ranking_wrapper" id="hover_filter">
               
               <div class="ranking_img_area">
@@ -22,7 +22,7 @@
               </div>
           </div>
         </a>
-                            <a href="topic-sp.php">
+        <a href="topic-sp.php">
           <div class="ranking_wrapper" id="hover_filter">
               
               <div class="ranking_img_area">
@@ -40,7 +40,7 @@
               </div>
           </div>
         </a>
-                            <a href="topic-sp.php">
+        <a href="topic-sp.php">
           <div class="ranking_wrapper" id="hover_filter">
               
               <div class="ranking_img_area">
@@ -58,7 +58,7 @@
               </div>
           </div>
         </a>
-                            <a href="topic-sp.php">
+        <a href="topic-sp.php">
           <div class="ranking_wrapper" id="hover_filter">
               
               <div class="ranking_img_area">
@@ -76,7 +76,7 @@
               </div>
           </div>
         </a>
-                            <a href="topic-sp.php">
+        <a href="topic-sp.php">
           <div class="ranking_wrapper" id="hover_filter">
               
               <div class="ranking_img_area">
@@ -94,7 +94,7 @@
               </div>
           </div>
         </a>
-                            <a href="topic-sp.php">
+        <a href="topic-sp.php">
           <div class="ranking_wrapper" id="hover_filter">
               
               <div class="ranking_img_area">
@@ -112,7 +112,7 @@
               </div>
           </div>
         </a>
-                            <a href="topic-sp.php">
+        <a href="topic-sp.php">
           <div class="ranking_wrapper" id="hover_filter">
               
               <div class="ranking_img_area">
@@ -130,7 +130,7 @@
               </div>
           </div>
         </a>
-                            <a href="topic-sp.php">
+        <a href="topic-sp.php">
           <div class="ranking_wrapper" id="hover_filter">
               
               <div class="ranking_img_area">
@@ -148,7 +148,7 @@
               </div>
           </div>
         </a>
-                            <a href="topic-sp.php">
+        <a href="topic-sp.php">
           <div class="ranking_wrapper" id="hover_filter">
               
               <div class="ranking_img_area">
@@ -166,7 +166,7 @@
               </div>
           </div>
         </a>
-                            <a href="topic-sp.php">
+        <a href="topic-sp.php">
           <div class="ranking_wrapper" id="hover_filter">
               
               <div class="ranking_img_area">
@@ -184,7 +184,7 @@
               </div>
           </div>
         </a>
-                            <a href="topic-sp.php">
+        <a href="topic-sp.php">
           <div class="ranking_wrapper" id="hover_filter">
               
               <div class="ranking_img_area">
@@ -202,7 +202,7 @@
               </div>
           </div>
         </a>
-                            <a href="topic-sp.php">
+        <a href="topic-sp.php">
           <div class="ranking_wrapper" id="hover_filter">
               
               <div class="ranking_img_area">
@@ -220,7 +220,7 @@
               </div>
           </div>
         </a>
-                            <a href="topic-sp.php">
+        <a href="topic-sp.php">
           <div class="ranking_wrapper" id="hover_filter">
               
               <div class="ranking_img_area">
@@ -238,9 +238,7 @@
               </div>
           </div>
         </a>
-            
-	</div>
-
-    	</div>
+      </div>
+    </div>
 
 <?php include "footer-sp.html"; ?>

@@ -57,6 +57,7 @@
             
     </div> <!-- /row -->
 
+  <script type="text/javascript" src="js/trunk8.min.js"></script>
   <script>
     $(function(){
         $('.boxview_text_title a').trunk8({lines:2});

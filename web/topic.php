@@ -1,589 +1,487 @@
 <?php include "header.html"; ?>
 
 
+<div class="overflow">
 
-                <div class="overflow">
-                            <div class="left main_bar">
-                                                    <div class="article_view"><!-- Breadcrumb -->
-<ul class="breadcrumb_ul" id="breadcrumb_ul_style">
-	<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-		<a href="/" itemprop="url"><span itemprop="title" class="gray"><small>site</small></span></a>　&gt; 
-	</li>
-	<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-		<a href="/articles/tag/" itemprop="url">
-			<span itemprop="title" class="gray"><small>グルメ</small></span>
-		</a>　&gt;
-	</li>
-	<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-		<span itemprop="title" class="gray"><small>2,000円以下で買える♪2018年注目のバレンタインチョコ10選</small></span>
-	</li>
-</ul>
-<!-- End of Breadcrumb -->
-<div class="article_row mt30" ><!-- Start of Article head -->
-
-	<div class="col-md-3 col-sm-3" id="center"><img id="thumb_1" class="img-circle" src="img/article/middle_87096_0.jpg" alt=""></div>
-
+  <div class="left main_bar">
+    <div class="article_view">
+      <div class="sitemap">
+          <a href="/">site</a> &gt; <a href="/articles/tag/">食事</a> &gt; 短期集中ダイエット！食事制限ダイエットの効果と方法！
+      </div>
+      <div class="article_row mt30" ><!-- Start of Article head -->
+	<div class="col-md-3 col-sm-3" id="center"><img id="thumb_1" class="img-circle" src="img/article/brooke-lark01.jpg" alt=""></div>
 	<div class="col-md-9 col-sm-9">
-		<h1 class="article_text_title ">2,000円以下で買える♪2018年注目のバレンタインチョコ10選</h1>
+		<h1 class="article_text_title ">短期集中ダイエット！食事制限ダイエットの効果と方法！</h1>
 		<div class="addthis_inline_share_toolbox"></div>
 	</div>
+      </div><!-- End of Article head -->
 
-</div><!-- End of Article head -->
+      <!-- Start of Desc1 -->
+      <div id="article_view_desc">
+食事制限に試みたものの、ダイエットに挫折した経験はありませんか？<br>
+<span class="_pi">食事制限ダイエットは短期間でダイエット効果を出せるのがメリット</span>ですが、食事制限をすると停滞期から抜け出せなかったり、<br>
+リバウンドしやすい身体になってしまうため、失敗しやすいダイエットとしても知られています。<br>
+そんな食事制限ダイエットを成功させるコツには正しい方法を知ることが有効です。<br>
+そこで今回は<span class="_pi">食事制限ダイエットの方法、停滞期の乗り越え方やリバウンド対策</span>などあらゆることについてご紹介していきます。<br>
+      </div>
+      <!-- End of Desc1 -->
 
+<hr>
 
-    <div>
-         <p class="text-muted thumbnail_credit">
-           Cover image：
-           <a href="http://www.takashimaya.co.jp/shopping/food/0400015870/product.html?p_cd=0001377032&sub_cd=001" class="text-muted" target="_blank" rel="follow">
-                          www.takashimaya.co.jp           </a>
-         </p>
-    </div>
-
-<!-- Start of Desc1 -->
-<div id="article_view_desc">
-  <div class="">
-    もうすぐ年に一度のバレンタインデーがやってきます。<br />
-皆さんは恋人や友達、家族にあげるバレンタインチョコは決まりましたか？<br />
-まだ決まっていない！という方のために、2018年の新作となるバレンタインチョコを、2,000円以下に絞ってご紹介いたします。    </div>
-  </div>
-<!-- End of Desc1 -->
-
-    <hr>
-
-<div id="toc"></div>
+<div id="toc"><!-- 目次 --></div>
 
 
 <!-- Start of Content 1 to 4 -->
 
   <div class="article_row">
     <div class="col-md-12 col-xs-12">
-    	<h2 class="view_headline mt10 mb15 " id="section1">2018年のバレンタインチョコはおしゃれなものばかり！</h2>
-	            <a href="#" class="edit_cover" data-toggle="modal" data-target="#photo_expansion1">
-                                                <img src="img/article/large_87096_1.jpg" style="max-width:100%;" id="image1" alt="">
-              </a>
 
+      <!-- 見出し -->
+      <h2 class="view_headline">食事制限ダイエットとは？</h2>
+
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion1"><img src="img/article/brooke-lark02.jpg"></a>
       <div id="photo_expansion1" class="modal fade">
         <div class="modal-dialog article_view_modalimg">
           <div class="modal-content">
-            <div class="modal-body center">
-              <img src="img/article/large_87096_1.jpg" id="image" class="max-width" alt="">
-            </div>
-            <div class="article_view_modalclose">
-              <button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button>
-            </div>
+            <div class="modal-body center"><img src="img/article/brooke-lark02.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
           </div>
         </div>
       </div>
 
-      <p class="text-muted font08 mb0">
-                      </p>
+<span class="_pi">食事制限ダイエットとは、「食べる量を制限してダイエットする」という方法です。</span><br>
+「食べる量を減らせば痩せる」なんて当たり前！と感じている方もいるかもしれませんが、食事制限ダイエットはただ食べなければ痩せるというダイエットではありません。<br>
+食事制限ダイエットで重要なのは【摂取カロリー＜消費カロリー】にすることです。<br>
+つまり<span class="-bl">消費するカロリーより食べたカロリーを少なくしてダイエットをするのが食事制限ダイエット</span>なのです。<br>
+このダイエットは断食や絶食のように「何も食べないダイエット法」とは異なるので注意してくださいね。<br>
+それはともあれ消費カロリーをあげるためには、基礎代謝や運動量をあげることで消費量を増やさなければいけません。<br>
+<span class="_pi">食事制限ダイエットは摂取カロリーを減らしてダイエットする方法なので、運動をする時間がない方や運動が苦手な方でも取り入れやすいダイエット法です。</span>
 
-        <div class="article_text mt15 mb15 ">
-          忙しくて手作りチョコが用意できない、料理が苦手で作りたくないなど、さまざまな悩みを抱える方にとって心強いお店のバレンタインチョコ。<br />
-毎年おしゃれで美味しいバレンタインチョコが多く発売されているので、2018年も期待が高まりますよね♪<br />
-<br />
-楽しみな気持ちと同時に考えなければならないのが予算です。<br />
-渡す相手が多ければ多いほど、「なるべく出費を抑えたい」と考えてしまうもの。<br />
-できれば、安くておしゃれで美味しいバレンタインチョコを渡したいと思いませんか？<br />
-<br />
-2018年は、わがまま女子の願いを詰め込んだバレンタインチョコが多く発売されています！<br />
-2,000円以下で買えるおすすめのバレンタインチョコを10個ご紹介するので、まだ決まっていない方は参考にしてみてくださいね。    </div>
+      <!-- 見出し -->
+      <h2 class="view_headline">食事制限ダイエットの効果と期間、効果の理由</h2>
 
-    
-
-
-    </div>
-  </div>
-
-  <div class="article_row">
-    <div class="col-md-12 col-xs-12">
-    	<h2 class="view_headline mt10 mb15 " id="section2">2,000円以下で買えバレンタインチョコ①パティスリー モンシェール スイートワルツ</h2>
-	            <a href="#" class="edit_cover" data-toggle="modal" data-target="#photo_expansion2">
-                                                <img src="img/article/large_87096_2.jpg" style="max-width:70%;" id="image2" alt="">
-              </a>
-
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion2"><img src="img/article/brooke-lark03.jpg"></a>
       <div id="photo_expansion2" class="modal fade">
         <div class="modal-dialog article_view_modalimg">
           <div class="modal-content">
-            <div class="modal-body center">
-              <img src="img/article/large_87096_2.jpg" id="image" class="max-width" alt="">
-            </div>
-            <div class="article_view_modalclose">
-              <button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button>
-            </div>
+            <div class="modal-body center"><img src="img/article/brooke-lark03.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
           </div>
         </div>
       </div>
 
-      <p class="text-muted font08 mb0">
-                            <a href="http://www.takashimaya.co.jp/shopping/food/0400015870/product.html?p_cd=0001377032&sub_cd=001" class="text-muted" target="_blank" rel="follow">
-                            www.takashimaya.co.jp            </a>
-              </p>
+食事制限をして摂取カロリーを抑えることは、非常に効果の高いダイエット法だと言われています。<br>
+肥満の原因は、食べ過ぎによってカロリーを摂り過ぎていることです。<br>
+先述した通り、<span class="_pi"><span class="-bi">摂取カロリー＜消費カロリー</span>にすることができれば、自然とダイエットに成功できる</span>ので、<br>
+食事制限をして摂取カロリーを抑えることは非常にダイエット効果が高いです。<br>
 
-        <div class="article_text mt15 mb15 ">
-          「堂島ロール」で知られるパティスリーモンシェールから発売されているおすすめのバレンタインチョコは、スイートワルツです。<br />
-<br />
-香ばしく焼き上げたクッキーに、チョコレートでおしゃれにデコレーションを施したスティックタイプ！<br />
-ピアノの鍵盤のようなキュートなデザインになっています?<br />
-<br />
-一口食べれば、サクッという軽やかな食感が響くので、口の中でワルツを奏でてくれそう♪    </div>
-
-    
-
-
-
-    <p class="ec_itemname ">
-      パティスリー モンシェール スイートワルツ(3本入)×3箱セット    </p>
-    
-              <p class="ec_price">\1,782</p>
-              
-                  <a href="http://www.takashimaya.co.jp/shopping/food/0400015870/product.html?p_cd=0001377032&sub_cd=001" target="_blank" class="mt10 article_view_ecbtn push-click mb30" onClick="trackOutboundLink(this, 'BtnLink', 'http://www.takashimaya.co.jp/shopping/food/0400015870/product.html?p_cd=0001377032&sub_cd=001', '87096_ecbtn2'); return false;" id="ecbtn2" data-article-id="87096">販売サイトをチェック</a>
-         </div>
-  </div>
-
-
-  <div class="article_row">
-    <div class="col-md-12 col-xs-12">
-    	<h2 class="view_headline mt10 mb15 " id="section3">2,000円以下で買えバレンタインチョコ②Morozoff ひとひら</h2>
-	            <a href="#" class="edit_cover" data-toggle="modal" data-target="#photo_expansion3">
-                                                <img src="img/article/large_87096_3.jpg" style="max-width:70%;" id="image3" alt="">
-              </a>
-
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion3"><img src="img/article/brooke-lark04.jpg"></a>
       <div id="photo_expansion3" class="modal fade">
         <div class="modal-dialog article_view_modalimg">
           <div class="modal-content">
-            <div class="modal-body center">
-              <img src="img/article/large_87096_3.jpg" id="image" class="max-width" alt="">
-            </div>
-            <div class="article_view_modalclose">
-              <button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button>
-            </div>
+            <div class="modal-body center"><img src="img/article/brooke-lark04.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
           </div>
         </div>
       </div>
 
-      <p class="text-muted font08 mb0">
-                            <a href="https://shop.morozoff.co.jp/i/4703" class="text-muted" target="_blank" rel="follow">
-                            shop.morozoff.co.jp            </a>
-              </p>
+このダイエット法で効果が出始める期間は人それぞれですが、<span class="_pi">他のダイエット法と比べて早く効果がでるのが食事制限ダイエットの特徴です。</span><br>
+2週間～1ヶ月で3キロ～5キロほど効果がでる方も多いようです。<br>
+しかし早く痩せようとして急激に食事を制限すると、体調を崩したり、ストレスが溜まってリバウンドを招く原因にもなります。<br>
+<span class="_pi">早く効果を出すことよりも、無理のない範囲で少しずつ食事制限していきましょう。<br>
+<span class="-bl">「短期間で」「極端に」</span>痩せようとしないのが、食事制限ダイエットのポイント</span>です。<br>
 
-        <div class="article_text mt15 mb15 ">
-          和菓子風のチョコレートとして注目されているのが、Morozoff(モロゾフ)のひとひら。<br />
-京都のテキスタイルブランドである“SOU・SOU(ソウソウ)”とのコラボレーションで、のどかな曲線が描かれたお花が特徴のチョコレートです！<br />
-<br />
-和菓子の中でも人気の高い最中に、とろけるようなチョコレートが詰め込まれていて、まさに、和と洋の融合スイーツ?<br />
-<br />
-また、パッケージもおしゃれで、懐紙に見たてた小粋な栞にほっこりします。<br />
-和菓子が好きな方やおじいちゃん、おばあちゃんに贈りたいバレンタインチョコですね。    </div>
+      <!-- 見出し -->
+      <h2 class="view_headline">食事制限ダイエットのメリットとデメリット</h2>
 
-    
-
-
-
-    <p class="ec_itemname ">
-      Morozoff ひとひら 7個入り    </p>
-    
-              <p class="ec_price">\1,620</p>
-              
-                  <a href="https://shop.morozoff.co.jp/i/4703" target="_blank" class="mt10 article_view_ecbtn push-click mb30" onClick="trackOutboundLink(this, 'BtnLink', 'https://shop.morozoff.co.jp/i/4703', '87096_ecbtn3'); return false;" id="ecbtn3" data-article-id="87096">販売サイトをチェック</a>
-         </div>
-  </div>
-
-
-  <div class="article_row">
-    <div class="col-md-12 col-xs-12">
-    	<h2 class="view_headline mt10 mb15 " id="section4">2,000円以下で買えバレンタインチョコ③BbyB. サンク・スィクレ</h2>
-	            <a href="#" class="edit_cover" data-toggle="modal" data-target="#photo_expansion4">
-                                                <img src="img/article/img/article/large_87096_4.jpg" style="max-width:100%;" id="image4" alt="">
-              </a>
-
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion4"><img src="img/article/brooke-lark05.jpg"></a>
       <div id="photo_expansion4" class="modal fade">
         <div class="modal-dialog article_view_modalimg">
           <div class="modal-content">
-            <div class="modal-body center">
-              <img src="img/article/large_87096_4.jpg" id="image" class="max-width" alt="">
-            </div>
-            <div class="article_view_modalclose">
-              <button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button>
-            </div>
+            <div class="modal-body center"><img src="img/article/brooke-lark05.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
           </div>
         </div>
       </div>
 
-      <p class="text-muted font08 mb0">
-                            <a href="http://shop.bbyb.jp/products/detail.php?product_id=196" class="text-muted" target="_blank" rel="follow">
-                            shop.bbyb.jp            </a>
-              </p>
+<span class="_pi">食事制限ダイエットのメリットは「短期間で体重を落とせること」</span>、それに対しデメリットは「リバウンドしやすい」ということです。<br>
+食事制限は手軽にできるので短期間で効果を出したい方にはオススメのダイエット法なのですが、<span class="_pi">長期的にダイエットする方は<span class="-bl">「極端な」</span>食事制限は避けるべきです。</span><br>
+その理由は食事制限を続けていると、身体が少ない摂取カロリーに慣れてしまいます。<br>
+そして身体は少ない摂取カロリーでもなんとか生き延びようと、ホメオスタシスという機能を働かせます。<br>
+この機能は身体に少しのエネルギーしか入ってこない場合に、エネルギーの消費量を減らして生命を守ろうとする機能です。<br>
+そのため<span class="_pi">摂取カロリーを制限し続けていると、消費カロリーが少なくなり痩せにくく、リバウンドしやすい身体になってしまうのです。</span><br>
+また長期間食事制限をしているとストレスがたまり、どか食いをしてしまう可能性が高くなるので、よりリバウンドしやすい身体になってしまいます。<br>
 
-        <div class="article_text mt15 mb15 ">
-          BbyB.(ビーバイビー)初のお酒フレイバーとして注目されているのが、サンク・スィクレです。<br />
-サンク・スィクレは、フランス語で「5つの秘密」という意味があります。<br />
-<br />
-名前の通り、シェリー、ジン、ベルモット、バーボンウィスキー、ライウィスキーの5種類の洋酒を混ぜ込んだチョコレートになっているんですよ♪<br />
-口の中が芳醇な香りで広がり、鼻から抜ける風味もクセになります。<br />
-<br />
-ちょっぴり大人のバレンタインチョコとして、お酒が好きな方や大人の男性に贈りたいですね。    </div>
+      <!-- 見出し -->
+      <h2 class="view_headline">目標設定の決め方</h2>
 
-    
-
-
-
-    <p class="ec_itemname ">
-      BbyB. サンク・スィクレ 5個入り    </p>
-    
-              <p class="ec_price">\1,620</p>
-              
-                  <a href="http://shop.bbyb.jp/products/detail.php?product_id=196" target="_blank" class="mt10 article_view_ecbtn push-click mb30" onClick="trackOutboundLink(this, 'BtnLink', 'http://shop.bbyb.jp/products/detail.php?product_id=196', '87096_ecbtn4'); return false;" id="ecbtn4" data-article-id="87096">販売サイトをチェック</a>
-         </div>
-  </div>
-
-
-  <div class="article_row">
-    <div class="col-md-12 col-xs-12">
-    	<h2 class="view_headline mt10 mb15 " id="section5">2,000円以下で買えバレンタインチョコ④Mary&#039;s Chocolate 日本酒トリュフ</h2>
-	            <a href="#" class="edit_cover" data-toggle="modal" data-target="#photo_expansion5">
-                                                <img src="img/article/large_87096_5.jpg" style="max-width:70%;" id="image5" alt="">
-              </a>
-
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion5"><img src="img/article/brooke-lark06.jpg"></a>
       <div id="photo_expansion5" class="modal fade">
         <div class="modal-dialog article_view_modalimg">
           <div class="modal-content">
-            <div class="modal-body center">
-              <img src="img/article/large_87096_5.jpg" id="image" class="max-width" alt="">
-            </div>
-            <div class="article_view_modalclose">
-              <button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button>
-            </div>
+            <div class="modal-body center"><img src="img/article/brooke-lark06.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
           </div>
         </div>
       </div>
 
-      <p class="text-muted font08 mb0">
-                            <a href="http://maryshop.jp/shop/g/g4068/" class="text-muted" target="_blank" rel="follow">
-                            maryshop.jp            </a>
-              </p>
+<span class="_pi">食事制限ダイエットのポイントは「目標設定を明確にすること」</span>です。<br>
+特に「ダイエットする期間」と「何キロ痩せたいか」を決めることでダイエットが成功しやすいです。<br>
+<br>
+＜長期的なダイエット目標の計算法＞<br>
+<br>
+標準体重：「身長（m）×身長（m）×22」<br>
+<br>
+美容体重：「身長（m）×身長（m）×20」<br>
+<br>
+モデル体重：「身長（m）×身長（m）×18.7」<br>
+<br>
+上記の計算式は身長からの算出法です。<br>
+一般的に、<span class="_pi">1ヶ月間で現体重の<span class="-bl">5パーセント以上</span>痩せるとリバウントしやすい</span>と言われています。<br>
+体重52キロの場合、1ヶ月のダイエット目標は2.6キロが理想です。<br>
+1ヶ月でたったこれだけ？と感じたかもしれませんが、リバウンドしにくい体をつくるためには長期的な視点でダイエットする必要があります。<br>
+そのため158㎝で52キロの方がモデル体重の47キロになりたい場合は約2ヶ月かけて4キロダイエットするという計算です。<br>
+1ヶ月で10キロ痩せる！など無理な目標を立てると停滞期になった時、目標を達成できなくなるのでやめましょう。<br>
 
-        <div class="article_text mt15 mb15 ">
-          大人のバレンタインチョコとして、もう一つチェックしておきたいのが、Mary's Chocolate(メリーチョコレート)の日本酒トリュフです。<br />
-<br />
-日本で唯一のアワードと金賞をＷ受賞したショコラティエが監修しており、日本酒とチョコレートのマリアージュを叶えてくれました。<br />
-ミルク、スイート、ホワイトの3種類のチョコレートが用意され、それぞれに合う日本酒が厳選されています。<br />
-<br />
-一粒ずつ上品に味わいたくなるようなチョコレート。<br />
-舌の上で転がしながら、どこまでも広がる日本酒の香りを楽しんでください?    </div>
+      <!-- 見出し -->
+      <h2 class="view_headline">食事制限ダイエットで痩せるための方法</h2>
 
-    
+(1) 食事内容<br>
+<br>
+・バランスよく食べる<br>
 
-
-
-    <p class="ec_itemname ">
-      Mary's Chocolate 日本酒トリュフ 5個入    </p>
-    
-              <p class="ec_price">\1,080</p>
-              
-                  <a href="http://maryshop.jp/shop/g/g4068/" target="_blank" class="mt10 article_view_ecbtn push-click mb30" onClick="trackOutboundLink(this, 'BtnLink', 'http://maryshop.jp/shop/g/g4068/', '87096_ecbtn5'); return false;" id="ecbtn5" data-article-id="87096">販売サイトをチェック</a>
-         </div>
-  </div>
-
-
-  <div class="article_row">
-    <div class="col-md-12 col-xs-12">
-    	<h2 class="view_headline mt10 mb15 " id="section6">2,000円以下で買えバレンタインチョコ⑤Maison Chaudun モントル デュ ショコラ オ レ</h2>
-	            <a href="#" class="edit_cover" data-toggle="modal" data-target="#photo_expansion6">
-                                                <img src="img/article/large_87096_6.jpg" style="max-width:70%;" id="image6" alt="">
-              </a>
-
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion6"><img src="img/article/brooke-lark07.jpg"></a>
       <div id="photo_expansion6" class="modal fade">
         <div class="modal-dialog article_view_modalimg">
           <div class="modal-content">
-            <div class="modal-body center">
-              <img src="img/article/large_87096_6.jpg" id="image" class="max-width" alt="">
-            </div>
-            <div class="article_view_modalclose">
-              <button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button>
-            </div>
+            <div class="modal-body center"><img src="img/article/brooke-lark07.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
           </div>
         </div>
       </div>
 
-      <p class="text-muted font08 mb0">
-                            <a href="http://www.takashimaya.co.jp/shopping/gift/food/0400000001/0400000012/product.html?p_cd=0001262136&sub_cd=001&gclid=CjwKCAiA4vbSBRBNEiwAMorER2f7RAAMh9dQEMjPT6diEUgrDzGu9Fd4eqWSd6JfB2FLnU2U4WHlkxoCkS0QAvD_BwE" class="text-muted" target="_blank" rel="follow">
-                            www.takashimaya.co.jp            </a>
-              </p>
+食事制限ダイエットは「食べない」ダイエット法ではありません。<br>
+<span class="_pi">身体に必要な栄養素を摂取しながら、摂取カロリーを抑えるという考え方をしましょう。</span><br>
+特に三大栄養素と呼ばれる<span class="-bl">「タンパク質」「脂質」「糖質」</span>はしっかり摂取することで、<br>
+健康を保ちながら綺麗に痩せることができます。<br>
+しかし食べ過ぎは禁物です。<br>
+<br>
+<strong>タンパク質：</strong>お肉や卵に多く含まれる栄養素。筋肉の元になるタンパク質が不足すると、筋肉量が減って代謝が下がり、痩せにくい身体になったり、髪の毛や肌がぱさぱさになったりと健康に害を及ぼします。<br>
+<br>
+<strong>脂質：</strong>脂質が不足すると、肌のパサつき、月経不順などを引き起こします。脂質を摂取する際はジャンクフードに含まれる悪質な油ではなく、オリーブオイルなどの良質な油を摂るようにしましょう。<br>
+<br>
+<strong>糖質：</strong>糖質制限をしすぎると、頭痛やめまいを引き起こす可能性があります。ダイエット中には炭水化物などの糖質を含む食材は避けがちですが、きちんと摂取するようにしましょう。<br>
+<br>
+・間食をしない<br>
 
-        <div class="article_text mt15 mb15 ">
-          芸術性の高いチョコレート制作で有名なブランドが、Maison Chaudun(メゾン ショーダン)です。<br />
-数ある中でも、2018年の目玉商品がモントル デュ ショコラ オ レ。<br />
-<br />
-なんと、腕時計型のチョコレートになっており、テレビでも紹介されるほど人気！繊細でリアルな作りなので、食べることがもったいなく感じてしまいそうですね。<br />
-<br />
-インパクト大のバレンタインチョコなので、驚かせたい方やユーモア重視の方におすすめですよ♪    </div>
-
-    
-
-
-
-    <p class="ec_itemname ">
-      Maison Chaudun モントル デュ ショコラ オ レ    </p>
-    
-              <p class="ec_price">\1,944</p>
-              
-                  <a href="http://www.takashimaya.co.jp/shopping/gift/food/0400000001/0400000012/product.html?p_cd=0001262136&sub_cd=001&gclid=CjwKCAiA4vbSBRBNEiwAMorER2f7RAAMh9dQEMjPT6diEUgrDzGu9Fd4eqWSd6JfB2FLnU2U4WHlkxoCkS0QAvD_BwE" target="_blank" class="mt10 article_view_ecbtn push-click mb30" onClick="trackOutboundLink(this, 'BtnLink', 'http://www.takashimaya.co.jp/shopping/gift/food/0400000001/0400000012/product.html?p_cd=0001262136&sub_cd=001&gclid=CjwKCAiA4vbSBRBNEiwAMorER2f7RAAMh9dQEMjPT6diEUgrDzGu9Fd4eqWSd6JfB2FLnU2U4WHlkxoCkS0QAvD_BwE', '87096_ecbtn6'); return false;" id="ecbtn6" data-article-id="87096">販売サイトをチェック</a>
-         </div>
-  </div>
-
-
-  <div class="article_row">
-    <div class="col-md-12 col-xs-12">
-    	<h2 class="view_headline mt10 mb15 " id="section7">2,000円以下で買えバレンタインチョコ⑥ROYCE&#039; ロイズ カカオマカロン</h2>
-	            <a href="#" class="edit_cover" data-toggle="modal" data-target="#photo_expansion7">
-                                                <img src="img/article/large_87096_7.jpg" style="max-width:70%;" id="image7" alt="">
-              </a>
-
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion7"><img src="img/article/brooke-lark08.jpg"></a>
       <div id="photo_expansion7" class="modal fade">
         <div class="modal-dialog article_view_modalimg">
           <div class="modal-content">
-            <div class="modal-body center">
-              <img src="img/article/large_87096_7.jpg" id="image" class="max-width" alt="">
-            </div>
-            <div class="article_view_modalclose">
-              <button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button>
-            </div>
+            <div class="modal-body center"><img src="img/article/brooke-lark08.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
           </div>
         </div>
       </div>
 
-      <p class="text-muted font08 mb0">
-                            <a href="https://www.royce.com/goods/detail/?o_no=18071&in_category=C116#toReview" class="text-muted" target="_blank" rel="follow">
-                            www.royce.com            </a>
-              </p>
+日常的に間食が多い方は間食をやめるだけで大幅なカロリーカットをすることができます。<br>
+<span class="_pi">お菓子やデザートは<span class="-bl">平均300～400キロカロリー</span>もあります。</span><br>
+これはジョギング1時間の消費カロリーとほぼ同じ摂取カロリーです。<br>
+この間食をやめるだけでも高いダイエット効果が得られるのです。<br>
+お腹がすいてどうしても間食をしたくなった場合は<span class="-bi">「ナッツ」「ドライフルーツ」</span>などを食べるようにするといいですよ。<br>
+<br>
+・咀嚼回数を増やす<br>
 
-        <div class="article_text mt15 mb15 ">
-          「こんな美味しいマカロンは初めて！」と、多くの方がファンになっている商品が、ROYCE'(ロイズ)のロイズ カカオマカロンです。<br />
-<br />
-ビターな味わいのクリームを、しっとりとした生地でサンド。<br />
-さらに、カカオ分の高いチョコレートでコーティングされた香り豊かなマカロンに仕上がっています。<br />
-<br />
-パリッとした食感と、もちっとした食感が絶妙で、食べ出したら止まらなくなりますよ♪    </div>
-
-    
-
-
-
-    <p class="ec_itemname ">
-      ROYCE' ロイズ カカオマカロン    </p>
-    
-              <p class="ec_price">\1,934</p>
-              
-                  <a href="https://www.royce.com/goods/detail/?o_no=18071&in_category=C116#toReview" target="_blank" class="mt10 article_view_ecbtn push-click mb30" onClick="trackOutboundLink(this, 'BtnLink', 'https://www.royce.com/goods/detail/?o_no=18071&in_category=C116#toReview', '87096_ecbtn7'); return false;" id="ecbtn7" data-article-id="87096">販売サイトをチェック</a>
-         </div>
-  </div>
-
-
-  <div class="article_row">
-    <div class="col-md-12 col-xs-12">
-    	<h2 class="view_headline mt10 mb15 " id="section8">2,000円以下で買えバレンタインチョコ⑦Sebastian Bouilet ルージュ ア レーブル アムール</h2>
-	            <a href="#" class="edit_cover" data-toggle="modal" data-target="#photo_expansion8">
-                                                <img src="img/article/large_87096_8.jpg" style="max-width:70%;" id="image8" alt="">
-              </a>
-
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion8"><img src="img/article/brooke-lark09.jpg"></a>
       <div id="photo_expansion8" class="modal fade">
         <div class="modal-dialog article_view_modalimg">
           <div class="modal-content">
-            <div class="modal-body center">
-              <img src="img/article/large_87096_8.jpg" id="image" class="max-width" alt="">
-            </div>
-            <div class="article_view_modalclose">
-              <button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button>
-            </div>
+            <div class="modal-body center"><img src="img/article/brooke-lark09.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
           </div>
         </div>
       </div>
 
-      <p class="text-muted font08 mb0">
-                            <a href="https://web.hankyu-dept.co.jp/ecshop/shohinDetailDisplay.do?mstShohinId=415579" class="text-muted" target="_blank" rel="follow">
-                            web.hankyu-dept.co.jp            </a>
-              </p>
+<span class="_pi">一口30回以上よく噛んで食べることで、早食いを防止できます。</span><br>
+また「満腹になった」と身体が感じるのは食べ始めて20～30分後。<br>
+よく噛んで時間をかけて食べることで満腹感を得ることができます。<br>
+ただ片側で噛むことで、顎の筋肉が偏ってついてしまうので噛むときは両側の歯を使って噛むようにしてください。<br>
+<br>
+・ジュースやアルコールを避ける<br>
 
-        <div class="article_text mt15 mb15 ">
-          Sebastian Bouilet(セバスチャン・ブイエ)のルージュ ア レーブル アムールは、毎年売り切れになるほど女性から人気の高いチョコレートです。<br />
-<br />
-その秘密は、普通のチョコレートではなく、コスメティック型になっていること。<br />
-「メイクをするように楽しんでほしい」という思いから生まれたバレンタインチョコなんです。<br />
-<br />
-全部で6種類あり、相手のイメージに合わせて選ぶことができます！<br />
-インスタ映えも抜群で、自分へのご褒美に贈ることもおすすめですよ?    </div>
-
-    
-
-
-
-    <p class="ec_itemname ">
-      Sebastian Bouilet ルージュ ア レーブル アムール    </p>
-    
-              <p class="ec_price">\972</p>
-              
-                  <a href="https://web.hankyu-dept.co.jp/ecshop/shohinDetailDisplay.do?mstShohinId=415579" target="_blank" class="mt10 article_view_ecbtn push-click mb30" onClick="trackOutboundLink(this, 'BtnLink', 'https://web.hankyu-dept.co.jp/ecshop/shohinDetailDisplay.do?mstShohinId=415579', '87096_ecbtn8'); return false;" id="ecbtn8" data-article-id="87096">販売サイトをチェック</a>
-         </div>
-  </div>
-
-
-  <div class="article_row">
-    <div class="col-md-12 col-xs-12">
-    	<h2 class="view_headline mt10 mb15 " id="section9">2,000円以下で買えバレンタインチョコ⑧CLUB HARIE ハートブラウニー</h2>
-	            <a href="#" class="edit_cover" data-toggle="modal" data-target="#photo_expansion9">
-                                                <img src="img/article/large_87096_9.jpg" style="max-width:70%;" id="image9" alt="">
-              </a>
-
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion9"><img src="img/article/brooke-lark10.jpg"></a>
       <div id="photo_expansion9" class="modal fade">
         <div class="modal-dialog article_view_modalimg">
           <div class="modal-content">
-            <div class="modal-body center">
-              <img src="img/article/large_87096_9.jpg" id="image" class="max-width" alt="">
-            </div>
-            <div class="article_view_modalclose">
-              <button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button>
-            </div>
+            <div class="modal-body center"><img src="img/article/brooke-lark10.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
           </div>
         </div>
       </div>
 
-      <p class="text-muted font08 mb0">
-                            <a href="http://www.takashimaya.co.jp/shopping/food/clubharie/0400000001/0400000013/product.html?p_cd=0001380323&sub_cd=001" class="text-muted" target="_blank" rel="follow">
-                            www.takashimaya.co.jp            </a>
-              </p>
+食事制限中の水分補給は基本的にお茶や水で行います。<br>
+ジュースには果糖が多く含まれているし、ゼロカロリーのジュースにも多くの甘味料が含まれています。<br>
+さらにアルコールにも糖質が多く含まれているのでダイエット中はできるだけこれらの飲み物を摂取しないようにしてください。<br>
+<br>
 
-        <div class="article_text mt15 mb15 ">
-          大好きな彼に贈りたいバレンタインチョコが、CLUB HARIE(クラブハリエ)のハートブラウニー。<br />
-<br />
-ナッツをたっぷり使っており、ちょっぴりほろ苦く仕上げられた大人向けのスイーツです。<br />
-CLUB HARIEならではのしっとりした味わいが人気なのですが、2018年のバレンタインはそれだけではありません。<br />
-<br />
-第一印象で心奪われるような、おしゃれなデザインになっていますよね。<br />
-ハート型のパズルで、二人の愛を完成させてみては？?    </div>
+(2) 運動<br>
 
-    
-
-
-
-    <p class="ec_itemname ">
-      CLUB HARIE ハートブラウニー    </p>
-    
-              <p class="ec_price">\1,944</p>
-              
-                  <a href="http://www.takashimaya.co.jp/shopping/food/clubharie/0400000001/0400000013/product.html?p_cd=0001380323&sub_cd=001" target="_blank" class="mt10 article_view_ecbtn push-click mb30" onClick="trackOutboundLink(this, 'BtnLink', 'http://www.takashimaya.co.jp/shopping/food/clubharie/0400000001/0400000013/product.html?p_cd=0001380323&sub_cd=001', '87096_ecbtn9'); return false;" id="ecbtn9" data-article-id="87096">販売サイトをチェック</a>
-         </div>
-  </div>
-
-
-  <div class="article_row">
-    <div class="col-md-12 col-xs-12">
-    	<h2 class="view_headline mt10 mb15 " id="section10">2,000円以下で買えバレンタインチョコ⑨L&#039;espoir バレンタイン ゴーフレール</h2>
-	            <a href="#" class="edit_cover" data-toggle="modal" data-target="#photo_expansion10">
-                                                <img src="img/article/large_87096_10.jpg" style="max-width:70%;" id="image10" alt="">
-              </a>
-
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion10"><img src="img/article/brooke-lark11.jpg"></a>
       <div id="photo_expansion10" class="modal fade">
         <div class="modal-dialog article_view_modalimg">
           <div class="modal-content">
-            <div class="modal-body center">
-              <img src="img/article/large_87096_10.jpg" id="image" class="max-width" alt="">
-            </div>
-            <div class="article_view_modalclose">
-              <button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button>
-            </div>
+            <div class="modal-body center"><img src="img/article/brooke-lark11.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
           </div>
         </div>
       </div>
 
-      <p class="text-muted font08 mb0">
-                            <a href="http://www.takashimaya.co.jp/shopping/gift/valentinesday/1000005387/product.html?p_cd=0001262943&sub_cd=001" class="text-muted" target="_blank" rel="follow">
-                            www.takashimaya.co.jp            </a>
-              </p>
+食事制限で痩せるといっても、できれば運動をするのが望ましいです。<br>
+一駅分歩いてみたり、電車通勤を自転車通勤に変えてみたり、無理のない方法で楽しく運動を取り入れてみてください。<br>
+<br>
+(3) SNSを利用してモチベーションを保つ<br>
+<br>
+モチベーションを保てればダイエットが成功するといっても過言ではないほど、モチベーションを保つのは重要です。<br>
+そこでモチベーションを保つために利用してほしいのが「SNS」。<br>
 
-        <div class="article_text mt15 mb15 ">
-          おしゃれで存在感のあるパッケージから手に取りたくなるバレンタインチョコが、L'espoir(レスポワール)のバレンタイン ゴーフレールです。<br />
-<br />
-L'espoir自慢のサクサクしたミルフィーユに、お茶をテーマにした4種類の茶葉クリームチョコレートでコーティングされたミルフィーユショコラ。<br />
-香ばしくサクサクした食感と、甘すぎないチョコレートのバランスが絶妙ですよ♪<br />
-<br />
-「お疲れ様、一息つかない？」という意味が込められており、リラックスしたいティータイムに食べたくなるチョコレートです！    </div>
-
-    
-
-
-
-    <p class="ec_itemname ">
-      L'espoir バレンタイン ゴーフレール    </p>
-    
-              <p class="ec_price">\1,620</p>
-              
-                  <a href="http://www.takashimaya.co.jp/shopping/gift/valentinesday/1000005387/product.html?p_cd=0001262943&sub_cd=001" target="_blank" class="mt10 article_view_ecbtn push-click mb30" onClick="trackOutboundLink(this, 'BtnLink', 'http://www.takashimaya.co.jp/shopping/gift/valentinesday/1000005387/product.html?p_cd=0001262943&sub_cd=001', '87096_ecbtn10'); return false;" id="ecbtn10" data-article-id="87096">販売サイトをチェック</a>
-         </div>
-  </div>
-
-
-  <div class="article_row">
-    <div class="col-md-12 col-xs-12">
-    	<h2 class="view_headline mt10 mb15 " id="section11">2,000円以下で買えバレンタインチョコ⑩GODIVA ベルジアン フェイバリット アソートメント</h2>
-	            <a href="#" class="edit_cover" data-toggle="modal" data-target="#photo_expansion11">
-                                                <img src="img/article/large_87096_11.jpg" style="max-width:70%;" id="image11" alt="">
-              </a>
-
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion11"><img src="img/article/brooke-lark12.jpg"></a>
       <div id="photo_expansion11" class="modal fade">
         <div class="modal-dialog article_view_modalimg">
           <div class="modal-content">
-            <div class="modal-body center">
-              <img src="img/article/large_87096_11.jpg" id="image" class="max-width" alt="">
-            </div>
-            <div class="article_view_modalclose">
-              <button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button>
-            </div>
+            <div class="modal-body center"><img src="img/article/brooke-lark12.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
           </div>
         </div>
       </div>
 
-      <p class="text-muted font08 mb0">
-                            <a href="http://www.takashimaya.co.jp/shopping/gift/valentinesday/1000005370/A15973/product.html?p_cd=0001381041&sub_cd=001" class="text-muted" target="_blank" rel="follow">
-                            www.takashimaya.co.jp            </a>
-              </p>
+<span class="_pi">インスタやTwitterでダイエット専用アカウントを作り、<br>
+公開ダイエットをすることでダイエットのモチベーションを保つことができる</span>と最近話題になっています。<br>
+諦めそうになった時、SNSのダイエット仲間が励ましてくれることもあるのでぜひ利用してみてください。<br>
 
-        <div class="article_text mt15 mb15 ">
-          知る人ぞ知るGODIVA(ゴディバ)から発売され、2,000円以下で買えるバレンタインチョコがベルジアン フェイバリット アソートメント。<br />
-<br />
-酸味のあるストロベリーガナッシュ、風味豊かなピスタチオプラリネ、サクサク食感のプラリネと72%ダークチョコレートガナッシュ、ゴディバ伝統のヘーゼルナッツプラリネを詰め込んだバレンタインチョコで、GODIVAの世界観が楽しめます。<br />
-<br />
-味だけでなく、高級感溢れるキルトのようなパッケージにも注目してみてください。<br />
-「さすがGODIVA！」と思わせてくれますよ♪    </div>
+      <!-- 見出し -->
+      <h2 class="view_headline">食事制限ダイエットのポイントと注意点</h2>
 
-    
+(1) 停滞期とリバウンド<br>
 
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion12"><img src="img/article/brooke-lark13.png"></a>
+      <div id="photo_expansion12" class="modal fade">
+        <div class="modal-dialog article_view_modalimg">
+          <div class="modal-content">
+            <div class="modal-body center"><img src="img/article/brooke-lark13.png" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
+          </div>
+        </div>
+      </div>
 
+どんなダイエット法でも必ず訪れるのが停滞期。<br>
+特に食事制限ダイエットは身体が危機感を感じ、摂取した食べ物の吸収率が高まるので停滞期を抜けづらいと言われています。<br>
+ダイエットを始めた時はするする体重が落ちたのに、急に体重が落ちなくなったらそれは停滞期です。<br>
+体重の5%減ると停滞期に入ると言われており、体重52キロの方の場合約3キロ痩せると停滞期に入ります。<br>
+2週間から1ヶ月ほど経てば停滞期を抜け出せるのですが、その間に無理な食事制限をすると代謝が落ちてしまい、痩せにくい身体になってしまうのでおすすめしません。<br>
+また<span class="_pi">停滞期の間にダイエットを諦めてしまうと、リバウンドしてしまいダイエット前よりも太ってしまうので注意しましょう。</span><br>
+<br>
+(2) サプリ<br>
 
-    <p class="ec_itemname ">
-      GODIVA ベルジアン フェイバリット アソートメント 4粒    </p>
-    
-              <p class="ec_price">\1,836</p>
-              
-                  <a href="https://www.godiva.co.jp/onlineshop/ITEM/181009" target="_blank" class="mt10 article_view_ecbtn push-click mb30" onClick="trackOutboundLink(this, 'BtnLink', 'https://www.godiva.co.jp/onlineshop/ITEM/181009', '87096_ecbtn11'); return false;" id="ecbtn11" data-article-id="87096">販売サイトをチェック</a>
-         </div>
-  </div>
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion13"><img src="img/article/brooke-lark14.jpg"></a>
+      <div id="photo_expansion13" class="modal fade">
+        <div class="modal-dialog article_view_modalimg">
+          <div class="modal-content">
+            <div class="modal-body center"><img src="img/article/brooke-lark14.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
+          </div>
+        </div>
+      </div>
 
+サプリは摂取することで必ず効果を発揮できるものではないので、足りない栄養素を補うための補助食品という形で取り入れましょう。<br>
+<br>
+(3) ダイエットアプリの利用<br>
+
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion14"><img src="img/article/brooke-lark15.jpg"></a>
+      <div id="photo_expansion14" class="modal fade">
+        <div class="modal-dialog article_view_modalimg">
+          <div class="modal-content">
+            <div class="modal-body center"><img src="img/article/brooke-lark15.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
+          </div>
+        </div>
+      </div>
+
+ダイエット成功者の中には、日々の体重の変化や食べたものをアプリで記録している人が多いです。<br>
+自分のダイエット記録を残しておくことでモチベーションアップにもつながりますし、スマートフォンを使うことで手軽に記録できるので継続しやすいというメリットがあります。<br>
+ぜひダイエットアプリを活用してみてください。<br>
+<br>
+<a href="http://parel.site/archives/diet_applicationpurpose15/">ダイエット成功の秘訣はアプリにあった！成功へ導くダイエットアプリ15選</a><br>
+<br>
+(4) 「チートデイ」を取り入れる<br>
+ダイエット中、甘いものやジャンクフードなどカロリーが高いものを食べたくなる時がありますよね。<br>
+毎日食べたいものを我慢しているとストレスがたまり、リバウンドの原因に。<br>
+
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion15"><img src="img/article/brooke-lark16.jpg"></a>
+      <div id="photo_expansion15" class="modal fade">
+        <div class="modal-dialog article_view_modalimg">
+          <div class="modal-content">
+            <div class="modal-body center"><img src="img/article/brooke-lark16.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
+          </div>
+        </div>
+      </div>
+
+そこで取り入れてほしいのが「チートデイ」と呼ばれる好きなものを食べていい日をつくるというもの。<br>
+週に一度、食べたいものを食べる日をつくることで比較的ストレスをためずにダイエットを継続することができます。<br>
+また先ほど停滞期は摂取カロリーに身体が慣れてしまい、痩せにくくなることとお話ししましたが、チートデイを作り身体を飢餓状態にしないことで停滞期を乗り越えることができます。<br>
+ポイントはチートデイは必ず1日で終了すること。<br>
+ダイエットにメリハリをつけることで痩せやすい身体を作ることができます。<br>
+
+      <!-- 見出し -->
+      <h2 class="view_headline">食事制限しているのに痩せないのはなぜ？</h2>
+
+(1) 食べる量は減っているけど、カロリーが減っていない
+
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion16"><img src="img/article/brooke-lark17.jpg"></a>
+      <div id="photo_expansion16" class="modal fade">
+        <div class="modal-dialog article_view_modalimg">
+          <div class="modal-content">
+            <div class="modal-body center"><img src="img/article/brooke-lark17.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
+          </div>
+        </div>
+      </div>
+
+よくあるのが食事制限ダイエットしようとして、サラダを食べるようにしたけどなぜか痩せない…というもの。<br>
+サラダは低カロリーでダイエット向きに思えるけれど、実はドレッシングには糖質や脂質が多く含まれているため太ってしまう場合もあるのです。<br>
+サラダは味気ない…と感じてドレッシングをたくさんかけて食べていたら本末転倒。<br>
+なぜか痩せないときはカロリーを見直してみるのがオススメです。<br>
+<br>
+(2) 筋肉量が減って、代謝が下がってしまった<br>
+<br>
+筋肉が減ると、基礎代謝が下がります。<br>
+カロリーを抑えても、代謝が下がっていては痩せにくくなってしまいます。<br>
+そんな時は筋トレを取り入れて代謝をあげることが大切です。<br>
+
+      <!-- 見出し -->
+      <h2 class="view_headline">ダイエットレシピ</h2>
+
+(1) 豆腐の照り焼き丼<br>
+
+<blockquote class="instagram-media" style="background: #FFF; border: 0; border-radius: 3px; box-shadow: 0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width: 658px; padding: 0; width: calc(100% - 2px);" data-instgrm-captioned="" data-instgrm-permalink="https://www.instagram.com/p/BeUz6WgFyPJ/" data-instgrm-version="8">
+<div style="padding: 8px;">
+<div style="background: #F8F8F8; line-height: 0; margin-top: 40px; padding: 50.0% 0; text-align: center; width: 100%;"></div>
+<p style="margin: 8px 0 0 0; padding: 0 4px;"><a style="color: #000; font-family: Arial,sans-serif; font-size: 14px; font-style: normal; font-weight: normal; line-height: 17px; text-decoration: none; word-wrap: break-word;" href="https://www.instagram.com/p/BeUz6WgFyPJ/" target="_blank" rel="noopener">食べ過ぎちゃっても大丈夫！！『豆腐の照り焼き丼』 . ■材料 1人分 ・木綿豆腐　200g ・片栗粉　適量 ・ごま油　大さじ2 ・みりん　大さじ2 ・しょうゆ　大さじ2 ・砂糖　大さじ1 ・酒　大さじ1 ・ご飯　丼1杯分 ・刻みのり　適量 ・かいわれ大根　適量 ・温泉卵　1個 . ■作り方 【下準備】 ・木綿豆腐は1cm幅に切り、水気を切る。 【レシピ】 １．木綿豆腐に片栗粉をまぶす。 ２．フライパンにごま油をひき、１の両面をこんがりと焼く。 ３．みりん、しょうゆ、砂糖、酒を加えひと煮立ちさせ、全体に絡ませる。 ４．丼にご飯、刻みのり、かいわれ大根、３、温泉卵を盛り、完成！ 調理時間：15分 . レシピの検索や保存ができるiOSアプリはプロフィールのリンクからダウンロードできます♪ アプリ限定レシピも毎日更新☆ . #もぐー #mogoo #豆腐の照り焼き丼 #料理 #レシピ #献立 #クッキング #おうちごはん #手料理 #レシピ動画 #料理動画 #照り焼き #豆腐 #丼 #お昼ごはん #ランチ #晩ごはん #夜ごはん #夕食 #ヘルシー #ヘルシーメニュー #ダイエットレシピ #food #recipe #instafood #cooking #japanesefood #yummy #delicious</a></p>
+<p style="color: #c9c8cd; font-family: Arial,sans-serif; font-size: 14px; line-height: 17px; margin-bottom: 0; margin-top: 8px; overflow: hidden; padding: 8px 0 7px; text-align: center; text-overflow: ellipsis; white-space: nowrap;"><a style="color: #c9c8cd; font-family: Arial,sans-serif; font-size: 14px; font-style: normal; font-weight: normal; line-height: 17px;" href="https://www.instagram.com/mogoo_tv/" target="_blank" rel="noopener"> mogoo (もぐー)</a>さん(@mogoo_tv)がシェアした投稿 - <time style="font-family: Arial,sans-serif; font-size: 14px; line-height: 17px;" datetime="2018-01-24T08:18:12+00:00"> 1月 24, 2018 at 12:18午前 PST</time></p>
+</div></blockquote>
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+
+(2) きのこ蒸し鶏<br>
+
+<blockquote class="instagram-media" style="background: #FFF; border: 0; border-radius: 3px; box-shadow: 0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width: 658px; padding: 0; width: calc(100% - 2px);" data-instgrm-captioned="" data-instgrm-permalink="https://www.instagram.com/p/BehqU6tF-ww/" data-instgrm-version="8">
+<div style="padding: 8px;">
+<div style="background: #F8F8F8; line-height: 0; margin-top: 40px; padding: 50.0% 0; text-align: center; width: 100%;"></div>
+<p style="margin: 8px 0 0 0; padding: 0 4px;"><a style="color: #000; font-family: Arial,sans-serif; font-size: 14px; font-style: normal; font-weight: normal; line-height: 17px; text-decoration: none; word-wrap: break-word;" href="https://www.instagram.com/p/BehqU6tF-ww/" target="_blank" rel="noopener">節約！ヘルシー！絶品！『きのこたっぷり蒸し鶏』 . ■材料 2人分 ・鶏むね肉　1枚 ・塩　少々 ・こしょう　少々 ・酒　大さじ2 ・しめじ　1/2袋 ・まいたけ　1/2房 ・めんつゆ/3倍濃縮　大さじ2 ・おろししょうが　小さじ1/2 ・水　100ml ・片栗粉　小さじ1 ・ごま油　小さじ1/2 . ■作り方 【下準備】 ・鶏むね肉の皮と余分な脂をとり除く。 【レシピ】 １．耐熱容器に鶏むね肉を入れ、両面に塩、こしょうをまぶし、酒を加える。 ２．ラップをして600wの電子レンジで4分加熱する。 ３．しめじは石づきを落とし、まいたけと同様に細かく割く。 ４．器にめんつゆ、おろししょうが、水、片栗粉を入れ混ぜ、３を加え混ぜ合わせる。 ５．２を裏返して４を加え、ラップをして電子レンジで同様に4分加熱する。 ６．食べやすい大きさにスライスし、タレ、ごま油をかけ完成！ 調理時間：15分 . レシピの検索や保存ができるiOSアプリはプロフィールのリンクからダウンロードできます♪ アプリ限定レシピも毎日更新☆ . mogooの料理を作ったら《 @mogoo_tv 》をタグ付けして投稿お願いします♪ みなさんの料理を見てみたいです☆ . #もぐー #mogoo #きのこたっぷり蒸し鶏 #料理 #レシピ #献立 #クッキング #おうちごはん #手料理 #レシピ動画 #料理動画 #きのこ #蒸し鶏 #鶏胸肉 #しめじ #お昼ごはん #ランチ #晩ごはん #夜ごはん #夕食 #おかず #food #recipe #instafood #cooking #japanesefood #yummy #delicious</a></p>
+<p style="color: #c9c8cd; font-family: Arial,sans-serif; font-size: 14px; line-height: 17px; margin-bottom: 0; margin-top: 8px; overflow: hidden; padding: 8px 0 7px; text-align: center; text-overflow: ellipsis; white-space: nowrap;"><a style="color: #c9c8cd; font-family: Arial,sans-serif; font-size: 14px; font-style: normal; font-weight: normal; line-height: 17px;" href="https://www.instagram.com/mogoo_tv/" target="_blank" rel="noopener"> mogoo (もぐー)</a>さん(@mogoo_tv)がシェアした投稿 - <time style="font-family: Arial,sans-serif; font-size: 14px; line-height: 17px;" datetime="2018-01-29T08:04:48+00:00"> 1月 29, 2018 at 12:04午前 PST</time></p>
+</div></blockquote>
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+
+      <!-- 見出し -->
+      <h2 class="view_headline">1日の食事例</h2>
+
+<blockquote class="instagram-media" style="background: #FFF; border: 0; border-radius: 3px; box-shadow: 0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width: 658px; padding: 0; width: calc(100% - 2px);" data-instgrm-captioned="" data-instgrm-permalink="https://www.instagram.com/p/BdrydEKlKsM/" data-instgrm-version="8">
+<div style="padding: 8px;">
+<div style="background: #F8F8F8; line-height: 0; margin-top: 40px; padding: 50.0% 0; text-align: center; width: 100%;"></div>
+<p style="margin: 8px 0 0 0; padding: 0 4px;"><a style="color: #000; font-family: Arial,sans-serif; font-size: 14px; font-style: normal; font-weight: normal; line-height: 17px; text-decoration: none; word-wrap: break-word;" href="https://www.instagram.com/p/BdrydEKlKsM/" target="_blank" rel="noopener">年末年始で長いチートDayを過ごしましたが、トレーニングはもちろん、食事もさっそく元に戻しております?????? 上 : 夕ご飯?? / 下 : お弁当?? #2018年も食事のルールも #去年よりは少しだけ自分に厳しく #再スタートしましょう</a></p>
+<p style="color: #c9c8cd; font-family: Arial,sans-serif; font-size: 14px; line-height: 17px; margin-bottom: 0; margin-top: 8px; overflow: hidden; padding: 8px 0 7px; text-align: center; text-overflow: ellipsis; white-space: nowrap;"><a style="color: #c9c8cd; font-family: Arial,sans-serif; font-size: 14px; font-style: normal; font-weight: normal; line-height: 17px;" href="https://www.instagram.com/aya_fitness/" target="_blank" rel="noopener"> Aya_Official</a>さん(@aya_fitness)がシェアした投稿 - <time style="font-family: Arial,sans-serif; font-size: 14px; line-height: 17px;" datetime="2018-01-08T09:54:54+00:00"> 1月 8, 2018 at 1:54午前 PST</time></p>
+</div></blockquote>
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+
+<blockquote class="instagram-media" style="background: #FFF; border: 0; border-radius: 3px; box-shadow: 0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width: 658px; padding: 0; width: calc(100% - 2px);" data-instgrm-captioned="" data-instgrm-permalink="https://www.instagram.com/p/BcvtNtslfZg/" data-instgrm-version="8">
+<div style="padding: 8px;">
+<div style="background: #F8F8F8; line-height: 0; margin-top: 40px; padding: 50.0% 0; text-align: center; width: 100%;"></div>
+<p style="margin: 8px 0 0 0; padding: 0 4px;"><a style="color: #000; font-family: Arial,sans-serif; font-size: 14px; font-style: normal; font-weight: normal; line-height: 17px; text-decoration: none; word-wrap: break-word;" href="https://www.instagram.com/p/BcvtNtslfZg/" target="_blank" rel="noopener">1日の食事??? ーーーー 左上 : 朝ご飯。サラダと玄米まぜまぜご飯。 左下 : 昼ご飯。豚しゃぶサラダ弁当。 右上 : おやつ。グラノーラにナッツ??、ドライフルーツ、#バランスランチ ヨーグルト。 右下 : 夕ご飯。生姜焼サラダ。 ーーーー</a></p>
+<p style="color: #c9c8cd; font-family: Arial,sans-serif; font-size: 14px; line-height: 17px; margin-bottom: 0; margin-top: 8px; overflow: hidden; padding: 8px 0 7px; text-align: center; text-overflow: ellipsis; white-space: nowrap;"><a style="color: #c9c8cd; font-family: Arial,sans-serif; font-size: 14px; font-style: normal; font-weight: normal; line-height: 17px;" href="https://www.instagram.com/aya_fitness/" target="_blank" rel="noopener"> Aya_Official</a>さん(@aya_fitness)がシェアした投稿 - <time style="font-family: Arial,sans-serif; font-size: 14px; line-height: 17px;" datetime="2017-12-16T01:54:40+00:00">12月 15, 2017 at 5:54午後 PST</time></p>
+</div></blockquote>
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+
+こちらはクロスフィットトレーナーのAYAさんの1日の食事です。<br>
+タンパク質が豊富で栄養バランスがしっかりとれているのでダイエットに最適な食事です。<br>
+お肉や卵、野菜を取ることが大切ですね。<br>
+
+      <!-- 見出し -->
+      <h2 class="view_headline">食事制限ダイエットで痩せた後のキープ法</h2>
+
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion17"><img src="img/article/brooke-lark18.jpg"></a>
+      <div id="photo_expansion17" class="modal fade">
+        <div class="modal-dialog article_view_modalimg">
+          <div class="modal-content">
+            <div class="modal-body center"><img src="img/article/brooke-lark18.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
+          </div>
+        </div>
+      </div>
+
+ダイエットが成功した後の食事に気をつけないと、せっかく痩せてもリバウンドする可能性が高いです。<br>
+ダイエットした後は徐々に食事量を戻していくことが大切です。<br>
+食事を増やしても大丈夫なのか不安になるかもしれませんが、食事量を徐々に増やすことで代謝を上げることができます。<br>
+あくまでもダイエットが成功した解放感から、一気に食べるのだけはやめましょう。<br>
+
+      <!-- 見出し -->
+      <h2 class="view_headline">口コミ</h2>
+
+      <!-- 画像 -->
+      <a href="#" data-toggle="modal" data-target="#photo_expansion18"><img src="img/article/brooke-lark19.jpg"></a>
+      <div id="photo_expansion18" class="modal fade">
+        <div class="modal-dialog article_view_modalimg">
+          <div class="modal-content">
+            <div class="modal-body center"><img src="img/article/brooke-lark19.jpg" class="max-width"></div>
+            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
+          </div>
+        </div>
+      </div>
+
+「食事制限をしてダイエットに成功した！」<br>
+<br>
+「食事制限をしてダイエットに成功したけどリバウンドしてしまった…」<br>
+<br>
+「食事制限は食べたいものを食べられず、継続できなかった」<br>
+<br>
+「食事制限では痩せられなかったけど、運動で痩せた！」<br>
+<br>
+など人によって合う人と合わない人がいるようでした。<br>
+やはりストレスをためずにダイエットすること、リバウンドに注意することが大切のようですね。<br>
+
+    </div>
+</div>
 <!-- End of Content 1 to 4 -->
     <!-- Desc2 -->
 
 <div class="article_view_desc2 ">
 <div id="article_view_desc2">
 
-2,000円以下で買える！2018年のおすすめバレンタインチョコをご紹介させていただきました。<br />
-おしゃれなチョコや、ユーモア溢れるチョコなど、気になる商品はありましたか？<br />
-渡す相手のイメージに合わせて選び、喜んでもらいましょう♪<br />
+いかがでしたか？<br>
+食事制限ダイエットは長期的な視点で行うダイエット法です。<br>
+リバウンドしないように無理のない範囲で行うことが食事制限ダイエットを成功させる上で大切です。<br>
+
 <br />
-<a href="/articles/view/227740" class="item-related-article overflow">
-<div class="item-thumbnail"><img src="img/article/small_227740_0.jpg" width="73" height="73"></div>
+<a href="topic.php" class="item-related-article overflow">
+<div class="item-thumbnail"><img src="img/article/relate1.jpg" width="73" height="73"></div>
 <div class="item-content">
-<p class="item-title">【関連記事】想いはチョコに託して?おすすめのメッセージ入りバレンタインチョコ6選</p>
-<p class="item-description">待ちに待ったバレンタインデーがもうすぐやってきます。どんなチョコを、誰に渡すか、着々と...</p>
+<p class="item-title">【関連記事】ダイエット成功の秘訣はアプリにあった！成功へ導くダイエットアプリ15選</p>
+<p class="item-description">ダイエットをするぞ！という思いを固め、いざ始めてみたものの 「なかなかうまくいかない…。」 「もうダイエットに対してやる気が出てこない…。」 「やるとは決めたけどそもそもダイエットはどう始めればいいの？」 そんな経験がある方も多いのではないでしょうか？ そんな時にダイエットを成功に導いてくれるものが</p>
 </div>
 </a>
 
@@ -597,10 +495,10 @@ L'espoir自慢のサクサクしたミルフィーユに、お茶をテーマに
 
     <!-- Category & hashtag -->
 <p class="text-muted" id="view_top_space">
-                  <a href="/articles/hashtag/2,000円以下" class="btn btn-default btn-sm article_view_hashtag" ><i class="glyphicon glyphicon-tag"></i> 2,000円以下</a>
-                <a href="/articles/hashtag/2018年" class="btn btn-default btn-sm article_view_hashtag" ><i class="glyphicon glyphicon-tag"></i> 2018年</a>
-                <a href="/articles/hashtag/バレンタインチョコ" class="btn btn-default btn-sm article_view_hashtag" ><i class="glyphicon glyphicon-tag"></i> バレンタインチョコ</a>
-        </p>
+  <a href="#" class="btn btn-default btn-sm article_view_hashtag" ><i class="glyphicon glyphicon-tag">ダイエット</i></a>
+  <a href="#" class="btn btn-default btn-sm article_view_hashtag" ><i class="glyphicon glyphicon-tag">食事</i></a>
+  <a href="#" class="btn btn-default btn-sm article_view_hashtag" ><i class="glyphicon glyphicon-tag">運動</i></a>
+</p>
 <!-- End of Category & hashtag -->
 
 
@@ -608,29 +506,23 @@ L'espoir自慢のサクサクしたミルフィーユに、お茶をテーマに
 <!-- Author-->
 <div class="overflow article_written_box">
     <div class="left" style="width:20%;">
-        <a href="/users/profile/1190606" class="gray" id="written_user_box">
-            <img src="img/article/thumb_1190606.jpg" alt="mana yuki" class="max-width">
-        </a>
+        <a href="#" class="gray" id="written_user_box"><img src="img/common/auther_3koda.jpg" class="max-width"></a>
     </div>
     <div class="right article_written_user" style="width:80%;">
-        <div class="article_written_title">
-            この記事を書いた人
-        </div>
-        <a href="/users/profile/1190606">
-           <p class="article_written_username">
-                            mana yuki           </p>
-           <p class="article_written_text">頑張るすべての女性にステキな記事をお贈りします♪</p>
+        <div class="article_written_title">この記事を書いた人</div>
+        <a href="#">
+           <p class="article_written_username">いっこだにこださんこだ</p>
+           <p class="article_written_text">たいして美人じゃないのに独自の戦略でIT社長を射止めた、23歳女子大生。彼氏に愛され続ける方法と美容について日々研究中。</p>
         </a>
-        <a href="/users/profile/1190606" class="right">
+        <a href="#" class="right">
         <p class="article_written_more">>もっとみる</p>
         </a>
     </div>
 </div>
-<!-- End of Author --><div class="overflow">
+<!-- End of Author -->
+<div class="overflow">
 	<div class="right mr30">
-        <a href="#" class="label label-default" data-toggle="modal" data-target="#send_mail" id="">
-            記事の通報
-        </a>
+        <a href="#" class="label label-default" data-toggle="modal" data-target="#send_mail" id="">記事の通報</a>
 	</div>
 </div>
 
@@ -697,213 +589,114 @@ L'espoir自慢のサクサクしたミルフィーユに、お茶をテーマに
   </div>
 
   <div class="list_view_body">
-                     <a href="topic.php">
-                <div class="listview_wrap max-width">
-                  <div class="boxview_left">
-                      <img src="img/article/small_980606_0.jpg" width="120" height="120" alt="モノトーンで遊ぶ♪永田杏奈さんに学ぶパッと目を引く大人の冬コーデ">
-                  </div>
-                  <div class="mobile_article_listview_text">
-                      <p class="boxview_title not_auto_br">モノトーンで遊ぶ♪永田杏奈さんに学ぶパッと目を引く大人の冬コーデ</p>
-                      <div class="left">
-                                                  <small><span class="points_text">41,284 Point</span></small>
-                                              </div>
-                      <div class="right mr5">
-                                                 <small><span class="gray">
-                        秋間 恵璃                        </span></small>
-                      </div>
-                  </div>
-                </div>
-            </a>
 
-                            <div class="listview_separator">　</div>
-            
-            
-                    <a href="topic.php">
-                <div class="listview_wrap max-width">
-                  <div class="boxview_left">
-                      <img src="img/article/small_521730_0.png" width="120" height="120" alt="ZOZOTOWNで探す?2018年バレンタインに彼に送りたいプレゼント10選">
-                  </div>
-                  <div class="mobile_article_listview_text">
-                      <p class="boxview_title not_auto_br">ZOZOTOWNで探す?2018年バレンタインに彼に送りたいプレゼント10選</p>
-                      <div class="left">
-                                                  <small><span class="points_text">88,040 Point</span></small>
-                                              </div>
-                      <div class="right mr5">
-                                                 <small><span class="gray">
-                        秋間 恵璃                        </span></small>
-                      </div>
-                  </div>
-                </div>
-            </a>
+    <a href="topic.php">
+      <div class="listview_wrap max-width">
+        <div class="boxview_left">
+          <img src="img/article/relate1.jpg" width="120" height="120">
+        </div>
+        <div class="mobile_article_listview_text">
+          <p class="boxview_title not_auto_br">ダイエット成功の秘訣はアプリにあった！成功へ導くダイエットアプリ15選</p>
+          <div class="left">
+            <small><span class="points_text">2018年1月19日</span></small>
+          </div>
+          <div class="right mr5">
+            <small><span class="gray">スポーツマンシップりな</span></small>
+          </div>
+        </div>
+      </div>
+    </a>
 
-            
-            
-                    <a href="topic.php">
-                <div class="listview_wrap max-width">
-                  <div class="boxview_left">
-                      <img src="img/article/small_98314_0.jpg" width="120" height="120" alt="キュン?とさせるバレンタインコーデは【差し色ニット】で完成！">
-                  </div>
-                  <div class="mobile_article_listview_text">
-                      <p class="boxview_title not_auto_br">キュン?とさせるバレンタインコーデは【差し色ニット】で完成！</p>
-                      <div class="left">
-                                                  <small><span class="points_text">109,334 Point</span></small>
-                                              </div>
-                      <div class="right mr5">
-                                                 <small><span class="gray">
-                        秋間 恵璃                        </span></small>
-                      </div>
-                  </div>
-                </div>
-            </a>
+    <div class="listview_separator"></div>
 
-                            <div class="listview_separator">　</div>
-            
-            
-                    <a href="topic.php">
-                <div class="listview_wrap max-width">
-                  <div class="boxview_left">
-                      <img src="img/article/small_528080_0.jpg" width="120" height="120" alt="冬の「ウエストマーク」事情はどうなってる？最新コーデ特集">
-                  </div>
-                  <div class="mobile_article_listview_text">
-                      <p class="boxview_title not_auto_br">冬の「ウエストマーク」事情はどうなってる？最新コーデ特集</p>
-                      <div class="left">
-                                                  <small><span class="points_text">70,017 Point</span></small>
-                                              </div>
-                      <div class="right mr5">
-                                                 <small><span class="gray">
-                        秋間 恵璃                        </span></small>
-                      </div>
-                  </div>
-                </div>
-            </a>
+    <a href="topic.php">
+      <div class="listview_wrap max-width">
+        <div class="boxview_left">
+          <img src="img/article/relate2.jpg" width="120" height="120">
+        </div>
+        <div class="mobile_article_listview_text">
+          <p class="boxview_title not_auto_br">スーパーボールにこんな使い道が！？ウエスト引き締め挟むだけダイエット</p>
+          <div class="left">
+            <small><span class="points_text">2017年12月18日</span></small>
+          </div>
+          <div class="right mr5">
+            <small><span class="gray">いっこだにこださんこだ</span></small>
+          </div>
+        </div>
+      </div>
+    </a>
 
-            
-            
-                    <a href="topic.php">
-                <div class="listview_wrap max-width">
-                  <div class="boxview_left">
-                      <img src="img/article/small_790023_0.png" width="120" height="120" alt="要チェック！人気スイーツショップのバレンタイン限定チョコレート?">
-                  </div>
-                  <div class="mobile_article_listview_text">
-                      <p class="boxview_title not_auto_br">要チェック！人気スイーツショップのバレンタイン限定チョコレート?</p>
-                      <div class="left">
-                                                  <small><span class="points_text">81,880 Point</span></small>
-                                              </div>
-                      <div class="right mr5">
-                                                 <small><span class="gray">
-                        秋間 恵璃                        </span></small>
-                      </div>
-                  </div>
-                </div>
-            </a>
+    <a href="topic.php">
+      <div class="listview_wrap max-width">
+        <div class="boxview_left">
+          <img src="img/article/relate3.jpg" width="120" height="120">
+        </div>
+        <div class="mobile_article_listview_text">
+          <p class="boxview_title not_auto_br">さつまいもダイエットの方法と効果って？簡単に便秘解消できたという声多数！</p>
+          <div class="left">
+            <small><span class="points_text">2018年1月23日</span></small>
+          </div>
+          <div class="right mr5">
+            <small><span class="gray">いっこだにこださんこだ</span></small>
+          </div>
+        </div>
+      </div>
+    </a>
 
-                            <div class="listview_separator">　</div>
-            
-            
-                    <a href="topic.php">
-                <div class="listview_wrap max-width">
-                  <div class="boxview_left">
-                      <img src="img/article/small_48391_0.jpg" width="120" height="120" alt="本命にあげたい?ジョエル・ロブションの2018年バレンタインチョコ">
-                  </div>
-                  <div class="mobile_article_listview_text">
-                      <p class="boxview_title not_auto_br">本命にあげたい?ジョエル・ロブションの2018年バレンタインチョコ</p>
-                      <div class="left">
-                                                  <small><span class="points_text">132,245 Point</span></small>
-                                              </div>
-                      <div class="right mr5">
-                                                 <small><span class="gray">
-                        秋間 恵璃                        </span></small>
-                      </div>
-                  </div>
-                </div>
-            </a>
+    <div class="listview_separator"></div>
 
-            
-            
-                    <a href="topic.php">
-                <div class="listview_wrap max-width">
-                  <div class="boxview_left">
-                      <img src="img/article/small_554325_0.jpg" width="120" height="120" alt="2018年春第一弾！大人可愛い花柄＆花モチーフアイテム特集?">
-                  </div>
-                  <div class="mobile_article_listview_text">
-                      <p class="boxview_title not_auto_br">2018年春第一弾！大人可愛い花柄＆花モチーフアイテム特集?</p>
-                      <div class="left">
-                                                  <small><span class="points_text">49,815 Point</span></small>
-                                              </div>
-                      <div class="right mr5">
-                                                 <small><span class="gray">
-                        秋間 恵璃                        </span></small>
-                      </div>
-                  </div>
-                </div>
-            </a>
+    <a href="topic.php">
+      <div class="listview_wrap max-width">
+        <div class="boxview_left">
+          <img src="img/article/relate4.jpg" width="120" height="120">
+        </div>
+        <div class="mobile_article_listview_text">
+          <p class="boxview_title not_auto_br">歩くだけでシェイプアップ！お尻がキュッと上がる歩き方とは？</p>
+          <div class="left">
+            <small><span class="points_text">2018年1月16日</span></small>
+          </div>
+          <div class="right mr5">
+            <small><span class="gray">いっこだにこださんこだ</span></small>
+          </div>
+        </div>
+      </div>
+    </a>
 
-                            <div class="listview_separator">　</div>
-            
-            
-                    <a href="topic.php">
-                <div class="listview_wrap max-width">
-                  <div class="boxview_left">
-                      <img src="img/article/small_496274_0.jpg" width="120" height="120" alt="思わずキュン?2018年春の31 Sons de modeの新作アイテム">
-                  </div>
-                  <div class="mobile_article_listview_text">
-                      <p class="boxview_title not_auto_br">思わずキュン?2018年春の31 Sons de modeの新作アイテム</p>
-                      <div class="left">
-                                                  <small><span class="points_text">60,644 Point</span></small>
-                                              </div>
-                      <div class="right mr5">
-                                                 <small><span class="gray">
-                        秋間 恵璃                        </span></small>
-                      </div>
-                  </div>
-                </div>
-            </a>
+    <a href="topic.php">
+      <div class="listview_wrap max-width">
+        <div class="boxview_left">
+          <img src="img/article/relate5.jpg" width="120" height="120">
+        </div>
+        <div class="mobile_article_listview_text">
+          <p class="boxview_title not_auto_br">痩せすぎてもダメ！男性が好きな7：10の女性の黄金比体型とは？</p>
+          <div class="left">
+            <small><span class="points_text"> 2018年1月9日</span></small>
+          </div>
+          <div class="right mr5">
+            <small><span class="gray">いっこだにこださんこだ</span></small>
+          </div>
+        </div>
+      </div>
+    </a>
 
-            
-                            <div class="mb20"> </div>
-            
-                    <a href="topic.php">
-                <div class="listview_wrap max-width">
-                  <div class="boxview_left">
-                      <img src="img/article/small_582333_0.jpg" width="120" height="120" alt="for 女子?冬の着こなしを大人可愛く見せるピンク辞典">
-                  </div>
-                  <div class="mobile_article_listview_text">
-                      <p class="boxview_title not_auto_br">for 女子?冬の着こなしを大人可愛く見せるピンク辞典</p>
-                      <div class="left">
-                                                  <small><span class="points_text">37,355 Point</span></small>
-                                              </div>
-                      <div class="right mr5">
-                                                 <small><span class="gray">
-                        秋間 恵璃                        </span></small>
-                      </div>
-                  </div>
-                </div>
-            </a>
+    <div class="listview_separator"></div>
 
-                            <div class="listview_separator">　</div>
-            
-            
-                    <a href="topic.php">
-                <div class="listview_wrap max-width">
-                  <div class="boxview_left">
-                      <img src="img/article/small_663723_0.jpg" width="120" height="120" alt="【2018SS展示会レポ】大人の女性必見?MAISON DE REEFUR">
-                  </div>
-                  <div class="mobile_article_listview_text">
-                      <p class="boxview_title not_auto_br">【2018SS展示会レポ】大人の女性必見?MAISON DE REEFUR</p>
-                      <div class="left">
-                                                  <small><span class="points_text">59,341 Point</span></small>
-                                              </div>
-                      <div class="right mr5">
-                                                 <small><span class="gray">
-                         PRESS                        </span></small>
-                      </div>
-                  </div>
-                </div>
-            </a>
-
-            
-            
-        
+    <a href="topic.php">
+      <div class="listview_wrap max-width">
+        <div class="boxview_left">
+          <img src="img/article/relate6.jpg" width="120" height="120">
+        </div>
+        <div class="mobile_article_listview_text">
+          <p class="boxview_title not_auto_br">干しブドウにこんな効果が！？テレビで話題の干しブドウ酢ダイエット</p>
+          <div class="left">
+            <small><span class="points_text">2017年12月12日</span></small>
+          </div>
+          <div class="right mr5">
+            <small><span class="gray">いっこだにこださんこだ</span></small>
+          </div>
+        </div>
+      </div>
+    </a>
 
         </div>
 
