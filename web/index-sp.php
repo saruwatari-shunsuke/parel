@@ -7,8 +7,6 @@
 
 
 <?php include "content-ranking-sp.html"; ?>
-<?php include "content-feature-sp.html"; ?>
-<?php include "content-choco-sp.html"; ?>
 <?php include "content-push-sp.html"; ?>
 	
     	</div>

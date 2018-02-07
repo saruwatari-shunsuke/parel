@@ -1101,10 +1101,6 @@ div#mobile_footmenu{
 	width:100%;
 	position:absolute;
 }
-.margin267{
-	/*margin-top:267px;*/
-	margin-top:356px;
-}
 .box_carousel_tw_user{
 	color: #fff;
 }
@@ -2006,8 +2002,9 @@ ul.share li{
 	margin:15px 0 0;
 	border:none;
 }
-.view_headline{
+.article_row h3{
 	font-weight:bold;
+        margin: 50px 0;
 	text-align: center;
 	color:#333;
 	line-height:130%;
@@ -3345,7 +3342,7 @@ padding:7px !important;
     font-size: 14px;
     margin: 15px 0 0;
 }
-.supervisor_view_name_area h3{
+.supervisor_view_name_area h2{
 	font-size: 16px;
 	line-height: 160%;
 	margin: 5px 0 10px;
@@ -3359,7 +3356,7 @@ padding:7px !important;
 	margin: 0 -10px;
 	background: #fff;
 }
-.supervisor_view_articles_headline h3{
+.supervisor_view_articles_headline h2{
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 	color: #666;

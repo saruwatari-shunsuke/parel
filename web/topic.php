@@ -37,18 +37,10 @@
     <div class="col-md-12 col-xs-12">
 
       <!-- 見出し -->
-      <h2 class="view_headline">食事制限ダイエットとは？</h2>
+      <h3>食事制限ダイエットとは？</h3>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion1"><img src="img/article/brooke-lark02.jpg"></a>
-      <div id="photo_expansion1" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark02.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark02.jpg">
 
 <span class="_pi">食事制限ダイエットとは、「食べる量を制限してダイエットする」という方法です。</span><br>
 「食べる量を減らせば痩せる」なんて当たり前！と感じている方もいるかもしれませんが、食事制限ダイエットはただ食べなければ痩せるというダイエットではありません。<br>
@@ -59,18 +51,10 @@
 <span class="_pi">食事制限ダイエットは摂取カロリーを減らしてダイエットする方法なので、運動をする時間がない方や運動が苦手な方でも取り入れやすいダイエット法です。</span>
 
       <!-- 見出し -->
-      <h2 class="view_headline">食事制限ダイエットの効果と期間、効果の理由</h2>
+      <h3>食事制限ダイエットの効果と期間、効果の理由</h3>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion2"><img src="img/article/brooke-lark03.jpg"></a>
-      <div id="photo_expansion2" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark03.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark03.jpg">
 
 食事制限をして摂取カロリーを抑えることは、非常に効果の高いダイエット法だと言われています。<br>
 肥満の原因は、食べ過ぎによってカロリーを摂り過ぎていることです。<br>
@@ -78,15 +62,7 @@
 食事制限をして摂取カロリーを抑えることは非常にダイエット効果が高いです。<br>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion3"><img src="img/article/brooke-lark04.jpg"></a>
-      <div id="photo_expansion3" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark04.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark04.jpg">
 
 このダイエット法で効果が出始める期間は人それぞれですが、<span class="_pi">他のダイエット法と比べて早く効果がでるのが食事制限ダイエットの特徴です。</span><br>
 2週間～1ヶ月で3キロ～5キロほど効果がでる方も多いようです。<br>
@@ -95,18 +71,10 @@
 <span class="-bl">「短期間で」「極端に」</span>痩せようとしないのが、食事制限ダイエットのポイント</span>です。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">食事制限ダイエットのメリットとデメリット</h2>
+      <h3>食事制限ダイエットのメリットとデメリット</h3>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion4"><img src="img/article/brooke-lark05.jpg"></a>
-      <div id="photo_expansion4" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark05.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark05.jpg">
 
 <span class="_pi">食事制限ダイエットのメリットは「短期間で体重を落とせること」</span>、それに対しデメリットは「リバウンドしやすい」ということです。<br>
 食事制限は手軽にできるので短期間で効果を出したい方にはオススメのダイエット法なのですが、<span class="_pi">長期的にダイエットする方は<span class="-bl">「極端な」</span>食事制限は避けるべきです。</span><br>
@@ -117,18 +85,10 @@
 また長期間食事制限をしているとストレスがたまり、どか食いをしてしまう可能性が高くなるので、よりリバウンドしやすい身体になってしまいます。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">目標設定の決め方</h2>
+      <h3>目標設定の決め方</h3>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion5"><img src="img/article/brooke-lark06.jpg"></a>
-      <div id="photo_expansion5" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark06.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark06.jpg">
 
 <span class="_pi">食事制限ダイエットのポイントは「目標設定を明確にすること」</span>です。<br>
 特に「ダイエットする期間」と「何キロ痩せたいか」を決めることでダイエットが成功しやすいです。<br>
@@ -149,22 +109,14 @@
 1ヶ月で10キロ痩せる！など無理な目標を立てると停滞期になった時、目標を達成できなくなるのでやめましょう。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">食事制限ダイエットで痩せるための方法</h2>
+      <h3>食事制限ダイエットで痩せるための方法</h3>
 
 (1) 食事内容<br>
 <br>
 ・バランスよく食べる<br>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion6"><img src="img/article/brooke-lark07.jpg"></a>
-      <div id="photo_expansion6" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark07.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark07.jpg">
 
 食事制限ダイエットは「食べない」ダイエット法ではありません。<br>
 <span class="_pi">身体に必要な栄養素を摂取しながら、摂取カロリーを抑えるという考え方をしましょう。</span><br>
@@ -181,15 +133,7 @@
 ・間食をしない<br>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion7"><img src="img/article/brooke-lark08.jpg"></a>
-      <div id="photo_expansion7" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark08.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark08.jpg">
 
 日常的に間食が多い方は間食をやめるだけで大幅なカロリーカットをすることができます。<br>
 <span class="_pi">お菓子やデザートは<span class="-bl">平均300～400キロカロリー</span>もあります。</span><br>
@@ -200,15 +144,7 @@
 ・咀嚼回数を増やす<br>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion8"><img src="img/article/brooke-lark09.jpg"></a>
-      <div id="photo_expansion8" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark09.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark09.jpg">
 
 <span class="_pi">一口30回以上よく噛んで食べることで、早食いを防止できます。</span><br>
 また「満腹になった」と身体が感じるのは食べ始めて20～30分後。<br>
@@ -218,15 +154,7 @@
 ・ジュースやアルコールを避ける<br>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion9"><img src="img/article/brooke-lark10.jpg"></a>
-      <div id="photo_expansion9" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark10.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark10.jpg">
 
 食事制限中の水分補給は基本的にお茶や水で行います。<br>
 ジュースには果糖が多く含まれているし、ゼロカロリーのジュースにも多くの甘味料が含まれています。<br>
@@ -236,15 +164,7 @@
 (2) 運動<br>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion10"><img src="img/article/brooke-lark11.jpg"></a>
-      <div id="photo_expansion10" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark11.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark11.jpg">
 
 食事制限で痩せるといっても、できれば運動をするのが望ましいです。<br>
 一駅分歩いてみたり、電車通勤を自転車通勤に変えてみたり、無理のない方法で楽しく運動を取り入れてみてください。<br>
@@ -255,35 +175,19 @@
 そこでモチベーションを保つために利用してほしいのが「SNS」。<br>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion11"><img src="img/article/brooke-lark12.jpg"></a>
-      <div id="photo_expansion11" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark12.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark12.jpg">
 
 <span class="_pi">インスタやTwitterでダイエット専用アカウントを作り、<br>
 公開ダイエットをすることでダイエットのモチベーションを保つことができる</span>と最近話題になっています。<br>
 諦めそうになった時、SNSのダイエット仲間が励ましてくれることもあるのでぜひ利用してみてください。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">食事制限ダイエットのポイントと注意点</h2>
+      <h3>食事制限ダイエットのポイントと注意点</h3>
 
 (1) 停滞期とリバウンド<br>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion12"><img src="img/article/brooke-lark13.png"></a>
-      <div id="photo_expansion12" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark13.png" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark13.png">
 
 どんなダイエット法でも必ず訪れるのが停滞期。<br>
 特に食事制限ダイエットは身体が危機感を感じ、摂取した食べ物の吸収率が高まるので停滞期を抜けづらいと言われています。<br>
@@ -295,30 +199,14 @@
 (2) サプリ<br>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion13"><img src="img/article/brooke-lark14.jpg"></a>
-      <div id="photo_expansion13" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark14.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark14.jpg">
 
 サプリは摂取することで必ず効果を発揮できるものではないので、足りない栄養素を補うための補助食品という形で取り入れましょう。<br>
 <br>
 (3) ダイエットアプリの利用<br>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion14"><img src="img/article/brooke-lark15.jpg"></a>
-      <div id="photo_expansion14" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark15.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark15.jpg">
 
 ダイエット成功者の中には、日々の体重の変化や食べたものをアプリで記録している人が多いです。<br>
 自分のダイエット記録を残しておくことでモチベーションアップにもつながりますし、スマートフォンを使うことで手軽に記録できるので継続しやすいというメリットがあります。<br>
@@ -331,15 +219,7 @@
 毎日食べたいものを我慢しているとストレスがたまり、リバウンドの原因に。<br>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion15"><img src="img/article/brooke-lark16.jpg"></a>
-      <div id="photo_expansion15" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark16.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark16.jpg">
 
 そこで取り入れてほしいのが「チートデイ」と呼ばれる好きなものを食べていい日をつくるというもの。<br>
 週に一度、食べたいものを食べる日をつくることで比較的ストレスをためずにダイエットを継続することができます。<br>
@@ -348,20 +228,12 @@
 ダイエットにメリハリをつけることで痩せやすい身体を作ることができます。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">食事制限しているのに痩せないのはなぜ？</h2>
+      <h3>食事制限しているのに痩せないのはなぜ？</h3>
 
 (1) 食べる量は減っているけど、カロリーが減っていない
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion16"><img src="img/article/brooke-lark17.jpg"></a>
-      <div id="photo_expansion16" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark17.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark17.jpg">
 
 よくあるのが食事制限ダイエットしようとして、サラダを食べるようにしたけどなぜか痩せない…というもの。<br>
 サラダは低カロリーでダイエット向きに思えるけれど、実はドレッシングには糖質や脂質が多く含まれているため太ってしまう場合もあるのです。<br>
@@ -375,7 +247,7 @@
 そんな時は筋トレを取り入れて代謝をあげることが大切です。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">ダイエットレシピ</h2>
+      <h3>ダイエットレシピ</h3>
 
 (1) 豆腐の照り焼き丼<br>
 
@@ -398,7 +270,7 @@
 <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
 
       <!-- 見出し -->
-      <h2 class="view_headline">1日の食事例</h2>
+      <h3>1日の食事例</h3>
 
 <blockquote class="instagram-media" style="background: #FFF; border: 0; border-radius: 3px; box-shadow: 0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width: 658px; padding: 0; width: calc(100% - 2px);" data-instgrm-captioned="" data-instgrm-permalink="https://www.instagram.com/p/BdrydEKlKsM/" data-instgrm-version="8">
 <div style="padding: 8px;">
@@ -421,18 +293,10 @@
 お肉や卵、野菜を取ることが大切ですね。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">食事制限ダイエットで痩せた後のキープ法</h2>
+      <h3>食事制限ダイエットで痩せた後のキープ法</h3>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion17"><img src="img/article/brooke-lark18.jpg"></a>
-      <div id="photo_expansion17" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark18.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark18.jpg">
 
 ダイエットが成功した後の食事に気をつけないと、せっかく痩せてもリバウンドする可能性が高いです。<br>
 ダイエットした後は徐々に食事量を戻していくことが大切です。<br>
@@ -440,18 +304,10 @@
 あくまでもダイエットが成功した解放感から、一気に食べるのだけはやめましょう。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">口コミ</h2>
+      <h3>口コミ</h3>
 
       <!-- 画像 -->
-      <a href="#" data-toggle="modal" data-target="#photo_expansion18"><img src="img/article/brooke-lark19.jpg"></a>
-      <div id="photo_expansion18" class="modal fade">
-        <div class="modal-dialog article_view_modalimg">
-          <div class="modal-content">
-            <div class="modal-body center"><img src="img/article/brooke-lark19.jpg" class="max-width"></div>
-            <div class="article_view_modalclose"><button type="button" class="btn btn-default" data-dismiss="modal">× とじる</button></div>
-          </div>
-        </div>
-      </div>
+      <img src="img/article/brooke-lark19.jpg">
 
 「食事制限をしてダイエットに成功した！」<br>
 <br>
@@ -470,7 +326,6 @@
     <!-- Desc2 -->
 
 <div class="article_view_desc2 ">
-<div id="article_view_desc2">
 
 いかがでしたか？<br>
 食事制限ダイエットは長期的な視点で行うダイエット法です。<br>
@@ -486,13 +341,13 @@
 </a>
 
 </div>
-</div>
 
     <!-- End of Desc2 -->
 
 
 <div class="addthis_inline_share_toolbox_ribm"></div>
 
+<?php if (false) { ?>
     <!-- Category & hashtag -->
 <p class="text-muted" id="view_top_space">
   <a href="#" class="btn btn-default btn-sm article_view_hashtag" ><i class="glyphicon glyphicon-tag">ダイエット</i></a>
@@ -500,13 +355,13 @@
   <a href="#" class="btn btn-default btn-sm article_view_hashtag" ><i class="glyphicon glyphicon-tag">運動</i></a>
 </p>
 <!-- End of Category & hashtag -->
-
+<?php } ?>
 
 
 <!-- Author-->
 <div class="overflow article_written_box">
     <div class="left" style="width:20%;">
-        <a href="#" class="gray" id="written_user_box"><img src="img/common/auther_3koda.jpg" class="max-width"></a>
+        <a href="#" class="gray" id="written_user_box"><img src="img/common/author_3koda.jpg" class="max-width"></a>
     </div>
     <div class="right article_written_user" style="width:80%;">
         <div class="article_written_title">この記事を書いた人</div>

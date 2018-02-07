@@ -11,15 +11,9 @@
               </div>
               <div class="article_head_text">
                   <div class="overflow">
-                      <div class="left">
-                          <a href="/" class="gray gray666"><img src="img/common/auther_3koda.jpg" class="img-circle article_head_usericon">いっこだにこださんこだ</a>
+                      <div class="left gray gray666">
+                          <img src="img/common/author_3koda.jpg" class="img-circle article_head_usericon"> いっこだにこださんこだ
                       </div>
-                      <div class="right mt5 txt-right">
-                          <span class="gray gray666">87536 Point</span>
-                          <div class="thumbnail_credit">Cover image：
-<a href="http://www.takashimaya.co.jp/shopping/food/0400015870/product.html?p_cd=0001377032&amp;sub_cd=001" class="text-muted" target="_blank" rel="follow"><small>www.takashimaya.co.jp</small></a>
-                          </div>
-                       </div>
                   </div>
               </div>
           </div>
@@ -27,7 +21,7 @@
 
 <div class="article_view_area">
 
-    <h1 class="mobile_article_view_title not_auto_br"><a href="87096">短期集中ダイエット！食事制限ダイエットの効果と方法！</a></h1>
+    <h1 class="mobile_article_view_title not_auto_br">短期集中ダイエット！食事制限ダイエットの効果と方法！</h1>
 
     <div class="article_head_sns mt10">
         <div class="max-width overflow center">
@@ -55,7 +49,7 @@
 <div class="article_row">
 
       <!-- 見出し -->
-      <h2 class="view_headline">食事制限ダイエットとは？</h2>
+      <h3>食事制限ダイエットとは？</h3>
 
       <!-- 画像 -->
       <img src="img/article/brooke-lark02.jpg">
@@ -69,7 +63,7 @@
 <span class="_pi">食事制限ダイエットは摂取カロリーを減らしてダイエットする方法なので、運動をする時間がない方や運動が苦手な方でも取り入れやすいダイエット法です。</span>
 
       <!-- 見出し -->
-      <h2 class="view_headline">食事制限ダイエットの効果と期間、効果の理由</h2>
+      <h3>食事制限ダイエットの効果と期間、効果の理由</h3>
 
       <!-- 画像 -->
       <img src="img/article/brooke-lark03.jpg">
@@ -89,7 +83,7 @@
 <span class="-bl">「短期間で」「極端に」</span>痩せようとしないのが、食事制限ダイエットのポイント</span>です。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">食事制限ダイエットのメリットとデメリット</h2>
+      <h3>食事制限ダイエットのメリットとデメリット</h3>
 
       <!-- 画像 -->
       <img src="img/article/brooke-lark05.jpg">
@@ -103,7 +97,7 @@
 また長期間食事制限をしているとストレスがたまり、どか食いをしてしまう可能性が高くなるので、よりリバウンドしやすい身体になってしまいます。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">目標設定の決め方</h2>
+      <h3>目標設定の決め方</h3>
 
       <!-- 画像 -->
       <img src="img/article/brooke-lark06.jpg">
@@ -127,7 +121,7 @@
 1ヶ月で10キロ痩せる！など無理な目標を立てると停滞期になった時、目標を達成できなくなるのでやめましょう。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">食事制限ダイエットで痩せるための方法</h2>
+      <h3>食事制限ダイエットで痩せるための方法</h3>
 
 (1) 食事内容<br>
 <br>
@@ -200,7 +194,7 @@
 諦めそうになった時、SNSのダイエット仲間が励ましてくれることもあるのでぜひ利用してみてください。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">食事制限ダイエットのポイントと注意点</h2>
+      <h3>食事制限ダイエットのポイントと注意点</h3>
 
 (1) 停滞期とリバウンド<br>
 
@@ -246,7 +240,7 @@
 ダイエットにメリハリをつけることで痩せやすい身体を作ることができます。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">食事制限しているのに痩せないのはなぜ？</h2>
+      <h3>食事制限しているのに痩せないのはなぜ？</h3>
 
 (1) 食べる量は減っているけど、カロリーが減っていない
 
@@ -265,7 +259,7 @@
 そんな時は筋トレを取り入れて代謝をあげることが大切です。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">ダイエットレシピ</h2>
+      <h3>ダイエットレシピ</h3>
 
 (1) 豆腐の照り焼き丼<br>
 
@@ -288,7 +282,7 @@
 <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
 
       <!-- 見出し -->
-      <h2 class="view_headline">1日の食事例</h2>
+      <h3>1日の食事例</h3>
 
 <blockquote class="instagram-media" style="background: #FFF; border: 0; border-radius: 3px; box-shadow: 0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width: 658px; padding: 0; width: calc(100% - 2px);" data-instgrm-captioned="" data-instgrm-permalink="https://www.instagram.com/p/BdrydEKlKsM/" data-instgrm-version="8">
 <div style="padding: 8px;">
@@ -311,7 +305,7 @@
 お肉や卵、野菜を取ることが大切ですね。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">食事制限ダイエットで痩せた後のキープ法</h2>
+      <h3>食事制限ダイエットで痩せた後のキープ法</h3>
 
       <!-- 画像 -->
       <img src="img/article/brooke-lark18.jpg">
@@ -322,7 +316,7 @@
 あくまでもダイエットが成功した解放感から、一気に食べるのだけはやめましょう。<br>
 
       <!-- 見出し -->
-      <h2 class="view_headline">口コミ</h2>
+      <h3>口コミ</h3>
 
       <!-- 画像 -->
       <img src="img/article/brooke-lark19.jpg">
@@ -341,83 +335,22 @@
       </div>
 </div>
 
-  <!-- desc2 -->
-  
+<hr>
+
+     <!-- Start of Desc2 -->
+    <div class="article_view_desc1">
+いかがでしたか？<br>
+食事制限ダイエットは長期的な視点で行うダイエット法です。<br>
+リバウンドしないように無理のない範囲で行うことが食事制限ダイエットを成功させる上で大切です。<br>
+    </div>
+    <!-- End of Desc2 -->
+
+
+    <div class="mb30"></div>
+ 
       
-  <div class="article_pagination_area">
-    <ul class="pagination">
-                      <li><a href="#" class="btn-current">1</a></li>
-                      <li><a href="87096?page=2">2</a></li>
-                      <li><a href="87096?page=2">次へ ≫</a></li>
-    </ul>
-    <p class="article_pagination_guid">（1/4ページ）</p>
-  </div>
-  
-                           <div class="addthis_inline_share_toolbox_ribm"></div>
-  
-    <!-- // magazine -->
-    <a href="#" target="_blank">
-         <div class="mt20"><img src="img/common/vol2_rerease.jpg" alt="" class="max-width"></div>
-    </a>
-    <!-- magazine // -->
-
+    <div class="addthis_inline_share_toolbox_ribm"></div>
     
-<?php /*
-
-<div class="mt20 center">
-<script type="text/javascript">window._RENDER_STORE_DATA_={global:{isInTouchEnabledDevice:true,random:"e6dcf4ea78",privacyIcons:[]},regular:[]};var bundle_16 = (function () {
-'use strict';
-
-function unwrapExports (x) {
-	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
-}
-
-function createCommonjsModule(fn, module) {
-	return module = { exports: {} }, fn(module, module.exports), module.exports;
-}
-
-var bootloader = createCommonjsModule(function (module, exports) {
-exports.__esModule=!0, exports.onSetup=function(e){return document.addEventListener("DOMContentLoaded",e)};
-});
-
-unwrapExports(bootloader);
-var bootloader_1 = bootloader.onSetup;
-
-var datastore = createCommonjsModule(function (module, exports) {
-function t(t,e){var r=void 0!==e,o=t&&t.getAttribute("data-id")||"";return o in a||!r?a[o]:e}function e(t,e){var r=t in n,o=arguments.length>=2;return r||!o?n[t]:e}function r(t){var r=(t.getAttribute("data-localId")||"").split("-"),o=r[0],a=r[1];return e(o)[a]}exports.__esModule=!0;var o=window._RENDER_STORE_DATA_,a=o.regular,n=o.global;exports.get=t, exports.getGlobal=e, exports.getLocal=r;
-});
-
-unwrapExports(datastore);
-var datastore_1 = datastore.get;
-var datastore_2 = datastore.getGlobal;
-var datastore_3 = datastore.getLocal;
-
-var privacy = createCommonjsModule(function (module, exports) {
-exports.__esModule=!0;var i=function(){function i(i,t,e){this.isInTouchEnabledDevice=i, this.random=t, this.privacyIcons=e;}return i.prototype.apply=function(){for(var i=0;i<this.privacyIcons.length;i++){var t="privacy_"+this.random+"_"+i,e=document.getElementById(t);null!==e&&this.applyPrivacy(e,this.privacyIcons[i].IsImagePrivacy);}}, i.prototype.applyPrivacy=function(i,t){var e=this;if(i.children.length<2)throw new Error("Privacy element "+i.id+" does not have 2 children");var n=i.children[0],o=i.children[1],r={onContainer:o,offContainer:n,clickable:t};this.isInTouchEnabledDevice?(n.onclick=function(){return e.setVisibility(!0,!1,r)}, o.onclick=function(){return e.setVisibility(!1,!1,r)}):(i.onmouseout=function(){return e.setVisibility(!1,!1,r)}, i.onmouseover=function(){return e.setVisibility(!0,!1,r)});}, i.prototype.setVisibility=function(i,t,e){var n=this;e.timeout&&(clearTimeout(e.timeout), e.timeout=null), i||t?(e.onContainer.style.display=i?"block":"none", e.offContainer.style.display=i?"none":"block", this.isInTouchEnabledDevice&&i&&e.clickable&&(e.timeout=window.setTimeout(function(){return n.setVisibility(!1,!0,e)},3e3))):e.timeout=window.setTimeout(function(){return n.setVisibility(!1,!0,e)},100);}, i}();exports.Privacy=i;
-});
-
-unwrapExports(privacy);
-var privacy_1 = privacy.Privacy;
-
-var privacySetup = createCommonjsModule(function (module, exports) {
-exports.__esModule=!0;bootloader.onSetup(function(){var e$$1=datastore.getGlobal("isInTouchEnabledDevice"),a=datastore.getGlobal("random",""),l=datastore.getGlobal("privacyIcons",[]);new privacy.Privacy(e$$1,a,l).apply();});
-});
-
-unwrapExports(privacySetup);
-
-var concat_16 = createCommonjsModule(function (module, exports) {
-exports.__esModule=!0, privacySetup;
-});
-
-var concat_16$1 = unwrapExports(concat_16);
-
-return concat_16$1;
-
-}());
-</script>
-
-                  </div>
- */ ?>
 
 </div>
 
@@ -590,14 +523,11 @@ return concat_16$1;
     </a>
 
 
-
     </div><!-- overflow:hidden -->
 </div><!-- margin-top -->
 
 
 <?php include "content-ranking-sp.html"; ?>
-<?php include "content-feature-sp.html"; ?>
-<?php include "content-choco-sp.html"; ?>
 <?php include "content-push-sp.html"; ?>
 
     	</div>
