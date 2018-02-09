@@ -4,7 +4,7 @@ $(function(){
     baseHeight = 200;
     minWidth = 320;
  
-    slideSpeed = 1500;
+    slideSpeed = 500;
     delayTime = 4000;
     easing = 'easeInOutCubic';
     autoPlay = '1'; // notAutoPlay = '0'

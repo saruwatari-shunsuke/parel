@@ -1,4 +1,4 @@
-<?php include "header.html"; ?>
+<?php include "header-pc.html"; ?>
 <?php
 $title = array('','ファッション', 'ビューティー', '恋愛', 'ライフスタイル', '特集一覧');
 $title_descript = array('',

@@ -1,17 +1,8 @@
-<?php include "header.html"; ?>
+<?php
+	$ua = $_SERVER['HTTP_USER_AGENT'];
+	if ((strpos($ua,'iPhone')!==false) || (strpos($ua,'iPad')!==false) || (strpos($ua,'Android')!==false)) {
+		include 'terms-sp.php';
+	} else {
+		include 'terms-pc.php';
+	}
 
-                <div class="overflow">
-                            <div class="left main_bar">
-                                                    
-<div class="policy_view">
-
-<?php include 'terms.html'; ?>
-
-</div>
-                            </div>
-
-<?php include 'rightsidebar.html'; ?>
-            
-        </div> <!-- /row -->
-
-<?php include 'footer.html'; ?>

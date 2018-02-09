@@ -33,7 +33,8 @@
 }
 .slider_prev {background: #fff url(../img/prev.jpg) no-repeat right center;}
 .slider_next {background: #fff url(../img/next.jpg) no-repeat left center;}
- 
+
+/* 
 .pagination {
     bottom: 10px;
     left: 0;
@@ -57,7 +58,8 @@
     -moz-opacity: 1!important;
     opacity: 1!important;
 }
- 
+*/
+
 /* =======================================
     ClearFixElements
 ======================================= */
