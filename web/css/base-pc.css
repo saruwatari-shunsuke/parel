@@ -104,6 +104,9 @@ ul.side_nav li{
 .bg_white{
     background: #fff;
 }
+.bg_coral{
+    background: #ffe0f3;
+}
 .opacity85{
     filter:alpha(opacity=85);
     -moz-opacity:0.85;
@@ -410,10 +413,8 @@ ul.side_nav li{
 .header_bar{
     border-color: #000;
     border-style:solid;
-    /*border-top-width:3px;*/
     border-bottom-width:0;
-    height:60px;
-    background: #fff;
+    height:40px;
 }
 .header_logo{
     width: 130px;
@@ -624,21 +625,21 @@ p.sidebar_article_num{
     padding:0px 10px;
     width:240px !important;
     font-size:80%;
-    background:rgba(255, 255, 255, 0.9);
+    background:rgba(255, 240, 249, 0.9);
     border:1px solid #ddd;
     -webkit-border-radius: 0px;
        -moz-border-radius: 0px;
             border-radius: 0px;
 }
 .navbar_search_submit{
-    margin: 0 0 0 -6px;
+    margin: 0 0 0 5px;
     font-size: 80%;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #ddd;
-    background: url('/img/common/search2.png') no-repeat center;
-    -webkit-border-radius: 0px;
-       -moz-border-radius: 0px;
-            border-radius: 0px;
+    background: rgba(255, 240, 249, 0.9);
+    border: 1px solid #fdd;
+/*    background: url('/img/common/search2.png') no-repeat center; */
+    -webkit-border-radius: 1px;
+       -moz-border-radius: 1px;
+            border-radius: 1px;
 }
 .header_text_form{
     margin-top: -45px;
@@ -1869,21 +1870,6 @@ div#profile_view_desc{
     background-repeat: no-repeat;
     background-size: 30px;
     margin: 0 10px 10px;
-}
-.editor-part-icon-headline{
-    background-image:url("/img/editor/headline.png");
-}
-.editor-part-icon-image{
-    background-image:url("/img/editor/photo.png");
-}
-.editor-part-icon-text{
-    background-image:url("/img/editor/text.png");
-}
-.editor-part-icon-ecbtn{
-    background-image:url("/img/editor/ecbtn.png");
-}
-.editor-part-icon-adbtn{
-    background-image:url("/img/editor/adbtn.png");
 }
 .hidden{
     display: none;
