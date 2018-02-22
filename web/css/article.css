@@ -29,8 +29,7 @@
   color: #3366ff;
 }
 
-.article_row img {
+.article_row img, .article_row_ex img {
   width: calc(100% - 10px);
   margin: 30px 5px;
 }
-

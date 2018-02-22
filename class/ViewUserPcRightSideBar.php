@@ -9,10 +9,10 @@
 */
 
 Class ViewUserPcRightSideBar {
-	public function __construct() {
+	public function __construct($rank=5) {
 		try {
 			$object_cvi = new ControllerView();
-			$ranking_data = $object_cvi->getDailyRanking();
+			$ranking_data = $object_cvi->getDailyRanking($rank);
 			$object_car = new ControllerArticle();
 			$myfavolite_data = $object_car->getMyFavolite();
 
@@ -34,8 +34,8 @@ Class ViewUserPcRightSideBar {
 ?>
         <div class="right side_bar">
           <!-- ranking -->
-          <div class="">
-            <img src="/img/common/ranking.png" alt="デイリーランキング" class="max-width">
+          <div class="mb10">
+            <img src="/img/common/ranking-title.png" alt="人気の記事" class="max-width mt10 mb10">
 <?php foreach ($ranking_data as $key => $value) { ?>
             <a href="/<?php echo $value['path'] ?>/">
               <div class="ranking_wrapper" id="hover_filter">
@@ -44,7 +44,7 @@ Class ViewUserPcRightSideBar {
                 </div>
                 <div class="ranking_text">
                   <div class="ranking_text_left">
-                    <img src="/img/common/ranking_<?php echo $key+1 ?>.png" alt="<?php echo $key+1 ?>位" class="max-width">
+                    <img src="/img/common/rank-<?php echo $key+1 ?>.png" alt="<?php echo $key+1 ?>位" class="max-width">
                   </div>
                   <div class="ranking_text_right">
                     <div class="ranking_text_right_title"><div class="trunk3"><?php echo $value['title'] ?></div></div>
@@ -56,8 +56,8 @@ Class ViewUserPcRightSideBar {
           </div>
 
           <!-- my favolite -->
-          <div class="mt10 mb20">
-          <h2 class="indextop_title">編集部おすすめ記事</h2>
+          <div class="mb10">
+            <img src="/img/common/myfavolite-title.png" alt="おすすめ記事" class="max-width mt10 mb10">
 <?php foreach ($myfavolite_data as $key => $value) { ?>
             <a href="/<?php echo $value['path'] ?>/">
               <div class="overflow" id="auto_box">

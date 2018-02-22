@@ -35,7 +35,8 @@ Class ModelDataArticles extends CommonBase{
 			if(!mysqli_query($this->getDatabaseLink(), $sql)){
 				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
 			}
-			return true;
+			$article_id = mysqli_insert_id($this->getDatabaseLink());
+			return $article_id;
 		} catch(Exception $e){
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 			return false;
@@ -52,12 +53,21 @@ Class ModelDataArticles extends CommonBase{
 		try{
 			$data_array = $this->escapeSql($data_array);
 			$sql = 'UPDATE '.
-					'data_ '.
+					'data_articles '.
 				'SET '.
-					' = "'.$data_array[''].'", '.
+					'path = "'.$data_array['path'].'", '.
+					'category_id = "'.$data_array['category_id'].'", '.
+					'author_id = "'.$data_array['author_id'].'", '.
+					'release_time = "'.$data_array['release_time'].'", '.
+					'title = "'.$data_array['title'].'", '.
+					'keyword = "'.$data_array['keyword'].'", '.
+					'introduction = "'.$data_array['introduction'].'", '.
+					'body = "'.$data_array['body'].'", '.
+					'summary = "'.$data_array['summary'].'", '.
+					'status = "'.$data_array['status'].'" '.
 				'WHERE '.
 					'deleted=0 '.
-				'AND	_id = "'.$data_array['_id'].'" '.
+				'AND	article_id = "'.$data_array['article_id'].'" '.
 				'LIMIT 1;';
 			if(!mysqli_query($this->getDatabaseLink(), $sql)){
 				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
@@ -164,9 +174,15 @@ Class ModelDataArticles extends CommonBase{
 					'data_authors dau '.
 				'WHERE '.
 					'dar.deleted=0 '.
+					'dar.status=1 '.
 				'AND dar.author_id=dau.author_id '.
 				'AND dar.category_id=mca.category_id '.
-				'AND dar.title like "%'.$word.'%" ;';
+				'AND (dar.title like "%'.$word.'%" '.
+					'OR dar.introduction like "%'.$word.'%" '.
+					'OR dar.body like "%'.$word.'%" '.
+					'OR dar.summary like "%'.$word.'%" '.
+				') '.
+				'ORDER BY release_time DESC;';
 			if(!$result = mysqli_query($this->getDatabaseLink(), $sql)){
 				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
 			}
@@ -184,6 +200,39 @@ Class ModelDataArticles extends CommonBase{
 	}
 
 
+	/*
+	* URL重複確認
+	*
+	* @param string
+	* @access public
+	* @return boolean
+	*/
+	public function isNewPath($path){
+        	try {
+			if(empty($path)){
+				return false;
+			}
+			$path = $this->escapeSql($path);
+            		$sql = 'SELECT '.
+					'article_id '.
+				'FROM '.
+					'data_articles '.
+				'WHERE '.
+					'deleted=0 '.
+				'AND path="'.$path.'" '.
+				'LIMIT 1;';
+			if(!$result = mysqli_query($this->getDatabaseLink(), $sql)){
+				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
+			}
+			if(mysqli_num_rows($result)){
+				return false;
+			}
+			return true;
+		} catch(Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
+		}
+	}
 
 	/*
 	* 全データ取得
@@ -194,7 +243,7 @@ Class ModelDataArticles extends CommonBase{
 	*/
 	public function selectAll(){
 		try{
-			$sql = 'SELECT * FROM data_articles WHERE deleted=0;';
+			$sql = 'SELECT * FROM data_articles WHERE deleted=0 ORDER BY article_id DESC;';
 			if(!$result = mysqli_query($this->getDatabaseLink(), $sql)){
 				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
 			}

@@ -21,9 +21,12 @@ Class ControllerArticle extends CommonBase{
 			if(!$_POST) {
 				return "";
 			}
-	
+
 			if(empty($_POST['path'])) {
 				return "URLを入力してください。";
+			}
+			if($path_error = $this->isPathAvairable($_POST['path'])) {
+				return $path_error;
 			}
 			if(empty($_POST['category'])) {
 				return "カテゴリを選択してください。";
@@ -50,11 +53,21 @@ Class ControllerArticle extends CommonBase{
 			$insert_data['status'] = $_POST['status'];
 
 			$object_mdar = new ModelDataArticles();
-			if(!$object_mdar->insert($insert_data)){
+			if(!$article_id = $object_mdar->insert($insert_data)){
 				throw new Exception();
 			}
 
-			header('location: /admin/');
+			//ファイル作成
+			$full_path = ROOT_DIRECTORY.'web/'.$insert_data['path'];
+			exec('mkdir '.$full_path);
+			$fp = fopen($full_path.'/index.php', "a");
+			$code = "<?php\n".
+				"require_once(dirname(__FILE__).'/../../conf/ini.php');\n".
+				"new ViewUserArticle($article_id);";
+			fwrite($fp, $code);
+			fclose($fp);
+
+			header('location: /admin/view/');
 			exit();
 
 		} catch (Exception $e){
@@ -108,9 +121,91 @@ Class ControllerArticle extends CommonBase{
 			$article_data['summary'] = nl2br($article_data['summary']);
 
 			$article_data['url'] = MAIN_URL.$article_data['path'].'/';
-			$article_data['related'] = $this->getRelated($article_data['category_id']);
+			$article_data['related'] = $this->getRelated($article_data['article_id'], $article_data['category_id']);
 
 			return $article_data;
+		} catch (Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
+		}
+	}
+
+
+	/*
+	* 1記事表示管理用
+	*
+	* @param
+	* @access public
+	* @return array
+	*/
+	public function show1DataByAdmin(){
+		try{
+			//値なし
+			if(empty($_GET['id'])) {
+				header('location: /admin/view/');
+				exit();
+			}
+
+			$object_mdar = new ModelDataArticles();
+			if(!$article_data = $object_mdar->select1ById($_GET['id'])){
+				throw new Exception();
+			}
+	
+			if (empty($_POST)) {
+				return $article_data;
+			}
+
+			$update_data['article_id'] = $article_data['article_id'];
+			$update_data['path'] = $_POST['path'];
+			$update_data['category_id'] = $_POST['category'];
+			$update_data['author_id'] = $_POST['author'];
+			$update_data['release_time'] = $_POST['release'];
+			$update_data['title'] = $_POST['title'];
+			$update_data['keyword'] = $_POST['keyword'];
+
+			$update_data['introduction'] = str_replace(array("\r\n","\r","\n"), "\n", $_POST['introduction']);
+			$update_data['body'] = str_replace(array("\r\n","\r","\n"), "\n", $_POST['body']);
+			$update_data['summary'] = str_replace(array("\r\n","\r","\n"), "\n", $_POST['summary']);
+
+			$update_data['status'] = $_POST['status'];
+
+			if(empty($update_data['path'])) {
+				$update_data['error'] = "URLを入力してください。";
+				return $update_data;
+			}
+			if($update_data['path']!=$article_data['path']) {//path変更時
+				if($path_error = $this->isPathAvairable($_POST['path'])) {
+					$update_data['error'] = $path_error;
+					return $update_data;
+				}
+			}
+			if(empty($update_data['category_id'])) {
+				$update_data['error'] = "カテゴリを選択してください。";
+				return $update_data;
+			}
+			if(empty($update_data['author_id'])) {
+				$update_data['error'] = "著者を選択してください。";
+				return $update_data;
+			}
+			if(empty($update_data['release_time'])) {
+				$update_data['error'] = "公開日時を入力してください。";
+				return $update_data;
+			}
+
+			if(!$object_mdar->update($update_data)){
+				$update_data['error'] = "保存に失敗しました。";
+				return $update_data;
+			}
+
+			if($update_data['path']!=$article_data['path']) {//path変更時
+				//ファイル移動
+				$old_path = ROOT_DIRECTORY.'web/'.$article_data['path'];
+				$new_path = ROOT_DIRECTORY.'web/'.$update_data['path'];
+				exec('mv '.$old_path.' '.$new_path);
+			}
+
+			header('location: /admin/view/');
+			exit();
 		} catch (Exception $e){
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 			return false;
@@ -156,6 +251,7 @@ Class ControllerArticle extends CommonBase{
 	public function showAllByUser(){
 		try{
 			if($search=$_GET['s']) {
+				CreateLog::putDebugLog('search word :'.$search);
 				$object_mdar = new ModelDataArticles();
 				if(!$article_data = $object_mdar->selectSomeByWord($search)){
 					throw new Exception();
@@ -233,13 +329,13 @@ Class ControllerArticle extends CommonBase{
 	* @access private
 	* @return array
 	*/
-	private function getRelated($category_id){
+	private function getRelated($article_id, $category_id){
 		try{
 			$setting_data = parse_ini_file(SETTING_DIRECTORY.'related.ini');
 			$object_mdar = new ModelDataArticles();
 
 			//最新記事XX件
-			$where = 'AND dar.status=1 ORDER BY dar.release_time DESC LIMIT '.$setting_data['related_latest_posted_quantity'];
+			$where = 'AND dar.status=1 AND dar.article_id<>'.$article_id.' ORDER BY dar.release_time DESC LIMIT '.$setting_data['related_latest_posted_quantity'];
 			$article_data[$setting_data['related_latest_posted_priority']] = $object_mdar->selectSome($where);
 
 			//被らないようにする
@@ -249,13 +345,12 @@ Class ControllerArticle extends CommonBase{
 			}
 
 			//同カテゴリランダムXX件
-			$where = $where_not.'AND dar.status=1 AND dar.category_id='.$category_id.' ORDER BY RAND() LIMIT '.$setting_data['related_same_category_quantity'];
+			$where = $where_not.'AND dar.status=1 AND dar.article_id<>'.$article_id.' AND dar.category_id='.$category_id.' ORDER BY RAND() LIMIT '.$setting_data['related_same_category_quantity'];
 			$article_data[$setting_data['related_same_category_priority']] = $object_mdar->selectSome($where);
 
 			//別カテゴリランダムXX件
 			$where = $where_not.'AND dar.status=1 AND dar.category_id<>'.$category_id.' ORDER BY RAND() LIMIT '.$setting_data['related_different_category_quantity'];
 			$article_data[$setting_data['related_different_category_priority']] = $object_mdar->selectSome($where);
-
 
 			//article_idだけをORDER BY RAND()で検索して、後で他カラムをID指定で取得するとさらに検索が速くなるらしい
 
@@ -276,6 +371,43 @@ Class ControllerArticle extends CommonBase{
 			return false;
 		}
 	}
+
+	/*
+	* path確認
+	*
+	* @param string
+	* @access private
+	* @return string
+	*/
+	private function isPathAvairable($path){
+		try{
+			if(empty($path)){
+				return 'URLを入力してください。';
+			}
+			$ng_symbols = array('!', '"', '#', '$', '%', '&', '\'', '(', ')', '=', '~', '^', '|', '\\', '{', '}', '[', ']', ':', '*', ';', '+', '<', '>', '?', ',', '.', '/');
+			foreach($ng_symbols as $key => $value) {
+				if(strpos($path, $value) !== false){
+					return 'URLに不正な文字があります。';
+				}
+			}
+			$ng_directories = array('admin', 'css', 'img', 'js', 'ranking', 'terms');
+			foreach($ng_directories as $key => $value) {
+				if($value==$path){
+					return 'そのURLは利用できません。';
+				}
+			}
+			$object_mdar = new ModelDataArticles();
+			if(!$object_mdar->isNewPath($path)){
+				return 'そのURLは既に利用されています。';
+			}
+	
+			return '';
+		} catch (Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return 'そのURLは利用できません。';
+		}
+	}
+
 
 
 }

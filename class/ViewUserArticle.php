@@ -65,6 +65,7 @@ Class ViewUserArticle {
     <meta name="format-detection" content="telephone=no">
  
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/base-pc.css">
     <link rel="stylesheet" type="text/css" href="/css/article.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
@@ -81,39 +82,35 @@ Class ViewUserArticle {
         <div class="left main_bar">
           <div class="article_view">
             <div class="sitemap">
-              <a href="/"><?php echo $setting_data['site_name_short'] ?></a> &gt; <a href="/"><?php echo $article_data['category_name']; ?></a> &gt; <?php echo $article_data['title']; ?>
+              <a href="/"><?php echo $setting_data['site_name_short'] ?></a> <i class="fa fa-angle-right" aria-hidden="true"></i> <a href="/"><?php echo $article_data['category_name']; ?></a> <i class="fa fa-angle-right" aria-hidden="true"></i> <?php echo $article_data['title']; ?>
             </div>
-            <div class="article_row mt30" ><!-- Start of Article head -->
+            <div class="article_row mt30"><!-- Start of Article head -->
               <div class="col-md-3 col-sm-3" id="center"><img id="thumb_1" class="img-circle" src="<?php echo IMAGE_MAIN_LARGE; ?>" alt=""></div>
               <div class="col-md-9 col-sm-9">
-                <h1 class="article_text_title "><?php echo $article_data['title']; ?></h1>
+                <h1 class="article_text_title"><?php echo $article_data['title']; ?></h1>
                 <div class="addthis_inline_share_toolbox"></div>
               </div>
             </div><!-- End of Article head -->
 
-            <!-- Start of Desc1 -->
-            <div id="article_view_desc">
+            <div class="article_row_ex">
 <?php echo $article_data['introduction']; ?>
             </div>
-            <!-- End of Desc1 -->
 
             <hr>
 
             <div id="toc"><!-- 目次 --></div>
 
-            <!-- Start of Content 1 to 4 -->
             <div class="article_row">
               <div class="col-md-12 col-xs-12">
 <?php echo $article_data['body']; ?>
               </div>
             </div>
-            <!-- End of Content 1 to 4 -->
 
-            <!-- Desc2 -->
-            <div class="article_view_desc2 ">
+            <div class="article_row_ex">
 <?php echo $article_data['summary']; ?>
-              <br>
+            </div>
 
+            <div>
 <?php foreach ($article_data['related'] as $key => $value) { ?>
               <a href="/<?php echo $value['path'] ?>/" class="item-related-article overflow">
                 <div class="item-thumbnail"><img src="/<?php echo $value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="73" height="73"></div>
@@ -124,25 +121,21 @@ Class ViewUserArticle {
               </a>
 <?php } ?>
             </div>
-            <!-- End of Desc2 -->
 
             <div class="addthis_inline_share_toolbox_ribm"></div>
 
             <!-- Author-->
             <div class="overflow article_written_box">
               <div class="left" style="width:20%;">
-                <a href="#" class="gray" id="written_user_box"><img src="<?php echo $article_data['author_image'] ?>" class="max-width"></a>
+                <img src="<?php echo $article_data['author_image'] ?>" class="max-width">
               </div>
               <div class="right article_written_user" style="width:80%;">
                 <div class="article_written_title">この記事を書いた人</div>
-                <a href="#">
                   <p class="article_written_username"><?php echo $article_data['author_name'] ?></p>
                   <p class="article_written_text"><?php echo $article_data['author_profile'] ?></p>
-                </a>
               </div>
             </div>
             <!-- End of Author -->
-
 
           </div> <!-- article_view -->
         </div> <!-- left main_bar -->
@@ -225,6 +218,7 @@ Class ViewUserArticle {
     <meta name="format-detection" content="telephone=no">
  
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/base-sp.css">
     <link rel="stylesheet" type="text/css" href="/css/article.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
@@ -249,7 +243,7 @@ Class ViewUserArticle {
           <div class="article_head_text">
             <div class="overflow">
               <div class="left gray gray666">
-                <img src="/img/common/author_3koda.jpg" class="img-circle article_head_usericon"> <?php echo $article_data['author_name'] ?>
+                <img src="<?php echo $article_data['author_image'] ?>" class="img-circle article_head_usericon"> <?php echo $article_data['author_name'] ?>
               </div>
             </div>
           </div>
@@ -269,7 +263,7 @@ Class ViewUserArticle {
           </div>
         </div>
 
-        <div class="article_view_desc1">
+        <div class="article_row_ex">
 <?php echo $article_data['introduction']; ?>
         </div>
 
@@ -285,7 +279,7 @@ Class ViewUserArticle {
 
       <hr>
 
-      <div class="article_view_desc1">
+      <div class="article_row_ex">
 <?php echo $article_data['summary']; ?>
       </div>
 

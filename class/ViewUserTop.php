@@ -17,9 +17,9 @@ Class ViewUserTop {
 			$article_data = $object_car->showAllByUser();
 
 			if (UserAgent::getOsId()) {
-				self::bodySp($article_data, $recommend_data, $myfavolite_data);
+				self::bodySp($article_data, $recommend_data);
 			} else {
-				self::bodyPc($article_data, $recommend_data, $myfavolite_data);
+				self::bodyPc($article_data, $recommend_data);
 			}
 		} catch(Exception $e) {
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
@@ -33,7 +33,7 @@ Class ViewUserTop {
 	* @access private
 	* @return
 	*/
-	private function bodyPc($article_data, $recommend_data, $myfavolite_data) {
+	private function bodyPc($article_data, $recommend_data) {
 		try {
 			global $setting_data;
 ?>
@@ -184,7 +184,7 @@ Class ViewUserTop {
 	* @access private
 	* @return
 	*/
-	private function bodySp($article_data, $recommend_data, $myfavolite_data) {
+	private function bodySp($article_data, $recommend_data) {
 		try {
 			global $setting_data;
 ?>
@@ -216,6 +216,7 @@ Class ViewUserTop {
     <meta name="format-detection" content="telephone=no">
  
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/css/base-sp.css">
     <link rel="stylesheet" type="text/css" href="/css/wideslider.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">

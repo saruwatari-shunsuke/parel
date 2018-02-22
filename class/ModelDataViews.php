@@ -193,7 +193,7 @@ Class ModelDataViews extends CommonBase{
 					'AND dar.article_id=dvi.article_id '.
 					'AND dar.deleted=0 '.
 					'AND dar.status=1 '.
-				'ORDER BY view DESC LIMIT '.$num.';';
+				'ORDER BY dvi.view DESC, dar.release_time DESC LIMIT '.$num.';';
 			if(!$result = mysqli_query($this->getDatabaseLink(), $sql)){
 				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
 			}

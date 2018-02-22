@@ -40,15 +40,15 @@ Class ControllerView extends CommonBase{
 	/*
 	* デイリーランキング
 	*
-	* @param
+	* @param int
 	* @access public
 	* @return array
 	*/
-	public function getDailyRanking(){
+	public function getDailyRanking($rank){
 		try{
 			$object_mdvi = new ModelDataViews();
 			$term = date('Y-m-d', strtotime('-1 day'));
-			if(!$ranking_data = $object_mdvi->getRankingForUser($term, 5)){
+			if(!$ranking_data = $object_mdvi->getRankingForUser($term, $rank)){
 				return false;
 			}
 			return $ranking_data;
