@@ -30,16 +30,17 @@ Class ViewAdminArticleAll {
 <title><?php echo SITE_TITLE_ADMIN ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <link rel="stylesheet" type="text/css" href="/css/common/html5reset-1.6.1.css">
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <a href="/" target="_blank">パルール</a>
 <a href="/admin/">パルール管理画面</a>
 <h1>記事一覧（仮）</h1>
-<a href="/admin/write/">投稿する</a>
+<h1><a href="/admin/write/"><i class="fa fa-edit" aria-hidden="true"></i> 投稿する</a></h1>
 <table border=1>
 <?php foreach ($article_data as $key => $value) { ?>
   <tr>
-    <td><a href="/<?php echo $value['path'] ?>/" target="_blank"><button>移動</button></a></td>
-    <td><a href="/admin/edit/?id=<?php echo $value['article_id'] ?>"><button>修正</button></a></td>
+    <td><a class="btn" href="/<?php echo $value['path'] ?>/" target="_blank"><i class="fa fa-external-link"></i></a><a class="btn" href="/admin/edit/?id=<?php echo $value['article_id'] ?>"><i class="fa fa-pencil"></i></a></td>
     <td><?php echo $value['article_id'] ?></td>
     <td><?php echo $value['author_id'] ?></td>
     <td><?php echo $value['release_time'] ?></td>

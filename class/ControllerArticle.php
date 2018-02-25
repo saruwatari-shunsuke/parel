@@ -120,7 +120,7 @@ Class ControllerArticle extends CommonBase{
 			$article_data['body'] = nl2br($article_data['body']);
 			$article_data['summary'] = nl2br($article_data['summary']);
 
-			$article_data['url'] = MAIN_URL.$article_data['path'].'/';
+			$article_data['url'] = CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/';
 			$article_data['related'] = $this->getRelated($article_data['article_id'], $article_data['category_id']);
 
 			return $article_data;
@@ -248,7 +248,7 @@ Class ControllerArticle extends CommonBase{
 	* @access public
 	* @return array
 	*/
-	public function showAllByUser(){
+	public function showAllByUser($category_id){
 		try{
 			if($search=$_GET['s']) {
 				CreateLog::putDebugLog('search word :'.$search);
@@ -260,9 +260,11 @@ Class ControllerArticle extends CommonBase{
 			}
 			
 
-			if($category_id=$_GET['c']) {
+			if($category_id) {
 				$where = 'AND dar.status=1 AND dar.category_id='.$category_id.' ORDER BY dar.release_time DESC';
-			} else {
+			} else if($author_id=$_GET['a']) {
+				$where = 'AND dar.status=1 AND dar.author_id='.$author_id.' ORDER BY dar.release_time DESC';
+			} else  {
 				$where = 'AND dar.status=1 ORDER BY dar.release_time DESC';
 			}
 

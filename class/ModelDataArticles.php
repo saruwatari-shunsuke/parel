@@ -118,6 +118,7 @@ Class ModelDataArticles extends CommonBase{
             		$sql = 'SELECT '.
 					'dar.article_id, '.
 					'dar.path, '.
+					'dar.category_id, '.
 					'dar.release_time, '.
 					'dar.title, '.
 					'dar.introduction, '.
@@ -162,6 +163,7 @@ Class ModelDataArticles extends CommonBase{
             		$sql = 'SELECT '.
 					'dar.article_id, '.
 					'dar.path, '.
+					'dar.category_id, '.
 					'dar.release_time, '.
 					'dar.title, '.
 					'dar.introduction, '.
@@ -174,7 +176,7 @@ Class ModelDataArticles extends CommonBase{
 					'data_authors dau '.
 				'WHERE '.
 					'dar.deleted=0 '.
-					'dar.status=1 '.
+				'AND dar.status=1 '.
 				'AND dar.author_id=dau.author_id '.
 				'AND dar.category_id=mca.category_id '.
 				'AND (dar.title like "%'.$word.'%" '.

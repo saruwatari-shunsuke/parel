@@ -34,16 +34,16 @@ Class ViewUserSpSubContents {
 ?>
         <!-- ranking -->
         <div class="mt10 mb10">
-          <img src="/img/common/ranking-title.png" alt="人気の記事" class="ranking_title mt10 mb10">
+          <img src="<?php echo MAIN_URL ?>img/common/ranking-title.png" alt="人気の記事" class="ranking_title mt10 mb10">
 <?php foreach ($ranking_data as $key => $value) { ?>
-          <a href="/<?php echo $value['path'] ?>/">
+          <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
             <div class="ranking_wrapper" id="hover_filter">
               <div class="ranking_img_area">
-                <img src="/<?php echo $value['path'].'/'.IMAGE_MAIN_SMALL ?>">
+                <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>">
               </div>
               <div class="ranking_text">
                 <div class="ranking_text_left">
-                  <img src="/img/common/rank-<?php echo $key+1 ?>.png" alt="<?php echo $key+1 ?>位" class="max-width">
+                  <div class="ranking_text_left_title"><?php echo $key+1 ?></div>
                 </div>
                 <div class="ranking_text_right">
                   <div class="ranking_text_right_title"><?php echo $value['title'] ?></div>
@@ -55,20 +55,20 @@ Class ViewUserSpSubContents {
         </div>
 <?php if (count($ranking_data)<=5) { ?>
       <div class="mt15 mb10 center max-width" id="hover_btn">
-        <a href="/ranking/" class="boxview_nextbtn">もっとみる</a>
+        <a href="<?php echo MAIN_URL ?>ranking/" class="boxview_nextbtn">もっとみる</a>
       </div>
 <?php } ?>
 
         <!-- my favolite -->
         <div class="boxview_wraper mt10 mb10">
-          <img src="/img/common/myfavolite-title.png" alt="おすすめ記事" class="ranking_title mt10 mb10">
+          <img src="<?php echo MAIN_URL ?>img/common/myfavolite-title.png" alt="おすすめ記事" class="ranking_title mt10 mb10">
           <div class="boxview_box" id="auto_box">
 <?php foreach ($myfavolite_data as $key => $value) { ?>
-            <a href="/<?php echo $value['path'] ?>/">
-              <div class="mobile_article_index_box2 max-width ">
+            <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
+              <div class="mobile_article_index_box2 max-width">
                 <div class="boxview_left">
                   <div class="boxview_leftimg">
-                    <img src="/<?php echo $value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>" width="78" height="78">
+                    <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>" width="78" height="78">
                   </div>
                 </div>
                 <div class="boxview_right">

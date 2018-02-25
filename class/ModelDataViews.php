@@ -183,6 +183,7 @@ Class ModelDataViews extends CommonBase{
 			$num = $this->escapeSql($num);
 			$sql = 'SELECT '.
 					'dar.article_id, '.
+					'dar.category_id, '.
 					'dar.path, '.
 					'dar.title '.
 				'FROM '.

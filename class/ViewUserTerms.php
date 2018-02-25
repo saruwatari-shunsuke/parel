@@ -49,7 +49,7 @@ Class ViewUserTerms {
     <meta property="og:url" content="<?php echo MAIN_URL ?>">
     <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:description" content="<?php echo $setting_data['site_description'] ?>">
-    <meta property="og:image" content="">
+    <meta property="og:image" content="<?php echo IMAGE_SITE_MAIN ?>">
     <meta property="og:locale" content="ja_JP">
     <meta property="al:web:url" content="<?php echo MAIN_URL ?>">
 
@@ -60,7 +60,7 @@ Class ViewUserTerms {
     <meta name="format-detection" content="telephone=no">
  
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/base-pc.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="">
     <link rel="alternate" type="application/rss+xml" title="" href="">
@@ -83,8 +83,8 @@ Class ViewUserTerms {
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script>
-    <script type="text/javascript" src="/js/base-pc.js"></script>
-    <script type="text/javascript" src="/js/trunk8.min.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-pc.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/trunk8.min.js"></script>
     <script>
       $(function(){
           $('.trunk2').trunk8({lines:2});
@@ -127,7 +127,7 @@ Class ViewUserTerms {
     <meta property="og:url" content="<?php echo MAIN_URL ?>">
     <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:description" content="<?php echo $setting_data['site_description'] ?>">
-    <meta property="og:image" content="">
+    <meta property="og:image" content="<?php echo IMAGE_SITE_MAIN ?>">
     <meta property="og:locale" content="ja_JP">
     <meta property="al:web:url" content="<?php echo MAIN_URL ?>">
 
@@ -139,7 +139,7 @@ Class ViewUserTerms {
  
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/base-sp.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-sp.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="">
     <link rel="alternate" type="application/rss+xml" title="" href="">
@@ -161,8 +161,8 @@ Class ViewUserTerms {
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><!-- for wideslider.js -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/js/base-sp.js"></script>
-    <script type="text/javascript" src="/js/slidemenu.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-sp.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js"></script>
 
   </body>
 </html>

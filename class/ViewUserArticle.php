@@ -66,8 +66,8 @@ Class ViewUserArticle {
  
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/base-pc.css">
-    <link rel="stylesheet" type="text/css" href="/css/article.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/article.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="">
     <link rel="alternate" type="application/rss+xml" title="" href="">
@@ -100,23 +100,25 @@ Class ViewUserArticle {
 
             <div id="toc"><!-- 目次 --></div>
 
-            <div class="article_row">
+            <div class="article_row mb30">
               <div class="col-md-12 col-xs-12">
 <?php echo $article_data['body']; ?>
               </div>
             </div>
 
-            <div class="article_row_ex">
+            <hr>
+
+            <div class="article_row_ex mb30">
 <?php echo $article_data['summary']; ?>
             </div>
 
             <div>
 <?php foreach ($article_data['related'] as $key => $value) { ?>
               <a href="/<?php echo $value['path'] ?>/" class="item-related-article overflow">
-                <div class="item-thumbnail"><img src="/<?php echo $value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="73" height="73"></div>
+                <div class="item-thumbnail"><img src="/<?php echo $value['path'].'/'.IMAGE_MAIN_SMALL ?>"></div>
                 <div class="item-content">
                   <p class="item-title"><?php echo $value['title'] ?></p>
-                  <p class="item-description"><?php echo $value['description'] ?></p>
+                  <p class="item-description trunk3"><?php echo $value['description'] ?></p>
                 </div>
               </a>
 <?php } ?>
@@ -125,16 +127,18 @@ Class ViewUserArticle {
             <div class="addthis_inline_share_toolbox_ribm"></div>
 
             <!-- Author-->
-            <div class="overflow article_written_box">
-              <div class="left" style="width:20%;">
-                <img src="<?php echo $article_data['author_image'] ?>" class="max-width">
-              </div>
-              <div class="right article_written_user" style="width:80%;">
-                <div class="article_written_title">この記事を書いた人</div>
+            <a href="/?a=<?php echo $article_data['author_id'] ?>">
+              <div class="overflow article_written_box">
+                <div class="article_written_box_left">
+                  <img src="<?php echo $article_data['author_image'] ?>">
+                </div>
+                <div class="article_written_box_right">
+                  <p>written by</p>
                   <p class="article_written_username"><?php echo $article_data['author_name'] ?></p>
-                  <p class="article_written_text"><?php echo $article_data['author_profile'] ?></p>
+                  <p><?php echo $article_data['author_profile'] ?></p>
+                </div>
               </div>
-            </div>
+            </a>
             <!-- End of Author -->
 
           </div> <!-- article_view -->
@@ -150,9 +154,8 @@ Class ViewUserArticle {
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script>
-    <script type="text/javascript" src="/js/base-pc.js"></script>
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a72acc8d1428d19"></script>
-    <script type="text/javascript" src="/js/trunk8.min.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-pc.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/trunk8.min.js"></script>
     <script>
       $(function(){
           $('.trunk2').trunk8({lines:2});
@@ -160,7 +163,7 @@ Class ViewUserArticle {
       });
     </script>
 
-    <script src="/js/jquery.toc.js"></script>
+    <script src="<?php echo MAIN_URL ?>js/jquery.toc.js"></script>
     <script>
         $(function(){
             $("body").toc({
@@ -170,6 +173,7 @@ Class ViewUserArticle {
             });
         });
     </script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a72acc8d1428d19"></script>
 
   </body>
 </html>
@@ -219,8 +223,8 @@ Class ViewUserArticle {
  
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/base-sp.css">
-    <link rel="stylesheet" type="text/css" href="/css/article.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-sp.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/article.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="">
     <link rel="alternate" type="application/rss+xml" title="" href="">
@@ -242,9 +246,11 @@ Class ViewUserArticle {
           </div>
           <div class="article_head_text">
             <div class="overflow">
+<a href="/?a=<?php echo $article_data['author_id'] ?>">
               <div class="left gray gray666">
                 <img src="<?php echo $article_data['author_image'] ?>" class="img-circle article_head_usericon"> <?php echo $article_data['author_name'] ?>
               </div>
+</a>
             </div>
           </div>
         </div>
@@ -341,16 +347,12 @@ Class ViewUserArticle {
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/js/base-sp.js"></script>
-    <script type="text/javascript" src="/js/slidemenu.js"></script>
-    <script type="text/javascript" src="/js/imgLiquid.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-sp.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/imgLiquid.js"></script>
     <style type="text/css">.imgLiquid img {visibility:hidden}</style>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.easing.1.3.js"></script>
-
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a72acc8d1428d19"></script>
-    <script src="/js/jquery.toc.js"></script>
+    <script src="<?php echo MAIN_URL ?>js/jquery.toc.js"></script>
     <script>
         $(function(){
             $("body").toc({
@@ -360,6 +362,7 @@ Class ViewUserArticle {
             });
         });
     </script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a72acc8d1428d19"></script>
 
   </body>
 </html>
