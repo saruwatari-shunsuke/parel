@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 0.1
+* @version 1.0
 */
 
 Class ViewUserTop {
@@ -85,8 +85,8 @@ Class ViewUserTop {
           <div class="left width33p">
             <div class="carousel_body" id="hover_filter">
               <div class="">
-                <a href="<?php echo CATEGORY_URL[$category_id].$value['path'].'/' ?>" class="push-click" id="topbtn-left" data-article-id="#">
-                  <img class="carousel_item_img" src="<?php echo CATEGORY_URL[$category_id].$value['path'].'/'.IMAGE_MAIN_LARGE ?>">
+                <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>" class="push-click" id="topbtn-left" data-article-id="#">
+                  <img class="carousel_item_img" src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_LARGE ?>">
                   <div class="carousel_logo_wrapper">
                     <p class="carousel_category"><img src="<?php echo MAIN_URL ?>img/common/category-<?php echo $value['category_id'] ?>.png"></p>
                     <p class="carousel_text trunk2"><?php echo $value['title'] ?></p>
@@ -105,10 +105,10 @@ Class ViewUserTop {
 
           <div id="article_list" class="overflow mb20">
 <?php foreach ($article_data as $key => $value) { ?>
-            <a href="<?php echo CATEGORY_URL[$category_id].$value['path'].'/' ?>" class="article_box_list article_box-<?php echo floor($key/$page_items) ?>">
+            <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>" class="article_box_list article_box-<?php echo floor($key/$page_items) ?>">
               <div class="boxview_box" id="hover_filter">
                 <div class="boxview_img_area">
-                  <img src="<?php echo CATEGORY_URL[$category_id].$value['path'].'/'.IMAGE_MAIN_SMALL ?>">
+                  <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>">
                 </div>
                 <div class="boxview_text">
                   <p class="boxview_text_title trunk2"><?php echo $value['title'] ?></p>
@@ -189,8 +189,8 @@ function showArticle(num) {
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/trunk8.min.js"></script>
     <script>
       $(function(){
-//          $('.trunk2').trunk8({lines:2});
-//          $('.trunk3').trunk8({lines:3});
+          $('.trunk2').trunk8({lines:2});
+          $('.trunk3').trunk8({lines:3});
       });
     </script>
 
@@ -210,7 +210,7 @@ function showArticle(num) {
 	* @access private
 	* @return
 	*/
-	private function bodySp($article_data, $recommend_data) {
+	private function bodySp($article_data, $recommend_data, $category_id) {
 		try {
 			global $setting_data;
 ?>
@@ -266,10 +266,10 @@ function showArticle(num) {
             <ul class="slides">
 <?php foreach ($recommend_data as $key => $value) { ?>
               <li>
-                <a href="<?php echo CATEGORY_URL[$category_id].$value['path'].'/' ?>" class="gray gray666">
+                <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>" class="gray gray666">
                   <div class="box_article_head_photo">
                     <div id="article_head_imgliq">
-                      <img class="sp-head" src="<?php echo CATEGORY_URL[$category_id].$value['path'].'/'.IMAGE_MAIN_LARGE ?>">
+                      <img class="sp-head" src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_LARGE ?>">
                     </div>
                     <div class="box_article_head_text blackgrd">
                       <p class="box_carousel_title text-line-2"><?php echo $value['title'] ?></p>
@@ -288,10 +288,10 @@ function showArticle(num) {
 <?php } ?>
 
 <?php foreach ($article_data as $key => $value) { ?>
-          <a href="<?php echo CATEGORY_URL[$category_id].$value['path'].'/' ?>">
+          <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
             <div class="mobile_article_index_box2 max-width border_top">
               <div class="boxview_left">
-                <div class="boxview_leftimg"><img src="<?php echo CATEGORY_URL[$category_id].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78"></div>
+                <div class="boxview_leftimg"><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78"></div>
               </div>
               <div class="boxview_right">
                 <div class="mobile_article_index_text" id="boxview_righttext">

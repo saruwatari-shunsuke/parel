@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 0.1
+* @version 1.0
 */
 
 Class ViewUserArticle {
@@ -82,7 +82,7 @@ Class ViewUserArticle {
         <div class="left main_bar">
           <div class="article_view">
             <div class="sitemap">
-              <a href="/"><?php echo $setting_data['site_name_short'] ?></a> <i class="fa fa-angle-right" aria-hidden="true"></i> <a href="/"><?php echo $article_data['category_name']; ?></a> <i class="fa fa-angle-right" aria-hidden="true"></i> <?php echo $article_data['title']; ?>
+              <a href="<?php echo MAIN_URL ?>"><?php echo $setting_data['site_name_short'] ?></a> <i class="fa fa-angle-right" aria-hidden="true"></i> <a href="<?php echo CATEGORY_URL[$article_data['category_id']] ?>"><?php echo $article_data['category_name']; ?></a> <i class="fa fa-angle-right" aria-hidden="true"></i> <?php echo $article_data['title']; ?>
             </div>
             <div class="article_row mt30"><!-- Start of Article head -->
               <div class="col-md-3 col-sm-3" id="center"><img id="thumb_1" class="img-circle" src="<?php echo IMAGE_MAIN_LARGE; ?>" alt=""></div>
@@ -114,8 +114,8 @@ Class ViewUserArticle {
 
             <div>
 <?php foreach ($article_data['related'] as $key => $value) { ?>
-              <a href="/<?php echo $value['path'] ?>/" class="item-related-article overflow">
-                <div class="item-thumbnail"><img src="/<?php echo $value['path'].'/'.IMAGE_MAIN_SMALL ?>"></div>
+              <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>" class="item-related-article overflow">
+                <div class="item-thumbnail"><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>"></div>
                 <div class="item-content">
                   <p class="item-title"><?php echo $value['title'] ?></p>
                   <p class="item-description trunk3"><?php echo $value['description'] ?></p>
@@ -127,7 +127,7 @@ Class ViewUserArticle {
             <div class="addthis_inline_share_toolbox_ribm"></div>
 
             <!-- Author-->
-            <a href="/?a=<?php echo $article_data['author_id'] ?>">
+            <a href="<?php echo MAIN_URL.'?a='.$article_data['author_id'] ?>">
               <div class="overflow article_written_box">
                 <div class="article_written_box_left">
                   <img src="<?php echo $article_data['author_image'] ?>">
@@ -246,7 +246,7 @@ Class ViewUserArticle {
           </div>
           <div class="article_head_text">
             <div class="overflow">
-<a href="/?a=<?php echo $article_data['author_id'] ?>">
+<a href="<?php echo MAIN_URL.'?a='.$article_data['author_id'] ?>">
               <div class="left gray gray666">
                 <img src="<?php echo $article_data['author_image'] ?>" class="img-circle article_head_usericon"> <?php echo $article_data['author_name'] ?>
               </div>
@@ -312,11 +312,11 @@ Class ViewUserArticle {
       <div class="boxview_box" id="auto_box">
 
 <?php foreach ($article_data['related'] as $key => $value) { ?>
-        <a href="/<?php echo $value['path'] ?>/">
+        <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
           <div class="mobile_article_index_box2 max-width">
             <div class="boxview_left">
               <div class="boxview_leftimg">
-                <img src="/<?php echo $value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78">
+                <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78">
               </div>
             </div>
             <div class="boxview_right">

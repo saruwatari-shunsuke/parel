@@ -19,10 +19,6 @@
 
 	//URL設定
 	if(PRODUCT) {
-		define('MAIN_URL', 'http://ec2-52-199-5-120.ap-northeast-1.compute.amazonaws.com/');
-		define('CATEGORY_URL', array(MAIN_URL, MAIN_URL,MAIN_URL, MAIN_URL, MAIN_URL, MAIN_URL,));
-		define('CATEGORY_URL2', array(MAIN_URL, MAIN_URL.'food/', MAIN_URL.'exercise/', MAIN_URL.'health/', MAIN_URL.'fashion/', MAIN_URL.'feature/',));
-/*
 		define('MAIN_URL', 'http://parel.site/');
 		define('CATEGORY_URL', array(
 					'http://parel.site/',
@@ -32,11 +28,9 @@
 					'http://fashion.parel.site/',
 					'http://feature.parel.site/',
 					));
-*/
 	} else {
 		define('MAIN_URL', 'http://ec2-52-199-5-120.ap-northeast-1.compute.amazonaws.com/');
 		define('CATEGORY_URL', array(MAIN_URL, MAIN_URL,MAIN_URL, MAIN_URL, MAIN_URL, MAIN_URL,));
-		define('CATEGORY_URL2', array(MAIN_URL, MAIN_URL.'food/', MAIN_URL.'exercise/', MAIN_URL.'health/', MAIN_URL.'fashion/', MAIN_URL.'feature/',));
 	}
 	define('COMPANY_URL', 'https://www.agentgate.jp/');
 	define('SITE_TITLE_ADMIN', 'パルール管理画面');

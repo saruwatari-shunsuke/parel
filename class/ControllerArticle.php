@@ -5,7 +5,7 @@
 * @package Controller
 * @author Saruwatari Shunsuke
 * @since PHP 7.0
-* @version 0.1
+* @version 1.0
 */
 Class ControllerArticle extends CommonBase{
 	/*
@@ -58,7 +58,7 @@ Class ControllerArticle extends CommonBase{
 			}
 
 			//ファイル作成
-			$full_path = ROOT_DIRECTORY.'web/'.$insert_data['path'];
+			$full_path = ROOT_DIRECTORY.'category'.$insert_data['category_id'].'/'.$insert_data['path'];
 			exec('mkdir '.$full_path);
 			$fp = fopen($full_path.'/index.php', "a");
 			$code = "<?php\n".
@@ -67,7 +67,7 @@ Class ControllerArticle extends CommonBase{
 			fwrite($fp, $code);
 			fclose($fp);
 
-			header('location: /admin/view/');
+			header('location: /view/');
 			exit();
 
 		} catch (Exception $e){
@@ -104,7 +104,7 @@ Class ControllerArticle extends CommonBase{
 			}
 
 			$article_data['author_name'] = $author_data['name'];
-			$article_data['author_image'] = '/img/common/'.$author_data['image'];
+			$article_data['author_image'] = MAIN_URL.'img/common/'.$author_data['image'];
 			$article_data['author_profile'] = $author_data['profile'];
 
 			$object_mmca = new ModelMasterCategories();
@@ -142,7 +142,7 @@ Class ControllerArticle extends CommonBase{
 		try{
 			//値なし
 			if(empty($_GET['id'])) {
-				header('location: /admin/view/');
+				header('location: /view/');
 				exit();
 			}
 
@@ -199,12 +199,12 @@ Class ControllerArticle extends CommonBase{
 
 			if($update_data['path']!=$article_data['path']) {//path変更時
 				//ファイル移動
-				$old_path = ROOT_DIRECTORY.'web/'.$article_data['path'];
-				$new_path = ROOT_DIRECTORY.'web/'.$update_data['path'];
+				$old_path = ROOT_DIRECTORY.'category'.$article_data['category_id'].'/'.$article_data['path'];
+				$new_path = ROOT_DIRECTORY.'category'.$update_data['category_id'].'/'.$update_data['path'];
 				exec('mv '.$old_path.' '.$new_path);
 			}
 
-			header('location: /admin/view/');
+			header('location: /view/');
 			exit();
 		} catch (Exception $e){
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());

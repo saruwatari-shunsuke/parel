@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 0.1
+* @version 1.0
 */
 
 Class ViewUserSpFooter {
@@ -33,8 +33,8 @@ Class ViewUserSpFooter {
         <div class="mobile_header_left js-menu-trigger" id="triggerMenu_open">
           <i class="mobile_header_left_img fa fa-bars" aria-hidden="true"></i>
         </div>
-        <div class="left" id="mobile_header_center">
-          <a href="<?php echo MAIN_URL ?>"><img src="<?php echo LOGO ?>" class="titlelogo"></a>
+        <div class="left mobile_header_center">
+          <a href="<?php echo MAIN_URL ?>"><img src="<?php echo LOGO ?>"></a>
         </div>
         <a href="#" class="header_search_btn" data-toggle="modal" data-target="#ModalSearch" id="mobile_header_right">
           <div class="mobile_header_right">
@@ -69,11 +69,11 @@ Class ViewUserSpFooter {
         <ul class="footer_nav_category">
           <li><a href="<?php echo MAIN_URL ?>">Top</a></li>
           <li><a href="<?php echo MAIN_URL ?>ranking/">Ranking</a></li>
-          <li><a href="<?php echo CATEGORY_URL2[1] ?>">Food</a></li>
-          <li><a href="<?php echo CATEGORY_URL2[2] ?>">Exercise</a></li>
-          <li><a href="<?php echo CATEGORY_URL2[3] ?>">Health</a></li>
-          <li><a href="<?php echo CATEGORY_URL2[4] ?>">Fashion</a></li>
-          <li><a href="<?php echo CATEGORY_URL2[5] ?>">Feature</a></li>
+          <li><a href="<?php echo CATEGORY_URL[1] ?>">Food</a></li>
+          <li><a href="<?php echo CATEGORY_URL[2] ?>">Exercise</a></li>
+          <li><a href="<?php echo CATEGORY_URL[3] ?>">Health</a></li>
+          <li><a href="<?php echo CATEGORY_URL[4] ?>">Fashion</a></li>
+          <li><a href="<?php echo CATEGORY_URL[5] ?>">Feature</a></li>
           <li><a href="//twitter.com/parel_beauty">Twitter</a></li>
         </ul>
         <hr class="footer_bar">
@@ -91,11 +91,11 @@ Class ViewUserSpFooter {
     <div id="mobile_side_down_menu" class="is_browser js-panel" style="display: none;">
       <ul class="left_menu_ul">
         <li class="top"><a href="<?php echo MAIN_URL ?>" class="gray666">Top<br><span class="font60 gray333">トップ</span></a></li>
-        <li class="food"><a href="<?php echo CATEGORY_URL2[1] ?>" class="gray666">Food<br><span class="font60 gray333">食事</span></a></li>
-        <li class="excercise"><a href="<?php echo CATEGORY_URL2[2] ?>" class="gray666">Exercise<br><span class="font60 gray333">運動</span></a></li>
-        <li class="health"><a href="<?php echo CATEGORY_URL2[3] ?>" class="gray666">Health<br><span class="font60 gray333">健康</span></a></li>
-        <li class="fashion"><a href="<?php echo CATEGORY_URL2[4] ?>" class="gray666">Fashion<br><span class="font60 gray333">ファッション</span></a></li>
-        <li class="pickup"><a href="<?php echo CATEGORY_URL2[5] ?>" class="gray666">Feature<br><span class="font60 gray333">特集</span></a></li>
+        <li class="food"><a href="<?php echo CATEGORY_URL[1] ?>" class="gray666">Food<br><span class="font60 gray333">食事</span></a></li>
+        <li class="excercise"><a href="<?php echo CATEGORY_URL[2] ?>" class="gray666">Exercise<br><span class="font60 gray333">運動</span></a></li>
+        <li class="health"><a href="<?php echo CATEGORY_URL[3] ?>" class="gray666">Health<br><span class="font60 gray333">健康</span></a></li>
+        <li class="fashion"><a href="<?php echo CATEGORY_URL[4] ?>" class="gray666">Fashion<br><span class="font60 gray333">ファッション</span></a></li>
+        <li class="pickup"><a href="<?php echo CATEGORY_URL[5] ?>" class="gray666">Feature<br><span class="font60 gray333">特集</span></a></li>
         <li class="ranking"><a href="<?php echo MAIN_URL ?>ranking/" class="gray666">Ranking<br><span class="font60 gray333">人気の記事</span></a></li>
       </ul>
     </div>

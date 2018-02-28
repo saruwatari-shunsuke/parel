@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 0.1
+* @version 1.0
 */
 
 Class ViewAdminArticleEdit {
@@ -29,32 +29,29 @@ Class ViewAdminArticleEdit {
 <meta charset="utf-8">
 <title><?php echo SITE_TITLE_ADMIN ?></title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<link rel="stylesheet" type="text/css" href="/css/common/html5reset-1.6.1.css">
+<link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>/css/common/html5reset-1.6.1.css">
 
-<a href="/" target="_blank">パルール</a>
-<a href="/admin/">パルール管理画面</a>
+<a href="<?php echo MAIN_URL ?>" target="_blank">パルール</a>
+<a href="/">パルール管理画面</a>
 <h1>記事投稿フォーム（仮）</h1>
-<a href="/admin/view/">記事一覧</a>
+<a href="/view/">記事一覧</a>
 <p style="color:#ff0000"><?php echo $article_data['error']; ?></p>
-<form action="/admin/edit/?id=<?php echo $_GET['id'] ?>" method="POST">
+<form action="/edit/?id=<?php echo $_GET['id'] ?>" method="POST">
 
 画像
-<img src="/<?php echo $article_data['path'].'/'.IMAGE_MAIN_LARGE; ?>" width=100><br>
+<img src="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/'.IMAGE_MAIN_LARGE; ?>" width=100><br>
 
-URL
-　http://parel.site/<input name="path" style="width:200px" type="text" placeholder="" value="<?php echo $article_data['path']; ?>">/
+<?php $c[$article_data['category_id']]=" checked" ?>
+カテゴリ
+<input type="radio" name="category" value="1" onclick="setCategoryUrl('food')"<?php echo $c[1] ?>>Food
+<input type="radio" name="category" value="2" onclick="setCategoryUrl('exercise')"<?php echo $c[2] ?>>Exercise
+<input type="radio" name="category" value="3" onclick="setCategoryUrl('health')"<?php echo $c[3] ?>>Health
+<input type="radio" name="category" value="4" onclick="setCategoryUrl('fashion')"<?php echo $c[4] ?>>Fashion
+<input type="radio" name="category" value="5" onclick="setCategoryUrl('feature')"<?php echo $c[5] ?>>特集
 <br>
 
-<?php $c[$article_data['category_id']]=" selected" ?>
-カテゴリ
-<select name="category">
-  <option value="0">選択してください</option>
-  <option value="1"<?php echo $c[1] ?>>Food</option>
-  <option value="2"<?php echo $c[2] ?>>Exercise</option>
-  <option value="3"<?php echo $c[3] ?>>Health</option>
-  <option value="4"<?php echo $c[4] ?>>Fashion</option>
-  <option value="5"<?php echo $c[5] ?>>特集</option>
-</select>
+URL
+  <span id="category_url"><?php echo CATEGORY_URL[$article_data['category_id']] ?></span><input name="path" style="width:200px" type="text" placeholder="" value="<?php echo $article_data['path']; ?>">/
 <br>
 
 <?php $a[$article_data['author_id']]=" selected" ?>
@@ -106,7 +103,7 @@ URL
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script>
-
+    <script type="text/javascript" src="/js/write.js"></script>
 </body>
 </html>
 <?php

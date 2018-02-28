@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 0.1
+* @version 1.0
 */
 
 Class ViewUserPcFooter {
@@ -56,11 +56,11 @@ Class ViewUserPcFooter {
         <div class="overflow">
           <ul>
             <li class="left hover" style="width:18%;"><a href="<?php echo MAIN_URL ?>"><div class="gray666 font90">Top</div></a></li>
-            <li class="left hover" style="width:18%;"><a href="<?php echo CATEGORY_URL2[1] ?>"><div class="gray666 font90">Food</div></a></li>
-            <li class="left hover" style="width:18%;"><a href="<?php echo CATEGORY_URL2[2] ?>"><div class="gray666 font90">Exercise</div></a></li>
-            <li class="left hover" style="width:18%;"><a href="<?php echo CATEGORY_URL2[3] ?>"><div class="gray666 font90">Health</div></a></li>
-            <li class="left hover" style="width:18%;"><a href="<?php echo CATEGORY_URL2[4] ?>"><div class="gray666 font90">Fashion</div></a></li>
-            <li class="left hover" style="width:10%;"><a href="<?php echo CATEGORY_URL2[5] ?>"><div class="gray666 font90">特集</div></a></li>
+            <li class="left hover" style="width:18%;"><a href="<?php echo CATEGORY_URL[1] ?>"><div class="gray666 font90">Food</div></a></li>
+            <li class="left hover" style="width:18%;"><a href="<?php echo CATEGORY_URL[2] ?>"><div class="gray666 font90">Exercise</div></a></li>
+            <li class="left hover" style="width:18%;"><a href="<?php echo CATEGORY_URL[3] ?>"><div class="gray666 font90">Health</div></a></li>
+            <li class="left hover" style="width:18%;"><a href="<?php echo CATEGORY_URL[4] ?>"><div class="gray666 font90">Fashion</div></a></li>
+            <li class="left hover" style="width:10%;"><a href="<?php echo CATEGORY_URL[5] ?>"><div class="gray666 font90">特集</div></a></li>
           </ul>
         </div>
       </div>

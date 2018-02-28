@@ -5,7 +5,7 @@
 * @package Model
 * @author Saruwatari Shunsuke
 * @since PHP 7.0
-* @version 0.1
+* @version 1.0
 */
 Class ModelDataArticles extends CommonBase{
 	/*
