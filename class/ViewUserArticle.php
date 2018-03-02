@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 
 Class ViewUserArticle {
@@ -17,6 +17,7 @@ Class ViewUserArticle {
 
 			$object_cvi = new ControllerView();
 			$object_cvi->add($article_id);
+			$object_cvi->addSearchLog($article_id);
 
 			if (UserAgent::getOsId()) {
 				self::bodySp($article_data);
@@ -235,29 +236,26 @@ Class ViewUserArticle {
   </head>
   <body>
 
-    <div class="content_wrapper js-main">
+    <div class="content-wrapper js-main">
 
-      <div class="mt-15 ml-10 mr-10">
-        <div class="article_head_photo">
-          <div id="article_head_imgliq">
-            <div class="article_head_img imgLiquid_bgSize imgLiquid_ready" style="background-image: url('<?php echo IMAGE_MAIN_SMALL ?>'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-              <img src="<?php echo IMAGE_MAIN_LARGE ?>" class="max-width" style="display: none;">
-            </div>
+      <div class="article_head_photo mt-15 ml-10 mr-10">
+        <div id="article_head_imgliq">
+          <div class="article_head_img imgLiquid_bgSize imgLiquid_ready" style="background-image: url('<?php echo IMAGE_MAIN_SMALL ?>'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
+            <img src="<?php echo IMAGE_MAIN_LARGE ?>" class="max-width" style="display: none;">
           </div>
-          <div class="article_head_text">
-            <div class="overflow">
-<a href="<?php echo MAIN_URL.'?a='.$article_data['author_id'] ?>">
+        </div>
+        <div class="article_head_text">
+          <div class="overflow">
+            <a href="<?php echo MAIN_URL.'?a='.$article_data['author_id'] ?>">
               <div class="left gray gray666">
                 <img src="<?php echo $article_data['author_image'] ?>" class="img-circle article_head_usericon"> <?php echo $article_data['author_name'] ?>
               </div>
-</a>
-            </div>
+            </a>
           </div>
         </div>
       </div>
 
       <div class="article_view_area">
-
         <h1 class="mobile_article_view_title not_auto_br"><?php echo $article_data['title'] ?></h1>
 
         <div class="article_head_sns mt10">
@@ -270,7 +268,9 @@ Class ViewUserArticle {
         </div>
 
         <div class="article_row_ex">
+
 <?php echo $article_data['introduction']; ?>
+
         </div>
 
         <hr>
@@ -278,39 +278,31 @@ Class ViewUserArticle {
         <div id="toc"><!-- 目次 --></div>
 
         <div class="article_row">
+
 <?php echo $article_data['body']; ?>
+
         </div>
 
-      </div>
+        <hr>
 
-      <hr>
+        <div class="article_row_ex mb30">
 
-      <div class="article_row_ex">
 <?php echo $article_data['summary']; ?>
-      </div>
 
-      <div class="mb30"></div>
- 
-      <div class="addthis_inline_share_toolbox_ribm"></div>
-    
-    </div>
+        </div>
+
+        <div class="addthis_inline_share_toolbox_ribm"></div>
+      </div><!-- /article_view_area -->
+
 
 <script type="text/javascript">
     $("#article_head_imgliq div").each(function(i){
       $(this).imgLiquid();
     });
-    $("#article_fb_imgliq div").each(function(i){
-      $(this).imgLiquid();
-    });
 </script>
 
-
-    <div class="article_view_suggest mt30">
-      <p class="articles_heading">関連記事</p>
-
-    <div class="boxview_wraper">
-      <div class="boxview_box" id="auto_box">
-
+      <div>
+        <p class="articles_heading">関連記事</p>
 <?php foreach ($article_data['related'] as $key => $value) { ?>
         <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
           <div class="mobile_article_index_box2 max-width">
@@ -337,11 +329,11 @@ Class ViewUserArticle {
           </div>
         </a>
 <?php } ?>
-
-      </div><!-- boxview_box -->
-    </div><!-- boxview_wraper -->
+      </div>
 
 <?php new ViewUserSpSubContents(); ?>
+
+    </div><!-- /content-wrapper -->
 
 <?php new ViewUserSpFooter(); ?>
 

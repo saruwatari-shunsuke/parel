@@ -66,7 +66,7 @@ function pushClick(article_id, place, url) {
 $(function(){
 
   //Hover effect
-  $("#ranking_box, #auto_box, #side_side_feature, #side_sitename_girl, #listview_bg span, #written_user_box, #hover_filter, #hover_btn").hover(
+  $("#ranking_box, #auto_box, #side_side_feature, #listview_bg span, #written_user_box, #hover_filter, #hover_btn").hover(
     function () {
       $(this).addClass( 'touch_hover_clear' );
     },

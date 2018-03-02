@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 
 Class ViewUserTop {
@@ -105,7 +105,7 @@ Class ViewUserTop {
 
           <div id="article_list" class="overflow mb20">
 <?php foreach ($article_data as $key => $value) { ?>
-            <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>" class="article_box_list article_box-<?php echo floor($key/$page_items) ?>">
+            <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?><?php if($_GET['s']){ echo '?s='.urlencode($_GET['s']); } ?>" class="article_box_list article_box-<?php echo floor($key/$page_items) ?>">
               <div class="boxview_box" id="hover_filter">
                 <div class="boxview_img_area">
                   <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>">
@@ -128,33 +128,24 @@ Class ViewUserTop {
               </div>
             </a>
 <?php } ?>
+<?php while($key++ % $page_items) { ?>
+            <a class="article_box_list article_box-<?php echo floor($key/$page_items) ?> transparent">
+              <div class="boxview_box">
+                <div class="boxview_img_area">
+                  <img src="<?php echo MAIN_URL ?>img/common/thumb-blank.png">
+                </div>
+              </div>
+            </a>
+<?php } ?>
           </div>
 
 <?php if($sum_items>$page_items){ ?>
-          <div id="article_list" class="pagination-holder clearfix text-center mb10">
+          <div id="article_list" class="pagination-holder clearfix center mb10">
             <div id="light-pagination" class="pagination"></div>
           </div>
 <?php } ?>
 
-<!--
-          <div id="article_list">
-            <div class="center">
-              <ul class="pagination">
-                <li class="active"><a>1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">6</a></li>
-                  <li><a href="#">7</a></li>
-                  <li><a href="#">8</a></li>
-                  <li><a href="#">9</a></li>
-                </ul>
-              </div>
-            </div>
--->
-
-          </div>
+        </div>
 
 <?php new ViewUserPcRightSideBar(); ?>
             
@@ -168,24 +159,27 @@ Class ViewUserTop {
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-pc.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/jquery.simplePagination.js"></script>
-<script type="text/javascript">
-  $(function(){
-    $('.article_box-0').show();//1ページ目を表示
-    $(".pagination").pagination({//ページ基本設定
-        items: <?php echo $sum_items ?>,
-        displayedPages: 2,
-        itemsOnPage: <?php echo $page_items ?>,
-        cssStyle: 'light-theme',
-        onPageClick: function(currentPageNumber){
+    <script type="text/javascript">
+      $(function(){
+        $('.article_box-0').show();//1ページ目を表示
+        $(".pagination").pagination({//ページ基本設定
+          items: <?php echo $sum_items ?>,
+          displayedPages: 4,
+          itemsOnPage: <?php echo $page_items ?>,
+          cssStyle: 'parel-theme',
+          prevText: '&lsaquo;<br>前へ',
+          nextText: '&rsaquo;<br>後へ',
+          onPageClick: function(currentPageNumber){
             showArticle(currentPageNumber-1);// mem-(ページ数-1)を表示
-        }
-    })
-  });
-function showArticle(num) {
-  $('.article_box_list').hide();
-  $('.article_box-'+num).show();
-}
-</script>
+          }
+        })
+      });
+      function showArticle(num) {
+        $('.article_box_list').hide();
+        $('.article_box-'+num).show();
+        $('.trunk2').trunk8({lines:2});
+      }
+    </script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/trunk8.min.js"></script>
     <script>
       $(function(){
@@ -213,6 +207,8 @@ function showArticle(num) {
 	private function bodySp($article_data, $recommend_data, $category_id) {
 		try {
 			global $setting_data;
+			$sum_items = count($article_data);//全体数
+			$page_items = 12;//最初の表示数
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -255,7 +251,7 @@ function showArticle(num) {
   </head>
   <body>
 
-    <div class="content_wrapper js-main">
+    <div class="content-wrapper js-main">
       <div class="mt-15"></div>
 
       <div class="boxview_wraper">
@@ -288,7 +284,7 @@ function showArticle(num) {
 <?php } ?>
 
 <?php foreach ($article_data as $key => $value) { ?>
-          <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
+          <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?><?php if($_GET['s']){ echo '?s='.urlencode($_GET['s']); } ?>" <?php if($key>=$page_items){ echo ' class="article_more"'; } ?>>
             <div class="mobile_article_index_box2 max-width border_top">
               <div class="boxview_left">
                 <div class="boxview_leftimg"><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78"></div>
@@ -312,17 +308,18 @@ function showArticle(num) {
 
         </div><!-- /boxview -->
       </div><!-- /boxview_wrapper -->
-<!--
-      <div class="mt15 mb10 center max-width" id="hover_btn">
-        <a href="#" class="boxview_nextbtn">もっとみる</a>
+
+<?php if($sum_items>$page_items){ ?>
+      <div class="mt15 mb10 center max-width">
+        <button id="article_more" class="boxview_nextbtn" onclick="showArticle()">もっとみる</button>
       </div>
--->
+<?php } ?>
+
 <?php new ViewUserSpSubContents(); ?>
 
-    </div><!-- /content_wrapper -->
+    </div><!-- /content-wrapper -->
 
 <?php new ViewUserSpFooter(); ?>
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><!-- for wideslider.js -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -330,7 +327,12 @@ function showArticle(num) {
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/jquery.easing.1.3.js"></script><!-- for wideslider.js -->
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/wideslider.js"></script>
-
+    <script>
+      function showArticle() {
+        $('.article_more').show();
+        $('#article_more').hide();
+      }
+    </script>
   </body>
 </html>
 <?php
@@ -338,5 +340,4 @@ function showArticle(num) {
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 		}
 	}
-
 }

@@ -5,7 +5,7 @@
 * @package Controller
 * @author Saruwatari Shunsuke
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 Class ControllerView extends CommonBase{
 	/*
@@ -37,6 +37,38 @@ Class ControllerView extends CommonBase{
 			return false;
 		}
 	}
+
+	/*
+	* 検索ワード＆ページをログ出し 
+	*
+	* @param 
+	* @access public
+	* @return boolean
+	*/
+	public function addSearchLog($article_id){
+		try{
+			if(!$search = $_GET['s']) {
+				return false;
+			}
+
+			$object_mdar = new ModelDataArticles();
+			if(!$article_data = $object_mdar->select1ById($article_id)){
+				throw new Exception();
+			}
+			$url = CATEGORY_URL[$article_data['category_id']].$article_data['path'];
+
+			$text = date('Y-m-d H:i:s')." 検索ワード「".$search."」 URL:".$url."\n";
+			$fp = fopen(ROOT_DIRECTORY.'admin/log/search.log', "a");
+			fwrite($fp, $text);
+			fclose($fp);
+
+			return true;
+		} catch (Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
+		}
+	}
+	
 	/*
 	* デイリーランキング
 	*

@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 
 Class ViewAdminArticleNew {
@@ -72,15 +72,15 @@ URL
 <br>
 
 導入文<br>
-<textarea name="introduction" rows="5" style="width:1000px" placeholder=""><?php echo $_POST['introduction']; ?></textarea>
+<textarea name="introduction" rows="10" style="width:1000px" placeholder=""><?php echo $_POST['introduction']; ?></textarea>
 <br>
 
 本文<br>
-<textarea name="body" rows="50" style="width:1000px" placeholder=""><?php echo $_POST['body']; ?></textarea>
+<textarea name="body" rows="70" style="width:1000px" placeholder=""><?php echo $_POST['body']; ?></textarea>
 <br>
 
 まとめ<br>
-<textarea name="summary" rows="3" style="width:1000px" placeholder=""><?php echo $_POST['summary']; ?></textarea>
+<textarea name="summary" rows="10" style="width:1000px" placeholder=""><?php echo $_POST['summary']; ?></textarea>
 <br>
 
 ステータス

@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 
 Class ViewAdminArticleEdit {
@@ -75,15 +75,15 @@ URL
 <br>
 
 導入文<br>
-<textarea name="introduction" rows="6" style="width:1000px" placeholder=""><?php echo $article_data['introduction']; ?></textarea>
+<textarea name="introduction" rows="10" style="width:1000px" placeholder=""><?php echo $article_data['introduction']; ?></textarea>
 <br>
 
 本文<br>
-<textarea name="body" rows="50" style="width:1000px" placeholder=""><?php echo $article_data['body']; ?></textarea>
+<textarea name="body" rows="70" style="width:1000px" placeholder=""><?php echo $article_data['body']; ?></textarea>
 <br>
 
 まとめ<br>
-<textarea name="summary" rows="6" style="width:1000px" placeholder=""><?php echo $article_data['summary']; ?></textarea>
+<textarea name="summary" rows="10" style="width:1000px" placeholder=""><?php echo $article_data['summary']; ?></textarea>
 <br>
 
 <?php $s[$article_data['status']]=" selected" ?>

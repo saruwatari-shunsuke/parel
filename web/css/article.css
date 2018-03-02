@@ -33,3 +33,12 @@
   width: calc(100% - 10px);
   margin: 30px 5px;
 }
+.article_row table, .article_row_ex table {
+  border: solid 1px #333;
+  border-collapse: collapse;
+}
+.article_row table th, .article_row table td,
+.article_row_ex table th, .article_row_ex table td {
+  padding: 5px;
+  border: solid 1px #333;
+}

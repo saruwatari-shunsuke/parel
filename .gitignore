@@ -1,3 +1,4 @@
+/admin/log/*
 /category1/*
 !/category1/index.php
 /category2/*
@@ -10,4 +11,5 @@
 !/category5/index.php
 /conf/setting/*
 /logs/*
+/web/archives
 /web/test

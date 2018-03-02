@@ -71,7 +71,7 @@ Class ViewUserPcFooter {
       <div class="container">
         <div class="row">
           <div class="col-xs-3">
-            <p class="footer_text"><a href="<?php echo MAIN_URL ?>"><img class="meee_gray" src="<?php echo LOGO ?>"></a></p>
+            <p class="footer_text"><a href="<?php echo MAIN_URL ?>"><img class="footer_logo" src="<?php echo LOGO ?>"></a></p>
           </div>
           <div class="col-xs-4">
             <p class="footer_text"><a href="//twitter.com/parel_beauty" target="_blank">Twitter</a></p>

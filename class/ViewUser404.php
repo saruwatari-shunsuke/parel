@@ -1,23 +1,22 @@
 <?php
 /**
-* ViewUserRanking
-* ランキング画面
+* ViewUser404
+* Not Found 画面
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
 * @version 1.0
 */
 
-Class ViewUserRanking{
+Class ViewUser404 {
 	public function __construct() {
 		try {
 			session_start();
-			$rank = 20;
-
+			http_response_code(404);
 			if (UserAgent::getOsId()) {
-				self::bodySp($rank);
+				self::bodySp();
 			} else {
-				self::bodyPc($rank);
+				self::bodyPc();
 			}
 		} catch(Exception $e) {
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
@@ -25,13 +24,13 @@ Class ViewUserRanking{
 	}
 
 	/*
-	* PC版（未使用）
+	* PC版
 	*
 	* @param array
 	* @access private
 	* @return
 	*/
-	private function bodyPc($rank) {
+	private function bodyPc() {
 		try {
 			global $setting_data;
 ?>
@@ -39,13 +38,13 @@ Class ViewUserRanking{
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title><?php echo $setting_data['site_name_full'] ?></title>
+    <title>ページがありません | <?php echo $setting_data['site_name_short'] ?></title>
 
     <meta name="description" content="<?php echo $setting_data['site_description'] ?>">
     <meta name="keywords" content="">
     <meta name="robots" content="index,follow">
 
-    <meta property="og:title" content="人気の記事 | <?php echo $setting_data['site_name_short'] ?>">
+    <meta property="og:title" content="ページがありません | <?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo MAIN_URL ?>">
     <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
@@ -73,9 +72,9 @@ Class ViewUserRanking{
   <body>
     <div class="container">
       <div class="overflow">
-
-<?php new ViewUserPcRightSideBar($rank); ?>
-            
+        <div class="policy_view">
+<?php self::text(); ?>
+        </div> <!-- /policy_view -->
       </div> <!-- /overflow -->
     </div> <!-- /container -->
 
@@ -92,8 +91,6 @@ Class ViewUserRanking{
           $('.trunk3').trunk8({lines:3});
       });
     </script>
-
-
   </body>
 </html>
 <?php
@@ -109,7 +106,7 @@ Class ViewUserRanking{
 	* @access private
 	* @return
 	*/
-	private function bodySp($rank) {
+	private function bodySp() {
 		try {
 			global $setting_data;
 ?>
@@ -117,7 +114,7 @@ Class ViewUserRanking{
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title>人気の記事 | <?php echo $setting_data['site_name_short'] ?></title>
+    <title>ページがありません | <?php echo $setting_data['site_name_short'] ?></title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -125,7 +122,7 @@ Class ViewUserRanking{
     <meta name="keywords" content="">
     <meta name="robots" content="index,follow">
 
-    <meta property="og:title" content="人気の記事 | <?php echo $setting_data['site_name_short'] ?>">
+    <meta property="og:title" content="ページがありません | <?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo MAIN_URL ?>">
     <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
@@ -154,13 +151,12 @@ Class ViewUserRanking{
   <body>
 
     <div class="content-wrapper js-main">
-
-<?php new ViewUserSpSubContents($rank); ?>
-
+      <div class="policy_view">
+<?php self::text(); ?>
+      </div> <!-- /policy_view -->
     </div><!-- /content-wrapper -->
 
 <?php new ViewUserSpFooter(); ?>
-
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -169,6 +165,29 @@ Class ViewUserRanking{
 
   </body>
 </html>
+<?php
+		} catch(Exception $e) {
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+		}
+	}
+
+	/*
+	* text
+	*
+	* @param
+	* @access private
+	* @return
+	*/
+	private function text() {
+		try {
+?>
+<h1 class="page_title">404 Not Found</h1>
+
+<p class="policy_text">
+お探しのページは見つかりませんでした。<br>
+一時的にアクセスできない状況にあるか、本サイトがダイエットして消えた可能性があります。
+</p>
+
 <?php
 		} catch(Exception $e) {
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());

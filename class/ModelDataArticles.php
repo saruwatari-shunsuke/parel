@@ -5,7 +5,7 @@
 * @package Model
 * @author Saruwatari Shunsuke
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 Class ModelDataArticles extends CommonBase{
 	/*
@@ -157,9 +157,19 @@ Class ModelDataArticles extends CommonBase{
 	* @access public
 	* @return array
 	*/
-	public function selectSomeByWord($word){
+	public function selectSomeByWord($words){
         	try {
-			$word = $this->escapeSql($word);
+			$words = $this->escapeSql($words);
+			$where = '';
+			foreach ($words as $key => $value) {
+				if($value) {
+					$where .= 'AND (dar.title like "%'.$value.'%" '.
+							'OR dar.introduction like "%'.$value.'%" '.
+							'OR dar.body like "%'.$value.'%" '.
+							'OR dar.summary like "%'.$value.'%") ';
+				}
+			}
+
             		$sql = 'SELECT '.
 					'dar.article_id, '.
 					'dar.path, '.
@@ -179,11 +189,7 @@ Class ModelDataArticles extends CommonBase{
 				'AND dar.status=1 '.
 				'AND dar.author_id=dau.author_id '.
 				'AND dar.category_id=mca.category_id '.
-				'AND (dar.title like "%'.$word.'%" '.
-					'OR dar.introduction like "%'.$word.'%" '.
-					'OR dar.body like "%'.$word.'%" '.
-					'OR dar.summary like "%'.$word.'%" '.
-				') '.
+				$where.
 				'ORDER BY release_time DESC;';
 			if(!$result = mysqli_query($this->getDatabaseLink(), $sql)){
 				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);

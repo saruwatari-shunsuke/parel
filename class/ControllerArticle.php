@@ -5,7 +5,7 @@
 * @package Controller
 * @author Saruwatari Shunsuke
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 Class ControllerArticle extends CommonBase{
 	/*
@@ -69,7 +69,6 @@ Class ControllerArticle extends CommonBase{
 
 			header('location: /view/');
 			exit();
-
 		} catch (Exception $e){
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 			return "投稿に失敗しました。";
@@ -95,7 +94,7 @@ Class ControllerArticle extends CommonBase{
 				throw new Exception();
 			}
 			if(!$article_data['status']) {//非公開
-				return false;
+				throw new Exception();
 			}
 
 			$object_mdau = new ModelDataAuthors();
@@ -113,9 +112,7 @@ Class ControllerArticle extends CommonBase{
 			}
 			$article_data['category_name'] = $category_data['name'];
 
-			$article_data['description'] = strip_tags($article_data['introduction']); //タグ外し
-			$article_data['description'] = str_replace("\n", "", $article_data['description']); //改行除去
-
+			$article_data['description'] = str_replace("\n", "", strip_tags($article_data['introduction'])); //タグ外し＆改行除去
 			$article_data['introduction'] = nl2br($article_data['introduction']);
 			$article_data['body'] = nl2br($article_data['body']);
 			$article_data['summary'] = nl2br($article_data['summary']);
@@ -126,7 +123,8 @@ Class ControllerArticle extends CommonBase{
 			return $article_data;
 		} catch (Exception $e){
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
-			return false;
+			header('location: '.MAIN_URL.'404/');
+			exit();
 		}
 	}
 
@@ -252,20 +250,23 @@ Class ControllerArticle extends CommonBase{
 		try{
 			if($search=$_GET['s']) {
 				CreateLog::putDebugLog('search word :'.$search);
+				$search = mb_convert_kana($search, 's');
 				$object_mdar = new ModelDataArticles();
-				if(!$article_data = $object_mdar->selectSomeByWord($search)){
+				$search_array = explode(' ', $search);
+				if(!$article_data = $object_mdar->selectSomeByWord($search_array)){
 					throw new Exception();
 				}
 				return $article_data;
 			}
-			
 
 			if($category_id) {
 				$where = 'AND dar.status=1 AND dar.category_id='.$category_id.' ORDER BY dar.release_time DESC';
 			} else if($author_id=$_GET['a']) {
 				$where = 'AND dar.status=1 AND dar.author_id='.$author_id.' ORDER BY dar.release_time DESC';
 			} else  {
+				$setting_data = parse_ini_file(SETTING_DIRECTORY.'recommend.ini');
 				$where = 'AND dar.status=1 ORDER BY dar.release_time DESC';
+				$where = 'AND dar.status=1 AND dar.article_id NOT IN ('.$setting_data['recommend'].') ORDER BY dar.release_time DESC';
 			}
 
 			$object_mdar = new ModelDataArticles();
@@ -290,7 +291,7 @@ Class ControllerArticle extends CommonBase{
 	public function getRecommend(){
 		try{
 			$setting_data = parse_ini_file(SETTING_DIRECTORY.'recommend.ini');
-			$where = 'AND dar.status=1 AND dar.article_id IN ('.$setting_data['recommend'].')';
+			$where = 'AND dar.status=1 AND dar.article_id IN ('.$setting_data['recommend'].') ORDER BY release_time DESC';
 			$object_mdar = new ModelDataArticles();
 			if(!$article_data = $object_mdar->selectSome($where)){
 				return false;
@@ -392,7 +393,7 @@ Class ControllerArticle extends CommonBase{
 					return 'URLに不正な文字があります。';
 				}
 			}
-			$ng_directories = array('admin', 'css', 'img', 'js', 'ranking', 'terms');
+			$ng_directories = array('css', 'img', 'js', 'ranking', 'terms');
 			foreach($ng_directories as $key => $value) {
 				if($value==$path){
 					return 'そのURLは利用できません。';
@@ -407,6 +408,40 @@ Class ControllerArticle extends CommonBase{
 		} catch (Exception $e){
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 			return 'そのURLは利用できません。';
+		}
+	}
+
+
+	/*
+	* 全記事アーカイブ作成（終了）
+	*
+	* @param
+	* @access public
+	* @return boolean
+	*/
+	public function makeArchives(){
+		try{
+			$object_mdar = new ModelDataArticles();
+			if(!$article_data = $object_mdar->selectAll()){
+				throw new Exception();
+			}
+
+			foreach ($article_data as $key => $value) {
+				$full_path = ROOT_DIRECTORY.'web/archives/'.$value['path'];
+				exec('mkdir '.$full_path);
+				$fp = fopen($full_path.'/index.php', "a");
+				$code = "<?php\n".
+					"require_once(dirname(__FILE__).'/../../../conf/ini.php');\n".
+					"new ViewUserArchives(".$value['article_id'].");";
+				fwrite($fp, $code);
+				fclose($fp);
+				echo $value['article_id'].' '.$value['path'].'<br>';
+			}
+
+			return true;
+		} catch (Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
 		}
 	}
 

@@ -150,16 +150,15 @@ Class ViewUserTerms {
   </head>
   <body>
 
-    <div class="content_wrapper js-main">
+    <div class="content-wrapper js-main">
       <div class="policy_view">
 <?php self::text(); ?>
       </div> <!-- /policy_view -->
-    </div><!-- /content_wrapper -->
+    </div><!-- /content-wrapper -->
 
 <?php new ViewUserSpFooter(); ?>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><!-- for wideslider.js -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-sp.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js"></script>
