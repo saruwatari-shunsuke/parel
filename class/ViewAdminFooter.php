@@ -1,14 +1,14 @@
 <?php
 /**
-* ViewUserPcFooter
-* PC版フッター
+* ViewAdminFooter
+* 管理画面フッター
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
 * @version 1.0
 */
 
-Class ViewUserPcFooter {
+Class ViewAdminFooter {
 	public function __construct() {
 		try {
 			self::body();
@@ -34,12 +34,12 @@ Class ViewUserPcFooter {
           <div class="collapse navbar-collapse">
             <div class="navbar-header">
               <div class="header_logo mt10">
-                <a href="<?php echo MAIN_URL ?>"><img src="<?php echo LOGO ?>" alt="パルール"></a>
+                <a href="<?php echo MAIN_URL ?>"><img src="<?php echo LOGO ?>"></a>
               </div>
             </div>
             <ul class="nav navbar-nav navbar-right mt-30">
               <li>
-                <form action="<?php echo MAIN_URL ?>" controller="articles" class="form-inline" id="head_nav_search" method="GET" accept-charset="utf-8">
+                <form action="/view/" controller="articles" class="form-inline" id="head_nav_search" method="GET" accept-charset="utf-8">
                   <input name="s" class="form-control navbar_search_form_input" placeholder="気になるワードを入れてみましょう" type="text" value="<?php echo $_GET['s'] ?>">
                   <input class="btn btn-default btn-sm navbar_search_submit" value="検索" style="" type="submit">
                 </form>
@@ -51,27 +51,29 @@ Class ViewUserPcFooter {
     </nav>
 
     <!-- header2 -->
+<!--
     <nav class="navbar-default navbar-fixed-top opacity85 category_nav" role="navigation">
       <div class="nav_bar_wrapper">
         <div class="overflow">
           <ul>
-            <li class="left hover" style="width:18%;"><a href="<?php echo MAIN_URL ?>"><div class="gray666 font90">Top</div></a></li>
-            <li class="left hover" style="width:18%;"><a href="<?php echo CATEGORY_URL[1] ?>"><div class="gray666 font90">Food</div></a></li>
-            <li class="left hover" style="width:18%;"><a href="<?php echo CATEGORY_URL[2] ?>"><div class="gray666 font90">Exercise</div></a></li>
-            <li class="left hover" style="width:18%;"><a href="<?php echo CATEGORY_URL[3] ?>"><div class="gray666 font90">Health</div></a></li>
-            <li class="left hover" style="width:18%;"><a href="<?php echo CATEGORY_URL[4] ?>"><div class="gray666 font90">Fashion</div></a></li>
-            <li class="left hover" style="width:10%;"><a href="<?php echo CATEGORY_URL[5] ?>"><div class="gray666 font90">特集</div></a></li>
+            <li class="left hover" style="width:18%;"><a href="<?php echo MAIN_URL ?>"><div class="gray666 font90">パルール</div></a></li>
+            <li class="left hover" style="width:18%;"><a href="/edit/"><div class="gray666 font90"><span class="glyphicon glyphicon-pencil"></span> 新規投稿</div></a></li>
+            <li class="left hover" style="width:18%;"><a href="/view/"><div class="gray666 font90">記事一覧</div></a></li>
+            <li class="left hover" style="width:18%;"><a href="/setting/"><div class="gray666 font90">設定</div></a></li>
+            <li class="left hover" style="width:18%;"><a href="#"><div class="gray666 font90">？？？</div></a></li>
+            <li class="left hover" style="width:10%;"><a href="#"><div class="gray666 font90">？？？</div></a></li>
           </ul>
         </div>
       </div>
     </nav>
+-->
 
     <!-- footer -->
     <footer class="navbar navbar-default bg_coral" role="banner" id="footer_wrapper">
       <div class="container">
         <div class="row">
-          <div class="col-xs-3">
-            <p class="footer_text"><a href="<?php echo MAIN_URL ?>"><img class="footer_logo" src="<?php echo LOGO ?>" alt="パルール"></a></p>
+          <div class="col-xs-4">
+            <p class="footer_text"><a href="<?php echo MAIN_URL ?>"><img class="footer_logo" src="<?php echo LOGO ?>"></a></p>
           </div>
           <div class="col-xs-4">
             <p class="footer_text"><a href="//twitter.com/parel_beauty" target="_blank">Twitter</a></p>

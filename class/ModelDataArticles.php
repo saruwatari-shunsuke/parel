@@ -26,6 +26,7 @@ Class ModelDataArticles extends CommonBase{
 					'author_id = "'.$data_array['author_id'].'", '.
 					'release_time = "'.$data_array['release_time'].'", '.
 					'title = "'.$data_array['title'].'", '.
+					'description = "'.$data_array['description'].'", '.
 					'keyword = "'.$data_array['keyword'].'", '.
 					'introduction = "'.$data_array['introduction'].'", '.
 					'body = "'.$data_array['body'].'", '.
@@ -58,13 +59,12 @@ Class ModelDataArticles extends CommonBase{
 					'path = "'.$data_array['path'].'", '.
 					'category_id = "'.$data_array['category_id'].'", '.
 					'author_id = "'.$data_array['author_id'].'", '.
-					'release_time = "'.$data_array['release_time'].'", '.
 					'title = "'.$data_array['title'].'", '.
+					'description = "'.$data_array['description'].'", '.
 					'keyword = "'.$data_array['keyword'].'", '.
 					'introduction = "'.$data_array['introduction'].'", '.
 					'body = "'.$data_array['body'].'", '.
-					'summary = "'.$data_array['summary'].'", '.
-					'status = "'.$data_array['status'].'" '.
+					'summary = "'.$data_array['summary'].'" '.
 				'WHERE '.
 					'deleted=0 '.
 				'AND	article_id = "'.$data_array['article_id'].'" '.
@@ -78,6 +78,41 @@ Class ModelDataArticles extends CommonBase{
 			return false;
 		}
 	}
+
+	/*
+	* 公開状態切替
+	*
+	* @param int, int
+	* @access public
+	* @return boolean
+	*/
+	public function switchStatus($article_id, $status, $release_time){
+		try{
+			$article_id = $this->escapeSql($article_id);
+			$status = $this->escapeSql($status);
+			$release_time = $this->escapeSql($release_time);
+			$now = date("Y-m-d H:i:s");
+
+			$sql = 'UPDATE '.
+					'data_articles '.
+				'SET '.
+					"release_time='".$release_time."',".
+					"updated='".$now."',".
+					'status = "'.$status.'" '.
+				'WHERE '.
+					'deleted=0 '.
+				'AND    article_id = "'.$article_id.'" '.
+				'LIMIT 1;';
+			if(!mysqli_query($this->getDatabaseLink(), $sql)){
+				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
+			}
+			return true;
+		} catch(Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
+		}
+	}
+
 	/*
 	* データ取得
 	*
@@ -121,7 +156,7 @@ Class ModelDataArticles extends CommonBase{
 					'dar.category_id, '.
 					'dar.release_time, '.
 					'dar.title, '.
-					'dar.introduction, '.
+					'dar.description, '.
 					'dau.name author_name, '.
 					'mca.name_domain sub_domain, '.
 					'mca.name category_name '.
@@ -176,7 +211,7 @@ Class ModelDataArticles extends CommonBase{
 					'dar.category_id, '.
 					'dar.release_time, '.
 					'dar.title, '.
-					'dar.introduction, '.
+					'dar.description, '.
 					'dau.name author_name, '.
 					'mca.name_domain sub_domain, '.
 					'mca.name category_name '.
@@ -249,9 +284,20 @@ Class ModelDataArticles extends CommonBase{
 	* @access public
 	* @return array
 	*/
-	public function selectAll(){
+	public function selectAllByAdmin($words){
 		try{
-			$sql = 'SELECT * FROM data_articles WHERE deleted=0 ORDER BY article_id DESC;';
+			$words = $this->escapeSql($words);
+			$where = '';
+			foreach ($words as $key => $value) {
+				if($value) {
+					$where .= 'AND (dar.title like "%'.$value.'%" '.
+							'OR dar.introduction like "%'.$value.'%" '.
+							'OR dar.body like "%'.$value.'%" '.
+							'OR dar.summary like "%'.$value.'%") ';
+				}
+			}
+
+			$sql = 'SELECT * FROM data_articles dar WHERE dar.deleted=0 '.$where.'ORDER BY dar.release_time DESC;';
 			if(!$result = mysqli_query($this->getDatabaseLink(), $sql)){
 				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
 			}

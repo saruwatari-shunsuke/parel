@@ -12,8 +12,15 @@ Class ViewAdminArticleAll {
 	public function __construct() {
 		try {
 			session_start();
+
 			$object_car = new ControllerArticle();
+			$object_car->switchStatus();
 			$article_data = $object_car->showAllByAdmin();
+
+/*
+setcookie('LoginAuth', "aaaaa", time() + 60*60*24, "/", ".parel.site");
+echo $_COOKIE['LoginAuth'];
+*/
 
 			self::body($article_data);
 		} catch(Exception $e) {
@@ -23,36 +30,101 @@ Class ViewAdminArticleAll {
 	private function body($article_data) {
 		try {
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-<head>
-<meta charset="utf-8">
-<title><?php echo SITE_TITLE_ADMIN ?></title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>/css/common/html5reset-1.6.1.css">
-<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <head>
+    <meta charset="utf-8">
+    <title><?php echo SITE_TITLE_ADMIN ?></title>
 
-<a href="<?php echo MAIN_URL ?>" target="_blank">パルール</a>
-<a href="/">パルール管理画面</a>
-<h1>記事一覧（仮）</h1>
-<h1><a href="/write/"><i class="fa fa-edit" aria-hidden="true"></i> 投稿する</a></h1>
-<table border=1>
-<?php foreach ($article_data as $key => $value) { ?>
-  <tr>
-    <td><a class="btn" href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'] ?>/" target="_blank"><i class="fa fa-external-link"></i></a><a class="btn" href="/edit/?id=<?php echo $value['article_id'] ?>"><i class="fa fa-pencil"></i></a></td>
-    <td><?php echo $value['article_id'] ?></td>
-    <td><?php echo $value['author_id'] ?></td>
-    <td><?php echo $value['category_id'] ?></td>
-    <td><?php echo $value['release_time'] ?></td>
-    <td><?php echo $value['path'] ?></td>
-    <td><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="30" height="30"><?php echo $value['title'] ?></td>
-  </tr>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="description" content="<?php echo $setting_data['site_description'] ?>">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index,follow">
+
+    <meta property="og:title" content="<?php echo SITE_TITLE_ADMIN ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?php echo ADMIN_URL ?>">
+    <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
+    <meta property="og:description" content="<?php echo $setting_data['site_description'] ?>">
+    <meta property="og:image" content="<?php echo IMAGE_SITE_MAIN ?>">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="al:web:url" content="<?php echo ADMIN_URL ?>">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@parel_beauty">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+ 
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>/css/common/html5reset-1.6.1.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/simplePagination.css">
+    <link rel="shortcut icon" href="/img/adm-parel.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
+    <link rel="alternate" type="application/rss+xml" title="" href="">
+
+    <link rel="canonical" href="<?php echo ADMIN_URL ?>">
+    <link rel="next" href="">
+ 
+  </head>
+  <body>
+    <div class="container-fruid">
+      <div class="row">
+
+        <h1 class="col-md-12">記事一覧</h1>
+
+<?php if($article_data['error']) { ?>
+        <div class="col-md-12">
+          <div class="panel panel-danger">
+            <div class="panel-heading">エラー</div>
+            <div class="panel-body"><?php echo $article_data['error']; ?></div>
+          </div>
+        </div>
 <?php } ?>
-</table>
+
+        <div class="col-md-12">
+          <table class="table table-hover table-condensed table-responsive">
+            <tbody>
+<?php foreach ($article_data as $key => $value) { ?>
+              <tr><td>
+                <div class="col-xs-1 col-ms-1 col-md-1 col-lg-1"><?php if($value['status']){ echo $value['release_time']; } ?></div>
+                <div class="col-xs-2 col-ms-2 col-md-2 col-lg-2"><?php echo $value['keyword'];  ?></div>
+                <div class="col-xs-6 col-ms-6 col-md-6 col-lg-6"><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" height="20"><?php echo $value['title'] ?></div>
+                <div class="col-xs-3 col-ms-3 col-md-3 col-lg-3">
+                  <a class="btn btn-xs btn-default" href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'] ?>/" target="_blank"><img src="<?php echo LOGO ?>" height=15></a>
+                  <a class="btn btn-xs btn-success" href="/edit/?id=<?php echo $value['article_id'] ?>#noback"><span class="glyphicon glyphicon-pencil"></span> 編集</a>
+<?php if($value['status']==1){ ?>
+                  <a class="btn btn-xs btn-primary" href="/view/?i=<?php echo $value['article_id'] ?>&r=2"><span class="glyphicon glyphicon-eye-open"></span> 公開中</a>
+<?php } else if($value['status']==2){ ?>
+                  <a class="btn btn-xs btn-default" href="/view/?i=<?php echo $value['article_id'] ?>&r=1"><span class="glyphicon glyphicon-eye-close"></span> 非公開</a>
+<?php } else { ?>
+                  <a class="btn btn-xs btn-default" href="/view/?i=<?php echo $value['article_id'] ?>&r=1"><span class="glyphicon glyphicon-edit"></span> 下書き</a>
+<?php } ?>
+                </div>
+              </td></tr>
+<?php } ?>
+            </tbody>
+          </table>
+        </div>
+
+      </div><!-- /row -->
+    </div><!-- /container-fruid -->
+
+<?php new ViewAdminFooter(); ?>
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-pc.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/trunk8.min.js"></script>
+    <script>
+      $(function(){
+          $('.trunk2').trunk8({lines:2});
+          $('.trunk3').trunk8({lines:3});
+      });
+    </script>
 </body>
 </html>
 <?php
@@ -60,6 +132,5 @@ Class ViewAdminArticleAll {
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 		}
 	}
-
 
 }

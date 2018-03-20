@@ -31,14 +31,14 @@ Class ViewUserSpFooter {
     <div class="mobile_header js-header bg_coral">
       <div class="overflow">
         <div class="mobile_header_left js-menu-trigger" id="triggerMenu_open">
-          <i class="mobile_header_left_img fa fa-bars" aria-hidden="true"></i>
+          <span class="mobile_header_left_img glyphicon glyphicon-align-justify"></span>
         </div>
         <div class="left mobile_header_center">
-          <a href="<?php echo MAIN_URL ?>"><img src="<?php echo LOGO ?>"></a>
+          <a href="<?php echo MAIN_URL ?>"><img src="<?php echo LOGO ?>" alt="パルール"></a>
         </div>
-        <a href="#" class="header_search_btn" data-toggle="modal" data-target="#ModalSearch" id="mobile_header_right">
+        <a href="#" data-toggle="modal" data-target="#ModalSearch" id="mobile_header_right">
           <div class="mobile_header_right">
-            <i class="mobile_header_right_img fa fa-search" aria-hidden="true"></i>
+            <span class="mobile_header_right_img glyphicon glyphicon-search"></span>
           </div>
         </a>
       </div>
@@ -95,7 +95,7 @@ Class ViewUserSpFooter {
         <li class="excercise"><a href="<?php echo CATEGORY_URL[2] ?>" class="gray666">Exercise<br><span class="font60 gray333">運動</span></a></li>
         <li class="health"><a href="<?php echo CATEGORY_URL[3] ?>" class="gray666">Health<br><span class="font60 gray333">健康</span></a></li>
         <li class="fashion"><a href="<?php echo CATEGORY_URL[4] ?>" class="gray666">Fashion<br><span class="font60 gray333">ファッション</span></a></li>
-        <li class="pickup"><a href="<?php echo CATEGORY_URL[5] ?>" class="gray666">Feature<br><span class="font60 gray333">特集</span></a></li>
+        <li class="feature"><a href="<?php echo CATEGORY_URL[5] ?>" class="gray666">Feature<br><span class="font60 gray333">特集</span></a></li>
         <li class="ranking"><a href="<?php echo MAIN_URL ?>ranking/" class="gray666">Ranking<br><span class="font60 gray333">人気の記事</span></a></li>
       </ul>
     </div>

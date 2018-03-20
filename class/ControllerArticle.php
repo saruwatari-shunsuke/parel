@@ -15,42 +15,20 @@ Class ControllerArticle extends CommonBase{
 	* @access public
 	* @return boolean
 	*/
-	public function add(){
+	private function add(){
 		try{
-			//値なし
-			if(!$_POST) {
-				return "";
-			}
-
-			if(empty($_POST['path'])) {
-				return "URLを入力してください。";
-			}
-			if($path_error = $this->isPathAvairable($_POST['path'])) {
-				return $path_error;
-			}
-			if(empty($_POST['category'])) {
-				return "カテゴリを選択してください。";
-			}
-			if(empty($_POST['author'])) {
-				return "著者を選択してください。";
-			}
-			if(empty($_POST['release'])) {
-				return "公開日時を入力してください。";
-			}
-
 			$insert_data = array();
-			$insert_data['path'] = $_POST['path'];
-			$insert_data['category_id'] = $_POST['category'];
-			$insert_data['author_id'] = $_POST['author'];
-			$insert_data['release_time'] = $_POST['release'];
-			$insert_data['title'] = $_POST['title'];
-			$insert_data['keyword'] = $_POST['keyword'];
-
-			$insert_data['introduction'] = str_replace(array("\r\n","\r","\n"), "\n", $_POST['introduction']);
-			$insert_data['body'] = str_replace(array("\r\n","\r","\n"), "\n", $_POST['body']);
-			$insert_data['summary'] = str_replace(array("\r\n","\r","\n"), "\n", $_POST['summary']);
-
-			$insert_data['status'] = $_POST['status'];
+			$insert_data['path'] = date('YmdHis');
+			$insert_data['category_id'] = 6;
+			$insert_data['author_id'] = 1;
+			$insert_data['release_time'] = date('Y-m-d H:i:s');
+			$insert_data['title'] = '';
+			$insert_data['description'] = '';
+			$insert_data['keyword'] = '';
+			$insert_data['introduction'] = '';
+			$insert_data['body'] = '';
+			$insert_data['summary'] = '';
+			$insert_data['status'] = 0;
 
 			$object_mdar = new ModelDataArticles();
 			if(!$article_id = $object_mdar->insert($insert_data)){
@@ -58,20 +36,19 @@ Class ControllerArticle extends CommonBase{
 			}
 
 			//ファイル作成
-			$full_path = ROOT_DIRECTORY.'category'.$insert_data['category_id'].'/'.$insert_data['path'];
-			exec('mkdir '.$full_path);
+			$sample_path = ROOT_DIRECTORY.'admin/default_article';
+			$full_path = ROOT_DIRECTORY.'admin/'.$insert_data['path'];
+			exec('cp -a '.$sample_path.' '.$full_path);
 			$fp = fopen($full_path.'/index.php', "a");
-			$code = "<?php\n".
-				"require_once(dirname(__FILE__).'/../../conf/ini.php');\n".
-				"new ViewUserArticle($article_id);";
+			$code = "new ViewUserArticle($article_id);";
 			fwrite($fp, $code);
 			fclose($fp);
 
-			header('location: /view/');
+			header('location: /edit/?id='.$article_id);
 			exit();
 		} catch (Exception $e){
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
-			return "投稿に失敗しました。";
+			return false;
 		}
 	}
 
@@ -93,9 +70,6 @@ Class ControllerArticle extends CommonBase{
 			if(!$article_data = $object_mdar->select1ById($article_id)){
 				throw new Exception();
 			}
-			if(!$article_data['status']) {//非公開
-				throw new Exception();
-			}
 
 			$object_mdau = new ModelDataAuthors();
 			if(!$author_data = $object_mdau->select1ById($article_data['author_id'])){
@@ -112,10 +86,14 @@ Class ControllerArticle extends CommonBase{
 			}
 			$article_data['category_name'] = $category_data['name'];
 
-			$article_data['description'] = str_replace("\n", "", strip_tags($article_data['introduction'])); //タグ外し＆改行除去
+//			$article_data['description'] = str_replace("\n", "", strip_tags($article_data['introduction'])); //タグ外し＆改行除去
+
 			$article_data['introduction'] = nl2br($article_data['introduction']);
+			$article_data['introduction'] = str_replace('<img ', '<img alt="'.$article_data['title'].'" ', $article_data['introduction']);
 			$article_data['body'] = nl2br($article_data['body']);
+			$article_data['body'] = str_replace('<img ', '<img alt="'.$article_data['title'].'" ', $article_data['body']);
 			$article_data['summary'] = nl2br($article_data['summary']);
+			$article_data['summary'] = str_replace('<img ', '<img alt="'.$article_data['title'].'" ', $article_data['summary']);
 
 			$article_data['url'] = CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/';
 			$article_data['related'] = $this->getRelated($article_data['article_id'], $article_data['category_id']);
@@ -128,7 +106,6 @@ Class ControllerArticle extends CommonBase{
 		}
 	}
 
-
 	/*
 	* 1記事表示管理用
 	*
@@ -140,7 +117,7 @@ Class ControllerArticle extends CommonBase{
 		try{
 			//値なし
 			if(empty($_GET['id'])) {
-				header('location: /view/');
+				$this->add();
 				exit();
 			}
 
@@ -157,15 +134,13 @@ Class ControllerArticle extends CommonBase{
 			$update_data['path'] = $_POST['path'];
 			$update_data['category_id'] = $_POST['category'];
 			$update_data['author_id'] = $_POST['author'];
-			$update_data['release_time'] = $_POST['release'];
 			$update_data['title'] = $_POST['title'];
+			$update_data['description'] = $_POST['description'];
 			$update_data['keyword'] = $_POST['keyword'];
 
 			$update_data['introduction'] = str_replace(array("\r\n","\r","\n"), "\n", $_POST['introduction']);
 			$update_data['body'] = str_replace(array("\r\n","\r","\n"), "\n", $_POST['body']);
 			$update_data['summary'] = str_replace(array("\r\n","\r","\n"), "\n", $_POST['summary']);
-
-			$update_data['status'] = $_POST['status'];
 
 			if(empty($update_data['path'])) {
 				$update_data['error'] = "URLを入力してください。";
@@ -181,23 +156,19 @@ Class ControllerArticle extends CommonBase{
 				$update_data['error'] = "カテゴリを選択してください。";
 				return $update_data;
 			}
-			if(empty($update_data['author_id'])) {
-				$update_data['error'] = "著者を選択してください。";
-				return $update_data;
-			}
-			if(empty($update_data['release_time'])) {
-				$update_data['error'] = "公開日時を入力してください。";
-				return $update_data;
-			}
 
 			if(!$object_mdar->update($update_data)){
 				$update_data['error'] = "保存に失敗しました。";
 				return $update_data;
 			}
 
-			if($update_data['path']!=$article_data['path']) {//path変更時
+			if($update_data['path']!=$article_data['path'] || $update_data['category_id']!=$article_data['category_id']) {//URL変更時
 				//ファイル移動
-				$old_path = ROOT_DIRECTORY.'category'.$article_data['category_id'].'/'.$article_data['path'];
+				if($article_data['category_id']==6){
+					$old_path = ROOT_DIRECTORY.'admin/'.$article_data['path'];
+				} else {
+					$old_path = ROOT_DIRECTORY.'category'.$article_data['category_id'].'/'.$article_data['path'];
+				}
 				$new_path = ROOT_DIRECTORY.'category'.$update_data['category_id'].'/'.$update_data['path'];
 				exec('mv '.$old_path.' '.$new_path);
 			}
@@ -220,16 +191,28 @@ Class ControllerArticle extends CommonBase{
 	*/
 	public function showAllByAdmin(){
 		try{
+			if($search=$_GET['s']) {
+				$search = mb_convert_kana($search, 's');
+				$object_mdar = new ModelDataArticles();
+				$search_array = explode(' ', $search);
+				if(!$article_data = $object_mdar->selectAllByAdmin($search_array)){
+					throw new Exception();
+				}
+				return $article_data;
+			}
+
 			$object_mdar = new ModelDataArticles();
 
-			if(!$article_data = $object_mdar->selectAll()){
+			if(!$article_data = $object_mdar->selectAllByAdmin()){
 				throw new Exception();
 			}
 
 			foreach ($article_data as $key => $value) {
-				$article_data[$key]['introduction'] = mb_substr($value['introduction'], 0, 5);
-				$article_data[$key]['body'] = mb_substr($value['body'], 0, 5);
-				$article_data[$key]['summary'] = mb_substr($value['summary'], 0, 5);
+				if($value['release_time']<date('Y-01-01')) {
+					$article_data[$key]['release_time'] = date('Y/n/j', strtotime($value['release_time']));
+				} else {
+					$article_data[$key]['release_time'] = date('n月j日', strtotime($value['release_time']));
+				}
 			}
 
 			return $article_data;
@@ -361,14 +344,53 @@ Class ControllerArticle extends CommonBase{
 			for ($i=1; $i<=3; $i++) {
 				foreach ($article_data[$i] as $key2 => $value2) {
 					$related_data[$num] = $value2;
-					$tmp = strip_tags($value2['introduction']); //タグ外し
-                                        $related_data[$num]['description'] = str_replace("\n", "", $tmp); //改行除去
+//					$tmp = strip_tags($value2['introduction']); //タグ外し
+//					$related_data[$num]['description'] = str_replace("\n", "", $tmp); //改行除去
                                         $related_data[$num]['release_time'] = date('Y年n月j日', strtotime($value2['release_time']));
 					$num++;
 				}
 			}
 
 			return $related_data;
+		} catch (Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
+		}
+	}
+
+	/*
+	* 公開状態切替
+	*
+	* @param
+	* @access public
+	* @return boolean
+	*/
+	public function switchStatus(){
+		try{
+			if(!$_GET['i'] || !$_GET['r']) {
+				return false;
+			}
+			$object_mdar = new ModelDataArticles();
+			if(!$article_data = $object_mdar->select1ById($_GET['i'])){
+				return false;
+			}
+			if($article_data['status']!=1 && $_GET['r']==1) {
+				$status=1; // 下書き、非公開=>公開
+			} else if($article_data['status']==1 && $_GET['r']==2) {
+				$status=2; // 公開=>非公開
+			} else {
+				return false; //変わらない
+			}
+			if($article_data['status']==0){ // 初公開
+				$release_time = date('Y-m-d H:i:s');
+			} else {
+				$release_time = $article_data['release_time'];
+			}
+			if(!$object_mdar->switchStatus($article_data['article_id'], $status, $release_time)){
+				return false;
+			}
+
+			return true;
 		} catch (Exception $e){
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 			return false;
@@ -393,7 +415,7 @@ Class ControllerArticle extends CommonBase{
 					return 'URLに不正な文字があります。';
 				}
 			}
-			$ng_directories = array('css', 'img', 'js', 'ranking', 'terms');
+			$ng_directories = array('css', 'img', 'js', 'edit', 'log', 'setting', 'write', 'view');
 			foreach($ng_directories as $key => $value) {
 				if($value==$path){
 					return 'そのURLは利用できません。';
@@ -408,6 +430,45 @@ Class ControllerArticle extends CommonBase{
 		} catch (Exception $e){
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 			return 'そのURLは利用できません。';
+		}
+	}
+
+
+	/*
+	* 画像アップロード
+	*
+	* @param
+	* @access public
+	* @return
+	*/
+	public function uploadImage(){
+		try{
+			//値なし
+			if(empty($_POST)) {
+				return false;
+			}
+
+
+/*	
+                        if (strlen($_FILES["new_mem"]["name"])) {
+                                return $this->uploadCsv2('member', 'email', 'new_mem', '会員取込CSV');
+                        }
+*/
+
+$filename = basename($_FILES['upload']['name']);
+if (move_uploaded_file($_FILES['upload']['tmp_name'], '/home/www/foo/images/' . $filename)) {
+    $data = array('filename' => $filename);
+} else {
+    $data = array('error' => 'Failed to save');
+}
+			CreateLog::putDebugLog("jquery-upload!");
+			CreateLog::putDebugLog(json_encode($data));
+
+	
+			return true;
+		} catch (Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
 		}
 	}
 

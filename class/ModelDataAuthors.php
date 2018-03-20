@@ -71,7 +71,7 @@ Class ModelDataAuthors extends CommonBase{
 			if(empty($author_id)) {
 				return false;
 			}
-			$_id = $this->escapeSql($_id);
+			$author_id = $this->escapeSql($author_id);
             		$sql = 'SELECT * FROM data_authors WHERE deleted=0 AND author_id="'.$author_id.'" LIMIT 1;';
 			if(!$result = mysqli_query($this->getDatabaseLink(), $sql)){
 				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
@@ -86,6 +86,35 @@ Class ModelDataAuthors extends CommonBase{
 			return false;
 		}
 	}
+
+	/*
+	* データ取得
+	*
+	* @param int
+	* @access public
+	* @return array
+	*/
+	public function select1ByLogin($login_id){
+        	try {
+			if(empty($login_id)) {
+				return false;
+			}
+			$login_id = $this->escapeSql($login_id);
+            		$sql = 'SELECT * FROM data_authors WHERE deleted=0 AND login_id="'.$login_id.'" LIMIT 1;';
+			if(!$result = mysqli_query($this->getDatabaseLink(), $sql)){
+				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
+			}
+			if(!mysqli_num_rows($result)){
+				return false;
+			}
+			$row = mysqli_fetch_assoc($result);
+			return $row;
+		} catch(Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
+		}
+	}
+	
 	/*
 	* 全データ取得
 	*

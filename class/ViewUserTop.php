@@ -15,7 +15,7 @@ Class ViewUserTop {
 			$object_car = new ControllerArticle();
 			$recommend_data = $object_car->getRecommend();
 			$article_data = $object_car->showAllByUser($category_id);
-
+echo $_COOKIE["TestCookie"];
 			if (UserAgent::getOsId()) {
 				self::bodySp($article_data, $recommend_data, $category_id);
 			} else {
@@ -64,11 +64,11 @@ Class ViewUserTop {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
  
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+<?php ViewBootstrap::css(); ?>
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/simplePagination.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="alternate" type="application/rss+xml" title="" href="">
 
     <link rel="canonical" href="<?php echo CATEGORY_URL[$category_id] ?>">
@@ -86,9 +86,9 @@ Class ViewUserTop {
             <div class="carousel_body" id="hover_filter">
               <div class="">
                 <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>" class="push-click" id="topbtn-left" data-article-id="#">
-                  <img class="carousel_item_img" src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_LARGE ?>">
+                  <img class="carousel_item_img" src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_LARGE ?>" alt="<?php echo $value['title'] ?>">
                   <div class="carousel_logo_wrapper">
-                    <p class="carousel_category"><img src="<?php echo MAIN_URL ?>img/common/category-<?php echo $value['category_id'] ?>.png"></p>
+                    <p class="carousel_category"><img src="<?php echo MAIN_URL ?>img/common/category-<?php echo $value['category_id'] ?>.png" alt="<?php echo $value['category_name'] ?>"></p>
                     <p class="carousel_text trunk2"><?php echo $value['title'] ?></p>
                   </div>
                 </a>
@@ -108,7 +108,7 @@ Class ViewUserTop {
             <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?><?php if($_GET['s']){ echo '?s='.urlencode($_GET['s']); } ?>" class="article_box_list article_box-<?php echo floor($key/$page_items) ?>">
               <div class="boxview_box" id="hover_filter">
                 <div class="boxview_img_area">
-                  <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>">
+                  <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>">
                 </div>
                 <div class="boxview_text">
                   <p class="boxview_text_title trunk2"><?php echo $value['title'] ?></p>
@@ -132,7 +132,7 @@ Class ViewUserTop {
             <a class="article_box_list article_box-<?php echo floor($key/$page_items) ?> transparent">
               <div class="boxview_box">
                 <div class="boxview_img_area">
-                  <img src="<?php echo MAIN_URL ?>img/common/thumb-blank.png">
+                  <img src="<?php echo MAIN_URL ?>img/common/thumb-blank.png" alt="">
                 </div>
               </div>
             </a>
@@ -154,9 +154,9 @@ Class ViewUserTop {
 
 <?php new ViewUserPcFooter(); ?>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<?php ViewBootstrap::js(); ?>
+<?php new ViewAnalytics(); ?>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-pc.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/jquery.simplePagination.js"></script>
     <script type="text/javascript">
@@ -237,12 +237,11 @@ Class ViewUserTop {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
  
-    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<?php ViewBootstrap::css(); ?>
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-sp.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/wideslider.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="alternate" type="application/rss+xml" title="" href="">
 
     <link rel="canonical" href="<?php echo CATEGORY_URL[$category_id] ?>">
@@ -265,7 +264,7 @@ Class ViewUserTop {
                 <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>" class="gray gray666">
                   <div class="box_article_head_photo">
                     <div id="article_head_imgliq">
-                      <img class="sp-head" src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_LARGE ?>">
+                      <img class="sp-head" src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_LARGE ?>" alt="<?php echo $value['title'] ?>">
                     </div>
                     <div class="box_article_head_text blackgrd">
                       <p class="box_carousel_title text-line-2"><?php echo $value['title'] ?></p>
@@ -287,7 +286,7 @@ Class ViewUserTop {
           <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?><?php if($_GET['s']){ echo '?s='.urlencode($_GET['s']); } ?>" <?php if($key>=$page_items){ echo ' class="article_more"'; } ?>>
             <div class="mobile_article_index_box2 max-width border_top">
               <div class="boxview_left">
-                <div class="boxview_leftimg"><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78"></div>
+                <div class="boxview_leftimg"><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78" alt="<?php echo $value['title'] ?>"></div>
               </div>
               <div class="boxview_right">
                 <div class="mobile_article_index_text" id="boxview_righttext">
@@ -321,8 +320,9 @@ Class ViewUserTop {
 
 <?php new ViewUserSpFooter(); ?>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><!-- for wideslider.js -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><!-- for wideslider.js & slidemenu.js -->
+<?php ViewBootstrap::js(); ?>
+<?php new ViewAnalytics(); ?>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-sp.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/jquery.easing.1.3.js"></script><!-- for wideslider.js -->
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js"></script>

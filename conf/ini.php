@@ -27,10 +27,12 @@
 					'http://health.parel.site/',
 					'http://fashion.parel.site/',
 					'http://feature.parel.site/',
+					'http://adm.parel.site/',
 					));
+		define('ADMIN_URL', 'http://adm.parel.site/');
 	} else {
 		define('MAIN_URL', 'http://ec2-52-199-5-120.ap-northeast-1.compute.amazonaws.com/');
-		define('CATEGORY_URL', array(MAIN_URL, MAIN_URL,MAIN_URL, MAIN_URL, MAIN_URL, MAIN_URL,));
+		define('CATEGORY_URL', array(MAIN_URL, MAIN_URL, MAIN_URL, MAIN_URL, MAIN_URL, MAIN_URL, MAIN_URL, ));
 	}
 	define('COMPANY_URL', 'https://www.agentgate.jp/');
 	define('SITE_TITLE_ADMIN', 'パルール管理画面');

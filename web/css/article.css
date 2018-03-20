@@ -31,7 +31,9 @@
 
 .article_row img, .article_row_ex img {
   width: calc(100% - 10px);
-  margin: 30px 5px;
+  max-height: 500px;
+  margin: 20px 5px;
+  object-fit: contain;
 }
 .article_row table, .article_row_ex table {
   border: solid 1px #333;
@@ -41,4 +43,8 @@
 .article_row_ex table th, .article_row_ex table td {
   padding: 5px;
   border: solid 1px #333;
+}
+.article_row a, .article_row a:hover,
+.article_row_ex a, .article_row_ex a:hover{
+  text-decoration: underline;
 }

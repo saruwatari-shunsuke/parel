@@ -34,7 +34,7 @@ Class ViewAdminMenu {
  
 <h1>パルール 管理画面（仮）</h1>
 <br>
-<h1><a href="/write/"><i class="fa fa-edit" aria-hidden="true"></i> 投稿する</a></h1>
+<h1><a href="/edit/"><i class="fa fa-edit" aria-hidden="true"></i> 投稿する</a></h1>
 <h1><a href="/view/"><i class="fa fa-book" aria-hidden="true"></i> 記事一覧</a></h1>
 <h1><a href="<?php echo MAIN_URL ?>" target="_blank"><img src="<?php echo FAVICON ?>"> パルール</a></h1>
 

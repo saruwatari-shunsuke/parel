@@ -1,4 +1,12 @@
-/admin/log/*
+/admin/*
+!/admin/css
+!/admin/default_article
+!/admin/edit
+!/admin/img
+!/admin/index.php
+!/admin/js
+!/admin/setting
+!/admin/view
 /category1/*
 !/category1/index.php
 /category2/*

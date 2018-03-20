@@ -25,7 +25,7 @@ body{
 a,
 a:hover,
 a:active{
-    text-decoration:none !important;
+    text-decoration:none;
 }
 ul,li{
     list-style:none;
@@ -281,6 +281,12 @@ ul.side_nav li{
 }
 .mb30{
     margin-bottom:30px !important;
+}
+.mb40{
+    margin-bottom:40px !important;
+}
+.mb50{
+    margin-bottom:50px !important;
 }
 .mb200{
     margin-bottom:200px !important;
@@ -572,9 +578,6 @@ p.sidebar_article_num{
 .user_menu_li{
     margin-top: -50px;
 }
-.login_menu_ul{
-    margin-top: -45px !important;
-}
 .navbar_search_form_input{
     height:28px;
     padding:0px 10px;
@@ -609,9 +612,6 @@ p.sidebar_article_num{
     height: 8px;
     border: 0;
     box-shadow: inset 0 12px 12px -12px rgba(0,0,0,0.3);
-}
-.nologin_cross{
-    width:25px; margin:10px 10px 18px;
 }
 .dropmenu_separate{
     margin:5px;
@@ -740,16 +740,13 @@ li.thumb_2 img{
     font-size:26px;
     line-height: 1.4;
 }
-div.article_row{
+.article_row_head{
     overflow:hidden;
     margin:0;
     padding:0 10px;
 }
 p#article_num{
     font-size:20px;
-}
-div.home1{
-    background:#faebd7;
 }
 .article_view_modalimg{
     margin-top:80px;
@@ -855,36 +852,6 @@ p.article_index_desc{
 .carousel_area{
     margin:5px 5px 5px;
 }
-/* weeklyranking */
-.weeklymvp_boxview_left{
-    float:left;
-    width:80px;
-}
-.weeklymvp_boxview_right{
-    float:right;
-    width:100%;
-    margin-left:-85px;
-}
-.weeklymvp_text{
-    background:#fff;
-    padding:0px 0px;
-    margin-left:85px;
-    margin-top:25px;
-    font-size: 120%;
-    font-weight: bold;
-}
-.mvp_border_inner{
-    border: 1px solid #dc8791;
-    padding-top: 3px;
-}
-.mvp_border{
-    border: 3px solid #dc8791;
-    margin: 3px;
-}
-.weekly_curator_title{
-    font-size:32px;
-    color: #dc8791;
-}
 /* side_ranking */
 .ranking_wrapper{
     position: relative;
@@ -946,24 +913,6 @@ p.article_index_desc{
 .side_ranking_right{
     float:left; width:65%;
 }
- /*side_dailyranking*/
-.dailyranking_left{
-    float:left;
-    width:30%;
-}
-.dailyranking_img{
-    width:60px;
-    height:60px;
-}
-.dailyranking_right{
-    float:left; width:65%;
-}
-#ranking_text_body{
-    background:#dc8791;
-}
-.ranking_text_body {
-    background:#dc8791;
-}
 /* boxview */
 .points_text{
     color:#999;
@@ -982,9 +931,6 @@ p.article_index_desc{
     display: block;
     position: absolute;
     top: -18px;
-}
-#article_message_box{
-    background:#fff; margin-top:5px;
 }
 #out{
     clear:both; margin:10px;
@@ -1016,9 +962,6 @@ p.article_index_desc{
 .inner-gray a{
     color:#999;
 }
-#view_top_space{
-    margin:0 20px 0 30px;
-}
 .article_view{
     background:#fff;
     margin:0 10px 10px 5px;
@@ -1045,13 +988,6 @@ div.article_row_ex{
     color:#999;
     margin:10px 0 0px;
     border:none;
-}
-/* article->add */
-#add_headline{
-    /*font-weight:bold;*/
-}
-#add_title{
-    font-size:20px;
 }
 /* article->view */
 .article_row h3{
@@ -1209,49 +1145,6 @@ h2.indextop_title a{
 .ranking_text a{
     color:#666;
 }
-/* users->add */
-.add_title{
-    border-left:5px solid #dc8791;
-    padding: 0 0 0 10px;
-    margin:0 0 20px 0;
-}
-.add_or{
-    text-align:center;
-    color:#999;
-    margin:10px 0 25px;
-}
-.add_space{
-    padding:60px 0 100px;
-}
-#add_border{
-    border:1px solid #ddd;
-    padding:20px;
-    background:#fff;
-}
-.login_link{
-    margin:10px 0 0;
-}
-/* users->login */
-.add_link{
-    margin:20px 0 0;
-}
-/* user->add */
-.user_add_leftbox{
-    border:0px solid #ccc;
-    padding:0px 20px 20px;
-}
-.user_add_loginbtn{
-    width:80%;
-    padding:10px;
-}
-.user_add_formbox{
-    margin:0 10%;
-}
-.user_add_submitbtn{
-    width:80%;
-    padding:10px;
-    margin:0 10%;
-}
 /* user->edit */
 .profile_edit_form{
     margin:20px 0 -5px;
@@ -1285,13 +1178,7 @@ div#profile_view_desc{
     margin:0 10px 40px 0;
     background:#fff;
 }
-#space{
-    margin:20px 0;
-}
 /* サムネイル設定 */
-.space{
-    margin:20px 0;
-}
 #thumbnail{
     margin:20px 0;
 }
@@ -1300,16 +1187,6 @@ div#profile_view_desc{
     font-weight:bold;
     color:#666;
     margin:0 0 0 3px;
-}
-.editor-part-icon-headline,
-.editor-part-icon-image,
-.editor-part-icon-text,
-.editor-part-icon-ecbtn,
-.editor-part-icon-adbtn{
-    padding: 3px 0 3px 40px;
-    background-repeat: no-repeat;
-    background-size: 30px;
-    margin: 0 10px 10px;
 }
 .hidden{
     display: none;
@@ -1413,34 +1290,6 @@ p.footer_text a{
 p.footer_text a:hover{
     color: #ccc;
 }
-/* users->addacount */
-.user_addacount_box{
-    padding:0 10px;
-}
-/* users->auth_user */
-.user_authuser_pibkuplink{
-    margin-bottom:20px;
-}
-.user_authuser_addlink{
-    clear:both;
-    margin:10px;
-}
-.user_authuser_userimg{
-    width:50px;
-}
-/* stacks -> app_stack */
-.app_stack{
-    margin:50px 0 ;
-}
-.app_stack_imgs{
-    height:100px;
-}
-.stack_maxsize{
-    max-width:400px;
-}
-.stack_finish{
-    margin:20px;
-}
 /* article edit */
 .select_article_view_desc{
     margin:20px 10px;
@@ -1461,36 +1310,9 @@ p.footer_text a:hover{
     font-size:100%;
     margin-left:-10px;
 }
-.error,
-.error-message{
+.error{
     color:red;
 }
-/* Auth_display */
-.message_area{
-    border: 1px solid #999;
-    padding: 10px;
-}
-/* Message -> view */
-.msg_area{
-    margin-bottom: 200px
-}
-.messages_no_msg{
-    padding:20px;
-}
-.messages_text_wrap{
-    padding:0 20px 20px;
-    margin-top:0;
-}
-.messages_text_place{
-    border:1px solid #dc8791;
-    padding:10px;
-}
-.messages_opend_title{
-    background: #fff;
-    padding: 10px 20px;
-    border-left: 3px solid #dc8791;
-}
-
 /* iPad 対応　*/
 .listview_wrap{
     /*margin:-10px -10px 0;*/
@@ -1554,9 +1376,6 @@ p.footer_text a:hover{
     background: #dc8791;
     color:#fff;
     border:0;
-}
-.mobile_box_space1{
-    margin:0px;
 }
 .points_text{
     color:#999;
@@ -1776,20 +1595,6 @@ p.footer_text a:hover{
 .article_list_box .article_list_info li a {
     font-size: 12px;
 }
-/*
-#article_list .pagination a {
-    margin:0 5px;
-    background: #fff;
-    color: #ff66aa;
-    border:3px solid #dc8791;
-}
-#article_list .pagenation .active a {
-    margin:0 5px;
-    color:#fff;
-    background: #ff66aa;
-    border:1px solid #dc8791;
-}
-*/
 /* hover */
 .hover:hover {
     filter: alpha(opacity=85);
@@ -1803,162 +1608,6 @@ p.footer_text a:hover{
 }
 .display-diff-delete {
     margin: 0 0 12px;
-}
-
-#sort_curator_list {
-    margin-right: 10px;
-    padding: 0;
-    overflow: hidden;
-}
-#sort_curator_list li {
-    float: left;
-    width: 49.6%;
-}
-#sort_curator_list .sort_curator_list_box {
-    padding: 4px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 4px;
-}
-#sort_curator_list .sort_curator_list_box p {
-    line-height: 1.4;
-    padding: 5px 10px;
-    margin: 0;
-}
-#sort_curator_list .sort_curator_list_box .sort_curator_list_box_username {
-    color: #dc8791;
-    font-weight: bold;
-}
-#sort_curator_list .sort_curator_list_box_small {
-    overflow: hidden;
-}
-#sort_curator_list .sort_curator_list_box_image {
-    float: left;
-    width: 35%;
-}
-#sort_curator_list .sort_curator_list_box_info {
-    float: left;
-    width: 65%;
-}
-
-/* pinterest */
-.pinterest_domain_margin{
-    height:10px;
-}
-.pinterest-content-wrapper {
-    background-color: #fff;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -o-border-radius: 6px;
-    border-radius: 6px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    margin: auto;
-    overflow: hidden;
-    /*position: relative;*/
-    text-align: left;
-    width: 100%;
-    max-width: 600px;
-    line-height: 1;
-    position: relative;
-    border: 1px solid #d5d5d5
-}
-.pinterest-content-wrapper ul,
-.pinterest-content-wrapper li,
-.pinterest-content-wrapper p {
-    margin: 0;
-    padding: 0;
-}
-.pinterest-content-wrapper .pinterest-content-button {
-    position: absolute;
-    z-index: 10;
-    top: 10px;
-    left: 10px;
-}
-.pinterest-content-wrapper .pinterest-content-button .mb_btn {
-    width: 52px;
-}
-
-.pinterest-content-wrapper .pinterest-content-button .pc_btn {
-    width: 67px;
-}
-
-.pinterest-content-wrapper .pinterest-content-image img, .pinterest-content-cutoff-image img{
-    width: 100%;
-}
-.pinterest-content-wrapper .pinterest-content-info {
-    padding: 10px;
-    border-bottom: 1px solid #e7e7e7;
-}
-.pinterest-content-wrapper .pinterest-content-info .pinterest-content-original-site {
-    font-family: "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3";
-    font-size: 11px;
-    color: #000;
-}
-.pinterest-content-wrapper .pinterest-content-info ul li {
-    display: inline-block;
-    font-family: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "ヒラギノ角ゴ Pro W6","Hiragino Kaku Gothic Pro";
-    font-size: 10px;
-    color: #b9b9b9;
-}
-.pinterest-content-wrapper .pinterest-content-info .pinterest-content-icon {
-    padding-right: 2px;
-}
-.pinterest-content-wrapper .pinterest-content-credit {
-    padding: 10px;
-}
-.pinterest-content-wrapper .pinterest-content-credit .pinterest-image-logo {
-    display: block;
-    background: url(/img/common/pinterset-logo-inactive.png) no-repeat;
-    -webkit-background-size: 72px auto;
-    -moz-background-size: 72px auto;
-    -o-background-size: 72px auto;
-    background-size: 72px auto;
-    margin: 0 auto;
-    width: 72px;
-    height: 19px;
-}
-.pinterest-content-wrapper .pinterest-content-credit .pinterest-image-logo:hover {
-    background: url(/img/common/pinterset-logo-hover.png) no-repeat;
-    -webkit-background-size: 72px auto;
-    -moz-background-size: 72px auto;
-    -o-background-size: 72px auto;
-    background-size: 72px auto;
-}
-.pinterest-content-cutoff-image{
-    width: 100%;
-    max-height: 1000px;
-    overflow: hidden;
-    position: relative;
-}
-.pinterest-image-expansion-link{
-    width: 100%;
-    height: 34px;
-    background-color: rgba(255, 255, 255, 0.8);
-    position: absolute;
-    bottom: 0px;
-    color: #666;
-    font-size: 11px;
-    text-align: center;
-    padding: 11px auto;
-}
-.pinterest-image-expansion-link p{
-    margin: 11px auto;
-}
-.pinterest-image-expansion-link a{
-    color: #666;
-}
-.pinterest-content-original-site a{
-    color: #000;
-}
-.pinterest-content-button a img:hover,
-.pinterest-content-image a img:hover,
-.pinterest-content-cutoff-image a img:hover{
-    opacity: 0.9;
 }
 
 /* 引用パーツ */

@@ -39,7 +39,7 @@ Class ViewUserSpSubContents {
           <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
             <div class="ranking_wrapper" id="hover_filter">
               <div class="ranking_img_area">
-                <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>">
+                <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>">
               </div>
               <div class="ranking_text">
                 <div class="ranking_text_left">
@@ -90,7 +90,7 @@ Class ViewUserSpSubContents {
 <?php } ?>
       </div><!-- /boxview_wraper -->
 
-      <img src="<?php echo MAIN_URL ?>img/common/dot.png">
+      <img src="<?php echo MAIN_URL ?>img/common/dot.png" alt="">
 
 <?php
 		} catch(Exception $e) {

@@ -44,13 +44,13 @@ Class ViewUserArticle {
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title><?php echo $article_data['title'] ?> | <?php echo $setting_data['site_name_short'] ?></title>
+    <title><?php echo $article_data['title'] ?></title>
 
     <meta name="description" content="<?php echo $article_data['description'] ?>">
     <meta name="keywords" content="<?php echo $article_data['keyword'] ?>">
     <meta name="robots" content="index,follow">
 
-    <meta property="og:title" content="<?php echo $article_data['title'] ?> | <?php echo $setting_data['site_name_short'] ?>">
+    <meta property="og:title" content="<?php echo $article_data['title'] ?>">
     <meta property="og:type" content="article">
     <meta property="og:url" content="<?php echo $article_data['url'] ?>">
     <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
@@ -65,12 +65,11 @@ Class ViewUserArticle {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
  
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<?php ViewBootstrap::css(); ?>
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/article.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="alternate" type="application/rss+xml" title="" href="">
 
     <link rel="canonical" href="<?php echo $article_data['url'] ?>">
@@ -83,13 +82,17 @@ Class ViewUserArticle {
         <div class="left main_bar">
           <div class="article_view">
             <div class="sitemap">
-              <a href="<?php echo MAIN_URL ?>"><?php echo $setting_data['site_name_short'] ?></a> <i class="fa fa-angle-right" aria-hidden="true"></i> <a href="<?php echo CATEGORY_URL[$article_data['category_id']] ?>"><?php echo $article_data['category_name']; ?></a> <i class="fa fa-angle-right" aria-hidden="true"></i> <?php echo $article_data['title']; ?>
+              <a href="<?php echo MAIN_URL ?>"><?php echo $setting_data['site_name_short'] ?></a>
+              &rsaquo;
+              <a href="<?php echo CATEGORY_URL[$article_data['category_id']] ?>"><?php echo $article_data['category_name']; ?></a>
+              &rsaquo;
+              <?php echo $article_data['title']; ?>
             </div>
-            <div class="article_row mt30"><!-- Start of Article head -->
-              <div class="col-md-3 col-sm-3" id="center"><img id="thumb_1" class="img-circle" src="<?php echo IMAGE_MAIN_LARGE; ?>" alt=""></div>
-              <div class="col-md-9 col-sm-9">
-                <h1 class="article_text_title"><?php echo $article_data['title']; ?></h1>
-                <div class="addthis_inline_share_toolbox"></div>
+            <div class="article_row_head mt20"><!-- Start of Article head -->
+              <div class="col-md-4 col-sm-4" id="center"><img id="thumb_1" class="img-circle" src="<?php echo IMAGE_MAIN_LARGE; ?>" alt=""></div>
+              <div class="col-md-8 col-sm-8 mt40">
+                <h1 class="article_text_title mb30"><?php echo $article_data['title']; ?></h1>
+                <div class="addthis_inline_share_toolbox ml30"></div>
               </div>
             </div><!-- End of Article head -->
 
@@ -101,10 +104,8 @@ Class ViewUserArticle {
 
             <div id="toc"><!-- 目次 --></div>
 
-            <div class="article_row mb30">
-              <div class="col-md-12 col-xs-12">
+            <div class="article_row mb50">
 <?php echo $article_data['body']; ?>
-              </div>
             </div>
 
             <hr>
@@ -116,7 +117,7 @@ Class ViewUserArticle {
             <div>
 <?php foreach ($article_data['related'] as $key => $value) { ?>
               <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>" class="item-related-article overflow">
-                <div class="item-thumbnail"><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>"></div>
+                <div class="item-thumbnail"><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>"></div>
                 <div class="item-content">
                   <p class="item-title"><?php echo $value['title'] ?></p>
                   <p class="item-description trunk3"><?php echo $value['description'] ?></p>
@@ -131,7 +132,7 @@ Class ViewUserArticle {
             <a href="<?php echo MAIN_URL.'?a='.$article_data['author_id'] ?>">
               <div class="overflow article_written_box">
                 <div class="article_written_box_left">
-                  <img src="<?php echo $article_data['author_image'] ?>">
+                  <img src="<?php echo $article_data['author_image'] ?>" alt="<?php echo $article_data['author_name'] ?>">
                 </div>
                 <div class="article_written_box_right">
                   <p>written by</p>
@@ -152,9 +153,9 @@ Class ViewUserArticle {
 
 <?php new ViewUserPcFooter(); ?>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<?php ViewBootstrap::js(); ?>
+<?php if($article_data['status']){ new ViewAnalytics(); } ?>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-pc.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/trunk8.min.js"></script>
     <script>
@@ -199,7 +200,7 @@ Class ViewUserArticle {
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title><?php echo $article_data['title'] ?> | <?php echo $setting_data['site_name_short'] ?></title>
+    <title><?php echo $article_data['title'] ?></title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -207,7 +208,7 @@ Class ViewUserArticle {
     <meta name="keywords" content="<?php echo $article_data['keyword'] ?>">
     <meta name="robots" content="index,follow">
 
-    <meta property="og:title" content="<?php echo $article_data['title'] ?> | <?php echo $setting_data['site_name_short'] ?>">
+    <meta property="og:title" content="<?php echo $article_data['title'] ?>">
     <meta property="og:type" content="article">
     <meta property="og:url" content="<?php echo $article_data['url'] ?>">
     <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
@@ -222,12 +223,11 @@ Class ViewUserArticle {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
  
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<?php ViewBootstrap::css(); ?>
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-sp.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/article.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="alternate" type="application/rss+xml" title="" href="">
 
     <link rel="canonical" href="<?php echo $article_data['url'] ?>">
@@ -241,14 +241,14 @@ Class ViewUserArticle {
       <div class="article_head_photo mt-15 ml-10 mr-10">
         <div id="article_head_imgliq">
           <div class="article_head_img imgLiquid_bgSize imgLiquid_ready" style="background-image: url('<?php echo IMAGE_MAIN_SMALL ?>'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-            <img src="<?php echo IMAGE_MAIN_LARGE ?>" class="max-width" style="display: none;">
+            <img src="<?php echo IMAGE_MAIN_LARGE ?>" class="max-width" style="display: none;" alt="<?php echo $article_data['title'] ?>">
           </div>
         </div>
         <div class="article_head_text">
           <div class="overflow">
             <a href="<?php echo MAIN_URL.'?a='.$article_data['author_id'] ?>">
               <div class="left gray gray666">
-                <img src="<?php echo $article_data['author_image'] ?>" class="img-circle article_head_usericon"> <?php echo $article_data['author_name'] ?>
+                <img src="<?php echo $article_data['author_image'] ?>" class="img-circle article_head_usericon" alt="<?php echo $article_data['author_name'] ?>"> <?php echo $article_data['author_name'] ?>
               </div>
             </a>
           </div>
@@ -277,7 +277,7 @@ Class ViewUserArticle {
 
         <div id="toc"><!-- 目次 --></div>
 
-        <div class="article_row">
+        <div class="article_row mb50">
 
 <?php echo $article_data['body']; ?>
 
@@ -308,7 +308,7 @@ Class ViewUserArticle {
           <div class="mobile_article_index_box2 max-width">
             <div class="boxview_left">
               <div class="boxview_leftimg">
-                <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78">
+                <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78" alt="<?php echo $value['title'] ?>">
               </div>
             </div>
             <div class="boxview_right">
@@ -337,8 +337,9 @@ Class ViewUserArticle {
 
 <?php new ViewUserSpFooter(); ?>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><!-- for wideslider.js & slidemenu.js -->
+<?php ViewBootstrap::js(); ?>
+<?php if($article_data['status']){ new ViewAnalytics(); } ?>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-sp.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/imgLiquid.js"></script>
     <style type="text/css">.imgLiquid img {visibility:hidden}</style>

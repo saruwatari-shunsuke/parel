@@ -40,7 +40,7 @@ Class ViewUserPcRightSideBar {
             <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
               <div class="ranking_wrapper" id="hover_filter">
                 <div class="ranking_img_area">
-                  <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>">
+                  <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>">
                 </div>
                 <div class="ranking_text">
                   <div class="ranking_text_left">
