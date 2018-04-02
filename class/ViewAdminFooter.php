@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 
 Class ViewAdminFooter {
@@ -28,16 +28,16 @@ Class ViewAdminFooter {
 		try {
 ?>
     <!-- header1 -->
-    <nav class="navbar navbar-default navbar-fixed-top header_bar bg_coral opacity85" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top header_bar bg_cyan opacity85" role="navigation"id="header">
       <div class="nav_bar_wrapper">
         <div class="container-fluid">
           <div class="collapse navbar-collapse">
             <div class="navbar-header">
-              <div class="header_logo mt10">
-                <a href="<?php echo MAIN_URL ?>"><img src="<?php echo LOGO ?>"></a>
+              <div class="header_logo">
+                <a href="<?php echo ADMIN_URL ?>"><img src="http://parel.site/img/common/logo_9.png"></a>
               </div>
             </div>
-            <ul class="nav navbar-nav navbar-right mt-30">
+            <ul class="nav navbar-nav navbar-left mt-45">
               <li>
                 <form action="/view/" controller="articles" class="form-inline" id="head_nav_search" method="GET" accept-charset="utf-8">
                   <input name="s" class="form-control navbar_search_form_input" placeholder="気になるワードを入れてみましょう" type="text" value="<?php echo $_GET['s'] ?>">
@@ -45,35 +45,21 @@ Class ViewAdminFooter {
                 </form>
               </li>
             </ul>
+            <ul class="nav navbar-nav navbar-right mt-45">
+              <li><a class="btn btn-sm" href="/view/"><span class="glyphicon glyphicon-file"></span> 記事</a></li>
+              <li><a class="btn btn-sm" href="/setting/"><span class="glyphicon glyphicon-cog"></span> 設定</a></li>
+            </ul>
           </div>
         </div>
       </div>
     </nav>
 
-    <!-- header2 -->
-<!--
-    <nav class="navbar-default navbar-fixed-top opacity85 category_nav" role="navigation">
-      <div class="nav_bar_wrapper">
-        <div class="overflow">
-          <ul>
-            <li class="left hover" style="width:18%;"><a href="<?php echo MAIN_URL ?>"><div class="gray666 font90">パルール</div></a></li>
-            <li class="left hover" style="width:18%;"><a href="/edit/"><div class="gray666 font90"><span class="glyphicon glyphicon-pencil"></span> 新規投稿</div></a></li>
-            <li class="left hover" style="width:18%;"><a href="/view/"><div class="gray666 font90">記事一覧</div></a></li>
-            <li class="left hover" style="width:18%;"><a href="/setting/"><div class="gray666 font90">設定</div></a></li>
-            <li class="left hover" style="width:18%;"><a href="#"><div class="gray666 font90">？？？</div></a></li>
-            <li class="left hover" style="width:10%;"><a href="#"><div class="gray666 font90">？？？</div></a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
--->
-
     <!-- footer -->
-    <footer class="navbar navbar-default bg_coral" role="banner" id="footer_wrapper">
+    <footer class="navbar navbar-default bg_cyan" role="banner" id="footer_wrapper">
       <div class="container">
         <div class="row">
           <div class="col-xs-4">
-            <p class="footer_text"><a href="<?php echo MAIN_URL ?>"><img class="footer_logo" src="<?php echo LOGO ?>"></a></p>
+            <p class="footer_text"><a href="<?php echo ADMIN_URL ?>"><img class="footer_logo" src="http://parel.site/img/common/logo_9.png"></a></p>
           </div>
           <div class="col-xs-4">
             <p class="footer_text"><a href="//twitter.com/parel_beauty" target="_blank">Twitter</a></p>

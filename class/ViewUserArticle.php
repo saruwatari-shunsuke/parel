@@ -73,6 +73,7 @@ Class ViewUserArticle {
     <link rel="alternate" type="application/rss+xml" title="" href="">
 
     <link rel="canonical" href="<?php echo $article_data['url'] ?>">
+    <link rel="amphtml" href="<?php echo $article_data['url'] ?>amp/">
     <link rel="next" href="">
  
   </head>

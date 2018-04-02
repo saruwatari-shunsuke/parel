@@ -1,5 +1,111 @@
+.bg_cyan{
+    background: #e0f3ff;
+}
+.header_logo{
+    width: 220px;
+}
+.navbar_search_form_input{
+    height:28px;
+    padding:0px 10px;
+    color: #468;
+    width:240px !important;
+    font-size:80%;
+    background:rgba(240, 249, 255, 0.9);
+    border:1px solid #bde;
+    -webkit-border-radius: 1px;
+       -moz-border-radius: 1px;
+            border-radius: 1px;
+}
+.navbar_search_submit{
+    margin: 0 0 0 5px;
+    font-size: 80%;
+    color: #468;
+    background: rgba(240, 249, 255, 0.9);
+    border: 1px solid #bde;
+/*    background: url('/img/common/search2.png') no-repeat center; */
+    -webkit-border-radius: 1px;
+       -moz-border-radius: 1px;
+            border-radius: 1px;
+}
+.panel-heading, .panel-footer {
+  font-size: 0.8em;
+}
 .container-fruid {
   width: 100%;
   padding: 0 15px;
 }
+textarea {
+  box-sizing: border-box;
+  resize: none;
+}
+.toolbar {
+  margin: 7px;
+  padding: 7px;
+  background: #eee;
+  border-radius: 5px;
+  border: solid 1px #ccc;
+}
+.toolbar .toolbar_text {
+  float: right;
+  line-height: 10%;
+  font-size: 9px;
+  color: #aaa;
+}
+.toolbar .heading {
+  border-bottom: solid #dc8791 2px;
+  font-weight:bold;
+}
+.toolbar .colored {
+  background:linear-gradient(transparent 60%, #f69 0%);
+}
+.toolbar .frame {
+  background:#fce;
+  border-radius: 8px;
+  padding: 0 6px;
+}
+.toolbar .link {
+  color:#428bca;
+  text-decoration:underline;
+}
+.toolbar .graphic {
+  color:#381;
+}
+code {
+  background: transparent;
 
+}
+#ModalInternalLink .modal-body a {
+  text-align: left;
+  overflow: hidden;
+}
+.panel, .panel-heading, .pane-body {
+  z-index: 1 !important;
+}
+ul.dropdown-menu {
+  z-index: 2000;
+}
+#toolbar-frame {
+  width: 600px;
+}
+#toolbar-frame li {
+  display: inline-block;
+  float: left;
+  width: 33%;
+  height: 100%;
+  overflow: hidden;
+}
+#ModalInternalLink .modal-body a {
+  text-align: left;
+  overflow: hidden;
+}
+#dropzone-subimage {
+  color: #999;
+  width: 598px;
+  height: 300px;
+  font-size: 20px;
+  margin: 30px auto 20px;
+  display: table-cell;
+  vertical-align: middle;
+  border: dashed 3px #999;
+  text-align: center;
+}

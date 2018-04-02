@@ -36,9 +36,9 @@
 	}
 	define('COMPANY_URL', 'https://www.agentgate.jp/');
 	define('SITE_TITLE_ADMIN', 'パルール管理画面');
-	define('LOGO', MAIN_URL.'img/common/logo_5.png');
+	define('LOGO', MAIN_URL.'img/common/logo_9.png');
 	define('FAVICON', MAIN_URL.'img/common/parel.ico');
-	define('IMAGE_SITE_MAIN', MAIN_URL.'img/common/parel400.jpg');
+	define('IMAGE_SITE_MAIN', MAIN_URL.'img/common/parel600.jpg');
 	define('IMAGE_MAIN_LARGE', 'main.jpg');
 	define('IMAGE_MAIN_SMALL', 'thumb.jpg');
 	define('DEBUG_LOG_FLG', '1');//デバッグログフラグ 1:ログ出力 0:ログ未出力

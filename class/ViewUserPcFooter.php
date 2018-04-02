@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 
 Class ViewUserPcFooter {
@@ -33,11 +33,11 @@ Class ViewUserPcFooter {
         <div class="container-fluid">
           <div class="collapse navbar-collapse">
             <div class="navbar-header">
-              <div class="header_logo mt10">
+              <div class="header_logo">
                 <a href="<?php echo MAIN_URL ?>"><img src="<?php echo LOGO ?>" alt="パルール"></a>
               </div>
             </div>
-            <ul class="nav navbar-nav navbar-right mt-30">
+            <ul class="nav navbar-nav navbar-right mt-45">
               <li>
                 <form action="<?php echo MAIN_URL ?>" controller="articles" class="form-inline" id="head_nav_search" method="GET" accept-charset="utf-8">
                   <input name="s" class="form-control navbar_search_form_input" placeholder="気になるワードを入れてみましょう" type="text" value="<?php echo $_GET['s'] ?>">
@@ -73,14 +73,17 @@ Class ViewUserPcFooter {
           <div class="col-xs-3">
             <p class="footer_text"><a href="<?php echo MAIN_URL ?>"><img class="footer_logo" src="<?php echo LOGO ?>" alt="パルール"></a></p>
           </div>
-          <div class="col-xs-4">
+          <div class="col-xs-3">
             <p class="footer_text"><a href="//twitter.com/parel_beauty" target="_blank">Twitter</a></p>
             <p class="footer_text"><a href="//www.agentgate.jp/contact.html" target="_blank">お問い合わせ</a></p>
           </div>
-          <div class="col-xs-4">
+          <div class="col-xs-3">
             <p class="footer_text"><a href="<?php echo MAIN_URL ?>terms/">利用規約</a></p>
             <p class="footer_text"><a href="//www.agentgate.jp/privacy.html" target="_blank">プライバシーポリシー</a></p>
             <p class="footer_text"><a href="//www.agentgate.jp/company.html" target="_blank">運営会社</a></p>
+          </div>
+          <div class="col-xs-3">
+            <p class="footer_text"><a href="//hito-shigoto.jp/" target="_blank">ヒトシゴト</a></p>
           </div>
         </div>
         <div class="row mt10">

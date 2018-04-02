@@ -39,16 +39,56 @@ Class ControllerArticle extends CommonBase{
 			$sample_path = ROOT_DIRECTORY.'admin/default_article';
 			$full_path = ROOT_DIRECTORY.'admin/'.$insert_data['path'];
 			exec('cp -a '.$sample_path.' '.$full_path);
-			$fp = fopen($full_path.'/index.php', "a");
-			$code = "new ViewUserArticle($article_id);";
-			fwrite($fp, $code);
-			fclose($fp);
+
+			$fp1 = fopen($full_path.'/index.php', "a");
+			fwrite($fp1, "new ViewUserArticle($article_id);");
+			fclose($fp1);
+
+			$fp2 = fopen($full_path.'/amp/index.php', "a");
+			fwrite($fp2, "new ViewUserArticleAmp($article_id);");
+			fclose($fp2);
 
 			header('location: /edit/?id='.$article_id);
 			exit();
 		} catch (Exception $e){
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 			return false;
+		}
+	}
+
+	/*
+	* データ削除
+	*
+	* @param
+	* @access public
+	* @return boolean
+	*/
+	private function delete($article_id){
+		try{
+			$object_mdar = new ModelDataArticles();
+			if(!$article_data = $object_mdar->select1ById($article_id)){
+				throw new Exception();
+			}
+
+			if(!$object_mdar->delete($article_id)){
+				throw new Exception();
+			}
+
+			//ファイル移動
+			if($article_data['category_id']==6){
+				$old_path = ROOT_DIRECTORY.'admin/'.$article_data['path'];
+			} else {
+				$old_path = ROOT_DIRECTORY.'category'.$article_data['category_id'].'/'.$article_data['path'];
+			}
+			$new_path = ROOT_DIRECTORY.'admin/trash/'.$article_id;
+			exec('mv '.$old_path.' '.$new_path);
+	
+			header('location: /view/');
+			exit();
+		} catch (Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			header('location: /view/');
+			exit();
 		}
 	}
 
@@ -107,6 +147,75 @@ Class ControllerArticle extends CommonBase{
 	}
 
 	/*
+	* 1記事表示（AMP版）
+	*
+	* @param int
+	* @access public
+	* @return array
+	*/
+	public function show1DataAmpByUser($article_id){
+		try{
+			//値なし
+			if(empty($article_id)) {
+				return false;
+			}
+			$object_mdar = new ModelDataArticles();
+			if(!$article_data = $object_mdar->select1ById($article_id)){
+				throw new Exception();
+			}
+
+			$object_mdau = new ModelDataAuthors();
+			if(!$author_data = $object_mdau->select1ById($article_data['author_id'])){
+				throw new Exception();
+			}
+
+			$article_data['author_name'] = $author_data['name'];
+			$article_data['author_image'] = MAIN_URL.'img/common/'.$author_data['image'];
+			$article_data['author_profile'] = $author_data['profile'];
+
+			$object_mmca = new ModelMasterCategories();
+			if(!$category_data = $object_mmca->select1ById($article_data['category_id'])){
+				throw new Exception();
+			}
+			$article_data['category_name'] = $category_data['name'];
+
+			$article_data['introduction'] = $this->replaceAmpText($article_data['introduction']);
+			$article_data['body'] = $this->replaceAmpText($article_data['body']);
+			$article_data['summary'] = $this->replaceAmpText($article_data['summary']);
+
+			$article_data['url'] = CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/';
+			$article_data['related'] = $this->getRelated($article_data['article_id'], $article_data['category_id']);
+
+			return $article_data;
+		} catch (Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			header('location: '.MAIN_URL.'404/');
+			exit();
+		}
+	}
+
+	/*
+	* 1記事表示（AMP版）
+	*
+	* @param int
+	* @access public
+	* @return array
+	*/
+	private function replaceAmpText($text){
+		try{
+			$text = strip_tags($text, '<a><img>'); // h3, h4, h5, h6, span, div, table 除去
+			$text = str_replace('<img', '<amp-img', $text);
+			$text = str_replace('src="', 'str="../', $text);
+			$text = nl2br($text);
+
+			return $text;
+		} catch (Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			exit();
+		}
+	}
+
+	/*
 	* 1記事表示管理用
 	*
 	* @param
@@ -125,7 +234,12 @@ Class ControllerArticle extends CommonBase{
 			if(!$article_data = $object_mdar->select1ById($_GET['id'])){
 				throw new Exception();
 			}
-	
+
+			if(!empty($_GET['delete'])) {
+				$this->delete($_GET['id']);
+				exit();
+			}
+
 			if (empty($_POST)) {
 				return $article_data;
 			}
@@ -309,6 +423,53 @@ Class ControllerArticle extends CommonBase{
 	}
 
 	/*
+	* 編集部おすすめ記事
+	*
+	* @param
+	* @access public
+	* @return array
+	*/
+	public function getMyFavoliteForAdmin(){
+		try{
+			if($_POST['myfavolite']) {
+				$text = "[setting]\n".
+					"my_favolite = ".implode(',', $_POST['myfavolite'])."\n";
+				$handle = fopen(SETTING_DIRECTORY.'myfavolite.ini', "w");
+				@fwrite($handle, $text);
+				fclose($handle);
+			}
+
+			$myfavolite = parse_ini_file(SETTING_DIRECTORY.'myfavolite.ini');
+			$myfavolite_data = explode(',', $myfavolite['my_favolite']);
+			$object_mdar = new ModelDataArticles();
+			if(!$article_data = $object_mdar->selectAllByAdmin()){
+				throw new Exception();
+			}
+
+			foreach ($article_data as $key => $value) {
+				if($value['release_time']<date('Y-01-01')) {
+					$article_data[$key]['release_time'] = date('Y/n/j', strtotime($value['release_time']));
+				} else {
+					$article_data[$key]['release_time'] = date('n月j日', strtotime($value['release_time']));
+				}
+
+				foreach($myfavolite_data as $key2 => $value2){
+					if ($value2==$value['article_id']) {
+						$article_data[$key]['myfavolite'] = 1;
+					}
+				}
+			}
+
+			return $article_data;
+		} catch (Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
+		}
+	}
+
+
+
+	/*
 	* 関連記事
 	*
 	* @param int
@@ -435,35 +596,36 @@ Class ControllerArticle extends CommonBase{
 
 
 	/*
-	* 画像アップロード
+	* 画像アップロード後のディレクトリ移動
 	*
 	* @param
 	* @access public
 	* @return
 	*/
-	public function uploadImage(){
+	public function moveFile(){
 		try{
-			//値なし
-			if(empty($_POST)) {
+			if(empty($category=$_GET['category']) || empty($path=$_GET['path']) || empty($old_name=$_GET['oldname']) || empty($new_name=$_GET['newname'])) {
 				return false;
 			}
 
+			CreateLog::putDebugLog("category:".$category);
+			CreateLog::putDebugLog("path:".$path);
+			CreateLog::putDebugLog("oldname:".$old_name);
+			CreateLog::putDebugLog("newname:".$new_name);
+			if(strpos($oldname,' ') !== false){
+				// 作成したファイル名内にスペースがあったらlinuxコマンドが実行できない
+				return false;
+			}
 
-/*	
-                        if (strlen($_FILES["new_mem"]["name"])) {
-                                return $this->uploadCsv2('member', 'email', 'new_mem', '会員取込CSV');
-                        }
-*/
-
-$filename = basename($_FILES['upload']['name']);
-if (move_uploaded_file($_FILES['upload']['tmp_name'], '/home/www/foo/images/' . $filename)) {
-    $data = array('filename' => $filename);
-} else {
-    $data = array('error' => 'Failed to save');
-}
-			CreateLog::putDebugLog("jquery-upload!");
-			CreateLog::putDebugLog(json_encode($data));
-
+			$old_path = ROOT_DIRECTORY.'admin/jquery_file_upload/server/php/files/'.$old_name;
+			if($category==6){
+				$new_path = ROOT_DIRECTORY.'admin/'.$path.'/'.$new_name;
+			} else {
+				$new_path = ROOT_DIRECTORY.'category'.$category.'/'.$path.'/'.$new_name;
+			}
+			CreateLog::putDebugLog("old path:".$old_path);
+			CreateLog::putDebugLog("new path:".$new_path);
+			exec('mv '.$old_path.' '.$new_path);
 	
 			return true;
 		} catch (Exception $e){
@@ -483,7 +645,7 @@ if (move_uploaded_file($_FILES['upload']['tmp_name'], '/home/www/foo/images/' . 
 	public function makeArchives(){
 		try{
 			$object_mdar = new ModelDataArticles();
-			if(!$article_data = $object_mdar->selectAll()){
+			if(!$article_data = $object_mdar->selectAllByAdmin()){
 				throw new Exception();
 			}
 
@@ -496,7 +658,7 @@ if (move_uploaded_file($_FILES['upload']['tmp_name'], '/home/www/foo/images/' . 
 					"new ViewUserArchives(".$value['article_id'].");";
 				fwrite($fp, $code);
 				fclose($fp);
-				echo $value['article_id'].' '.$value['path'].'<br>';
+				echo $value['article_id'].' '.$value['path'].'\n';
 			}
 
 			return true;
@@ -506,6 +668,38 @@ if (move_uploaded_file($_FILES['upload']['tmp_name'], '/home/www/foo/images/' . 
 		}
 	}
 
+	/*
+	* 全記事AMP作成（終了）
+	*
+	* @param
+	* @access public
+	* @return boolean
+	*/
+	public function makeAmp(){
+		try{
+			$object_mdar = new ModelDataArticles();
+			if(!$article_data = $object_mdar->selectAllByAdmin()){
+				throw new Exception();
+			}
 
+			foreach ($article_data as $key => $value) {
+				$full_path = ROOT_DIRECTORY.'category'.$value['category_id'].'/'.$value['path'].'/amp';
+
+				exec('mkdir '.$full_path);
+				$fp = fopen($full_path.'/index.php', "a");
+				$code = "<?php\n".
+					"require_once(dirname(__FILE__).'/../../../conf/ini.php');\n".
+					"new ViewUserArticleAmp(".$value['article_id'].");";
+				fwrite($fp, $code);
+				fclose($fp);
+				echo $value['article_id'].' '.$value['path'].'\n';
+			}
+
+			return true;
+		} catch (Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
+		}
+	}
 
 }

@@ -79,6 +79,36 @@ Class ModelDataArticles extends CommonBase{
 		}
 	}
 
+
+	/*
+	* 削除
+	*
+	* @param int
+	* @access public
+	* @return boolean
+	*/
+	public function delete($article_id){
+		try{
+			$article_id = $this->escapeSql($article_id);
+
+			$sql = 'UPDATE '.
+					'data_articles '.
+				'SET '.
+					"deleted=1 ".
+				'WHERE '.
+					'deleted=0 '.
+				'AND    article_id = "'.$article_id.'" '.
+				'LIMIT 1;';
+			if(!mysqli_query($this->getDatabaseLink(), $sql)){
+				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
+			}
+			return true;
+		} catch(Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
+		}
+	}
+
 	/*
 	* 公開状態切替
 	*

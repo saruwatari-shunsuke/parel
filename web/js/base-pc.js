@@ -16,6 +16,7 @@ $(function(){
     $("div#out").fadeOut("fast");
   });
 
+/*
   //Articlepage link motion
   $('a[href^=#]').click(function() {
     var href= $(this).attr("href");
@@ -28,6 +29,7 @@ $(function(){
       return false;
     }
   });
+*/
 
   //Loading img
   $(".display-loading").click( function() {

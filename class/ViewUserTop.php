@@ -15,7 +15,7 @@ Class ViewUserTop {
 			$object_car = new ControllerArticle();
 			$recommend_data = $object_car->getRecommend();
 			$article_data = $object_car->showAllByUser($category_id);
-echo $_COOKIE["TestCookie"];
+//echo $_COOKIE["TestCookie"];
 			if (UserAgent::getOsId()) {
 				self::bodySp($article_data, $recommend_data, $category_id);
 			} else {

@@ -1,26 +1,20 @@
 <?php
 /**
-* ViewAdminArticleAll
-* 記事一覧
+* ViewAdminSetting
+* 共通設定
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.1
+* @version 1.0
 */
 
-Class ViewAdminArticleAll {
+Class ViewAdminSetting {
 	public function __construct() {
 		try {
 			session_start();
 
 			$object_car = new ControllerArticle();
-			$object_car->switchStatus();
-			$article_data = $object_car->showAllByAdmin();
-
-/*
-setcookie('LoginAuth', "aaaaa", time() + 60*60*24, "/", ".parel.site");
-echo $_COOKIE['LoginAuth'];
-*/
+			$article_data = $object_car->getMyFavoliteForAdmin();
 
 			self::body($article_data);
 		} catch(Exception $e) {
@@ -60,7 +54,7 @@ echo $_COOKIE['LoginAuth'];
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/simplePagination.css">
+
     <link rel="shortcut icon" href="/img/adm-parel.ico">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="alternate" type="application/rss+xml" title="" href="">
@@ -73,40 +67,41 @@ echo $_COOKIE['LoginAuth'];
     <div class="container-fruid">
       <div class="row">
 
-        <h1 class="col-md-3">記事一覧</h1>
-<a href="/edit/" class="col-md-2 col-md-offset-6 btn btn-lg btn-success">_<span class="glyphicon glyphicon-pencil"></span> 記事を書く</a>
+        <h1 class="col-md-12">設定</h1>
 
-<?php if($article_data['error']) { ?>
+<?php if($setting_data['error']) { ?>
         <div class="col-md-12">
           <div class="panel panel-danger">
             <div class="panel-heading">エラー</div>
-            <div class="panel-body"><?php echo $article_data['error']; ?></div>
+            <div class="panel-body"><?php echo $setting_data['error'] ?></div>
           </div>
         </div>
 <?php } ?>
 
-        <div class="col-md-12">
-          <table class="table table-hover table-condensed table-responsive">
-            <tbody>
-<?php foreach ($article_data as $key => $value) { ?>
-              <tr><td>
-                <div class="col-xs-1 col-ms-1 col-md-1 col-lg-1"><?php if($value['status']){ echo $value['release_time']; } ?></div>
-                <div class="col-xs-8 col-ms-8 col-md-8 col-lg-8"><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" height="20"> <?php echo $value['title'] ?></div>
-                <div class="col-xs-3 col-ms-3 col-md-3 col-lg-3">
-                  <a class="btn btn-xs btn-default" href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'] ?>/" target="_blank"><img src="//parel.site/img/common/logo_8.png" height=15></a>
-                  <a class="btn btn-xs btn-success" href="/edit/?id=<?php echo $value['article_id'] ?>#noback"><span class="glyphicon glyphicon-pencil"></span> 編集</a>
-<?php if($value['status']==1){ ?>
-                  <a class="btn btn-xs btn-info" href="/view/?i=<?php echo $value['article_id'] ?>&r=2"><span class="glyphicon glyphicon-eye-open"></span> 公開中</a>
-<?php } else if($value['status']==2){ ?>
-                  <a class="btn btn-xs btn-default" href="/view/?i=<?php echo $value['article_id'] ?>&r=1"><span class="glyphicon glyphicon-eye-close"></span> 非公開</a>
-<?php } else { ?>
-                  <a class="btn btn-xs btn-default" href="/view/?i=<?php echo $value['article_id'] ?>&r=1"><span class="glyphicon glyphicon-edit"></span> 下書き</a>
+        <form action="/setting/" method="POST">
+
+          <div class="col-md-12">
+            <div class="panel panel-default form-group">
+              <div class="panel-heading">おすすめ記事</div>
+              <div class="panel-body">
+                <button type="submit" class="col-md-12 btn btn-lg btn-success btn-block mb20"><span class="glyphicon glyphicon-ok-sign"></span> 変更を反映する</button>
+                <div class="col-md-12 btn-group" data-toggle="buttons">
+<?php foreach($article_data as $key => $value) { ?>
+                  <label class="btn btn-sm btn-default btn-block overflow<?php if($value['myfavolite']){ echo ' active'; } ?>" style="text-align:left;">
+                    <input type="checkbox" name="myfavolite[]" value="<?php echo $value['article_id'] ?>" autocomplete="off"<?php if($value['myfavolite']){ echo ' checked'; } ?>>
+                      <div class="col-md-2"><?php if($value['status']){ echo $value['release_time']; } ?></div>
+                      <div class="col-md-10"><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" height="20"> <?php echo $value['title'] ?></div>
+                  </label>
 <?php } ?>
                 </div>
-              </td></tr>
-<?php } ?>
-            </tbody>
-          </table>
+              </div>
+            </div>
+          </div>
+
+        </form>
+
+        <div class="col-md-12 mb30">
+          <a href="#"id="page-top" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-chevron-up"></span> ページトップに戻る</a>
         </div>
 
       </div><!-- /row -->
@@ -117,14 +112,25 @@ echo $_COOKIE['LoginAuth'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-pc.js"></script>
+
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/trunk8.min.js"></script>
     <script>
+      $(function() {
+        $("#page-top").click(function() {
+          $('html,body').animate({
+            scrollTop: 0
+          }, 'fast');
+          return false;
+        });
+      });
       $(function(){
           $('.trunk2').trunk8({lines:2});
           $('.trunk3').trunk8({lines:3});
       });
     </script>
-</body>
+
+  </body>
 </html>
 <?php
 		} catch(Exception $e) {

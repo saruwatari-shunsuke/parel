@@ -218,6 +218,9 @@ ul.side_nav li{
 .mt-30{
     margin-top:-30px;
 }
+.mt-45{
+    margin-top:-45px;
+}
 .mt-3{
     margin-top:-3px;
 }
@@ -232,6 +235,9 @@ ul.side_nav li{
 }
 .mt6{
     margin-top:6px;
+}
+.mt9{
+    margin-top:9px;
 }
 .mt10{
     margin-top:10px !important;
@@ -392,6 +398,7 @@ ul.side_nav li{
 }
 .navbar-header{
     width: 1020px;
+    height: 50px;
     overflow:hidden;
 }
 .header_bar{
@@ -401,11 +408,13 @@ ul.side_nav li{
     height:40px;
 }
 .header_logo{
-    width: 130px;
-    margin:0 auto;
+    width: 100px;
+    height: 42px;
+    margin: 3px auto;
 }
 .header_logo img{
-    width:100%;
+    text-align: center;
+    height: 42px;
 }
 .top_logo{
     margin: 0 auto;
@@ -1719,6 +1728,10 @@ p.footer_text a:hover{
 }
 .sitemap a{
     color: #999;
+}
+.modal {
+    margin: 0 !important;
+    padding: 0 !important;
 }
 .transparent{
     visibility: hidden;

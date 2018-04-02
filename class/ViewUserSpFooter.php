@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 
 Class ViewUserSpFooter {
@@ -82,6 +82,7 @@ Class ViewUserSpFooter {
           <li><a href="//www.agentgate.jp/company.html" target="_blank">運営会社</a></li>
           <li><a href="//www.agentgate.jp/privacy.html" target="_blank">プライバシーポリシー</a></li>
           <li><a href="//www.agentgate.jp/contact.html" target="_blank">お問い合わせ</a></li>
+          <li><a href="//hito-shigoto.jp/" target="_blank">ヒトシゴト</a></li>
         </ul>
         <p class="footer_desc">このサイトに掲載された記事の無断転載を禁じます。<br>PAREL(パルール) &copy; 2017. All Rights Reserved.</p>
       </div>
