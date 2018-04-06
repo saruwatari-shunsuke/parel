@@ -56,7 +56,7 @@ Class ViewUserSpFooter {
           </div>
           <div id="overflow">
             <div class="right" id="header_search_box_close">
-              <p id="modal_sns_close" data-dismiss="modal" class="btn btn-default gray999">× とじる</p>
+              <p id="modal_sns_close" data-dismiss="modal" class="btn btn-default gray999"><span class="glyphicon glyphicon-remove"></span> とじる</p>
             </div>
           </div>
         </div>
@@ -91,13 +91,13 @@ Class ViewUserSpFooter {
     <!-- slide menu -->
     <div id="mobile_side_down_menu" class="is_browser js-panel" style="display: none;">
       <ul class="left_menu_ul">
-        <li class="top"><a href="<?php echo MAIN_URL ?>" class="gray666">Top<br><span class="font60 gray333">トップ</span></a></li>
-        <li class="food"><a href="<?php echo CATEGORY_URL[1] ?>" class="gray666">Food<br><span class="font60 gray333">食事</span></a></li>
-        <li class="excercise"><a href="<?php echo CATEGORY_URL[2] ?>" class="gray666">Exercise<br><span class="font60 gray333">運動</span></a></li>
-        <li class="health"><a href="<?php echo CATEGORY_URL[3] ?>" class="gray666">Health<br><span class="font60 gray333">健康</span></a></li>
-        <li class="fashion"><a href="<?php echo CATEGORY_URL[4] ?>" class="gray666">Fashion<br><span class="font60 gray333">ファッション</span></a></li>
-        <li class="feature"><a href="<?php echo CATEGORY_URL[5] ?>" class="gray666">Feature<br><span class="font60 gray333">特集</span></a></li>
-        <li class="ranking"><a href="<?php echo MAIN_URL ?>ranking/" class="gray666">Ranking<br><span class="font60 gray333">人気の記事</span></a></li>
+        <li class="top"><a href="<?php echo MAIN_URL ?>" class="gray666">Top<br><span class="menu-text">トップ</span></a></li>
+        <li class="food"><a href="<?php echo CATEGORY_URL[1] ?>" class="gray666">Food<br><span class="menu-text">食事</span></a></li>
+        <li class="excercise"><a href="<?php echo CATEGORY_URL[2] ?>" class="gray666">Exercise<br><span class="menu-text">運動</span></a></li>
+        <li class="health"><a href="<?php echo CATEGORY_URL[3] ?>" class="gray666">Health<br><span class="menu-text">健康</span></a></li>
+        <li class="fashion"><a href="<?php echo CATEGORY_URL[4] ?>" class="gray666">Fashion<br><span class="menu-text">ファッション</span></a></li>
+        <li class="feature"><a href="<?php echo CATEGORY_URL[5] ?>" class="gray666">Feature<br><span class="menu-text">特集</span></a></li>
+        <li class="ranking"><a href="<?php echo MAIN_URL ?>ranking/" class="gray666">Ranking<br><span class="menu-text">人気の記事</span></a></li>
       </ul>
     </div>
     <div id="overlay" style="display: none;"></div>

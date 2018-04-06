@@ -27,7 +27,10 @@
        -moz-border-radius: 1px;
             border-radius: 1px;
 }
-.panel-heading, .panel-footer {
+.panel-heading {
+  font-size: 1.2em;
+}
+.panel-footer {
   font-size: 0.8em;
 }
 .container-fruid {

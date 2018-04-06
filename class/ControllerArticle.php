@@ -5,7 +5,7 @@
 * @package Controller
 * @author Saruwatari Shunsuke
 * @since PHP 7.0
-* @version 1.1
+* @version 1.2
 */
 Class ControllerArticle extends CommonBase{
 	/*
@@ -117,7 +117,7 @@ Class ControllerArticle extends CommonBase{
 			}
 
 			$article_data['author_name'] = $author_data['name'];
-			$article_data['author_image'] = MAIN_URL.'img/common/'.$author_data['image'];
+			$article_data['author_image'] = MAIN_URL.'img/author/'.$author_data['author_id'].'.jpg';
 			$article_data['author_profile'] = $author_data['profile'];
 
 			$object_mmca = new ModelMasterCategories();
@@ -170,7 +170,7 @@ Class ControllerArticle extends CommonBase{
 			}
 
 			$article_data['author_name'] = $author_data['name'];
-			$article_data['author_image'] = MAIN_URL.'img/common/'.$author_data['image'];
+			$article_data['author_image'] = MAIN_URL.'img/author/'.$author_data['author_id'].'.jpg';
 			$article_data['author_profile'] = $author_data['profile'];
 
 			$object_mmca = new ModelMasterCategories();
@@ -185,6 +185,7 @@ Class ControllerArticle extends CommonBase{
 
 			$article_data['url'] = CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/';
 			$article_data['related'] = $this->getRelated($article_data['article_id'], $article_data['category_id']);
+
 
 			return $article_data;
 		} catch (Exception $e){
@@ -203,9 +204,17 @@ Class ControllerArticle extends CommonBase{
 	*/
 	private function replaceAmpText($text){
 		try{
-			$text = strip_tags($text, '<a><img>'); // h3, h4, h5, h6, span, div, table 除去
-			$text = str_replace('<img', '<amp-img', $text);
-			$text = str_replace('src="', 'str="../', $text);
+			$text = preg_replace('/<blockquote class="instagram-media".+?"https:\/\/www\.instagram\.com\/p\/(.+?)\/".+?<\/blockquote>/is',
+						'<amp-instagram layout="responsive" data-shortcode="$1" width="400" height="400" ></amp-instagram>',
+						$text);
+			$text = preg_replace('/<iframe[^>]+?src="https:\/\/www\.youtube\.com\/embed\/(.+?)(\?feature=oembed)?".*?><\/iframe>/is',
+						'<amp-youtube layout="responsive" data-videoid="$1" width="480" height="270"></amp-youtube>',
+						$text);
+
+			$text = strip_tags($text, '<a><img><h3><h4><h5><h6><strong><amp-instagram><amp-youtube>');
+			$text = preg_replace('/<img (.*?)>/', '<amp-img $1 layout="fixed-height" height="500"></amp-img>', $text);
+			$text = preg_replace('/src="[^(http|/)](.*)"/', 'src="../$1"', $text);
+			$text = preg_replace('/style=".*"/', '', $text);
 			$text = nl2br($text);
 
 			return $text;
@@ -361,9 +370,8 @@ Class ControllerArticle extends CommonBase{
 			} else if($author_id=$_GET['a']) {
 				$where = 'AND dar.status=1 AND dar.author_id='.$author_id.' ORDER BY dar.release_time DESC';
 			} else  {
-				$setting_data = parse_ini_file(SETTING_DIRECTORY.'recommend.ini');
-				$where = 'AND dar.status=1 ORDER BY dar.release_time DESC';
-				$where = 'AND dar.status=1 AND dar.article_id NOT IN ('.$setting_data['recommend'].') ORDER BY dar.release_time DESC';
+				//$setting_data = parse_ini_file(SETTING_DIRECTORY.'recommend.ini');
+				$where = 'AND dar.status=1 ORDER BY dar.release_time DESC LIMIT 1000 OFFSET 3';
 			}
 
 			$object_mdar = new ModelDataArticles();
@@ -387,8 +395,10 @@ Class ControllerArticle extends CommonBase{
 	*/
 	public function getRecommend(){
 		try{
-			$setting_data = parse_ini_file(SETTING_DIRECTORY.'recommend.ini');
-			$where = 'AND dar.status=1 AND dar.article_id IN ('.$setting_data['recommend'].') ORDER BY release_time DESC';
+			//$setting_data = parse_ini_file(SETTING_DIRECTORY.'recommend.ini');
+			//$where = 'AND dar.status=1 AND dar.article_id IN ('.$setting_data['recommend'].') ORDER BY release_time DESC';
+			$where = 'AND dar.status=1 ORDER BY release_time DESC LIMIT 3';
+
 			$object_mdar = new ModelDataArticles();
 			if(!$article_data = $object_mdar->selectSome($where)){
 				return false;
@@ -594,7 +604,6 @@ Class ControllerArticle extends CommonBase{
 		}
 	}
 
-
 	/*
 	* 画像アップロード後のディレクトリ移動
 	*
@@ -608,10 +617,6 @@ Class ControllerArticle extends CommonBase{
 				return false;
 			}
 
-			CreateLog::putDebugLog("category:".$category);
-			CreateLog::putDebugLog("path:".$path);
-			CreateLog::putDebugLog("oldname:".$old_name);
-			CreateLog::putDebugLog("newname:".$new_name);
 			if(strpos($oldname,' ') !== false){
 				// 作成したファイル名内にスペースがあったらlinuxコマンドが実行できない
 				return false;
@@ -623,8 +628,6 @@ Class ControllerArticle extends CommonBase{
 			} else {
 				$new_path = ROOT_DIRECTORY.'category'.$category.'/'.$path.'/'.$new_name;
 			}
-			CreateLog::putDebugLog("old path:".$old_path);
-			CreateLog::putDebugLog("new path:".$new_path);
 			exec('mv '.$old_path.' '.$new_path);
 	
 			return true;

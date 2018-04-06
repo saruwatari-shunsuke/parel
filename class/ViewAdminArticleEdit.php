@@ -15,12 +15,18 @@ Class ViewAdminArticleEdit {
 			$object_car = new ControllerArticle();
 			$article_data = $object_car->show1DataByAdmin();
 
-			self::body($article_data);
+			$object_mmca = new ModelMasterCategories();
+			$category_data = $object_mmca->selectAll();
+
+			$object_mdau = new ModelDataAuthors();
+			$author_data = $object_mdau->selectAll();
+
+			self::body($article_data, $category_data, $author_data);
 		} catch(Exception $e) {
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 		}
 	}
-	private function body($article_data) {
+	private function body($article_data, $category_data, $author_data) {
 		try {
 ?>
 <!DOCTYPE html>
@@ -152,24 +158,20 @@ Class ViewAdminArticleEdit {
           </div>
 
           <div class="col-md-7">
-<?php $c[$article_data['category_id']]=" checked" ?>
             <div class="panel panel-info form-group">
               <div class="panel-heading"><span class="glyphicon glyphicon-ok"></span> カテゴリ</div>
               <div class="panel-body">
-                <div class="radio-inline">
-                  <input type="radio" name="category" value="1" id="food" onclick="setCategoryUrl('food')"<?php echo $c[1] ?>><label for="food">Food</label>
-                </div>
-                <div class="radio-inline">
-                  <input type="radio" name="category" value="2" id="exercise" onclick="setCategoryUrl('exercise')"<?php echo $c[2] ?>><label for="exercise">Exercise</label>
-                </div>
-                <div class="radio-inline">
-                  <input type="radio" name="category" value="3" id="health" onclick="setCategoryUrl('health')"<?php echo $c[3] ?>><label for="health">Health</label>
-                </div>
-                <div class="radio-inline">
-                  <input type="radio" name="category" value="4" id="fashion" onclick="setCategoryUrl('fashion')"<?php echo $c[4] ?>><label for="fashion">Fashion</label>
-                </div>
-                <div class="radio-inline">
-                  <input type="radio" name="category" value="5" id="feature" onclick="setCategoryUrl('feature')"<?php echo $c[5] ?>><label for="feature">特集</label>
+                <div class="btn-group btn-group-justified" data-toggle="buttons">
+<?php foreach ($category_data as $key => $value) { ?>
+<?php if($article_data['category_id']==$value['category_id']) { ?>
+                  <label class="btn btn-default active" onclick="setCategoryUrl('<?php echo $value['name_domain'] ?>', 0)">
+                    <input type="radio" name="category" value="<?php echo $value['category_id'] ?>" autocomplete="off" checked> <?php echo $value['name'] ?>
+                  </label>
+<?php } else { ?>
+                  <label class="btn btn-default" onclick="setCategoryUrl('<?php echo $value['name_domain'] ?>', 1)">
+                    <input type="radio" name="category" value="<?php echo $value['category_id'] ?>" autocomplete="off"> <?php echo $value['name'] ?>
+                  </label>
+<?php }} ?>
                 </div>
               </div>
             </div>
@@ -189,9 +191,10 @@ Class ViewAdminArticleEdit {
             <div class="panel panel-info form-group">
               <div class="panel-heading"><span class="glyphicon glyphicon-ok"></span> この記事を書いた人</div>
               <div class="panel-body">
-                <select name="author">
-                  <option value="2"<?php echo $a[2] ?>>いっこだにこださんこだ</option>
-                  <option value="3"<?php echo $a[3] ?>>スポーツマンシップりな</option>
+                <select name="author" class="form-control">
+<?php foreach ($author_data as $key => $value) {
+                   echo '<option value="'.$value['author_id'].'"'.$a[$value['author_id']].'>'.$value['name'].'</option>';
+} ?>
                 </select>
               </div>
             </div>
@@ -412,8 +415,10 @@ Class ViewAdminArticleEdit {
 <script>
 $(function () {
     'use strict';
+
+    //キャッチ画像（大）
     $('#fileupload1').fileupload({
-        url: '/jquery_file_upload/server/php/index.php',
+        url: '/jquery_file_upload/server/php/',
         dataType: 'json',
         imageMaxWidth: 600,
         imageMaxHeight: 600,
@@ -463,11 +468,11 @@ $(function () {
                 .append('<br>')
                 .append(error);
         });
-    }).prop('disabled', !$.support.fileInput)
-        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+    }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
 
+    //キャッチ画像（小）
     $('#fileupload2').fileupload({
-        url: '/jquery_file_upload/server/php/index.php',
+        url: '/jquery_file_upload/server/php/',
         dataType: 'json',
         imageMaxWidth: 250,
         imageMaxHeight: 250,
@@ -518,12 +523,11 @@ $(function () {
                 .append('<br>')
                 .append(error);
         });
-    }).prop('disabled', !$.support.fileInput)
-        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+    }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
 
-
+    //本文中の画像
     $('#fileupload3').fileupload({
-        url: '/jquery_file_upload/server/php/index.php',
+        url: '/jquery_file_upload/server/php/',
         dataType: 'json',
         imageMaxWidth: 800,
         imageMaxHeight: 600,
@@ -582,18 +586,9 @@ $(function () {
                 .append('<br>')
                 .append(error);
         });
-    }).prop('disabled', !$.support.fileInput)
-        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+    }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
 });
 </script>
-
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/trunk8.min.js"></script>
-    <script>
-      $(function(){
-          $('.trunk2').trunk8({lines:2});
-          $('.trunk3').trunk8({lines:3});
-      });
-    </script>
 
   </body>
 </html>

@@ -1,27 +1,28 @@
 <?php
 /**
-* ViewAdminSetting
-* 共通設定
+* ViewAdminAuthorAll
+* 著者一覧
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
 * @version 1.0
 */
 
-Class ViewAdminSetting {
+Class ViewAdminAuthorAll {
 	public function __construct() {
 		try {
 			session_start();
 
-			$object_car = new ControllerArticle();
-			$article_data = $object_car->getMyFavoliteForAdmin();
+			$object_cau = new ControllerAuthor();
+			//$object_cau->switchStatus();
+			$author_data = $object_cau->showAllByAdmin();
 
-			self::body($article_data);
+			self::body($author_data);
 		} catch(Exception $e) {
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 		}
 	}
-	private function body($article_data) {
+	private function body($author_data) {
 		try {
 ?>
 <!DOCTYPE html>
@@ -54,7 +55,7 @@ Class ViewAdminSetting {
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/simplePagination.css">
     <link rel="shortcut icon" href="/img/adm-parel.ico">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="alternate" type="application/rss+xml" title="" href="">
@@ -67,43 +68,29 @@ Class ViewAdminSetting {
     <div class="container-fruid">
       <div class="row">
 
-        <h1 class="col-md-12">設定</h1>
+        <h1 class="col-md-3">著者一覧</h1>
+<a href="/author/edit/" class="col-md-2 col-md-offset-6 btn btn-lg btn-warning"><span class="glyphicon glyphicon-plus"></span> 追加</a>
 
-<?php if($setting_data['error']) { ?>
+<?php if($author_data['error']) { ?>
         <div class="col-md-12">
           <div class="panel panel-danger">
             <div class="panel-heading">エラー</div>
-            <div class="panel-body"><?php echo $setting_data['error'] ?></div>
+            <div class="panel-body"><?php echo $author_data['error']; ?></div>
           </div>
         </div>
 <?php } ?>
 
-        <form action="/setting/" method="POST">
-
-          <div class="col-md-12">
-            <div class="panel panel-default form-group">
-              <div class="panel-heading">おすすめ記事</div>
-              <div class="panel-body">
-                <button type="submit" class="col-md-12 btn btn-lg btn-success btn-block mb20"><span class="glyphicon glyphicon-ok-sign"></span> 変更を反映する</button>
-                <div class="col-md-12 btn-group" data-toggle="buttons">
-<?php foreach($article_data as $key => $value) { ?>
-                  <label class="btn btn-sm btn-default btn-block overflow<?php if($value['myfavolite']){ echo ' active'; } ?>" style="text-align:left;">
-                    <input type="checkbox" name="myfavolite[]" value="<?php echo $value['article_id'] ?>" autocomplete="off"<?php if($value['myfavolite']){ echo ' checked'; } ?>>
-                      <div class="col-md-2"><?php if($value['status']){ echo $value['release_time']; } ?></div>
-                      <div class="col-md-10"><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" height="20"> <?php echo $value['title'] ?></div>
-                  </label>
+        <div class="col-md-12">
+<?php foreach ($author_data as $key => $value) { ?>
+        <p class="mb20"><a class="btn btn-lg btn-default" href="/author/edit/?id=<?php echo $value['author_id'] ?>#noback">
+          <img src="<?php echo MAIN_URL.'img/author/'.$value['author_id'] ?>.jpg" height="40">
+          <?php echo $value['name'] ?>
+        </a><p>
 <?php } ?>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </form>
-
-        <div class="col-md-12 mb30">
-          <a href="#"id="page-top" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-chevron-up"></span> ページトップに戻る</a>
         </div>
-
+            </tbody>
+          </table>
+        </div>
       </div><!-- /row -->
     </div><!-- /container-fruid -->
 
@@ -112,25 +99,7 @@ Class ViewAdminSetting {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script>
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-pc.js"></script>
-
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/trunk8.min.js"></script>
-    <script>
-      $(function() {
-        $("#page-top").click(function() {
-          $('html,body').animate({
-            scrollTop: 0
-          }, 'fast');
-          return false;
-        });
-      });
-      $(function(){
-          $('.trunk2').trunk8({lines:2});
-          $('.trunk3').trunk8({lines:3});
-      });
-    </script>
-
-  </body>
+</body>
 </html>
 <?php
 		} catch(Exception $e) {
