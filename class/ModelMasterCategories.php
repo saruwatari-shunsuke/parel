@@ -5,7 +5,7 @@
 * @package Model
 * @author Saruwatari Shunsuke
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 Class ModelMasterCategories extends CommonBase{
 	/*
@@ -44,7 +44,7 @@ Class ModelMasterCategories extends CommonBase{
 	*/
 	public function selectAll(){
 		try{
-			$sql = 'SELECT * FROM data_ WHERE deleted=0;';
+			$sql = 'SELECT * FROM master_categories;';
 			if(!$result = mysqli_query($this->getDatabaseLink(), $sql)){
 				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
 			}

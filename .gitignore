@@ -20,4 +20,6 @@
 /conf/setting/*
 /logs/*
 /web/archives
+/web/img/author
+/web/sitmap.xml
 /web/test

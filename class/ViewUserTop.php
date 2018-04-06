@@ -69,9 +69,8 @@ Class ViewUserTop {
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/simplePagination.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
-    <link rel="alternate" type="application/rss+xml" title="" href="">
-
     <link rel="canonical" href="<?php echo CATEGORY_URL[$category_id] ?>">
+    <link rel="alternate" href="<?php echo CATEGORY_URL[$category_url] ?>" hreflang="ja">
     <link rel="next" href="">
  
   </head>
@@ -238,13 +237,12 @@ Class ViewUserTop {
     <meta name="format-detection" content="telephone=no">
  
 <?php ViewBootstrap::css(); ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-sp.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-sp.css?time=<?php echo date('His') ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/wideslider.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
-    <link rel="alternate" type="application/rss+xml" title="" href="">
-
     <link rel="canonical" href="<?php echo CATEGORY_URL[$category_id] ?>">
+    <link rel="alternate" href="<?php echo CATEGORY_URL[$category_url] ?>" hreflang="ja">
     <link rel="next" href="">
  
   </head>
@@ -266,7 +264,7 @@ Class ViewUserTop {
                     <div id="article_head_imgliq">
                       <img class="sp-head" src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_LARGE ?>" alt="<?php echo $value['title'] ?>">
                     </div>
-                    <div class="box_article_head_text blackgrd">
+                    <div class="box_article_head_text">
                       <p class="box_carousel_title text-line-2"><?php echo $value['title'] ?></p>
                       <div class="row mt-5">
                         <div class="left ml25">

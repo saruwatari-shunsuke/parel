@@ -47,7 +47,8 @@ Class ViewAdminFooter {
             </ul>
             <ul class="nav navbar-nav navbar-right mt-45">
               <li><a class="btn btn-sm" href="/view/"><span class="glyphicon glyphicon-file"></span> 記事</a></li>
-              <li><a class="btn btn-sm" href="/setting/"><span class="glyphicon glyphicon-cog"></span> 設定</a></li>
+              <li><a class="btn btn-sm" href="/author/"><span class="glyphicon glyphicon-user"></span> ライター</a></li>
+              <li><a class="btn btn-sm" href="/myfavolite/"><span class="glyphicon glyphicon-star-empty"></span> おすすめ</a></li>
             </ul>
           </div>
         </div>
@@ -59,7 +60,7 @@ Class ViewAdminFooter {
       <div class="container">
         <div class="row">
           <div class="col-xs-4">
-            <p class="footer_text"><a href="<?php echo ADMIN_URL ?>"><img class="footer_logo" src="http://parel.site/img/common/logo_9.png"></a></p>
+            <p class="footer_text"><a href="<?php echo ADMIN_URL ?>"><img class="footer_logo" src="<?php echo LOGO ?>"></a></p>
           </div>
           <div class="col-xs-4">
             <p class="footer_text"><a href="//twitter.com/parel_beauty" target="_blank">Twitter</a></p>

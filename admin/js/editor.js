@@ -7,8 +7,12 @@ $(function () {
 });
 
 //カテゴリとURLが連動
-function setCategoryUrl(category){
-  document.getElementById("category_url").innerHTML="http://"+category+".parel.site/";
+function setCategoryUrl(category,color){
+  if (color==0) {
+    document.getElementById("category_url").innerHTML='http://'+category+'.parel.site/';
+  } else {
+    document.getElementById("category_url").innerHTML='http://<span style="color:#f00;">'+category+'</span>.parel.site/';
+  }
 }
 
 //編集中にbackspaceをうっかり押してブラウザバック防止
@@ -26,9 +30,7 @@ jQuery.each(jQuery('textarea'), function() {
     jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr();
 });
 
-
 // ツールバー内タグ挿入ボタン
-
 function getAreaRange(obj) {
   var pos = new Object();
 
@@ -51,7 +53,6 @@ function getAreaRange(obj) {
 var isIE = (navigator.appName.toLowerCase().indexOf('internet explorer')+1?1:0);
 
 function makeNode(tag, range) {
-
   if (tag[0]=='a') {
     if (tag[1]=='in') {
       var url = tag[2];
@@ -77,15 +78,11 @@ function makeNode(tag, range) {
 function surroundHTML(tag, obj) {
   var target = document.getElementById(obj);
   var pos = getAreaRange(target);
-
   var val = target.value;
   var range = val.slice(pos.start, pos.end);
   var beforeNode = val.slice(0, pos.start);
   var afterNode = val.slice(pos.end);
-  var insertNode;
-
   var insertNode = makeNode(tag, range);
-
   target.value = beforeNode + insertNode + afterNode;
 }
 

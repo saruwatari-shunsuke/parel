@@ -48,3 +48,6 @@
 .article_row_ex a, .article_row_ex a:hover{
   text-decoration: underline;
 }
+video {
+  width:100%;
+}

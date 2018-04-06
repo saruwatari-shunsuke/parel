@@ -65,7 +65,8 @@ Class ViewAdminMenu {
           <h1 class="mt-20">パルール 管理画面</h1>
           <h2><a href="/edit/"><span class="glyphicon glyphicon-pencil"></span> 記事を書く</a></h2>
           <h2><a href="/view/"><span class="glyphicon glyphicon-file"></span> 記事一覧</a></h2>
-          <h2><a href="/setting/"><span class="glyphicon glyphicon-cog"></span> 設定</a></h2>
+          <h2><a href="/author/"><span class="glyphicon glyphicon-user"></span> ライター</a></h2>
+          <h2><a href="/myfavolite/"><span class="glyphicon glyphicon-star-empty"></span> おすすめ</a></h2>
           <h2><a href="<?php echo MAIN_URL ?>" target="_blank"><img src="<?php echo FAVICON ?>"> パルール</a></h2>
         </div>
       </div><!-- /row -->

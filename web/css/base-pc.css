@@ -157,15 +157,6 @@ ul.side_nav li{
 .height200px{
     height:240px;
 }
-.mr5per{
-    margin-right: 5%;
-}
-.width80per{
-    width:80%;
-}
-.width75per{
-    width:75%;
-}
 .width47p{
     width:48%;
 }
@@ -183,12 +174,6 @@ ul.side_nav li{
 }
 .width15per{
     width:14%;
-}
-.font85{
-    font-size:85%;
-}
-.font90{
-    font-size:90%;
 }
 .border_top_bold{
     border-top:2px solid #999;
@@ -339,15 +324,6 @@ ul.side_nav li{
 .ml-50{
     margin-left:-50px !important;
 }
-.margin0{
-    margin: 0;
-}
-.margin5{
-    margin: 5px;
-}
-.padding{
-    padding: 0;
-}
 .gray333{
     color: #333;
 }
@@ -426,10 +402,6 @@ ul.side_nav li{
 #header_text_div{
     margin-left:0%; width:150px;
 }
-#header_menulist,
-#header_menulist a{
-    color:#666;
-}
 .category_nav{
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
@@ -443,35 +415,11 @@ ul.side_nav li{
     border-radius:20px;
     text-align: center;
 }
-.color-default{
-    background: #999;
-}
-.color-primary{
-    background: #337AB7;
-}
-.color-success{
-    background: #5CB85C;
-}
-.color-info{
-    background: #5BC0DE;
-}
-.color-warning{
-    background: #F0AD4E;
-}
-.color-danger{
-    background: #D9534F;
-}
 p.header_sns_mk{
     margin:5px 0 0 20px;
 }
 .gray{
     color:#999;
-}
-#side_hash{
-    color:#999;
-    font-size:80%;
-    padding:3px 7px;
-    margin:1px;
 }
 .category_right_top{
     padding:13px 0 13px 10px;
@@ -1165,12 +1113,6 @@ h2.indextop_title a{
 #profile_headline{
     border-bottom:2px solid #999;
 }
-div#profile_view_desc{
-    padding: 5px 0 10px ;
-    color:#666;
-    font-size:16px;
-    background:#fff;
-}
 /* policy */
 .policy_text{
     margin:40px 0;
@@ -1445,10 +1387,6 @@ p.footer_text a:hover{
     font-size: 13px;
     color: #000;
 }
-.display-diff {
-    background-color: #eaffea;
-    padding: 6px;
-}
 /* loading */
 #loading {
     border:1px solid #ddd;
@@ -1509,12 +1447,6 @@ p.footer_text a:hover{
     font-size: 80%;
     color: #999;
     text-align: right;
-}
-.newmark{
-    width: 50px;
-    position: absolute;
-    top: 0px;
-    left: 0px;
 }
 .boxview_text .boxview_text_title{
     margin: 10px 0;
@@ -1610,32 +1542,6 @@ p.footer_text a:hover{
     -moz-opacity: 0.85;
     opacity: 0.85;
 }
-.display-diff {
-    background-color: #eaffea;
-    padding: 6px;
-    margin: 0!important;
-}
-.display-diff-delete {
-    margin: 0 0 12px;
-}
-
-/* 引用パーツ */
-.item-quote{
-    font-size: 90%;
-    color: #999;
-}
-.item-source{
-    font-size: 60%;
-    color: #ccc;
-    text-align: right;
-    margin-top: -25px;
-    margin-right: 20px;
-    margin-bottom: -20px;
-}
-.item-source a{
-    color: #ccc;
-}
-
 /* item related article */
 .item-related-article {
     display: block;

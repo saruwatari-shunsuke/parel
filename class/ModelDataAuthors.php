@@ -21,12 +21,17 @@ Class ModelDataAuthors extends CommonBase{
 			$sql = 'INSERT INTO '.
 					'data_authors '.
 				'SET '.
-					' = "'.$data_array[''].'", '.
+					'name = "'.$data_array['name'].'", '.
+					'login_id = "'.$data_array['login_id'].'", '.
+					'login_pass = "'.$data_array['login_pass'].'", '.
+					'login_auth = "'.$data_array['login_auth'].'", '.
+					'profile = "'.$data_array['profile'].'" '.
 				';';
 			if(!mysqli_query($this->getDatabaseLink(), $sql)){
 				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
 			}
-			return true;
+			$author_id = mysqli_insert_id($this->getDatabaseLink());
+			return $author_id;
 		} catch(Exception $e){
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 			return false;
@@ -43,12 +48,13 @@ Class ModelDataAuthors extends CommonBase{
 		try{
 			$data_array = $this->escapeSql($data_array);
 			$sql = 'UPDATE '.
-					'data_ '.
+					'data_authors '.
 				'SET '.
-					' = "'.$data_array[''].'", '.
+					'name = "'.$data_array['name'].'", '.
+					'profile = "'.$data_array['profile'].'" '.
 				'WHERE '.
 					'deleted=0 '.
-				'AND	_id = "'.$data_array['_id'].'" '.
+				'AND	author_id = "'.$data_array['author_id'].'" '.
 				'LIMIT 1;';
 			if(!mysqli_query($this->getDatabaseLink(), $sql)){
 				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
