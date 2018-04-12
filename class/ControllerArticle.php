@@ -204,17 +204,40 @@ Class ControllerArticle extends CommonBase{
 	*/
 	private function replaceAmpText($text){
 		try{
+			// instagramのamp化
 			$text = preg_replace('/<blockquote class="instagram-media".+?"https:\/\/www\.instagram\.com\/p\/(.+?)\/".+?<\/blockquote>/is',
 						'<amp-instagram layout="responsive" data-shortcode="$1" width="400" height="400" ></amp-instagram>',
 						$text);
+
+			// youtubeのamp化
 			$text = preg_replace('/<iframe[^>]+?src="https:\/\/www\.youtube\.com\/embed\/(.+?)(\?feature=oembed)?".*?><\/iframe>/is',
 						'<amp-youtube layout="responsive" data-videoid="$1" width="480" height="270"></amp-youtube>',
 						$text);
 
-			$text = strip_tags($text, '<a><img><h3><h4><h5><h6><strong><amp-instagram><amp-youtube>');
-			$text = preg_replace('/<img (.*?)>/', '<amp-img $1 layout="fixed-height" height="500"></amp-img>', $text);
-			$text = preg_replace('/src="[^(http|/)](.*)"/', 'src="../$1"', $text);
-			$text = preg_replace('/style=".*"/', '', $text);
+			// タグを消す
+			$text = strip_tags($text, '<a><img><h3><h4><h5><h6><strong><table><tr><th><td><amp-instagram><amp-youtube>');
+
+			// imgのamp化
+			$text = preg_replace('/<img\s(.*?)\/?>/', '<amp-img $1 layout="fixed-height" height="500"></amp-img>', $text);
+
+			// レシピサイト「Nadia」埋め込みパーツのamp化
+			// コメント吹き出し画像の縮小
+			$text = preg_replace('/<amp-img .*?src="https:\/\/cdn.oceans-nadia.com\/images\/user_data\/packages\/default\/add\/img\/detail\/blogParts\/comment_icon\.gif".*?><\/amp-img>/',
+						'<amp-img src="https://cdn.oceans-nadia.com/images/user_data/packages/default/add/img/detail/blogParts/comment_icon.gif" width="12" height="11"></amp-img>',
+						$text);
+			// 料理以外の画像削除
+			$text = preg_replace('/(?!<a .*?href="https:\/\/oceans-nadia.com\/.*?".*?>.*save_image.*<\/a>)<a .*?href="https:\/\/oceans-nadia.com\/.*?">.*?<\/a>/', '', $text);
+
+			// style削除
+			$text = preg_replace('/style=".+?"/', '', $text);
+
+			// ampサイトのURLの都合上、画像の相対パスを1階層上へ
+			$text = preg_replace('/src="(?!\/)(?!http:\/\/)(?!https:\/\/)(.+?)"/', 'src="../$1"', $text);
+
+			// ampサイトのURLの都合上、URLの相対パスを1階層上へ
+			$text = preg_replace('/href="(?!\/)(?!http:\/\/)(?!https:\/\/)(.+?)"/', 'href="../$1"', $text);
+
+			// 改行を<br>に変換
 			$text = nl2br($text);
 
 			return $text;
@@ -255,7 +278,7 @@ Class ControllerArticle extends CommonBase{
 
 			$update_data['article_id'] = $article_data['article_id'];
 			$update_data['path'] = $_POST['path'];
-			$update_data['category_id'] = $_POST['category'];
+			$update_data['category_id'] = ($_POST['category']) ? $_POST['category'] : 6;
 			$update_data['author_id'] = $_POST['author'];
 			$update_data['title'] = $_POST['title'];
 			$update_data['description'] = $_POST['description'];
@@ -269,8 +292,8 @@ Class ControllerArticle extends CommonBase{
 				$update_data['error'] = "URLを入力してください。";
 				return $update_data;
 			}
-			if($update_data['path']!=$article_data['path']) {//path変更時
-				if($path_error = $this->isPathAvairable($_POST['path'])) {
+			if($update_data['category_id']!=$article_data['category_id'] || $update_data['path']!=$article_data['path']) {//URL変更時
+				if($path_error = $this->isPathAvairable($update_data['category_id'], $update_data['path'])) {
 					$update_data['error'] = $path_error;
 					return $update_data;
 				}
@@ -285,14 +308,18 @@ Class ControllerArticle extends CommonBase{
 				return $update_data;
 			}
 
-			if($update_data['path']!=$article_data['path'] || $update_data['category_id']!=$article_data['category_id']) {//URL変更時
+			if($update_data['category_id']!=$article_data['category_id'] || $update_data['path']!=$article_data['path']) {//URL変更時
 				//ファイル移動
 				if($article_data['category_id']==6){
 					$old_path = ROOT_DIRECTORY.'admin/'.$article_data['path'];
 				} else {
 					$old_path = ROOT_DIRECTORY.'category'.$article_data['category_id'].'/'.$article_data['path'];
 				}
-				$new_path = ROOT_DIRECTORY.'category'.$update_data['category_id'].'/'.$update_data['path'];
+				if($update_data['category_id']==6){
+					$new_path = ROOT_DIRECTORY.'admin/'.$update_data['path'];
+				} else {
+					$new_path = ROOT_DIRECTORY.'category'.$update_data['category_id'].'/'.$update_data['path'];
+				}
 				exec('mv '.$old_path.' '.$new_path);
 			}
 
@@ -575,9 +602,9 @@ Class ControllerArticle extends CommonBase{
 	* @access private
 	* @return string
 	*/
-	private function isPathAvairable($path){
+	private function isPathAvairable($category_id, $path){
 		try{
-			if(empty($path)){
+			if(empty($category_id) || empty($path)){
 				return 'URLを入力してください。';
 			}
 			$ng_symbols = array('!', '"', '#', '$', '%', '&', '\'', '(', ')', '=', '~', '^', '|', '\\', '{', '}', '[', ']', ':', '*', ';', '+', '<', '>', '?', ',', '.', '/');
@@ -593,7 +620,7 @@ Class ControllerArticle extends CommonBase{
 				}
 			}
 			$object_mdar = new ModelDataArticles();
-			if(!$object_mdar->isNewPath($path)){
+			if(!$object_mdar->isNewPath($category_id, $path)){
 				return 'そのURLは既に利用されています。';
 			}
 	

@@ -67,7 +67,7 @@ Class ViewAdminMyFavolite {
     <div class="container-fruid">
       <div class="row">
 
-        <h1 class="col-md-12">設定</h1>
+        <h1 class="col-md-12">おすすめ記事</h1>
 
 <?php if($setting_data['error']) { ?>
         <div class="col-md-12">
@@ -78,11 +78,11 @@ Class ViewAdminMyFavolite {
         </div>
 <?php } ?>
 
-        <form action="/setting/" method="POST">
+        <form action="/myfavolite/" method="POST">
 
           <div class="col-md-12">
             <div class="panel panel-info form-group">
-              <div class="panel-heading">おすすめ記事</div>
+              <div class="panel-heading">記事を選択してください（複数可）</div>
               <div class="panel-body">
                 <button type="submit" class="col-md-12 btn btn-lg btn-success btn-block mb20"><span class="glyphicon glyphicon-ok-sign"></span> 変更を反映する</button>
                 <div class="col-md-12 btn-group" data-toggle="buttons">

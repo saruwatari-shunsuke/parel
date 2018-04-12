@@ -57,6 +57,7 @@ Class ViewAdminArticleEdit {
  
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>/css/html5reset-1.6.1.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 
@@ -186,12 +187,12 @@ Class ViewAdminArticleEdit {
             </div>
           </div>
 
-          <div class="col-md-5">
+          <div class="col-md-7">
 <?php $a[$article_data['author_id']]=" selected" ?>
             <div class="panel panel-info form-group">
               <div class="panel-heading"><span class="glyphicon glyphicon-ok"></span> この記事を書いた人</div>
               <div class="panel-body">
-                <select name="author" class="form-control">
+                <select name="author" class="selectpicker form-control">
 <?php foreach ($author_data as $key => $value) {
                    echo '<option value="'.$value['author_id'].'"'.$a[$value['author_id']].'>'.$value['name'].'</option>';
 } ?>
@@ -204,7 +205,7 @@ Class ViewAdminArticleEdit {
             <div class="panel panel-info form-group">
               <div class="panel-heading"><span class="glyphicon glyphicon-pencil"></span> タイトル</div>
               <div class="panel-body">
-                <input name="title" class="form-controll max-width" type="text" placeholder="" value="<?php echo $article_data['title']; ?>">
+                <input name="title" class="form-controll max-width no-enter" type="text" placeholder="" value="<?php echo $article_data['title']; ?>">
               </div>
             </div>
           </div>
@@ -213,9 +214,9 @@ Class ViewAdminArticleEdit {
             <div class="panel panel-info form-group">
               <div class="panel-heading"><span class="glyphicon glyphicon-pencil"></span> ディスクリプション</div>
               <div class="panel-body">
-                <textarea name="description" rows="5" class="form-controll max-width" placeholder=""><?php echo $article_data['description']; ?></textarea>
+                <textarea name="description" rows="3" class="form-controll max-width no-enter" placeholder=""><?php echo $article_data['description']; ?></textarea>
               </div>
-              <div class="panel-footer">検索時に出てくる120文字前後の記事説明文です。改行は入れないでください。</div>
+              <div class="panel-footer">検索時に出てくる120文字前後の説明文です。</div>
             </div>
           </div>
 
@@ -223,7 +224,7 @@ Class ViewAdminArticleEdit {
             <div class="panel panel-info form-group">
               <div class="panel-heading"><span class="glyphicon glyphicon-pencil"></span> メタキーワード</div>
               <div class="panel-body">
-                <input name="keyword" class="form-controll max-width" type="text" placeholder="ダイエット,食事,..." value="<?php echo $article_data['keyword']; ?>">
+                <input name="keyword" class="form-controll max-width no-enter" type="text" placeholder="ダイエット,食事,..." value="<?php echo $article_data['keyword']; ?>">
               </div>
               <div class="panel-footer">カンマ区切りで入力してください。</div>
             </div>
@@ -245,7 +246,6 @@ Class ViewAdminArticleEdit {
             <div class="panel panel-info form-group">
               <div class="panel-heading"><span class="glyphicon glyphicon-pencil"></span> 本文</div>
               <div class="panel-body">
-
                 <div id="toolbar" class="toolbar">
                   <span class="dropdown" data-toggle="tooltip" data-placement="right" data-original-title="本文中の色をつけたい部分を囲って、このボタンを押してください。">
                     <a href="#" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="colored">マーカー</span> <code>&lt;span&gt;</code><span class="caret"></span></a>
@@ -287,13 +287,14 @@ Class ViewAdminArticleEdit {
                   <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['h4'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の小見出しにしたい一行を囲って、このボタンを押してください。"><strong>小見出し</strong> <code>&lt;h4&gt;</code></a>
                   <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#ModalInternalLink" data-load-url="/edit/internal-links.php"><span class="link">内部リンク</span> <code>&lt;a&gt;</code></a>
                   <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#ModalExternalLink"><span class="link">外部リンク</span> <code>&lt;a&gt;</code></a>
-                  <span class="dropdown" data-toggle="tooltip" data-placement="right" data-original-title="本文中の画像を挿入したい部分をクリックした後、このボタンを押してください。">
-                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#ModalImageFile" data-load-url="/edit/image-upload.php"><span class="graphic"><span class="glyphicon glyphicon-picture"></span> 画像</span> <code>&lt;img&gt;</code></a>
+                  <span class="dropdown" data-toggle="tooltip" data-placement="bottom" data-original-title="本文中の挿入したい部分をクリックした後、テキストエリアに画像をドラッグ＆ドロップしてください。">
+                    <a class="btn btn-sm btn-default"><span class="graphic"><span class="glyphicon glyphicon-picture"></span> 画像</span> <code>&lt;img&gt;</code></a>
                   </span>
                   <span class="toolbar_text">ツールバー</span>
                 </div>
 
                 <textarea id="text_body" name="body" rows="500" class="form-controll max-width" placeholder=""><?php echo $article_data['body']; ?></textarea>
+                <input class="hidden" id="fileupload3" type="file" name="files[]" multiple>
               </div>
             </div>
           </div>
@@ -354,32 +355,6 @@ Class ViewAdminArticleEdit {
             </div>
           </div>
 
-          <div class="modal fade" id="ModalImageFile" tabindex="-1">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
-                  <h4 class="modal-title"><span class="glyphicon glyphicon-picture"></span> 画像を貼る</h4>
-                </div>
-                <div class="modal-body">
-                  <div id="dropzone-subimage">
-                    <div class="dropzone-text">画像をここにドラッグ＆ドロップしてください。</div>
-                    <input class="hidden" id="fileupload3" type="file" name="files[]" multiple>
-                  </div>
-                  <br>
-                  <!-- The global progress bar -->
-                  <div id="progress3" class="progress">
-                    <div class="progress-bar progress-bar-success"></div>
-                  </div>
- 
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">キャンセル</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
         <div class="col-md-12 mb30">
           <a href="#"id="page-top" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-chevron-up"></span> ページトップに戻る</a>
         </div>
@@ -392,6 +367,7 @@ Class ViewAdminArticleEdit {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="/js/jquery.exflexfixed-0.3.0.js"></script><!-- toolbar move -->
     <script type="text/javascript" src="/js/editor.js"></script>
 
@@ -460,6 +436,9 @@ $(function () {
                 path: "<?php echo $article_data['path'] ?>",
                 oldname: file.name,
                 newname: "<?php echo IMAGE_MAIN_LARGE; ?>"});
+            setTimeout(function(){
+                $('#progress1 .progress-bar').css('width','0%');
+            },2000);
         });
     }).on('fileuploadfail', function (e, data) {
         $.each(data.files, function (index) {
@@ -482,6 +461,8 @@ $(function () {
         maxFileSize: 999000,
         disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator.userAgent),
         dropZone: $('#dropzone-mainimage')
+    }).on('fileuploadsubmit', function (e, data) {
+        $('#progress2 .progress-bar').css('width','0%');
     }).on('fileuploadprocessalways', function (e, data) {
         var index = data.index,
             file = data.files[index],
@@ -501,7 +482,7 @@ $(function () {
                 .text('Upload')
                 .prop('disabled', !!data.files.error);
         }
-    }).on('fileuploadprogressall', function (e, data) {
+    }).on('fileuploadprogress', function (e, data) {
         var progress = parseInt(data.loaded / data.total * 100, 10);
         $('#progress2 .progress-bar').css(
             'width',
@@ -514,7 +495,12 @@ $(function () {
                 path: "<?php echo $article_data['path'] ?>",
                 oldname: file.name,
                 newname: "<?php echo IMAGE_MAIN_SMALL; ?>"});
-            $('#main-image').attr('src', '<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/'.IMAGE_MAIN_SMALL.'?time='; ?>' + new Date().getTime());
+            setTimeout(function(){
+                $('#main-image').attr('src', '<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/'.IMAGE_MAIN_SMALL.'?time='; ?>' + new Date().getTime());
+            },10);//0.01秒待機してmvコマンド完了待ち
+            setTimeout(function(){
+                $('#progress2 .progress-bar').css('width','0%');
+            },2000);
         });
     }).on('fileuploadfail', function (e, data) {
         $.each(data.files, function (index) {
@@ -536,32 +522,7 @@ $(function () {
         acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
         maxFileSize: 999000,
         disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator.userAgent),
-        dropZone: $('#dropzone-subimage')
-    }).on('fileuploadprocessalways', function (e, data) {
-        var index = data.index,
-            file = data.files[index],
-            node = $(data.context.children()[index]);
-        if (file.preview) {
-            node
-                .prepend('<br>')
-                .prepend(file.preview);
-        }
-        if (file.error) {
-            node
-                .append('<br>')
-                .append($('<span class="text-danger"/>').text(file.error));
-        }
-        if (index + 1 === data.files.length) {
-            data.context.find('button')
-                .text('Upload')
-                .prop('disabled', !!data.files.error);
-        }
-    }).on('fileuploadprogressall', function (e, data) {
-        var progress = parseInt(data.loaded / data.total * 100, 10);
-        $('#progress3 .progress-bar').css(
-            'width',
-            progress + '%'
-        );
+        dropZone: $('#text_body')
     }).on('fileuploaddone', function (e, data) {
         $.each(data.result.files, function (index, file) {
             var c = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -577,14 +538,6 @@ $(function () {
                 newname: newName
             });
             surroundHTML(['img',newName],'text_body');
-            $('#ModalImageFile').modal('hide');
-        });
-    }).on('fileuploadfail', function (e, data) {
-        $.each(data.files, function (index) {
-            var error = $('<span class="text-danger"/>').text('File upload failed.');
-            $(data.context.children()[index])
-                .append('<br>')
-                .append(error);
         });
     }).prop('disabled', !$.support.fileInput).parent().addClass($.support.fileInput ? undefined : 'disabled');
 });

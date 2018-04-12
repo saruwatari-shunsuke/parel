@@ -51,3 +51,8 @@
 video {
   width:100%;
 }
+.external-link {
+  font-size: 0.8em;
+  text-decoration: none;
+  margin: 0 4px;
+}

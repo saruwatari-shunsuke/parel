@@ -280,11 +280,12 @@ Class ModelDataArticles extends CommonBase{
 	* @access public
 	* @return boolean
 	*/
-	public function isNewPath($path){
+	public function isNewPath($category_id, $path){
         	try {
-			if(empty($path)){
+			if(empty($category_id) || empty($path)){
 				return false;
 			}
+			$category_id = $this->escapeSql($category_id);
 			$path = $this->escapeSql($path);
             		$sql = 'SELECT '.
 					'article_id '.
@@ -292,6 +293,7 @@ Class ModelDataArticles extends CommonBase{
 					'data_articles '.
 				'WHERE '.
 					'deleted=0 '.
+				'AND category_id="'.$category_id.'" '.
 				'AND path="'.$path.'" '.
 				'LIMIT 1;';
 			if(!$result = mysqli_query($this->getDatabaseLink(), $sql)){

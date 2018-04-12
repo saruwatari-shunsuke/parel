@@ -6,6 +6,17 @@ $(function () {
   });
 });
 
+// 改行無効
+$(function(){
+  $(".no-enter"). keydown(function(e) {
+    if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+});
+
 //カテゴリとURLが連動
 function setCategoryUrl(category,color){
   if (color==0) {
@@ -63,7 +74,7 @@ function makeNode(tag, range) {
       var title = document.getElementById('modal_external_title').value;
       document.getElementById('modal_external_url').value = '';
       document.getElementById('modal_external_title').value = '';
-      return '<a href="' + url + '" title="' + title + '" target="_blank">' + title + '</a>';
+      return '<a href="' + url + '" title="' + title + '" target="_blank">' + title + '<span class="glyphicon glyphicon-new-window external-link"></span></a>';
     }
   } else if (tag[0]=='img') {
       return '<img src="' + tag[1] + '">';
@@ -84,6 +95,9 @@ function surroundHTML(tag, obj) {
   var afterNode = val.slice(pos.end);
   var insertNode = makeNode(tag, range);
   target.value = beforeNode + insertNode + afterNode;
+  var caret = pos.start+insertNode.length;
+  target.setSelectionRange(caret, caret);// キャレット移動 firefox
+  $(target).trigger("blur").trigger("focus");// キャレット移動 Google Chrome
 }
 
 // 画面スクロールに合わせてツールバー移動（先にjquery.exflexfixed-0.3.0.jsを読み込むこと）
