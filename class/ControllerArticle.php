@@ -126,8 +126,6 @@ Class ControllerArticle extends CommonBase{
 			}
 			$article_data['category_name'] = $category_data['name'];
 
-//			$article_data['description'] = str_replace("\n", "", strip_tags($article_data['introduction'])); //タグ外し＆改行除去
-
 			$article_data['introduction'] = nl2br($article_data['introduction']);
 			$article_data['introduction'] = str_replace('<img ', '<img alt="'.$article_data['title'].'" ', $article_data['introduction']);
 			$article_data['body'] = nl2br($article_data['body']);
@@ -185,7 +183,6 @@ Class ControllerArticle extends CommonBase{
 
 			$article_data['url'] = CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/';
 			$article_data['related'] = $this->getRelated($article_data['article_id'], $article_data['category_id']);
-
 
 			return $article_data;
 		} catch (Exception $e){
@@ -322,6 +319,8 @@ Class ControllerArticle extends CommonBase{
 				}
 				exec('mv '.$old_path.' '.$new_path);
 			}
+
+			$this->exportSitemaps();
 
 			header('location: /view/');
 			exit();
@@ -504,8 +503,6 @@ Class ControllerArticle extends CommonBase{
 		}
 	}
 
-
-
 	/*
 	* 関連記事
 	*
@@ -588,6 +585,8 @@ Class ControllerArticle extends CommonBase{
 				return false;
 			}
 
+			$this->exportSitemaps();
+
 			return true;
 		} catch (Exception $e){
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
@@ -664,6 +663,41 @@ Class ControllerArticle extends CommonBase{
 		}
 	}
 
+	/*
+	* XMLサイトマップ作成
+	*
+	* @param
+	* @access public
+	* @return boolean
+	*/
+	private function exportSitemaps(){
+		try{
+			$object_mdar = new ModelDataArticles();
+			for($category_id=1; $category_id<=5; $category_id++){
+				$where = 'AND dar.status=1 AND dar.category_id='.$category_id;
+
+				if(!$article_data = $object_mdar->selectSome($where)){
+					return false;
+				}
+
+				$fp = fopen(ROOT_DIRECTORY.'category'.$category_id.'/sitemap.xml', "w");
+				fwrite($fp, '<?xml version="1.0" encoding="UTF-8"?>'."\n");
+				fwrite($fp, '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">'."\n");
+				fwrite($fp, "<url>\n  <loc>".CATEGORY_URL[$category_id]."</loc>\n  <priority>1.0</priority>\n  <changefreq>daily</changefreq>\n  </url>\n");
+
+				foreach ($article_data as $key => $value) {
+					$code = "<url>\n  <loc>".CATEGORY_URL[$category_id].$value['path']."/</loc>\n  <priority>0.8</priority>\n  <changefreq>daily</changefreq>\n  </url>\n";
+					fwrite($fp, $code);
+				}
+				fwrite($fp, '</urlset>'."\n");
+				fclose($fp);
+			}
+			return true;
+		} catch (Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
+		}
+	}
 
 	/*
 	* 全記事アーカイブ作成（終了）

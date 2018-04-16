@@ -56,7 +56,7 @@ Class ViewUserSpFooter {
           </div>
           <div id="overflow">
             <div class="right" id="header_search_box_close">
-              <p id="modal_sns_close" data-dismiss="modal" class="btn btn-default gray999"><span class="glyphicon glyphicon-remove"></span> とじる</p>
+              <p id="modal_sns_close" data-dismiss="modal" class="btn btn-default gray999"><span class="glyphicon glyphicon-remove"></span> 閉じる</p>
             </div>
           </div>
         </div>

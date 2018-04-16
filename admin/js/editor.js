@@ -63,7 +63,7 @@ function getAreaRange(obj) {
 }
 var isIE = (navigator.appName.toLowerCase().indexOf('internet explorer')+1?1:0);
 
-function makeNode(tag, range) {
+async function makeNode(tag, range) {
   if (tag[0]=='a') {
     if (tag[1]=='in') {
       var url = tag[2];
@@ -71,9 +71,16 @@ function makeNode(tag, range) {
       return '<a href="' + url + '" title="' + title + '">' + title + '</a>';
     } else if (tag[1]=='ex') {
       var url = document.getElementById('modal_external_url').value;
-      var title = document.getElementById('modal_external_title').value;
+      //var title = document.getElementById('modal_external_title').value;
+      const promise = new Promise((resolve, reject) => {
+        $.get('/edit/get-title.php?url='+url, function(data){
+          resolve(data);
+        });
+      });
+      const title = await promise;
+
       document.getElementById('modal_external_url').value = '';
-      document.getElementById('modal_external_title').value = '';
+      //document.getElementById('modal_external_title').value = '';
       return '<a href="' + url + '" title="' + title + '" target="_blank">' + title + '<span class="glyphicon glyphicon-new-window external-link"></span></a>';
     }
   } else if (tag[0]=='img') {
@@ -86,14 +93,15 @@ function makeNode(tag, range) {
     }
   }
 }
-function surroundHTML(tag, obj) {
+async function surroundHTML(tag, obj) {
   var target = document.getElementById(obj);
   var pos = getAreaRange(target);
   var val = target.value;
   var range = val.slice(pos.start, pos.end);
   var beforeNode = val.slice(0, pos.start);
   var afterNode = val.slice(pos.end);
-  var insertNode = makeNode(tag, range);
+  const promise = new Promise((resolve, reject) => resolve(makeNode(tag, range)));
+  const insertNode = await promise;
   target.value = beforeNode + insertNode + afterNode;
   var caret = pos.start+insertNode.length;
   target.setSelectionRange(caret, caret);// キャレット移動 firefox

@@ -28,7 +28,7 @@ Class ViewAdminFooter {
 		try {
 ?>
     <!-- header1 -->
-    <nav class="navbar navbar-default navbar-fixed-top header_bar bg_cyan opacity85" role="navigation"id="header">
+    <nav class="navbar navbar-default navbar-fixed-top header_bar bg_cyan opacity85" role="navigation" id="header">
       <div class="nav_bar_wrapper">
         <div class="container-fluid">
           <div class="collapse navbar-collapse">
@@ -60,7 +60,7 @@ Class ViewAdminFooter {
       <div class="container">
         <div class="row">
           <div class="col-xs-4">
-            <p class="footer_text"><a href="<?php echo ADMIN_URL ?>"><img class="footer_logo" src="<?php echo LOGO ?>"></a></p>
+            <p class="footer_text"><a href="/"><img class="footer_logo" src="<?php echo LOGO ?>"></a></p>
           </div>
           <div class="col-xs-4">
             <p class="footer_text"><a href="//twitter.com/parel_beauty" target="_blank">Twitter</a></p>

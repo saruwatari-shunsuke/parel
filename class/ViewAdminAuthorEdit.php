@@ -205,7 +205,12 @@ $(function () {
             $.get("/author/edit/move-file.php", {
                 oldname: file.name,
                 newname: "<?php echo $author_data['author_id'] ?>.jpg"});
-            $('#main-image').attr('src', '<?php echo MAIN_URL.'img/author/'.$author_data['author_id'].'.jpg?time='; ?>' + new Date().getTime());
+            setTimeout(function(){
+                $('#main-image').attr('src', '<?php echo MAIN_URL.'img/author/'.$author_data['author_id'].'.jpg?time='; ?>' + new Date().getTime());
+            },10);//0.01秒待機してmvコマンド完了待ち
+            setTimeout(function(){
+                $('#progress .progress-bar').css('width','0%');
+            },2000);
         });
     }).on('fileuploadfail', function (e, data) {
         $.each(data.files, function (index) {

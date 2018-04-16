@@ -87,8 +87,8 @@ Class ViewAdminArticleEdit {
             <div class="panel-body"><?php echo $article_data['error']; ?></div>
           </div>
         </div>
-<?php } ?>
 
+<?php } ?>
         <form action="/edit/?id=<?php echo $_GET['id'] ?>#noback" method="POST">
 
           <div class="col-md-9 mb20">
@@ -136,12 +136,12 @@ Class ViewAdminArticleEdit {
             </div>
           </div>
 
-          <div class="col-md-3">
+          <div class="col-md-4">
             <div class="panel panel-info form-group" id="dropzone-mainimage">
               <div class="panel-heading"><span class="glyphicon glyphicon-picture"></span> キャッチ画像</div>
               <div class="panel-body center">
                 <div>
-                  <img id="main-image" src="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/'.IMAGE_MAIN_SMALL.'?time='.date('YmdHis'); ?>" width=150>
+                  <img id="main-image" src="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/'.IMAGE_MAIN_SMALL.'?time='.date('YmdHis'); ?>">
                 </div>
                 <input class="hidden" id="fileupload1" type="file" name="files[]" multiple>
                 <input class="hidden" id="fileupload2" type="file" name="files[]" multiple>
@@ -158,7 +158,7 @@ Class ViewAdminArticleEdit {
             </div>
           </div>
 
-          <div class="col-md-7">
+          <div class="col-md-8">
             <div class="panel panel-info form-group">
               <div class="panel-heading"><span class="glyphicon glyphicon-ok"></span> カテゴリ</div>
               <div class="panel-body">
@@ -178,7 +178,7 @@ Class ViewAdminArticleEdit {
             </div>
           </div>
 
-          <div class="col-md-7">
+          <div class="col-md-8">
             <div class="panel panel-info form-group">
               <div class="panel-heading"><span class="glyphicon glyphicon-pencil"></span> URL</div>
               <div class="panel-body">
@@ -187,7 +187,7 @@ Class ViewAdminArticleEdit {
             </div>
           </div>
 
-          <div class="col-md-7">
+          <div class="col-md-8">
 <?php $a[$article_data['author_id']]=" selected" ?>
             <div class="panel panel-info form-group">
               <div class="panel-heading"><span class="glyphicon glyphicon-ok"></span> この記事を書いた人</div>
@@ -201,7 +201,7 @@ Class ViewAdminArticleEdit {
             </div>
           </div>
 
-          <div class="col-md-10">
+          <div class="col-md-12">
             <div class="panel panel-info form-group">
               <div class="panel-heading"><span class="glyphicon glyphicon-pencil"></span> タイトル</div>
               <div class="panel-body">
@@ -220,7 +220,7 @@ Class ViewAdminArticleEdit {
             </div>
           </div>
 
-          <div class="col-md-10">
+          <div class="col-md-12">
             <div class="panel panel-info form-group">
               <div class="panel-heading"><span class="glyphicon glyphicon-pencil"></span> メタキーワード</div>
               <div class="panel-body">
@@ -285,9 +285,13 @@ Class ViewAdminArticleEdit {
                   <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['strong'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の太字にしたい部分を囲って、このボタンを押してください。"><strong>太字</strong> <code>&lt;strong&gt;</code></a>
                   <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['h3'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の見出しにしたい一行を囲って、このボタンを押してください。"><span class="heading">●見出し</span> <code>&lt;h3&gt;</code></a>
                   <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['h4'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の小見出しにしたい一行を囲って、このボタンを押してください。"><strong>小見出し</strong> <code>&lt;h4&gt;</code></a>
-                  <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#ModalInternalLink" data-load-url="/edit/internal-links.php"><span class="link">内部リンク</span> <code>&lt;a&gt;</code></a>
-                  <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#ModalExternalLink"><span class="link">外部リンク</span> <code>&lt;a&gt;</code></a>
-                  <span class="dropdown" data-toggle="tooltip" data-placement="bottom" data-original-title="本文中の挿入したい部分をクリックした後、テキストエリアに画像をドラッグ＆ドロップしてください。">
+                  <span data-toggle="tooltip" data-placement="bottom" data-original-title="本文中のリンクを張りたい部分をクリックした後、このボタンを押してください。">
+                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#ModalInternalLink" data-load-url="/edit/internal-links.php"><span class="link">内部リンク</span> <code>&lt;a&gt;</code></a>
+                  </span>
+                  <span data-toggle="tooltip" data-placement="bottom" data-original-title="本文中のリンクを張りたい部分をクリックした後、このボタンを押してください。">
+                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#ModalExternalLink"><span class="link">外部リンク</span> <span class="glyphicon glyphicon-new-window linkmark"></span> <code>&lt;a&gt;</code></a>
+                  </span>
+                  <span data-toggle="tooltip" data-placement="bottom" data-original-title="本文中の画像を貼りたい部分をクリックした後、テキストエリアに画像をドラッグ＆ドロップしてください。">
                     <a class="btn btn-sm btn-default"><span class="graphic"><span class="glyphicon glyphicon-picture"></span> 画像</span> <code>&lt;img&gt;</code></a>
                   </span>
                   <span class="toolbar_text">ツールバー</span>
@@ -342,10 +346,12 @@ Class ViewAdminArticleEdit {
                     <label for="url" class="control-label">URL:</label>
                     <input type="text" class="form-control" id="modal_external_url" placeholder="http://">
                   </div>
+<!--
                   <div class="form-group">
                     <label for="title" class="control-label">タイトル:</label>
                     <input type="text" class="form-control" id="modal_external_title">
                   </div>
+-->
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">キャンセル</button>
@@ -356,7 +362,7 @@ Class ViewAdminArticleEdit {
           </div>
 
         <div class="col-md-12 mb30">
-          <a href="#"id="page-top" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-chevron-up"></span> ページトップに戻る</a>
+          <a href="#" id="page-top" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-chevron-up"></span> ページトップに戻る</a>
         </div>
 
       </div><!-- /row -->

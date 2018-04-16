@@ -272,7 +272,6 @@ Class ModelDataArticles extends CommonBase{
 		}
 	}
 
-
 	/*
 	* URL重複確認
 	*

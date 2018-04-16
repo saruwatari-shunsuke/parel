@@ -41,6 +41,9 @@ textarea {
   box-sizing: border-box;
   resize: none;
 }
+#main-image {
+  width: 100%;
+}
 .toolbar {
   margin: 7px;
   padding: 7px;
@@ -69,6 +72,10 @@ textarea {
 .toolbar .link {
   color:#428bca;
   text-decoration:underline;
+}
+.toolbar .linkmark {
+  color:#428bca;
+  font-size: 0.8em;
 }
 .toolbar .graphic {
   color:#381;

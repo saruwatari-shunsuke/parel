@@ -89,7 +89,7 @@ Class ViewUserArticle {
               <?php echo $article_data['title']; ?>
             </div>
             <div class="article_row_head mt20"><!-- Start of Article head -->
-              <div class="col-md-4 col-sm-4" id="center"><img id="thumb_1" class="img-circle" src="<?php echo IMAGE_MAIN_LARGE; ?>" alt=""></div>
+              <div class="col-md-4 col-sm-4 center"><img id="thumb_1" class="img-circle" src="<?php echo IMAGE_MAIN_LARGE; ?>" alt=""></div>
               <div class="col-md-8 col-sm-8 mt40">
                 <h1 class="article_text_title mb30"><?php echo $article_data['title']; ?></h1>
                 <div class="addthis_inline_share_toolbox ml30"></div>
