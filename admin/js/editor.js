@@ -1,3 +1,8 @@
+// ポップオーバー
+$(function () {
+        $('[data-toggle="popover"]').popover();
+});
+
 // ドロップゾーン外へのドラッグ＆ドロップ防止
 $(function () {
   $(document).on('drop dragover', function (e) {
@@ -18,11 +23,11 @@ $(function(){
 });
 
 //カテゴリとURLが連動
-function setCategoryUrl(category,color){
+function setCategoryUrl(category, color){
   if (color==0) {
     document.getElementById("category_url").innerHTML='http://'+category+'.parel.site/';
   } else {
-    document.getElementById("category_url").innerHTML='http://<span style="color:#f00;">'+category+'</span>.parel.site/';
+    document.getElementById("category_url").innerHTML='http://<span style="color:#f00;">' + category + '</span>.parel.site/';
   }
 }
 
@@ -71,6 +76,9 @@ async function makeNode(tag, range) {
       return '<a href="' + url + '" title="' + title + '">' + title + '</a>';
     } else if (tag[1]=='ex') {
       var url = document.getElementById('modal_external_url').value;
+      if(url.substring(0,4)!='http' && url.substring(0,1)!='/') {
+        url = '//' + url;
+      }
       //var title = document.getElementById('modal_external_title').value;
       const promise = new Promise((resolve, reject) => {
         $.get('/edit/get-title.php?url='+url, function(data){

@@ -138,7 +138,7 @@ Class ViewAdminArticleEdit {
 
           <div class="col-md-4">
             <div class="panel panel-info form-group" id="dropzone-mainimage">
-              <div class="panel-heading"><span class="glyphicon glyphicon-picture"></span> キャッチ画像</div>
+              <div class="panel-heading"><span class="glyphicon glyphicon-picture"></span> アイキャッチ画像<span class="right btn btn-secondary btn-sm" data-html="true" data-toggle="popover" title="アイキャッチ画像" data-content="画像をドラッグ＆ドロップしてください。<br>ファイルサイズ上限は1MBです。<br>ドロップすると600px×600pxに加工された画像がサーバに転送されます。<br>サーバに送信されると画像が更新され、以前の画像に戻すことはできません。" data-placement="bottom">?</span></div>
               <div class="panel-body center">
                 <div>
                   <img id="main-image" src="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/'.IMAGE_MAIN_SMALL.'?time='.date('YmdHis'); ?>">
@@ -343,7 +343,7 @@ Class ViewAdminArticleEdit {
                 </div>
                 <div class="modal-body">
                   <div class="form-group">
-                    <label for="url" class="control-label">URL:</label>
+                    <label for="url" class="control-label">URLを入力してください</label>
                     <input type="text" class="form-control" id="modal_external_url" placeholder="http://">
                   </div>
 <!--

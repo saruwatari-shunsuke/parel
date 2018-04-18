@@ -71,7 +71,6 @@ Class ViewUserArticle {
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="canonical" href="<?php echo $article_data['url'] ?>">
-    <link rel="alternate" href="<?php echo $article_data['url'] ?>" hreflang="ja">
     <link rel="amphtml" href="<?php echo $article_data['url'] ?>amp/">
     <link rel="next" href="">
  
@@ -229,7 +228,6 @@ Class ViewUserArticle {
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="canonical" href="<?php echo $article_data['url'] ?>">
-    <link rel="alternate" href="<?php echo $article_data['url'] ?>" hreflang="ja">
     <link rel="amphtml" href="<?php echo $article_data['url'] ?>amp/">
     <link rel="next" href="">
  

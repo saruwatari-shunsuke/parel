@@ -539,8 +539,6 @@ Class ControllerArticle extends CommonBase{
 			for ($i=1; $i<=3; $i++) {
 				foreach ($article_data[$i] as $key2 => $value2) {
 					$related_data[$num] = $value2;
-//					$tmp = strip_tags($value2['introduction']); //タグ外し
-//					$related_data[$num]['description'] = str_replace("\n", "", $tmp); //改行除去
                                         $related_data[$num]['release_time'] = date('Y年n月j日', strtotime($value2['release_time']));
 					$num++;
 				}

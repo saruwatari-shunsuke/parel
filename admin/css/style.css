@@ -41,6 +41,11 @@ textarea {
   box-sizing: border-box;
   resize: none;
 }
+.popover {
+  width: 400px;
+  color: #333;
+  font-size: 13px;
+}
 #main-image {
   width: 100%;
 }
@@ -82,7 +87,6 @@ textarea {
 }
 code {
   background: transparent;
-
 }
 #ModalInternalLink .modal-body a {
   text-align: left;

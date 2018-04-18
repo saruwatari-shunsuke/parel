@@ -61,8 +61,8 @@ Class ViewAdminMenu {
 
      <div class="container-fruid">
       <div class="row">
-        <div class="col-md-12 mb50">
-          <h1 class="mt-20">パルール 管理画面</h1>
+        <div class="col-md-12 mb30">
+          <h1>パルール 管理画面</h1>
           <h2><a href="/edit/"><span class="glyphicon glyphicon-pencil"></span> 記事を書く</a></h2>
           <h2><a href="/view/"><span class="glyphicon glyphicon-file"></span> 記事一覧</a></h2>
           <h2><a href="/author/"><span class="glyphicon glyphicon-user"></span> ライター</a></h2>

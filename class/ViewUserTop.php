@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.1
+* @version 1.2
 */
 
 Class ViewUserTop {
@@ -70,7 +70,6 @@ Class ViewUserTop {
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="canonical" href="<?php echo CATEGORY_URL[$category_id] ?>">
-    <link rel="alternate" href="<?php echo CATEGORY_URL[$category_url] ?>" hreflang="ja">
     <link rel="next" href="">
  
   </head>
@@ -252,7 +251,7 @@ Class ViewUserTop {
       <div class="mt-15"></div>
 
       <div class="boxview_wraper">
-        <div class="boxview_box" id="auto_box">
+        <div class="boxview_box">
 
 <?php if(!$category_id && !$_GET['a'] && !$_GET['s']) { ?>
           <div class="wideslider">
@@ -266,11 +265,7 @@ Class ViewUserTop {
                     </div>
                     <div class="box_article_head_text">
                       <p class="box_carousel_title text-line-2"><?php echo $value['title'] ?></p>
-                      <div class="row mt-5">
-                        <div class="left ml25">
-                          <span class="box_carousel_ja_user"><?php echo $value['author_name'] ?></span>
-                        </div>
-                      </div>
+                      <span class="box_carousel_user"><?php echo $value['author_name'] ?></span>
                     </div>
                   </div>
                 </a>

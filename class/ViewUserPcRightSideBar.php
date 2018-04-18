@@ -60,7 +60,7 @@ Class ViewUserPcRightSideBar {
             <img src="<?php echo MAIN_URL ?>img/common/myfavolite-title.png" alt="おすすめ記事" class="max-width mt10 mb10">
 <?php foreach ($myfavolite_data as $key => $value) { ?>
             <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
-              <div class="overflow" id="auto_box">
+              <div class="overflow" id="hover_filter">
                 <div class="mobile_article_index_box2 max-width relative">
                   <div class="boxview_left">
                     <div class="boxview_leftimg">
@@ -71,7 +71,6 @@ Class ViewUserPcRightSideBar {
                     <div class="mobile_article_index_text">
                       <div class="ranking_text_box not_auto_br">
                         <span class="trunk3"><?php echo $value['title'] ?></span>
-                        <p class="txt-right mb0 mt-3"><small><span class="points_text"></span></small></p>
                       </div>
                     </div>
                   </div>

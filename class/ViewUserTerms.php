@@ -46,12 +46,12 @@ Class ViewUserTerms {
 
     <meta property="og:title" content="利用規約 | <?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="<?php echo MAIN_URL ?>">
+    <meta property="og:url" content="<?php echo MAIN_URL ?>terms/">
     <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:description" content="<?php echo $setting_data['site_description'] ?>">
     <meta property="og:image" content="<?php echo IMAGE_SITE_MAIN ?>">
     <meta property="og:locale" content="ja_JP">
-    <meta property="al:web:url" content="<?php echo MAIN_URL ?>">
+    <meta property="al:web:url" content="<?php echo MAIN_URL ?>terms/">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@parel_beauty">
@@ -65,7 +65,7 @@ Class ViewUserTerms {
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="alternate" type="application/rss+xml" title="" href="">
 
-    <link rel="canonical" href="<?php echo MAIN_URL ?>">
+    <link rel="canonical" href="<?php echo MAIN_URL ?>terms/">
     <link rel="next" href="">
  
   </head>
@@ -124,12 +124,12 @@ Class ViewUserTerms {
 
     <meta property="og:title" content="利用規約 | <?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="<?php echo MAIN_URL ?>">
+    <meta property="og:url" content="<?php echo MAIN_URL ?>terms/">
     <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:description" content="<?php echo $setting_data['site_description'] ?>">
     <meta property="og:image" content="<?php echo IMAGE_SITE_MAIN ?>">
     <meta property="og:locale" content="ja_JP">
-    <meta property="al:web:url" content="<?php echo MAIN_URL ?>">
+    <meta property="al:web:url" content="<?php echo MAIN_URL ?>terms/">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@parel_beauty">
@@ -141,9 +141,8 @@ Class ViewUserTerms {
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-sp.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
-    <link rel="alternate" type="application/rss+xml" title="" href="">
 
-    <link rel="canonical" href="<?php echo MAIN_URL ?>">
+    <link rel="canonical" href="<?php echo MAIN_URL ?>terms/">
     <link rel="next" href="">
  
   </head>

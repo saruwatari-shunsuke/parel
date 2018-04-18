@@ -1,11 +1,7 @@
 <?php
 $url = $_GET['url'];
-if(substr($url, 0, 4)!='http'){
-  if(substr($url, 0, 2)=='//'){
-    $url = 'http:'.$url;
-  } else {
-    $url = 'http://'.$url;
-  }
+if(substr($url, 0, 2)=='//'){
+  $url = 'http:'.$url;
 }
 
 $source = @file_get_contents($url);
