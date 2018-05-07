@@ -5,7 +5,7 @@
 * @package Controller
 * @author Saruwatari Shunsuke
 * @since PHP 7.0
-* @version 1.2
+* @version 1.3
 */
 Class ControllerArticle extends CommonBase{
 	/*
@@ -128,6 +128,7 @@ Class ControllerArticle extends CommonBase{
 
 			$article_data['introduction'] = nl2br($article_data['introduction']);
 			$article_data['introduction'] = str_replace('<img ', '<img alt="'.$article_data['title'].'" ', $article_data['introduction']);
+			$article_data['body'] = preg_replace('/(<table.*?>|<tr.*?>|<\/tr>|<\/th>|<\/td>)\s*\n*/', '$1', $article_data['body']);
 			$article_data['body'] = nl2br($article_data['body']);
 			$article_data['body'] = str_replace('<img ', '<img alt="'.$article_data['title'].'" ', $article_data['body']);
 			$article_data['summary'] = nl2br($article_data['summary']);
@@ -214,6 +215,9 @@ Class ControllerArticle extends CommonBase{
 			// タグを消す
 			$text = strip_tags($text, '<a><img><h3><h4><h5><h6><strong><table><tr><th><td><amp-instagram><amp-youtube>');
 
+			// table内改行除去
+			$text = preg_replace('/(<table.*?>|<tr.*?>|<\/tr>|<\/th>|<\/td>)\s*\n*/', '$1', $text);
+
 			// imgのamp化
 			$text = preg_replace('/<img\s(.*?)\/?>/', '<amp-img $1 layout="fixed-height" height="500"></amp-img>', $text);
 
@@ -277,9 +281,9 @@ Class ControllerArticle extends CommonBase{
 			$update_data['path'] = $_POST['path'];
 			$update_data['category_id'] = ($_POST['category']) ? $_POST['category'] : 6;
 			$update_data['author_id'] = $_POST['author'];
-			$update_data['title'] = $_POST['title'];
-			$update_data['description'] = $_POST['description'];
-			$update_data['keyword'] = $_POST['keyword'];
+			$update_data['title'] = h($_POST['title']);
+			$update_data['description'] = h($_POST['description']);
+			$update_data['keyword'] = h($_POST['keyword']);
 
 			$update_data['introduction'] = str_replace(array("\r\n","\r","\n"), "\n", $_POST['introduction']);
 			$update_data['body'] = str_replace(array("\r\n","\r","\n"), "\n", $_POST['body']);
@@ -604,13 +608,13 @@ Class ControllerArticle extends CommonBase{
 			if(empty($category_id) || empty($path)){
 				return 'URLを入力してください。';
 			}
-			$ng_symbols = array('!', '"', '#', '$', '%', '&', '\'', '(', ')', '=', '~', '^', '|', '\\', '{', '}', '[', ']', ':', '*', ';', '+', '<', '>', '?', ',', '.', '/');
+			$ng_symbols = array(' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '=', '~', '^', '|', '\\', '@', '{', '}', '[', ']', ':', '*', ';', '+', '<', '>', '?', ',', '.', '/');
 			foreach($ng_symbols as $key => $value) {
 				if(strpos($path, $value) !== false){
 					return 'URLに不正な文字があります。';
 				}
 			}
-			$ng_directories = array('css', 'img', 'js', 'edit', 'log', 'setting', 'write', 'view');
+			$ng_directories = array('author', 'css', 'default_article', 'edit', 'img', 'jquery_file_upload', 'js', 'log', 'myfavolite', 'trash', 'view');
 			foreach($ng_directories as $key => $value) {
 				if($value==$path){
 					return 'そのURLは利用できません。';

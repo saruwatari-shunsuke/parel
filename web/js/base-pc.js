@@ -1,7 +1,7 @@
 // Other Event
 $(function(){
   //Hover effect
-  $("#hover_filter, #hover_btn").hover(
+  $('.hover_light').hover(
     function () {
       $(this).addClass('touch_hover_clear');
     },

@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.2
+* @version 1.3
 */
 
 Class ViewUserArticleAmp {
@@ -43,58 +43,54 @@ Class ViewUserArticleAmp {
     <meta name="keywords" content="<?php echo $article_data['keyword'] ?>">
     <link rel="canonical" href="<?php echo $article_data['url'] ?>">
     <style amp-custom>
-      * {
-        box-sizing: border-box;
-      }
-      html, body, div, span, p, a, h1, ul, li {
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        color: #111;
+* {
+	box-sizing: border-box;
+}
+html, body, div, span, p, a, h1, ul, li {
+	margin: 0;
+	padding: 0;
+}
+body {
+	color: #111;
 	background:#fff;
-        font-size: 16px;
-        font-family: Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-family: Helvetica, Arial, sans-serif;
 	line-height: 140%;
-
-      }
-      #main-image {
-        width: 100%;
-        height: 260px;
-        overflow: hidden;
-        position: relative;
-      }
-      #main-image .main-image {
-        position: absolute;
-        display: block;
-        top: 50%;
-        left: 50%;
-        margin: auto;
-        -webkit-transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
-        transform: translate(-50%,-50%);
-      }
-      #top-author-area {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 40px;
-        color: #666;
-        font-size: 12px;
-        display: inline-block;
-        vertical-align: middle;
-        background: rgba(255, 255, 255, 0.7);
-      }
-      #top-author-area img {
-        margin: 5px;
-        float: left;
-      }
-       .top-author-text {
-        color: #666;
-        margin: 12px;
-      }
-.ovewflow{
+}
+#main-image {
+	width: 100%;
+	height: 260px;
 	overflow: hidden;
+	position: relative;
+}
+#main-image .main-image {
+	position: absolute;
+	display: block;
+	top: 50%;
+	left: 50%;
+	margin: auto;
+	-webkit-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+#top-author-area {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	color: #666;
+	font-size: 12px;
+	display: inline-block;
+	vertical-align: middle;
+	background: rgba(255, 255, 255, 0.7);
+}
+#top-author-area img {
+	margin: 5px;
+	float: left;
+}
+.top-author-text {
+	color: #666;
+	margin: 12px;
 }
 .center{
 	margin: 0 auto;
@@ -265,15 +261,12 @@ p.footer_copyright a{
 .right{
 	float:right;
 }
-#overflow{
-	overflow:hidden;
-}
 /* mb_header */
 .mobile_header_left{
         float: left;
         margin: 10px;
         font-size: 24px;
-        color: #d77;
+        color: #d7a;
 }
 .mobile_header_center{
 	text-align: center;
@@ -847,6 +840,7 @@ ul,li{
   object-fit: contain;
 }
 .article_row table, .article_row_ex table {
+  font-size: 0.8em;
   border: solid 1px #333;
   border-collapse: collapse;
 }
@@ -912,8 +906,8 @@ amp-sidebar amp-img {
       "image": {
         "@type": "ImageObject",
         "url": "<?php echo $article_data['url'].IMAGE_MAIN_LARGE ?>",
-        "height": 400,
-        "width": 400
+        "height": 1200,
+        "width": 630
       },
       "datePublished": "<?php echo date('c', strtotime($article_data['release_time'])) ?>",
       "dateModified": "<?php echo date('c', strtotime($article_data['release_time'])) ?>",

@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.1
+* @version 1.2
 */
 
 Class ViewUserSpFooter {
@@ -31,16 +31,18 @@ Class ViewUserSpFooter {
     <div class="mobile_header js-header bg_coral">
       <div class="overflow">
         <div class="mobile_header_left js-menu-trigger" id="triggerMenu_open">
-          <span class="mobile_header_left_img glyphicon glyphicon-align-justify"></span>
+          ≡
         </div>
         <div class="left mobile_header_center">
           <a href="<?php echo MAIN_URL ?>"><img src="<?php echo LOGO ?>" alt="パルール"></a>
         </div>
+ 
         <a href="#" data-toggle="modal" data-target="#ModalSearch" id="mobile_header_right">
           <div class="mobile_header_right">
-            <span class="mobile_header_right_img glyphicon glyphicon-search"></span>
+            <span class="glyphicon glyphicon-search"></span>
           </div>
         </a>
+ 
       </div>
     </div>
 
@@ -48,16 +50,12 @@ Class ViewUserSpFooter {
     <div class="modal fade" id="ModalSearch" style="z-index: 9999;">
       <div class="modal-dialog">
         <div class="modal-content" id="modal_search_content">
-          <div id="overflow">
-            <form action="<?php echo MAIN_URL ?>" controller="articles" class="form-inline header_left" id="ArticleSearchForm" method="GET" accept-charset="utf-8">
-              <input name="s" class="form-control header_key max-width" placeholder="気になるワードを入れてみましょう" id="ArticleKeyword" type="text" value="<?php echo $_GET['s'] ?>">
-              <input class="btn btn-default max-width" id="header_search_submit" value="検索" type="submit">
-            </form>
-          </div>
-          <div id="overflow">
-            <div class="right" id="header_search_box_close">
-              <p id="modal_sns_close" data-dismiss="modal" class="btn btn-default gray999"><span class="glyphicon glyphicon-remove"></span> 閉じる</p>
-            </div>
+          <form action="<?php echo MAIN_URL ?>" controller="articles" class="form-inline header_left" id="ArticleSearchForm" method="GET" accept-charset="utf-8">
+            <input name="s" class="form-control header_key max-width" placeholder="気になるワードを入れてみましょう" id="ArticleKeyword" type="text" value="<?php echo $_GET['s'] ?>">
+            <input class="btn btn-default btn-block" id="header_search_submit" value="検索" type="submit">
+          </form>
+          <div class="right" id="header_search_box_close">
+            <p id="modal_sns_close" data-dismiss="modal" class="btn btn-default gray999"><span class="glyphicon glyphicon-remove"></span> 閉じる</p>
           </div>
         </div>
       </div>

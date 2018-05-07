@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 
 Class ViewUserTerms {
@@ -49,7 +49,7 @@ Class ViewUserTerms {
     <meta property="og:url" content="<?php echo MAIN_URL ?>terms/">
     <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:description" content="<?php echo $setting_data['site_description'] ?>">
-    <meta property="og:image" content="<?php echo IMAGE_SITE_MAIN ?>">
+    <meta property="og:image" content="<?php echo OGIMAGE_SITE_MAIN ?>">
     <meta property="og:locale" content="ja_JP">
     <meta property="al:web:url" content="<?php echo MAIN_URL ?>terms/">
 
@@ -63,11 +63,7 @@ Class ViewUserTerms {
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
-    <link rel="alternate" type="application/rss+xml" title="" href="">
-
     <link rel="canonical" href="<?php echo MAIN_URL ?>terms/">
-    <link rel="next" href="">
- 
   </head>
   <body>
     <div class="container">
@@ -127,7 +123,7 @@ Class ViewUserTerms {
     <meta property="og:url" content="<?php echo MAIN_URL ?>terms/">
     <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:description" content="<?php echo $setting_data['site_description'] ?>">
-    <meta property="og:image" content="<?php echo IMAGE_SITE_MAIN ?>">
+    <meta property="og:image" content="<?php echo OGIMAGE_SITE_MAIN ?>">
     <meta property="og:locale" content="ja_JP">
     <meta property="al:web:url" content="<?php echo MAIN_URL ?>terms/">
 
@@ -141,10 +137,7 @@ Class ViewUserTerms {
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-sp.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
-
     <link rel="canonical" href="<?php echo MAIN_URL ?>terms/">
-    <link rel="next" href="">
- 
   </head>
   <body>
 

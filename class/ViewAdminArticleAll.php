@@ -93,7 +93,7 @@ echo $_COOKIE['LoginAuth'];
                 <div class="col-xs-1 col-ms-1 col-md-1 col-lg-1"><?php if($value['status']){ echo $value['release_time']; } ?></div>
                 <div class="col-xs-8 col-ms-8 col-md-8 col-lg-8"><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" height="20"> <?php echo $value['title'] ?></div>
                 <div class="col-xs-3 col-ms-3 col-md-3 col-lg-3">
-                  <a class="btn btn-xs btn-default" href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'] ?>/" target="_blank"><img src="//parel.site/img/common/logo_8.png" height=15></a>
+                  <a class="btn btn-xs btn-default" href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'] ?>/" target="_blank"><img src="<?php echo MAIN_URL ?>img/common/logo_8.png" height=15></a>
                   <a class="btn btn-xs btn-success" href="/edit/?id=<?php echo $value['article_id'] ?>#noback"><span class="glyphicon glyphicon-pencil"></span> 編集</a>
 <?php if($value['status']==1){ ?>
                   <a class="btn btn-xs btn-info" href="/view/?i=<?php echo $value['article_id'] ?>&r=2"><span class="glyphicon glyphicon-eye-open"></span> 公開中</a>

@@ -503,13 +503,13 @@ div.article_row_ex{
 .article_row h3{
     font-size:16px;
     font-weight:bold;
-    margin: -100px 0 30px;
+    margin: -70px 0 0;
     padding: 140px 10px 10px; 
     border-bottom:2px solid #dc8791;
 }
 .article_row h4, .article_row h5, .article_row h6{
-    margin-top: -130px;
-    padding-top: 130px; 
+    margin: -100px 0 0;
+    padding: 130px 0 0;
 }
 .article_text{
     font-size:110%;;

@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.1
+* @version 1.2
 */
 
 Class ViewAdminArticleEdit {
@@ -55,15 +55,13 @@ Class ViewAdminArticleEdit {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
  
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>/css/html5reset-1.6.1.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/html5reset-1.6.1.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 
-    <!-- Generic page styles -->
     <link rel="stylesheet" href="/jquery_file_upload/css/style.css">
-    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
     <link rel="stylesheet" href="/jquery_file_upload/css/jquery.fileupload.css">
 
     <link rel="shortcut icon" href="/img/adm-parel.ico">
@@ -95,6 +93,7 @@ Class ViewAdminArticleEdit {
             <a href="/view/" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-ban-circle"></span> 編集を破棄して戻る</a>
             <button type="submit" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-ok-sign"></span> 編集を保存して戻る</button>
           </div>
+<?php if($article_data['status']!=1){ ?>
           <div class="col-md-3 mb20">
             <a data-toggle="modal" data-target="#ModalDelete" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-trash"></span> 記事の削除</a>
           </div>
@@ -103,7 +102,7 @@ Class ViewAdminArticleEdit {
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+                  <button type="button" class="close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></button>
                   <h4 class="modal-title">記事の削除</h4>
                 </div>
                 <div class="modal-body">
@@ -135,6 +134,7 @@ Class ViewAdminArticleEdit {
               </div>
             </div>
           </div>
+<?php } ?>
 
           <div class="col-md-4">
             <div class="panel panel-info form-group" id="dropzone-mainimage">
@@ -147,7 +147,6 @@ Class ViewAdminArticleEdit {
                 <input class="hidden" id="fileupload2" type="file" name="files[]" multiple>
                 <br>
                 画像をドラッグ＆ドロップしてください。
-                <!-- The global progress bar -->
                 <div id="progress1" class="progress">
                   <div class="progress-bar progress-bar-success"></div>
                 </div>
@@ -166,11 +165,11 @@ Class ViewAdminArticleEdit {
 <?php foreach ($category_data as $key => $value) { ?>
 <?php if($article_data['category_id']==$value['category_id']) { ?>
                   <label class="btn btn-default active" onclick="setCategoryUrl('<?php echo $value['name_domain'] ?>', 0)">
-                    <input type="radio" name="category" value="<?php echo $value['category_id'] ?>" autocomplete="off" checked> <?php echo $value['name'] ?>
+                    <input type="radio" name="category" value="<?php echo $value['category_id'] ?>" autocomplete="off" checked> <?php echo $value['name'] ?> 
                   </label>
 <?php } else { ?>
                   <label class="btn btn-default" onclick="setCategoryUrl('<?php echo $value['name_domain'] ?>', 1)">
-                    <input type="radio" name="category" value="<?php echo $value['category_id'] ?>" autocomplete="off"> <?php echo $value['name'] ?>
+                    <input type="radio" name="category" value="<?php echo $value['category_id'] ?>" autocomplete="off"> <?php echo $value['name'] ?> 
                   </label>
 <?php }} ?>
                 </div>
@@ -216,7 +215,6 @@ Class ViewAdminArticleEdit {
               <div class="panel-body">
                 <textarea name="description" rows="3" class="form-controll max-width no-enter" placeholder=""><?php echo $article_data['description']; ?></textarea>
               </div>
-              <div class="panel-footer">検索時に出てくる120文字前後の説明文です。</div>
             </div>
           </div>
 
@@ -237,7 +235,7 @@ Class ViewAdminArticleEdit {
                 <div class="toolbar">
                   <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['strong'],'text_introduction');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の太字にしたい部分を囲って、このボタンを押してください。"><strong>太字</strong> <code>&lt;strong&gt;</code></a>
                 </div>
-                <textarea id="text_introduction" name="introduction" rows="5" class="form-controll max-width" placeholder=""><?php echo $article_data['introduction']; ?></textarea>
+                <textarea id="text_introduction" name="introduction" rows="5" class="form-controll max-width" placeholder=""><?php echo h($article_data['introduction']); ?></textarea>
               </div>
             </div>
           </div>
@@ -248,7 +246,7 @@ Class ViewAdminArticleEdit {
               <div class="panel-body">
                 <div id="toolbar" class="toolbar">
                   <span class="dropdown" data-toggle="tooltip" data-placement="right" data-original-title="本文中の色をつけたい部分を囲って、このボタンを押してください。">
-                    <a href="#" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="colored">マーカー</span> <code>&lt;span&gt;</code><span class="caret"></span></a>
+                    <a href="#" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="colored">マーカー</span> <span class="caret"></span><br><code>&lt;span&gt;</code></a>
                     <ul class="dropdown-menu" role="menu">
                       <li role="presentation"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['span','text-decoration:underline #f69 dashed;'],'text_body');"><span style="text-decoration:underline #f69 dashed;">パルールは美も健康も両立したい欲張りな20代女性のためのダイエットメディアです。</span></a></li>
                       <li role="presentation"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['span','text-decoration:underline #c00 dashed;'],'text_body');"><span style="text-decoration:underline #c00 dashed;">パルールは美も健康も両立したい欲張りな20代女性のためのダイエットメディアです。</span></a></li>
@@ -269,35 +267,48 @@ Class ViewAdminArticleEdit {
                     </ul>
                   </span>
                   <span class="dropdown" data-toggle="tooltip" data-placement="right" data-original-title="本文中の色をつけたい部分を囲って、このボタンを押してください。">
-                    <a href="#" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="frame">枠</span> <code>&lt;div&gt;</code><span class="caret"></span></a>
-                    <ul id="toolbar-frame" class="dropdown-menu" role="menu">
-                      <li role="presentation"><a  href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:solid #333 1px;padding:5px 15px;'],'text_body');"><div style="border:solid #333 1px;margin:2px;padding:5px 15px;">・リスト1<br>・リスト2<br>・リスト3</div></a></li>
-                      <li role="presentation"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:dotted #f69 3px;border-radius:10px;padding:5px 15px;'],'text_body');"><div style="border:dotted #f69 3px;border-radius:10px;padding:5px 15px;">・リスト1<br>・リスト2<br>・リスト3</div></a></li>
-                      <li role="presentation"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','background:#ffc;border-radius:10px;padding:5px 15px;'],'text_body');"><div style="background:#ffc;border-radius:10px;margin:3px;padding:5px 15px;">・リスト1<br>・リスト2<br>・リスト3</div></a></li>
-                      <li role="presentation"><a  href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:solid #f69 1px;padding:5px 15px;'],'text_body');"><div style="border:solid #f69 1px;margin:2px;padding:5px 15px;">・リスト1<br>・リスト2<br>・リスト3</div></a></li>
-                      <li role="presentation"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:dashed #f69 3px;border-radius:10px;padding:5px 15px;'],'text_body');"><div style="border:dashed #f69 3px;border-radius:10px;padding:5px 15px;">・リスト1<br>・リスト2<br>・リスト3</div></a></li>
-                      <li role="presentation"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','background:#fce;border-radius:10px;padding:5px 15px;'],'text_body');"><div style="background:#fce;border-radius:10px;margin:3px;padding:5px 15px;">・リスト1<br>・リスト2<br>・リスト3</div></a></li>
-                      <li role="presentation"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:double #f69 3px;border-radius:10px;padding:5px 15px;'],'text_body');"><div style="border:double #f69 3px;border-radius:10px;padding:5px 15px;">・リスト1<br>・リスト2<br>・リスト3</div></a></li>
-                      <li role="presentation"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:solid #f69 3px;border-radius:10px;padding:5px 15px;'],'text_body');"><div style="border:solid #f69 3px;border-radius:10px;padding:5px 15px;">・リスト1<br>・リスト2<br>・リスト3</div></a></li>
-                      <li role="presentation"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','background:#cef;border-radius:10px;padding:5px 15px;'],'text_body');"><div style="background:#cef;border-radius:10px;margin:3px;padding:5px 15px;">・リスト1<br>・リスト2<br>・リスト3</div></a></li>
+                    <a href="#" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="frame">枠</span> <span class="caret"></span><br><code>&lt;div&gt;</code></a>
+                    <ul id="toolbar-frame" class="dropdown-menu tag-btn" role="menu">
+                      <li role="presentation" class="full"><a  href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:solid #333 1px;padding:5px 15px;'],'text_body');"><div style="border:solid #333 1px;margin:2px -10px;padding:5px 15px;">・横幅いっぱいリスト1<br>・横幅いっぱいリスト2<br>・横幅いっぱいリスト3</div></a></li>
+                      <li role="presentation" class="full"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:dotted #f69 3px;border-radius:10px;padding:5px 15px;'],'text_body');"><div style="border:dotted #f69 3px;border-radius:10px;margin:0 -10px;padding:5px 15px;">・横幅いっぱいリスト1<br>・横幅いっぱいリスト2<br>・横幅いっぱいリスト3</div></a></li>
+                      <li role="presentation" class="half"><a  href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:solid #333 1px;padding:5px 15px;max-width:400px;'],'text_body');"><div style="border:solid #333 1px;margin:2px -10px;padding:5px 15px;">・項目1<br>・項目2<br>・項目3</div></a></li>
+                      <li role="presentation" class="half"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:dotted #f69 3px;border-radius:10px;padding:5px 15px;max-width:400px;'],'text_body');"><div style="border:dotted #f69 3px;border-radius:10px;margin:0 -10px;padding:5px 15px;">・項目1<br>・項目2<br>・項目3</div></a></li>
+                      <li role="presentation" class="full"><a  href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:solid #f69 1px;padding:5px 15px;'],'text_body');"><div style="border:solid #f69 1px;margin:2px -10px;padding:5px 15px;">・横幅いっぱいリスト1<br>・横幅いっぱいリスト2<br>・横幅いっぱいリスト3</div></a></li>
+                      <li role="presentation" class="full"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:dashed #f69 3px;border-radius:10px;padding:5px 15px;'],'text_body');"><div style="border:dashed #f69 3px;border-radius:10px;margin:0 -10px;padding:5px 15px;">・横幅いっぱいリスト1<br>・横幅いっぱいリスト2<br>・横幅いっぱいリスト3</div></a></li>
+                      <li role="presentation" class="half"><a  href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:solid #f69 1px;padding:5px 15px;max-width:400px;'],'text_body');"><div style="border:solid #f69 1px;margin:2px -10px;padding:5px 15px;">・項目1<br>・項目2<br>・項目3</div></a></li>
+                      <li role="presentation" class="half"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:dashed #f69 3px;border-radius:10px;padding:5px 15px;max-width:400px;'],'text_body');"><div style="border:dashed #f69 3px;border-radius:10px;margin:0 -10px;padding:5px 15px;">・項目1<br>・項目2<br>・項目3</div></a></li>
+                      <li role="presentation" class="full"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:double #f69 3px;border-radius:10px;padding:5px 15px;'],'text_body');"><div style="border:double #f69 3px;border-radius:10px;margin:0 -10px;padding:5px 15px;">・横幅いっぱいリスト1<br>・横幅いっぱいリスト2<br>・横幅いっぱいリスト3</div></a></li>
+                      <li role="presentation" class="full"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:solid #f69 3px;border-radius:10px;padding:5px 15px;'],'text_body');"><div style="border:solid #f69 3px;border-radius:10px;margin:0 -10px;padding:5px 15px;">・横幅いっぱいリスト1<br>・横幅いっぱいリスト2<br>・横幅いっぱいリスト3</div></a></li>
+                      <li role="presentation" class="half"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:double #f69 3px;border-radius:10px;padding:5px 15px;max-width:400px;'],'text_body');"><div style="border:double #f69 3px;border-radius:10px;margin:0 -10px;padding:5px 15px;">・項目1<br>・項目2<br>・項目3</div></a></li>
+                      <li role="presentation" class="half"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','border:solid #f69 3px;border-radius:10px;padding:5px 15px;max-width:400px;'],'text_body');"><div style="border:solid #f69 3px;border-radius:10px;margin:0 -10px;padding:5px 15px;">・項目1<br>・項目2<br>・項目3</div></a></li>
+                      <li role="presentation" class="full"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','background:#ffc;border-radius:10px;padding:5px 15px;'],'text_body');"><div style="background:#ffc;border-radius:10px;margin:3px -10px;padding:5px 15px;">・横幅いっぱいリスト1<br>・横幅いっぱいリスト2<br>・横幅いっぱいリスト3</div></a></li>
+                      <li role="presentation" class="full"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','background:#fce;border-radius:10px;padding:5px 15px;'],'text_body');"><div style="background:#fce;border-radius:10px;margin:3px -10px;padding:5px 15px;">・横幅いっぱいリスト1<br>・横幅いっぱいリスト2<br>・横幅いっぱいリスト3</div></a></li>
+                      <li role="presentation" class="half"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','background:#ffc;border-radius:10px;padding:5px 15px;max-width:400px;'],'text_body');"><div style="background:#ffc;border-radius:10px;margin:3px -10px;padding:5px 15px;">・項目1<br>・項目2<br>・項目3</div></a></li>
+                      <li role="presentation" class="half"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','background:#fce;border-radius:10px;padding:5px 15px;max-width:400px;'],'text_body');"><div style="background:#fce;border-radius:10px;margin:3px -10px;padding:5px 15px;">・項目1<br>・項目2<br>・項目3</div></a></li>
+                      <li role="presentation" class="full"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','background:#cfe;border-radius:10px;padding:5px 15px;'],'text_body');"><div style="background:#cfe;border-radius:10px;margin:3px -10px;padding:5px 15px;">・横幅いっぱいリスト1<br>・横幅いっぱいリスト2<br>・横幅いっぱいリスト3</div></a></li>
+                      <li role="presentation" class="full"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','background:#cef;border-radius:10px;padding:5px 15px;'],'text_body');"><div style="background:#cef;border-radius:10px;margin:3px -10px;padding:5px 15px;">・横幅いっぱいリスト1<br>・横幅いっぱいリスト2<br>・横幅いっぱいリスト3</div></a></li>
+                      <li role="presentation" class="half"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','background:#cfe;border-radius:10px;padding:5px 15px;max-width:400px;'],'text_body');"><div style="background:#cfe;border-radius:10px;margin:3px -10px;padding:5px 15px;">・項目1<br>・項目2<br>・項目3</div></a></li>
+                      <li role="presentation" class="half"><a href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['div','background:#cef;border-radius:10px;padding:5px 15px;max-width:400px;'],'text_body');"><div style="background:#cef;border-radius:10px;margin:3px -10px;padding:5px 15px;">・項目1<br>・項目2<br>・項目3</div></a></li>
                     </ul>
                   </span>
-                  <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['strong'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の太字にしたい部分を囲って、このボタンを押してください。"><strong>太字</strong> <code>&lt;strong&gt;</code></a>
-                  <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['h3'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の見出しにしたい一行を囲って、このボタンを押してください。"><span class="heading">●見出し</span> <code>&lt;h3&gt;</code></a>
-                  <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['h4'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の小見出しにしたい一行を囲って、このボタンを押してください。"><strong>小見出し</strong> <code>&lt;h4&gt;</code></a>
+                  <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['strong'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の太字にしたい部分を囲って、このボタンを押してください。"><strong>太字</strong><br><code>&lt;strong&gt;</code></a>
+                  <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['em'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の斜体にしたい部分を囲って、このボタンを押してください。"><em>斜体</em><br><code>&lt;em&gt;</code></a>
+                  <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['span','float:right'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の右に寄せたい部分を囲って、このボタンを押してください。"><span class="glyphicon glyphicon-align-right"></span> 右寄せ<br><code>&lt;span&gt;</code></a>
+                  <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['h3'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の見出しにしたい一行を囲って、このボタンを押してください。"><span class="heading">●見出し</span><br><code>&lt;h3&gt;</code></a>
+                  <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['h4'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の小見出しにしたい一行を囲って、このボタンを押してください。"><strong>小見出し</strong><br><code>&lt;h4&gt;</code></a>
                   <span data-toggle="tooltip" data-placement="bottom" data-original-title="本文中のリンクを張りたい部分をクリックした後、このボタンを押してください。">
-                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#ModalInternalLink" data-load-url="/edit/internal-links.php"><span class="link">内部リンク</span> <code>&lt;a&gt;</code></a>
+                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#ModalInternalLink" data-load-url="/edit/internal-links.php"><span class="link">内部リンク</span><br><code>&lt;a&gt;</code></a>
                   </span>
                   <span data-toggle="tooltip" data-placement="bottom" data-original-title="本文中のリンクを張りたい部分をクリックした後、このボタンを押してください。">
-                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#ModalExternalLink"><span class="link">外部リンク</span> <span class="glyphicon glyphicon-new-window linkmark"></span> <code>&lt;a&gt;</code></a>
+                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#ModalExternalLink"><span class="link">外部リンク</span> <span class="glyphicon glyphicon-new-window linkmark"></span><br><code>&lt;a&gt;</code></a>
                   </span>
                   <span data-toggle="tooltip" data-placement="bottom" data-original-title="本文中の画像を貼りたい部分をクリックした後、テキストエリアに画像をドラッグ＆ドロップしてください。">
-                    <a class="btn btn-sm btn-default"><span class="graphic"><span class="glyphicon glyphicon-picture"></span> 画像</span> <code>&lt;img&gt;</code></a>
+                    <a class="btn btn-sm btn-default"><span class="graphic"><span class="glyphicon glyphicon-picture"></span> 画像</span><br><code>&lt;img&gt;</code></a>
                   </span>
-                  <span class="toolbar_text">ツールバー</span>
+                  <span class="toolbar_text" id="toolbar_text">ツールバー</span>
                 </div>
 
-                <textarea id="text_body" name="body" rows="500" class="form-controll max-width" placeholder=""><?php echo $article_data['body']; ?></textarea>
+                <textarea id="text_body" name="body" rows="10" class="form-controll max-width" placeholder=""><?php echo h($article_data['body']); ?></textarea>
                 <input class="hidden" id="fileupload3" type="file" name="files[]" multiple>
               </div>
             </div>
@@ -310,13 +321,14 @@ Class ViewAdminArticleEdit {
                 <div class="toolbar">
                   <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['strong'],'text_summary');" data-toggle="tooltip" data-placement="right" data-original-title="まとめ文中の太字にしたい部分を囲って、このボタンを押してください。"><strong>太字</strong> <code>&lt;strong&gt;</code></a>
                 </div>
-                <textarea id="text_summary" name="summary" rows="5" class="form-controll max-width" placeholder=""><?php echo $article_data['summary']; ?></textarea>
+                <textarea id="text_summary" name="summary" rows="5" class="form-controll max-width" placeholder=""><?php echo h($article_data['summary']); ?></textarea>
               </div>
             </div>
           </div>
 
         </form>
 
+          <!-- Modal Internal Link -->
           <div class="modal fade" id="ModalInternalLink" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -334,6 +346,7 @@ Class ViewAdminArticleEdit {
             </div>
           </div>
 
+          <!-- Modal External Link -->
           <div class="modal fade" id="ModalExternalLink" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -343,19 +356,21 @@ Class ViewAdminArticleEdit {
                 </div>
                 <div class="modal-body">
                   <div class="form-group">
-                    <label for="url" class="control-label">URLを入力してください</label>
+                    <label for="url" class="control-label">URL：</label>
                     <input type="text" class="form-control" id="modal_external_url" placeholder="http://">
                   </div>
-<!--
                   <div class="form-group">
-                    <label for="title" class="control-label">タイトル:</label>
+                    <button type="button" class="btn btn-sm btn-warning" onclick="getUrl();"><span class="glyphicon glyphicon-search"></span> URLからサイト名を探す</button>
+                    <span id="modal_external_geturl"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="title" class="control-label">サイト名：</label>
                     <input type="text" class="form-control" id="modal_external_title">
                   </div>
--->
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">キャンセル</button>
-                  <a href="javascript:void(0);" onclick="surroundHTML(['a','ex'],'text_body');" class="btn btn-lg btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-ok-sign"></span> OK</a>
+                  <a href="javascript:void(0);" onclick="surroundHTML(['a','ex'],'text_body');" id="modal_external_ok" class="btn btn-lg btn-info" data-dismiss="modal"><span class="glyphicon glyphicon-ok-sign"></span> OK</a>
                 </div>
               </div>
             </div>
@@ -375,14 +390,17 @@ Class ViewAdminArticleEdit {
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="/js/jquery.exflexfixed-0.3.0.js"></script><!-- toolbar move -->
-    <script type="text/javascript" src="/js/editor.js"></script>
+    <script type="text/javascript" src="/js/editor.js?time=<?php echo date('YmdHis'); ?>"></script>
+    <script type="text/javascript" src="/js/surroundhtml.js"></script>
 
     <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
     <script src="/jquery_file_upload/js/vendor/jquery.ui.widget.js"></script>
     <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-    <script src="https://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+<!--    <script src="https://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script> -->
+    <script src="/jquery_file_upload/js/load-image.all.min.js"></script>
     <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-    <script src="https://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+<!--    <script src="https://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script> -->
+    <script src="/jquery_file_upload/js/canvas-to-blob.min.js"></script>
     <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
     <script src="/jquery_file_upload/js/jquery.iframe-transport.js"></script>
     <!-- The basic File Upload plugin -->

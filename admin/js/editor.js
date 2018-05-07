@@ -1,6 +1,6 @@
 // ポップオーバー
 $(function () {
-        $('[data-toggle="popover"]').popover();
+  $('[data-toggle="popover"]').popover();
 });
 
 // ドロップゾーン外へのドラッグ＆ドロップ防止
@@ -34,87 +34,27 @@ function setCategoryUrl(category, color){
 //編集中にbackspaceをうっかり押してブラウザバック防止
 window.location.hash="#noback";
 window.onhashchange=function(){
-    window.location.hash="#noback";
+  window.location.hash="#noback";
 }
 
-// テキストエリアの高さを自動調節（うまく動かない）
+// テキストエリアの高さを自動調節（重い）
 jQuery.each(jQuery('textarea'), function() {
-    var offset = this.offsetHeight - this.clientHeight;
-    var resizeTextarea = function(el) {
-        jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
-    };
-    jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr();
+  var offset = this.offsetHeight - this.clientHeight;
+  jQuery(this).css('height', this.scrollHeight + offset);
+
+  var resizeTextarea = function(e) {
+    var position = $(window).scrollTop();
+    jQuery(e).css('height', e.scrollHeight + offset);
+    $(window).scrollTop(position); //スクロール位置がおかしくなるので修正
+  };
+
+  jQuery(this).keyup(function(e) {
+    if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+      resizeTextarea(this);
+    }
+  }).removeAttr();
+
 });
-
-// ツールバー内タグ挿入ボタン
-function getAreaRange(obj) {
-  var pos = new Object();
-
-  if (isIE) {
-    obj.focus();
-    var range = document.selection.createRange();
-    var clone = range.duplicate();
-     
-    clone.moveToElementText(obj);
-    clone.setEndPoint( 'EndToEnd', range );
-     
-    pos.start = clone.text.length - range.text.length;
-    pos.end = clone.text.length - range.text.length + range.text.length;
-  } else if(window.getSelection()) {
-    pos.start = obj.selectionStart;
-    pos.end = obj.selectionEnd;
-  }
-  return pos;
-}
-var isIE = (navigator.appName.toLowerCase().indexOf('internet explorer')+1?1:0);
-
-async function makeNode(tag, range) {
-  if (tag[0]=='a') {
-    if (tag[1]=='in') {
-      var url = tag[2];
-      var title = tag[3];
-      return '<a href="' + url + '" title="' + title + '">' + title + '</a>';
-    } else if (tag[1]=='ex') {
-      var url = document.getElementById('modal_external_url').value;
-      if(url.substring(0,4)!='http' && url.substring(0,1)!='/') {
-        url = '//' + url;
-      }
-      //var title = document.getElementById('modal_external_title').value;
-      const promise = new Promise((resolve, reject) => {
-        $.get('/edit/get-title.php?url='+url, function(data){
-          resolve(data);
-        });
-      });
-      const title = await promise;
-
-      document.getElementById('modal_external_url').value = '';
-      //document.getElementById('modal_external_title').value = '';
-      return '<a href="' + url + '" title="' + title + '" target="_blank">' + title + '<span class="glyphicon glyphicon-new-window external-link"></span></a>';
-    }
-  } else if (tag[0]=='img') {
-      return '<img src="' + tag[1] + '">';
-  } else {
-    if (tag.length==1) {
-      return '<' + tag[0] + '>' + range + '</' + tag[0] + '>';
-    } else {
-      return '<' + tag[0] + ' style="' + tag[1] + '">' + range + '</' + tag[0] + '>';
-    }
-  }
-}
-async function surroundHTML(tag, obj) {
-  var target = document.getElementById(obj);
-  var pos = getAreaRange(target);
-  var val = target.value;
-  var range = val.slice(pos.start, pos.end);
-  var beforeNode = val.slice(0, pos.start);
-  var afterNode = val.slice(pos.end);
-  const promise = new Promise((resolve, reject) => resolve(makeNode(tag, range)));
-  const insertNode = await promise;
-  target.value = beforeNode + insertNode + afterNode;
-  var caret = pos.start+insertNode.length;
-  target.setSelectionRange(caret, caret);// キャレット移動 firefox
-  $(target).trigger("blur").trigger("focus");// キャレット移動 Google Chrome
-}
 
 // 画面スクロールに合わせてツールバー移動（先にjquery.exflexfixed-0.3.0.jsを読み込むこと）
 $(function() {

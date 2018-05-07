@@ -36,6 +36,7 @@
   object-fit: contain;
 }
 .article_row table, .article_row_ex table {
+  font-size: 0.8em;
   border: solid 1px #333;
   border-collapse: collapse;
 }

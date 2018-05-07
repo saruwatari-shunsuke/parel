@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.1
+* @version 1.2
 */
 
 Class ViewUserArticle {
@@ -72,8 +72,6 @@ Class ViewUserArticle {
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="canonical" href="<?php echo $article_data['url'] ?>">
     <link rel="amphtml" href="<?php echo $article_data['url'] ?>amp/">
-    <link rel="next" href="">
- 
   </head>
   <body>
     <div class="container">
@@ -199,19 +197,19 @@ Class ViewUserArticle {
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title><?php echo $article_data['title'] ?></title>
+    <title><?php echo h($article_data['title']) ?></title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <meta name="description" content="<?php echo $article_data['description'] ?>">
+    <meta name="description" content="<?php echo h($article_data['description']) ?>">
     <meta name="keywords" content="<?php echo $article_data['keyword'] ?>">
     <meta name="robots" content="index,follow">
 
-    <meta property="og:title" content="<?php echo $article_data['title'] ?>">
+    <meta property="og:title" content="<?php echo h($article_data['title']) ?>">
     <meta property="og:type" content="article">
     <meta property="og:url" content="<?php echo $article_data['url'] ?>">
     <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
-    <meta property="og:description" content="<?php echo $article_data['description'] ?>">
+    <meta property="og:description" content="<?php echo h($article_data['description']) ?>">
     <meta property="og:image" content="<?php echo $article_data['url'].IMAGE_MAIN_LARGE ?>">
     <meta property="og:locale" content="ja_JP">
     <meta property="al:web:url" content="<?php echo $article_data['url'] ?>">
@@ -229,8 +227,6 @@ Class ViewUserArticle {
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="canonical" href="<?php echo $article_data['url'] ?>">
     <link rel="amphtml" href="<?php echo $article_data['url'] ?>amp/">
-    <link rel="next" href="">
- 
   </head>
   <body>
 
@@ -239,7 +235,7 @@ Class ViewUserArticle {
       <div class="article_head_photo mt-15 ml-10 mr-10">
         <div id="article_head_imgliq">
           <div class="article_head_img imgLiquid_bgSize imgLiquid_ready" style="background-image: url('<?php echo IMAGE_MAIN_SMALL ?>'); background-size: cover; background-position: center center; background-repeat: no-repeat;">
-            <img src="<?php echo IMAGE_MAIN_LARGE ?>" class="max-width" style="display: none;" alt="<?php echo $article_data['title'] ?>">
+            <img src="<?php echo IMAGE_MAIN_LARGE ?>" class="max-width" style="display: none;" alt="<?php echo h($article_data['title']) ?>">
           </div>
         </div>
         <div class="article_head_text">
@@ -254,7 +250,7 @@ Class ViewUserArticle {
       </div>
 
       <div class="article_view_area">
-        <h1 class="mobile_article_view_title not_auto_br"><?php echo $article_data['title'] ?></h1>
+        <h1 class="mobile_article_view_title not_auto_br"><?php echo h($article_data['title']) ?></h1>
 
         <div class="article_head_sns mt10">
           <div class="max-width overflow center">
@@ -292,7 +288,6 @@ Class ViewUserArticle {
         <div class="addthis_inline_share_toolbox_ribm"></div>
       </div><!-- /article_view_area -->
 
-
 <script type="text/javascript">
     $("#article_head_imgliq div").each(function(i){
       $(this).imgLiquid();
@@ -306,12 +301,12 @@ Class ViewUserArticle {
           <div class="mobile_article_index_box2 max-width">
             <div class="boxview_left">
               <div class="boxview_leftimg">
-                <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78" alt="<?php echo $value['title'] ?>">
+                <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78" alt="<?php echo h($value['title']) ?>">
               </div>
             </div>
             <div class="boxview_right">
               <div class="mobile_article_index_text" id="boxview_righttext">
-                <p class="boxview_title not_auto_br text-line-2"><?php echo $value['title'] ?></p>
+                <p class="boxview_title not_auto_br text-line-2"><?php echo h($value['title']) ?></p>
                 <div class="overflow">
                   <div class="left">
                     <small><span class="points_text"><?php echo $value['release_time'] ?></span></small>

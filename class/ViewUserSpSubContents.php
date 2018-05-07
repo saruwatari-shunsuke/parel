@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 
 Class ViewUserSpSubContents {
@@ -37,7 +37,7 @@ Class ViewUserSpSubContents {
           <img src="<?php echo MAIN_URL ?>img/common/ranking-title.png" alt="人気の記事" class="ranking_title mt10 mb10">
 <?php foreach ($ranking_data as $key => $value) { ?>
           <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
-            <div class="ranking_wrapper" id="hover_filter">
+            <div class="ranking_wrapper">
               <div class="ranking_img_area">
                 <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>">
               </div>
@@ -54,10 +54,18 @@ Class ViewUserSpSubContents {
 <?php } ?>
         </div>
 <?php if (count($ranking_data)<=5) { ?>
-      <div class="mt15 mb10 center max-width" id="hover_btn">
+      <div class="mt15 mb10 center max-width">
         <a href="<?php echo MAIN_URL ?>ranking/" class="boxview_nextbtn">もっとみる</a>
       </div>
 <?php } ?>
+
+      <!-- sponsored -->
+      <div class="mt10 mb10">
+        <img src="<?php echo MAIN_URL ?>img/common/sponsored-title.png" alt="スポンサード" class="ranking_title mt10 mb10">
+        <a href="//tokyophotogenicteam.com/">
+          <img src="<?php echo MAIN_URL ?>img/common/bnr_tokyoicecreamland_sp.png" class="max-width" alt="東京アイスクリームランド">
+        </a>
+      </div>
 
       <!-- my favolite -->
       <div class="mt10 mb10">

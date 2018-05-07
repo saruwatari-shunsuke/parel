@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 
 Class ViewUserAmpSubContents {
@@ -37,7 +37,7 @@ Class ViewUserAmpSubContents {
           <amp-img src="<?php echo MAIN_URL ?>img/common/ranking-title.png" alt="人気の記事" class="ranking_title mt10 mb10" width="500" height="70"></amp-img>
 <?php foreach ($ranking_data as $key => $value) { ?>
           <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
-            <div class="ranking_wrapper" id="hover_filter">
+            <div class="ranking_wrapper">
               <div class="ranking_img_area">
                 <amp-img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>" width="800" height="800"></amp-img>
               </div>
@@ -54,7 +54,7 @@ Class ViewUserAmpSubContents {
 <?php } ?>
         </div>
 <?php if (count($ranking_data)<=5) { ?>
-      <div class="mt15 mb10 center max-width" id="hover_btn">
+      <div class="mt15 mb10 center max-width">
         <a href="<?php echo MAIN_URL ?>ranking/" class="boxview_nextbtn">もっとみる</a>
       </div>
 <?php } ?>

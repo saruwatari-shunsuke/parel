@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.2
+* @version 1.3
 */
 
 Class ViewUserTop {
@@ -54,7 +54,7 @@ Class ViewUserTop {
     <meta property="og:url" content="<?php echo CATEGORY_URL[$category_id] ?>">
     <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:description" content="<?php echo $setting_data['site_description'] ?>">
-    <meta property="og:image" content="<?php echo IMAGE_SITE_MAIN ?>">
+    <meta property="og:image" content="<?php echo OGIMAGE_SITE_MAIN ?>">
     <meta property="og:locale" content="ja_JP">
     <meta property="al:web:url" content="<?php echo CATEGORY_URL[$category_id] ?>">
 
@@ -70,8 +70,6 @@ Class ViewUserTop {
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="canonical" href="<?php echo CATEGORY_URL[$category_id] ?>">
-    <link rel="next" href="">
- 
   </head>
   <body>
     <div class="container">
@@ -81,7 +79,7 @@ Class ViewUserTop {
         <div class="left carousel_bar">
 <?php foreach ($recommend_data as $key => $value) { ?>
           <div class="left width33p">
-            <div class="carousel_body" id="hover_filter">
+            <div class="carousel_body hover_light">
               <div class="">
                 <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>" class="push-click" id="topbtn-left" data-article-id="#">
                   <img class="carousel_item_img" src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_LARGE ?>" alt="<?php echo $value['title'] ?>">
@@ -104,7 +102,7 @@ Class ViewUserTop {
           <div id="article_list" class="overflow mb20">
 <?php foreach ($article_data as $key => $value) { ?>
             <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?><?php if($_GET['s']){ echo '?s='.urlencode($_GET['s']); } ?>" class="article_box_list article_box-<?php echo floor($key/$page_items) ?>">
-              <div class="boxview_box" id="hover_filter">
+              <div class="boxview_box hover_light">
                 <div class="boxview_img_area">
                   <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>">
                 </div>
@@ -225,7 +223,7 @@ Class ViewUserTop {
     <meta property="og:url" content="<?php echo CATEGORY_URL[$category_id] ?>">
     <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:description" content="<?php echo $setting_data['site_description'] ?>">
-    <meta property="og:image" content="<?php echo IMAGE_SITE_MAIN ?>">
+    <meta property="og:image" content="<?php echo OGIMAGE_SITE_MAIN ?>">
     <meta property="og:locale" content="ja_JP">
     <meta property="al:web:url" content="<?php echo CATEGORY_URL[$category_id] ?>">
 
@@ -236,21 +234,17 @@ Class ViewUserTop {
     <meta name="format-detection" content="telephone=no">
  
 <?php ViewBootstrap::css(); ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-sp.css?time=<?php echo date('His') ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-sp.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/wideslider.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="canonical" href="<?php echo CATEGORY_URL[$category_id] ?>">
-    <link rel="alternate" href="<?php echo CATEGORY_URL[$category_url] ?>" hreflang="ja">
-    <link rel="next" href="">
- 
   </head>
   <body>
 
     <div class="content-wrapper js-main">
-      <div class="mt-15"></div>
 
-      <div class="boxview_wraper">
+      <div class="boxview_wraper mt-15">
         <div class="boxview_box">
 
 <?php if(!$category_id && !$_GET['a'] && !$_GET['s']) { ?>
