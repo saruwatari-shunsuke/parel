@@ -27,7 +27,7 @@ function setCategoryUrl(category, color){
   if (color==0) {
     document.getElementById("category_url").innerHTML='http://'+category+'.parel.site/';
   } else {
-    document.getElementById("category_url").innerHTML='http://<span style="color:#f00;">' + category + '</span>.parel.site/';
+    document.getElementById("category_url").innerHTML='http://<span class="url-change">' + category + '</span>.parel.site/';
   }
 }
 
@@ -37,6 +37,7 @@ window.onhashchange=function(){
   window.location.hash="#noback";
 }
 
+/*
 // テキストエリアの高さを自動調節（重い）
 jQuery.each(jQuery('textarea'), function() {
   var offset = this.offsetHeight - this.clientHeight;
@@ -53,8 +54,8 @@ jQuery.each(jQuery('textarea'), function() {
       resizeTextarea(this);
     }
   }).removeAttr();
-
 });
+*/
 
 // 画面スクロールに合わせてツールバー移動（先にjquery.exflexfixed-0.3.0.jsを読み込むこと）
 $(function() {

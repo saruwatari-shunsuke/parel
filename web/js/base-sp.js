@@ -69,10 +69,11 @@ $(function(){
 	  });
 
     //SP img-size-fix for boxview large section
+/*
     $("#article_head_imgliq div").each(function(i){
       $(this).imgLiquid();
     });
-
+*/
 });
 
 $(function(){

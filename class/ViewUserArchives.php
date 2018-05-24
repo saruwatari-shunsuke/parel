@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.1
+* @version 1.2
 */
 
 Class ViewUserArchives {
@@ -70,9 +70,8 @@ Class ViewUserArchives {
   <body>
     <div class="container">
       <div class="overflow">
+        <h1 id="page_title">このページは移動しました。</h1>
         <div class="policy_view">
-          <h1 class="page_title mb30">このページは移動しました。</h1>
-
           <a href="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/' ?>" class="item-related-article overflow">
             <div class="item-thumbnail"><img src="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/'.IMAGE_MAIN_SMALL ?>"></div>
             <div class="item-content">
@@ -80,7 +79,6 @@ Class ViewUserArchives {
               <p class="item-description trunk3"><?php echo $article_data['description'] ?></p>
             </div>
           </a>
-
         </div> <!-- /policy_view -->
       </div> <!-- /overflow -->
     </div> <!-- /container -->
@@ -154,28 +152,20 @@ Class ViewUserArchives {
 
     <div class="content-wrapper js-main">
       <div class="policy_view">
-        <h1 class="page_title mb30">このページは移動しました。</h1>
+        <h1 id="page_title">このページは移動しました。</h1>
 
         <a href="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/' ?>">
-          <div class="mobile_article_index_box2 max-width">
+          <div class="mobile_article_index_box2">
             <div class="boxview_left">
               <div class="boxview_leftimg">
                 <img src="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78">
               </div>
             </div>
             <div class="boxview_right">
-              <div class="mobile_article_index_text" id="boxview_righttext">
+              <div class="mobile_article_index_text">
                 <p class="boxview_title not_auto_br text-line-2"><?php echo $article_data['title'] ?></p>
-                <div class="overflow">
-                  <div class="left">
-                    <small><span class="points_text"><?php echo $article_data['release_time'] ?></span></small>
-                  </div>
-                  <div class="right boxview_writeuser">
-                    <ul class="list-inline boxview_info">
-                      <li><span class="gray333 text-line-1 writer"><?php echo $article_data['author_name'] ?></span></li>
-                    </ul>
-                  </div>
-                </div>
+                <span class="boxview_text_left"><?php echo $article_data['release_time'] ?></span>
+                <span class="boxview_text_right"><?php echo $article_data['author_name'] ?></span>
               </div>
             </div>
           </div>

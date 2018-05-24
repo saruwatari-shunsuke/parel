@@ -1,30 +1,36 @@
+.mb20 {
+  margin-bottom: 20px;
+}
+.hidden{
+  display: none;
+}
 .bg_cyan{
-    background: #e0f3ff;
+  background: #e0f3ff;
 }
 .header_logo{
-    width: 220px;
+  width: 220px;
 }
 .navbar_search_form_input{
-    height:28px;
-    padding:0px 10px;
-    color: #468;
-    width:240px;
-    font-size:80%;
-    background:rgba(240, 249, 255, 0.9);
-    border:1px solid #bde;
-    -webkit-border-radius: 1px;
-       -moz-border-radius: 1px;
-            border-radius: 1px;
+  height:28px;
+  padding:0px 10px;
+  color: #468;
+  width:240px;
+  font-size:80%;
+  background:rgba(240, 249, 255, 0.9);
+  border:1px solid #bde;
+  -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+      border-radius: 1px;
 }
 .navbar_search_submit{
-    margin: 0 0 0 5px;
-    font-size: 80%;
-    color: #468;
-    background: rgba(240, 249, 255, 0.9);
-    border: 1px solid #bde;
-    -webkit-border-radius: 1px;
-       -moz-border-radius: 1px;
-            border-radius: 1px;
+  margin: 0 0 0 5px;
+  font-size: 80%;
+  color: #468;
+  background: rgba(240, 249, 255, 0.9);
+  border: 1px solid #bde;
+  -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+      border-radius: 1px;
 }
 .panel-heading {
   font-size: 1.2em;
@@ -40,10 +46,37 @@ textarea {
   box-sizing: border-box;
   resize: none;
 }
+table.article-table td.article-release {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 50px;
+}
+table.article-table td.article-keyword {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100px;
+  color: #777;
+  font-size: 0.9em;
+  vertical-align: bottom;
+}
+table.article-table td.article-header {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 50px;
+}
+table.article-table td.article-tool {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 50px;
+}
+.url-change {
+  color: #e36;
+}
 .popover {
   width: 400px;
   color: #333;
-  font-size: 13px;
+  font-size: 0.9em;
 }
 #main-image {
   width: 250px;
@@ -67,26 +100,26 @@ textarea {
 }
 .toolbar .heading {
   border-bottom: solid #dc8791 2px;
-  font-weight:bold;
+  font-weight: bold;
 }
 .toolbar .colored {
-  background:linear-gradient(transparent 60%, #f69 0%);
+  background: linear-gradient(transparent 60%, #f69 0%);
 }
 .toolbar .frame {
-  background:#fce;
+  background: #fce;
   border-radius: 8px;
   padding: 0 6px;
 }
 .toolbar .link {
-  color:#428bca;
-  text-decoration:underline;
+  color: #428bca;
+  text-decoration: underline;
 }
 .toolbar .linkmark {
-  color:#428bca;
+  color: #428bca;
   font-size: 0.8em;
 }
 .toolbar .graphic {
-  color:#381;
+  color: #183;
 }
 code {
   background: transparent;
@@ -143,4 +176,7 @@ ul.dropdown-menu {
   vertical-align: middle;
   border: dashed 3px #999;
   text-align: center;
+}
+#page-top {
+  margin: 0 0 30px;
 }

@@ -30,6 +30,7 @@
 					'http://adm.parel.site/',
 					));
 		define('ADMIN_URL', 'http://adm.parel.site/');
+		define('CATEGORY_NAME', array('', 'Food', 'Exercise', 'Health', 'Fashion', '特集', '管理',));
 	} else {
 		define('MAIN_URL', 'http://ec2-52-199-5-120.ap-northeast-1.compute.amazonaws.com/');
 		define('CATEGORY_URL', array(MAIN_URL, MAIN_URL, MAIN_URL, MAIN_URL, MAIN_URL, MAIN_URL, MAIN_URL, ));

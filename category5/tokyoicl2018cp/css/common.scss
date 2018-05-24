@@ -1,0 +1,238 @@
+@charset "utf-8";
+
+@import "_vars.scss";
+
+/* Default
+---------------------------------------------------------- */
+html,
+body {
+  font-size: 16px;
+}
+
+body {
+	margin: auto;
+	font-family: 'Noto Sans Japanese';
+	color: #fff;
+	line-height: 1.8;
+  text-size-adjust: 100%;
+  overflow-x: hidden; 
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, p {
+  margin: 0;
+}
+
+.headline_decoration {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+dl,
+dt,
+dd {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+/* hover */
+a {
+  @media screen and (min-width: 768px) {
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+      transition: all .3s;
+    }
+  }
+}
+
+/* clearfix */
+.clearfix::after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+
+/* PC/SP switch */
+@media screen and (max-width: 767px) {
+  .pc {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .sp {
+    display: none !important;
+  }
+}
+
+/* Header
+---------------------------------------------------------- */
+header {
+  background-color: $color-main;
+  background-image: url(../img/fv_back_ice0.png);
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center;
+  height: 100vh;
+
+  @media screen and (min-width: 768px) {
+    background-size: auto;
+  }
+
+  .header_inner {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    @media screen and (min-width: 768px) {
+      width: auto;
+    }
+  }
+}
+
+/* Main
+---------------------------------------------------------- */
+main {
+  section {
+
+    .section_inner {
+      padding: 50px 9.4vw;
+      text-align: center;
+
+      @media screen and (min-width: 768px) {
+        padding: 100px 0;
+        max-width: $max-width;
+        margin: auto;
+      }
+
+      .headline_decoration {
+        display: inline-block;
+        border-top: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        margin-bottom: 50px;
+
+        h1 {
+          @include font-size(20);
+          font-weight: 700;
+          line-height: 1.6;
+          padding: 0 10px;
+
+          @media screen and (min-width: 768px) {
+            @include font-size(36);
+          }
+        }
+      }
+    }
+
+    &.bg_stripe_pink {
+      position: relative;
+
+      .section_inner {
+        .headline_decoration {
+          border-color: $color-key;
+
+          &:before {
+            border-color: #fff;
+          }
+          &:after {
+            border-color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Footer
+---------------------------------------------------------- */
+footer {
+  background-color: #f89ac5;
+
+  .footer_inner {
+    text-align: center;
+    padding: 25px 0;
+
+    @media screen and (min-width: 768px) {
+      position: relative;
+    }
+
+    small {
+      @include font-size(10);
+
+      @media screen and (min-width: 768px) {
+        @include font-size(14);
+      }
+    }
+  }
+}
+
+
+
+/* Animation
+---------------------------------------------------------- */
+.ani_headline {
+  position: relative;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -1px;
+    right: 0;
+    border-top: 1px solid $color-main;
+    transition: width .6s;
+  }
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    border-bottom: 1px solid $color-main;
+    transition: width .6s;
+  }
+
+  h1 {
+    opacity: 0;
+    transition: opacity 2s .2s;
+  }
+
+  &.animated {
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    
+    &:after,
+    &:before {
+      width: 0;
+    }
+
+    h1 {
+      opacity: 1;
+    } 
+  } 
+}

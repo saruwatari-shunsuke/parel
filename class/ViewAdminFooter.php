@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.2
+* @version 1.3
 */
 
 Class ViewAdminFooter {
@@ -31,13 +31,8 @@ Class ViewAdminFooter {
     <nav class="navbar navbar-default navbar-info navbar-fixed-top header_bar bg_cyan opacity85" role="navigation" id="header">
       <div class="nav_bar_wrapper">
         <div class="container-fluid">
-          <div class="collapse navbar-collapse">
-            <div class="navbar-header">
-              <div class="header_logo">
-                <a href="<?php echo ADMIN_URL ?>"><img src="http://parel.site/img/common/logo_9.png"></a>
-              </div>
-            </div>
-            <ul class="nav navbar-nav navbar-left mt-45">
+          <div class="navbar-header">
+            <ul class="nav navbar-nav navbar-left">
               <li>
                 <form action="/view/" controller="articles" class="form-inline" id="head_nav_search" method="GET" accept-charset="utf-8">
                   <input name="s" class="form-control navbar_search_form_input" placeholder="気になるワードを入れてみましょう" type="text" value="<?php echo $_GET['s'] ?>">
@@ -45,11 +40,14 @@ Class ViewAdminFooter {
                 </form>
               </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right mt-45">
+            <ul class="nav navbar-nav navbar-right">
               <li><a class="btn btn-sm" href="/view/"><span class="glyphicon glyphicon-file"></span> 記事</a></li>
               <li><a class="btn btn-sm" href="/author/"><span class="glyphicon glyphicon-user"></span> ライター</a></li>
               <li><a class="btn btn-sm" href="/myfavolite/"><span class="glyphicon glyphicon-star-empty"></span> おすすめ</a></li>
             </ul>
+            <div class="header_logo">
+              <a href="<?php echo ADMIN_URL ?>"><img src="<?php echo LOGO ?>"></a>
+            </div>
           </div>
         </div>
       </div>
@@ -72,11 +70,9 @@ Class ViewAdminFooter {
             <p class="footer_text"><a href="//www.agentgate.jp/company.html" target="_blank">運営会社</a></p>
           </div>
         </div>
-        <div class="row mt10">
-          <div class="overflow">
-            <p class="text-muted left" id="copyright"><small>このサイトに掲載された記事の無断転載を禁じます。</small></p>
-            <p class="text-muted right" id="copyright"><small>PAREL(パルール) &copy; 2017. All Rights Reserved.</small></p>
-          </div>
+        <div id="copyright">
+          <p class="left">このサイトに掲載された記事の無断転載を禁じます。</p>
+          <p class="right">PAREL(パルール) &copy; 2017. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

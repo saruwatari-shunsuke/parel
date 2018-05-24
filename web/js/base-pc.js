@@ -1,12 +1,12 @@
 // Other Event
 $(function(){
   //Hover effect
-  $('.hover_light').hover(
+  $('.hover-light').hover(
     function () {
-      $(this).addClass('touch_hover_clear');
+      $(this).addClass('hover-light-on');
     },
     function () {
-      $(this).removeClass('touch_hover_clear');
+      $(this).removeClass('hover-light-on');
     }
   );
   //Modal close

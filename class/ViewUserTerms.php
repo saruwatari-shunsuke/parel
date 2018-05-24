@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.1
+* @version 1.2
 */
 
 Class ViewUserTerms {
@@ -68,6 +68,16 @@ Class ViewUserTerms {
   <body>
     <div class="container">
       <div class="overflow">
+
+        <ol class="breadcrumb">
+          <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a itemprop="url" href="<?php echo MAIN_URL ?>"><span itemprop="title"><?php echo $setting_data['site_name_short'] ?></span></a>
+          </li>
+          <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb" class="active">
+            <span itemprop="title">利用規約</span>
+          </li>
+        </ol>
+
         <div class="policy_view">
 <?php self::text(); ?>
         </div> <!-- /policy_view -->
@@ -173,7 +183,7 @@ Class ViewUserTerms {
 	private function text() {
 		try {
 ?>
-<h1 class="page_title">利用規約</h1>
+<h1 id="page_title">利用規約</h1>
 
 <p class="policy_text">
 この規約（以下「本規約」といいます。）は、パルール運営事務局（以下「当社」といいます。）がパルールのサービス名で提供するすべてのウェブサイト、ソフトウェア、アプリケーション、プロダクト、ドキュメントその他一切の製品およびサービス（以下「本サービス」といいます。）の利用に関する条件を、本サービスを利用するすべてのお客様（以下「ユーザー」といいます。）と当社との間で定めるものです。<br>

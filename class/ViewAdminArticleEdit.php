@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.2
+* @version 1.3
 */
 
 Class ViewAdminArticleEdit {
@@ -308,7 +308,7 @@ Class ViewAdminArticleEdit {
                   <span class="toolbar_text" id="toolbar_text">ツールバー</span>
                 </div>
 
-                <textarea id="text_body" name="body" rows="10" class="form-controll max-width" placeholder=""><?php echo h($article_data['body']); ?></textarea>
+                <textarea id="text_body" name="body" rows="20" class="form-controll max-width" placeholder=""><?php echo h($article_data['body']); ?></textarea>
                 <input class="hidden" id="fileupload3" type="file" name="files[]" multiple>
               </div>
             </div>
@@ -376,7 +376,7 @@ Class ViewAdminArticleEdit {
             </div>
           </div>
 
-        <div class="col-md-12 mb30">
+        <div class="col-md-12">
           <a href="#" id="page-top" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-chevron-up"></span> ページトップに戻る</a>
         </div>
 
@@ -390,7 +390,7 @@ Class ViewAdminArticleEdit {
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="/js/jquery.exflexfixed-0.3.0.js"></script><!-- toolbar move -->
-    <script type="text/javascript" src="/js/editor.js?time=<?php echo date('YmdHis'); ?>"></script>
+    <script type="text/javascript" src="/js/editor.js"></script>
     <script type="text/javascript" src="/js/surroundhtml.js"></script>
 
     <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->

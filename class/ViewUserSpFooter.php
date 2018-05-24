@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.2
+* @version 1.3
 */
 
 Class ViewUserSpFooter {
@@ -30,33 +30,29 @@ Class ViewUserSpFooter {
     <!-- header -->
     <div class="mobile_header js-header bg_coral">
       <div class="overflow">
-        <div class="mobile_header_left js-menu-trigger" id="triggerMenu_open">
+        <div class="mobile_header_left js-menu-trigger">
           ≡
         </div>
         <div class="left mobile_header_center">
           <a href="<?php echo MAIN_URL ?>"><img src="<?php echo LOGO ?>" alt="パルール"></a>
         </div>
- 
-        <a href="#" data-toggle="modal" data-target="#ModalSearch" id="mobile_header_right">
+        <a href="#" data-toggle="modal" data-target="#ModalSearch">
           <div class="mobile_header_right">
             <span class="glyphicon glyphicon-search"></span>
           </div>
         </a>
- 
       </div>
     </div>
 
     <!-- search box -->
-    <div class="modal fade" id="ModalSearch" style="z-index: 9999;">
+    <div class="modal fade" id="ModalSearch">
       <div class="modal-dialog">
         <div class="modal-content" id="modal_search_content">
+          <p class="modal_search_close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></p>
           <form action="<?php echo MAIN_URL ?>" controller="articles" class="form-inline header_left" id="ArticleSearchForm" method="GET" accept-charset="utf-8">
             <input name="s" class="form-control header_key max-width" placeholder="気になるワードを入れてみましょう" id="ArticleKeyword" type="text" value="<?php echo $_GET['s'] ?>">
             <input class="btn btn-default btn-block" id="header_search_submit" value="検索" type="submit">
           </form>
-          <div class="right" id="header_search_box_close">
-            <p id="modal_sns_close" data-dismiss="modal" class="btn btn-default gray999"><span class="glyphicon glyphicon-remove"></span> 閉じる</p>
-          </div>
         </div>
       </div>
     </div>
@@ -87,18 +83,18 @@ Class ViewUserSpFooter {
     </div>
 
     <!-- slide menu -->
-    <div id="mobile_side_down_menu" class="is_browser js-panel" style="display: none;">
+    <div id="mobile_side_down_menu" class="is_browser js-panel">
       <ul class="left_menu_ul">
-        <li class="top"><a href="<?php echo MAIN_URL ?>" class="gray666">Top<br><span class="menu-text">トップ</span></a></li>
-        <li class="food"><a href="<?php echo CATEGORY_URL[1] ?>" class="gray666">Food<br><span class="menu-text">食事</span></a></li>
-        <li class="excercise"><a href="<?php echo CATEGORY_URL[2] ?>" class="gray666">Exercise<br><span class="menu-text">運動</span></a></li>
-        <li class="health"><a href="<?php echo CATEGORY_URL[3] ?>" class="gray666">Health<br><span class="menu-text">健康</span></a></li>
-        <li class="fashion"><a href="<?php echo CATEGORY_URL[4] ?>" class="gray666">Fashion<br><span class="menu-text">ファッション</span></a></li>
-        <li class="feature"><a href="<?php echo CATEGORY_URL[5] ?>" class="gray666">Feature<br><span class="menu-text">特集</span></a></li>
-        <li class="ranking"><a href="<?php echo MAIN_URL ?>ranking/" class="gray666">Ranking<br><span class="menu-text">人気の記事</span></a></li>
+        <li class="top"><a href="<?php echo MAIN_URL ?>">Top<br><span class="menu-text">トップ</span></a></li>
+        <li class="food"><a href="<?php echo CATEGORY_URL[1] ?>">Food<br><span class="menu-text">食事</span></a></li>
+        <li class="excercise"><a href="<?php echo CATEGORY_URL[2] ?>">Exercise<br><span class="menu-text">運動</span></a></li>
+        <li class="health"><a href="<?php echo CATEGORY_URL[3] ?>">Health<br><span class="menu-text">健康</span></a></li>
+        <li class="fashion"><a href="<?php echo CATEGORY_URL[4] ?>">Fashion<br><span class="menu-text">ファッション</span></a></li>
+        <li class="feature"><a href="<?php echo CATEGORY_URL[5] ?>">Feature<br><span class="menu-text">特集</span></a></li>
+        <li class="ranking"><a href="<?php echo MAIN_URL ?>ranking/">Ranking<br><span class="menu-text">人気の記事</span></a></li>
       </ul>
     </div>
-    <div id="overlay" style="display: none;"></div>
+    <div id="overlay" style="display:none;"></div>
 <?php
 		} catch(Exception $e) {
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());

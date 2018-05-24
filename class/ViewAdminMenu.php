@@ -1,11 +1,11 @@
 <?php
 /**
 * ViewAdminMenu
-* 管理画面入口（仮）
+* 管理画面入口
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.1
+* @version 1.2
 */
 
 Class ViewAdminMenu {
@@ -61,7 +61,7 @@ Class ViewAdminMenu {
 
      <div class="container-fruid">
       <div class="row">
-        <div class="col-md-12 mb30">
+        <div class="col-md-12 mb20">
           <h1>パルール 管理画面</h1>
           <h2><a href="/edit/"><span class="glyphicon glyphicon-pencil"></span> 記事を書く</a></h2>
           <h2><a href="/view/"><span class="glyphicon glyphicon-file"></span> 記事一覧</a></h2>

@@ -1,0 +1,809 @@
+@charset "utf-8";
+
+@import "_vars.scss";
+
+/* Default
+---------------------------------------------------------- */
+html,
+body {
+  font-size: 15px;
+}
+
+body {
+	margin: auto;
+	font-family: 'Noto Sans Japanese';
+	color: #fff;
+	line-height: 1.2;
+  text-size-adjust: 100%;
+  overflow-x: hidden; 
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+dl,
+dt,
+dd {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+/* text*/
+.text_red {
+  color: $color-key;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* hover */
+a,
+.btn {
+  @media screen and (min-width: 768px) {
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+      transition: all .3s;
+    }
+  }
+}
+
+/* clearfix */
+.clearfix::after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+
+/* PC/SP switch */
+@media screen and (max-width: 767px) {
+  .pc {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 768px) {
+  .sp {
+    display: none !important;
+  }
+}
+
+/* text shadow */
+.text_shadow_pink {
+  color: #fff;
+  text-shadow: $color-main 2px 0px 0px, $color-main -2px 0px 0px,
+  $color-main 0px -2px 0px, $color-main -2px 0px 0px,
+  $color-main 2px 2px 0px, $color-main -2px 2px 0px,
+  $color-main 2px -2px 0px, $color-main -2px -2px 0px,
+  $color-main 1px 2px 0px, $color-main -1px 2px 0px,
+  $color-main 1px -2px 0px, $color-main -1px -2px 0px,
+  $color-main 2px 1px 0px, $color-main -2px 1px 0px,
+  $color-main 2px -1px 0px, $color-main -2px -1px 0px,
+  $color-main 1px 1px 0px, $color-main -1px 1px 0px,
+  $color-main 1px -1px 0px, $color-main -1px -1px 0px;
+}
+
+.text_shadow_deeppink {
+  color: #fff;
+  text-shadow: $color-key 2px 0px 0px, $color-key -2px 0px 0px,
+  $color-key 0px -2px 0px, $color-key -2px 0px 0px,
+  $color-key 2px 2px 0px, $color-key -2px 2px 0px,
+  $color-key 2px -2px 0px, $color-key -2px -2px 0px,
+  $color-key 1px 2px 0px, $color-key -1px 2px 0px,
+  $color-key 1px -2px 0px, $color-key -1px -2px 0px,
+  $color-key 2px 1px 0px, $color-key -2px 1px 0px,
+  $color-key 2px -1px 0px, $color-key -2px -1px 0px,
+  $color-key 1px 1px 0px, $color-key -1px 1px 0px,
+  $color-key 1px -1px 0px, $color-key -1px -1px 0px,
+  $color-key 0px 2px 0px, $color-key 2px 0px 0px;
+}
+
+.text_shadow_white {
+  color: $color-key;
+  text-shadow: #fff 2px 0px 0px, #fff -2px 0px 0px,
+  #fff 0px -2px 0px, #fff -2px 0px 0px,
+  #fff 2px 2px 0px, #fff -2px 2px 0px,
+  #fff 2px -2px 0px, #fff -2px -2px 0px,
+  #fff 1px 2px 0px, #fff -1px 2px 0px,
+  #fff 1px -2px 0px, #fff -1px -2px 0px,
+  #fff 2px 1px 0px, #fff -2px 1px 0px,
+  #fff 2px -1px 0px, #fff -2px -1px 0px,
+  #fff 1px 1px 0px, #fff -1px 1px 0px,
+  #fff 1px -1px 0px, #fff -1px -1px 0px;
+}
+
+
+/* button */
+.btn {
+  display: inline-block;
+  width: 250px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  color: #fff;
+  @include font-size(18);
+  font-weight: bold;
+  background-color: $color-button;
+  margin-top: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 80px;
+  }
+}
+
+/* circle */
+.circle {
+  @include flexbox;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* Header
+---------------------------------------------------------- */
+header {
+  background-color: $color-main;
+  background-image: url(../img/fv_back_ice0.png);
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    background-size: auto;
+  }
+
+  .header_inner {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    position: absolute;
+    @include centering;
+    width: 94%;
+    margin-top: 15px;
+
+    @media screen and (min-width: 768px) {
+      width: auto;
+    }
+
+    .period {
+      @include font-size(14);
+      margin-bottom: 10px;
+
+      @media screen and (min-width: 768px) {
+        @include font-size(20);
+      }
+    }
+
+    .headline_decoration {
+      display: inline-block;
+      border-top: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+      margin-bottom: 30px;
+
+      h1 {
+        @include font-size(26);
+        line-height: 1.1;
+        padding: 10px 5px 20px;
+
+        @media screen and (min-width: 768px) {
+          @include font-size(46);
+        }
+
+      }
+    }
+
+    .logo {
+      @include flexbox;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .logo_icl {
+        width: 183px;
+
+        @media screen and (min-width: 768px) {
+          width: auto;
+        }
+      }
+
+      .logo_parel {
+        width: 98px;
+
+        @media screen and (min-width: 768px) {
+          width: auto;
+        }
+      }
+
+      p {
+        @include font-size(32);
+        line-height: 1;
+
+        @media screen and (min-width: 768px) {
+          @include font-size(40);
+        }
+      }
+    }
+  }
+
+  .badge {
+    flex-direction: column;
+    width: 130px;
+    height: 130px;
+    background-color: #fff;
+    color: $color-key;
+    padding: 12px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transform: rotate(5deg);
+
+    @media screen and (min-width: 768px) {
+      top: 2vw;
+      right: 2vw;
+    }
+
+    p {
+      font-weight: bold;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid $color-key;
+        padding-bottom: 3px;
+        margin-bottom: 3px;
+      }
+
+      &.badge_top {
+        @include font-size(10);
+
+        span {
+          @include font-size(14);
+        }
+      }
+      &.badge_middle {
+        @include font-size(8);
+
+        span {
+          @include font-size(14);
+        }
+      }
+      &.badge_bottom {
+        @include font-size(8);
+
+        span {
+          @include font-size(14);
+        }
+      }
+    }
+  }
+}
+
+/* Main
+---------------------------------------------------------- */
+main {
+  section {
+    color: $color-key;
+
+    .section_inner {
+      padding: 50px 5vw;
+      text-align: center;
+
+      @media screen and (min-width: 768px) {
+        padding: 100px 0;
+        max-width: $max-width;
+        margin: auto;
+      }
+
+      .headline_decoration {
+        display: inline-block;
+        border-top: 1px solid $color-button;
+        border-bottom: 1px solid $color-button;
+        margin-bottom: 30px;
+
+        @media screen and (min-width: 768px) {
+          margin-bottom: 50px;
+        }
+
+        h1 {
+          @include font-size(18);
+          font-weight: 700;
+          line-height: 2;
+          padding: 0 10px;
+          min-width: 120px;
+
+          @media screen and (min-width: 768px) {
+            @include font-size(36);
+          }
+        }
+      }
+    }
+
+    &.bg_pink {
+      color: #fff;
+      background-color: $color-main;
+
+      .section_inner {
+        .headline_decoration {
+          border-top: 1px solid #fff;
+          border-bottom: 1px solid #fff;
+        }
+      }
+    }
+
+    &.section_entry {
+      .section_inner {
+        ol {
+          li {
+            @include flexbox;
+
+            @media screen and (min-width: 768px) {
+              display: block;
+            }
+
+            .entry_step {
+              width: 50px;
+              height: 50px;
+              @include font-size(12);
+              line-height: 1.1;
+              border: 1px solid $color-key;
+              @include flexbox;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              margin-right: 10px;
+
+              @media screen and (min-width: 768px) {
+                flex-direction: row;
+                width: auto;
+                height: auto;
+                border: none;
+                border-bottom: 2px solid $color-key;
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+                margin-right: 0;
+                @include font-size(32);
+              }
+
+              span {
+                @include font-size(24);
+
+                @media screen and (min-width: 768px) {
+                  @include font-size(32);
+                  margin-left: 5px;
+                }
+              }
+            }
+
+            .entry_text {
+              width: calc(100% - 60px);
+              text-align: left;
+
+              @media screen and (min-width: 768px) {
+                text-align: center;
+                width: 100%;
+              }
+
+              p {
+                &:first-child {
+                  border-bottom: 1px solid $color-button;
+                  font-weight: bold;
+                  padding-bottom: 5px;
+                  margin-bottom: 5px;
+
+                  @media screen and (min-width: 768px) {
+                    border: none;
+                    @include font-size(20);
+                  }
+                }
+
+                &:last-child {
+                  @include font-size(12);
+
+                  @media screen and (min-width: 768px) {
+                    @include font-size(16);
+                  }
+
+                  span {
+                    font-weight: bold;
+                    border-bottom: 1px solid $color-button;
+                    padding-bottom: 2px;
+                  }
+                }
+              }
+            }
+
+            &:not(:first-child) {
+              margin-top: 20px;
+
+              @media screen and (min-width: 768px) {
+                margin-top: 60px;
+              }
+
+              .entry_text {
+                p {
+                  &:first-child {
+                    @include font-size(14);
+
+                    @media screen and (min-width: 768px) {
+                      @include font-size(20);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.section_present {
+      .section_inner {
+        .present_coupon {
+          @include font-size(13);
+          font-weight: bold;
+          margin-bottom: 10px;
+
+          @media screen and (min-width: 768px) {
+            @include font-size(20);
+          }
+
+          span {
+            @include font-size(15);
+
+            @media screen and (min-width: 768px) {
+              @include font-size(24);
+            }
+          }
+        }
+
+        .present_retweet_catch {
+          @include flexbox;
+          align-items: center;
+          margin: 30px 0 15px;
+
+          @media screen and (min-width: 768px) {
+            margin: 50px 0 20px;
+          }
+
+          .circle {
+            width: 52px;
+            height: 52px;
+            background-color: $color-key;
+            @include font-size(12);
+            color: #fff;
+            margin-right: 5px;
+            transform: rotate(-5deg);
+
+            @media screen and (min-width: 768px) {
+              width: auto;
+              height: auto;
+              background-color: transparent;
+              @include font-size(26);
+              transform: none;
+              margin-bottom: 5px;
+            }
+          }
+
+          .text_shadow_white {
+            width: calc(100% - 57px);
+            text-align: left;
+            @include font-size(18);
+            font-weight: bold;
+            color: $color-key;
+
+            @media screen and (min-width: 768px) {
+              @include font-size(20);
+            }
+          }
+        }
+
+        .present_retweet_list {
+          margin-bottom: 30px;
+
+          @media screen and (min-width: 768px) {
+            margin-bottom: 50px;
+            @include flexbox;
+            justify-content: center;
+          }
+
+          li {
+            display: table;
+            border: 1px solid #fff;
+            position: relative;
+            width: 100%;
+
+            @media screen and (min-width: 768px) {
+              display: block;
+              width: 32%;
+            }
+
+            &:not(:first-child) {
+              margin-top: 20px;
+
+              @media screen and (min-width: 768px) {
+                margin-top: 0;
+                margin-left: 2%;
+              }
+            }
+
+            .present_retweet_logo {
+              display: table-cell;
+              vertical-align: middle;
+              width: 35%;
+              background-color: #fff;
+
+              @media screen and (min-width: 768px) {
+                @include flexbox;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 180px;
+                width: 100%;
+              }
+            }
+
+            .present_retweet_number {
+              width: 40px;
+              height: 40px;
+              background-color: #fff;
+              @include font-size(9);
+              font-weight: bold;
+              color: $color-key;
+              position: absolute;
+              top: -15px;
+              right: -5px;
+              transform: rotate(5deg);
+              line-height: 1.1;
+
+              @media screen and (min-width: 768px) {
+                width: auto;
+                height: auto;
+                font-size: 16px;
+                transform: none;
+                background-color: transparent;
+                top: 160px;
+                right: 5px;
+              }
+            }
+
+            .present_retweet_detail {
+              display: table-cell;
+              vertical-align: middle;
+              width: 65%;
+              font-weight: bold;
+              padding: 5px;
+
+              @media screen and (min-width: 768px) {
+                width: 100%;
+                display: block;
+                padding: 10px;
+              }
+
+              .present_retweet_detail_condition {
+                color: $color-key;
+                @include font-size(12);
+                text-align: left;
+                margin-bottom: 5px;
+
+                @media screen and (min-width: 768px) {
+                  text-align: center;
+                  margin-bottom: 10px;
+                }
+
+                span {
+                  @include font-size(32);
+                  margin-right: 2px;
+                }
+              }
+
+              .present_retweet_detail_item {
+                @include font-size(16);
+              }
+            }
+
+            &.starbacks {
+              .present_retweet_logo {
+                img {
+                  max-width: 60%;
+                }
+              }
+            }
+            &.krispykreme {
+              .present_retweet_logo {
+                img {
+                  max-width: 90%;
+                }
+              }
+            }
+            &.haagen {
+              .present_retweet_logo {
+                img {
+                  width: 80%;
+                }
+              }
+            }
+          }
+        }
+
+        .present_retweet_special {
+
+          @media screen and (min-width: 768px) {
+            margin: auto;
+          }
+
+          li {
+            position: relative;
+
+            .present_retweet_special_condition {
+              @include font-size(18);
+              font-weight: bold;
+              transform: rotate(-2deg);
+              margin-bottom: 10px;
+              position: relative;
+              display: inline-block;
+
+              @media screen and (min-width: 768px) {
+                margin-bottom: 20px;
+              }
+
+              span {
+                @include font-size(46);
+              }
+
+              &:before {
+                content: "";
+                display: inline-block;
+                width: 13px;
+                height: 27px;
+                background-image: url(../img/comment_left.png);
+                background-repeat: no-repeat;
+                background-size: 100%;
+                position: absolute;
+                bottom: 5px;
+                left: -20px;
+              }
+
+              &:after {
+                content: "";
+                display: inline-block;
+                width: 13px;
+                height: 27px;
+                background-image: url(../img/comment_right.png);
+                background-repeat: no-repeat;
+                background-size: 100%;
+                position: absolute;
+                bottom: -5px;
+                right: -20px;
+                transform: rotate(2deg);
+              }
+            }
+
+            .circle {
+              width: 52px;
+              height: 52px;
+              @include font-size(11);
+              line-height: 1.3;
+              background-color: #fff;
+              color: $color-key;
+              position: absolute;
+              top: -10px;
+              right: -10px;
+              transform: rotate(5deg);
+
+              @media screen and (min-width: 768px) {
+                width: 80px;
+                height: 80px;
+                top: -20px;
+                right: -20px;
+              }
+            }
+
+            .present_retweet_special_detail {
+              border: 1px solid #fff;
+              position: relative;
+
+              .circle {
+                transform: rotate(5deg);
+
+                @media screen and (min-width: 768px) {
+                  @include font-size(16);
+                }
+              }
+
+              p {
+                background-color: #fff;
+                @include font-size(16);
+                padding: 15px;
+
+                @media screen and (min-width: 768px) {
+                  @include font-size(20);
+                }
+              }
+            }
+
+            &:first-child {
+              .present_retweet_special_detail {
+                p {
+                  @include font-size(14);
+
+                  @media screen and (min-width: 768px) {
+                    @include font-size(20);
+                  }
+                }
+              }
+            }
+
+            &:not(:first-child) {
+              margin-top: 20px;
+
+              @media screen and (min-width: 768px) {
+                margin-top: 40px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.section_note {
+      .section_inner {
+        p {
+          @include font-size(12);
+          text-align: left;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}
+
+/* Footer
+---------------------------------------------------------- */
+footer {
+  .footer_inner {
+    text-align: center;
+    padding: 20px 0;
+
+    @media screen and (min-width: 768px) {
+      position: relative;
+    }
+
+    .footer_logo {
+      margin: 0 auto 5px;
+      width: 90px;
+    }
+
+    small {
+      color: #666;
+      @include font-size(10);
+
+      @media screen and (min-width: 768px) {
+        @include font-size(14);
+      }
+    }
+  }
+}

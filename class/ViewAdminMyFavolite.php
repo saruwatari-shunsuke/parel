@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.1
+* @version 1.2
 */
 
 Class ViewAdminMyFavolite {
@@ -100,7 +100,7 @@ Class ViewAdminMyFavolite {
 
         </form>
 
-        <div class="col-md-12 mb30">
+        <div class="col-md-12">
           <a href="#"id="page-top" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-chevron-up"></span> ページトップに戻る</a>
         </div>
 

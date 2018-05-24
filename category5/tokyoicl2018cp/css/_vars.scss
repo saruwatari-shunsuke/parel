@@ -1,0 +1,40 @@
+/* max-width */
+$max-width: 650px;
+
+/* color */
+$color-main: #f3bad4;
+$color-key: #de5996;
+$color-button: #f2bad4;
+$color-frame-twitter: #587ebf;
+
+/* font-size */
+@mixin font-size($size, $base: 15) {
+  font-size: ($size / $base) + rem;
+}
+@mixin font-size-pc($size, $base: 20) {
+  font-size: ($size / $base) + rem;
+}
+
+/* flexbox */
+@mixin flexbox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* centering horizontally & vertically */
+@mixin centering_horizontally {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin centering_vertically {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@mixin centering {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

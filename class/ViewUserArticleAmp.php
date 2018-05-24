@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.3
+* @version 1.4
 */
 
 Class ViewUserArticleAmp {
@@ -112,12 +112,6 @@ body {
 .txt-right{
 	text-align:right;
 }
-.block{
-	display:block;
-}
-.relative{
-	position:relative;
-}
 .bg_coral{
     background: #ffe0f3;
 }
@@ -128,76 +122,6 @@ body {
 }
 .max-width{
 	width:100%;
-}
-.max-height{
-	height:100%;
-}
-.bold{
-	font-weight:bold;
-}
-.mt3{
-	margin-top:3px;
-}
-.mt10{
-	margin-top:10px;
-}
-.mt15{
-	margin-top:15px;
-}
-.mt20{
-	margin-top:20px;
-}
-.mt25{
-	margin-top:25px;
-}
-.mt30{
-	margin-top:30px;
-}
-.mt35{
-	margin-top:35px;
-}
-.mt40{
-	margin-top:40px;
-}
-.mb10{
-	margin-bottom:10px;
-}
-.mb20{
-	margin-bottom:20px;
-}
-.mb25{
-	margin-bottom:25px;
-}
-.mb30{
-	margin-bottom:30px;
-}
-.mb40{
-	margin-bottom:40px;
-}
-.mb50{
-	margin-bottom:50px;
-}
-.ml-10{
-	margin-left:-10px;
-}
-.mr-10{
-	margin-right:-10px;
-}
-.mr5{
-	margin-right:5px;
-}
-.gray{
-	color:#999;
-	font-size:80%;
-}
-.gray999{
-	color: #999;
-}
-.gray666{
-	color: #666;
-}
-.gray333{
-	color: #333;
 }
 a,
 a:hover{
@@ -234,10 +158,6 @@ p.footer_copyright a{
 }
 .article_more {
         display: none;
-}
-.maxwidth,
-#maxwidth{
-	width: 100%;
 }
 .content-wrapper {
 	padding: 10px;
@@ -276,12 +196,6 @@ p.footer_copyright a{
 	height: 36px;
 }
 /* mb_boxview */
-.boxview_wraper{
-	margin:-10px 0 0;
-}
-.boxview_box{
-	overflow:hidden;
-}
 .boxview_left{
 	float:left;
 	width:78px;
@@ -296,9 +210,6 @@ p.footer_copyright a{
 	padding-top:9px;
 	padding-bottom:7px;
 }
-#boxview_righttext{
-	padding:2px 0px 0 0px;
-}
 .boxview_category{
 	text-shadow:none;
 	padding:2px 5px;
@@ -307,9 +218,19 @@ p.footer_copyright a{
 	border:0;
 }
 .boxview_title{
-	margin:0 5px 3px 0;
-	color:#000;
-	font-size:13px;
+	margin: 0 5px 3px 0;
+	color: #000;
+	font-size: 13px;
+}
+.boxview_text_left{
+    float: left;
+    color:#999;
+    font-size: 0.8em;
+}
+.boxview_text_right{
+    float: right;
+    color: #999;
+    font-size: 0.8em;
 }
 .boxview_writeuser{
 	margin-right:10px;
@@ -333,10 +254,7 @@ p.footer_copyright a{
 .boxview_writeuser .writer {
 	display: inline-block;
 	max-width: 120px;
-}
-.boxview_out{
-	clear:both;
-	margin:10px;
+	color: #666;
 }
 .boxview_nextbtn{
 	display: block;
@@ -355,16 +273,6 @@ p.footer_copyright a{
 	color:#666;
 }
 .articles_heading{
-	margin-left:-10px;
-	margin-right:-10px;
-	background:#fff;
-	border-top:1px solid #eee;
-	border-bottom:1px solid #eee;
-	text-align:center;
-	padding:5px;
-	font-size:90%;
-}
-.articles_ranking_heading{
 	margin-left:-10px;
 	margin-right:-10px;
 	background:#fff;
@@ -394,19 +302,21 @@ p.footer_copyright a{
 	font-size:140%;
 	text-shadow: .5px .5px 2px #999, -.5px -.5px 2px #999, .5px -.5px 2px #999, -.5px .5px 2px #999;
 }
-.box_article_head_text{
-	bottom:0;
-	padding:5px;
-	width:100%;
-	position:absolute;
-}
 /* article head */
-.article_head_photo{
+.article_head_main_img{
 	position:relative;
+	margin: 30px -10px 0;
 }
-.article_head_sns{
-	padding:0;
-	width:100%;
+.article_head_share{
+	width: 100%;
+	height: 50px;
+	text-align: center;
+}
+.article_head_release{
+	color: #666;
+	font-size: 0.7em;
+	text-align: right;
+	margin: 3px;
 }
 .article_head_text{
 	bottom:0;
@@ -419,22 +329,9 @@ p.footer_copyright a{
 	width:100%;
 	height:260px;
 }
-.article_head_usericon{
-	width:40px;
-}
-/* mb_ranking */
-.articles_footer{
-	background:#fff;
-	border-bottom:1px solid #ccc;
-	text-align:center;
-	padding:10px;
-	margin:0 -10px 10px;
-}
-/* mb_ranking */
-.touch_hover_clear{
-	filter:alpha(opacity=85);
-	-moz-opacity:0.85;
-	opacity:0.85;
+.article_head_author_img{
+	margin: 0 10px;
+	width: 40px;
 }
 /* mb_footer */
 .footer{
@@ -502,50 +399,13 @@ p.footer_copyright a{
 	border:0px;
 	box-shadow:none;
 }
-/* carousel */
-.carousel{
-	margin:-17px -10px 0;
-}
-#carousel_inner_wrapper{
-	position:relative;
-	height:160px;
-}
-.carousel_img{
-	width:100%;
-	margin:0 auto;
-}
-#carousel_item{
-	padding:0;
-	width:100%;
-}
-.carousel_title{
-	margin:5px 20px 0;
-	font-size:90%;
-	text-align:center;
-	color: #dc8791;
-	font-weight:bold;
-	line-height:120%;
-}
 h1 {
 	margin: 20px 0;
 }
-div.mobile_article_index_box{
-	float:left;
-	border-bottom:1px solid #ccc;
-	border-right:1px solid #ccc;
-	background:#fff;
-}
 .mobile_article_index_box2{
+        width: 100%;
 	float:left;
 	border-bottom:1px solid #eee;
-	background:#fff;
-}
-.border_top{
-	border-top:1px solid #eee;
-}
-div#mobile_article_index_box2{
-	float:left;
-	border-bottom:1px solid #ccc;
 	background:#fff;
 }
 div.mobile_article_index_text{
@@ -612,6 +472,7 @@ ul,li{
 .article_row{
 	line-height:180%;
 	font-size:15px;
+	margin: 0 0 50px;
 	padding:0 3px;
 	color:#333;
 	word-break: break-all;
@@ -619,6 +480,7 @@ ul,li{
 	overflow:hidden;
 }
 .article_row_ex{
+	margin: 0 0 30px;
 	font-size:13px;
 	color:#666;
 	line-height:180%;
@@ -627,68 +489,15 @@ ul,li{
 	font-size:12px;
 	line-height:140%;
 }
-/* article->edit */
-/* サムネイル設定 */
-#thumbnail{
-	margin:20px 0;
-}
-.thumbnail_title{
-	font-size:18px;
-	font-weight:bold;
-	color:#666;
-}
-.thumbnail_select{
-	overflow:hidden;
-}
-.thumbnail_select input{
-	display: none;
-}
-.thumbnail_select label{
-	display: block;
-	float: left;
-	cursor: pointer;
-	width: 57px;
-	margin: 0;
-	padding: 12px 5px;
-	border-right: 1px solid #abb2b7;
-	background: #bdc3c7;
-	color: #555e64;
-	font-size: 14px;
-	text-align: center;
-	line-height: 1;
-	transition: .2s;
-}
-.thumbnail_select label:first-of-type{
-	border-radius: 3px 0 0 3px;
-}
-.thumbnail_select label:last-of-type{
-	border-right: 0px;
-	border-radius: 0 3px 3px 0;
-}
-.thumbnail_select input[type="radio"]:checked + label {
-	background-color: #a1b91d;
-	color: #fff;
-}
 /* policy */
-.page_title{
-	font-size:24px;
-	margin:0;
-	color:#666;
+#page_title{
+	font-size: 24px;
+	margin: 30px 10px;
+	color: #666;
 }
 /* main 1-4 */
 .close{
 	font-weight:normal; background:none; border:0px; box-shadow:none;
-}
-/* article -> about */
-#about_wrapper{
-	margin:-5px 0 10px;
-}
-.search_wrapper{
-	margin:-10px 0 10px;
-}
-/* category */
-.mb_category_icon{
-	margin-right:3px;
 }
 /** slidemenu ****************************************************************/
 #container {
@@ -739,10 +548,13 @@ ul,li{
     margin-bottom: 0;
 }
 /* side_ranking */
-.ranking_title{
+.subcontents_area {
+    margin: 20px 0;
+}
+.subcontents_title {
     max-width: 90%;
     display: block;
-    margin: 0 auto;
+    margin: 10px auto;
 }
 .ranking_wrapper{
     position: relative;
@@ -939,7 +751,7 @@ amp-sidebar amp-img {
   </head>
   <body>
     <div class="content-wrapper js-main">
-      <div class="article_head_photo ml-10 mr-10 mt30">
+      <div class="article_head_main_img">
         <div id="main-image">
           <amp-img class="main-image" src="../<?php echo IMAGE_MAIN_LARGE ?>" alt="<?php echo $article_data['title'] ?>" width="800" height="800"></amp-img>
           <div id="top-author-area">
@@ -953,26 +765,24 @@ amp-sidebar amp-img {
       <div class="article_view_area">
         <h1 class="mobile_article_view_title not_auto_br"><?php echo $article_data['title'] ?></h1>
 
-        <div class="article_head_sns mt10">
-          <div class="max-width overflow center">
-            <div class="btn-social">
-              <amp-social-share type="facebook" data-param-app_id="140586622674265"></amp-social-share>
-              <amp-social-share type="twitter"></amp-social-share>
-            </div>
-            <div class="btn-social">
-              <amp-social-share type="line" layout="container" data-share-endpoint="http://line.me/R/msg/text/?CANONICAL_URL"></amp-social-share>
-            </div>
-            <div class="btn-social">
-              <amp-social-share type="hatena_bookmark" layout="container" data-share-endpoint="http://b.hatena.ne.jp/entry/CANONICAL_URL">B!</amp-social-share>
-            </div>
-
-            <div class="right mt3 mr5">
-              <span class="gray"><small><?php echo $article_data['release_time'] ?></small></span>
-            </div>
+        <div class="article_head_share">
+          <div class="btn-social">
+            <amp-social-share type="facebook" data-param-app_id="140586622674265"></amp-social-share>
+            <amp-social-share type="twitter"></amp-social-share>
+          </div>
+          <div class="btn-social">
+            <amp-social-share type="line" layout="container" data-share-endpoint="http://line.me/R/msg/text/?CANONICAL_URL"></amp-social-share>
+          </div>
+          <div class="btn-social">
+            <amp-social-share type="hatena_bookmark" layout="container" data-share-endpoint="http://b.hatena.ne.jp/entry/CANONICAL_URL">B!</amp-social-share>
           </div>
         </div>
 
-        <div class="article_row_ex">
+        <div class="article_head_release">
+          <?php echo $article_data['release_time'] ?>
+        </div>
+
+        <div id="article-introduction" class="article_row_ex">
 
 <?php echo $article_data['introduction']; ?>
 
@@ -980,7 +790,7 @@ amp-sidebar amp-img {
 
         <hr>
 
-        <div class="article_row mb50">
+        <div id="article-body" class="article_row">
 
 <?php echo $article_data['body']; ?>
 
@@ -988,7 +798,7 @@ amp-sidebar amp-img {
 
         <hr>
 
-        <div class="article_row_ex mb30">
+        <div id="article-summary" class="article_row_ex">
 
 <?php echo $article_data['summary']; ?>
 
@@ -1000,25 +810,17 @@ amp-sidebar amp-img {
         <p class="articles_heading">関連記事</p>
 <?php foreach ($article_data['related'] as $key => $value) { ?>
         <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
-          <div class="mobile_article_index_box2 max-width">
+          <div class="mobile_article_index_box2">
             <div class="boxview_left">
               <div class="boxview_leftimg">
                 <amp-img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78" alt="<?php echo $value['title'] ?>"></amp-img>
               </div>
             </div>
             <div class="boxview_right">
-              <div class="mobile_article_index_text" id="boxview_righttext">
+              <div class="mobile_article_index_text">
                 <p class="boxview_title not_auto_br text-line-2"><?php echo $value['title'] ?></p>
-                <div class="overflow">
-                  <div class="left">
-                    <small><span class="points_text"><?php echo $value['release_time'] ?></span></small>
-                  </div>
-                  <div class="right boxview_writeuser">
-                    <ul class="list-inline boxview_info">
-                      <li><span class="gray333 text-line-1 writer"><?php echo $value['author_name'] ?></span></li>
-                    </ul>
-                  </div>
-                </div>
+                <span class="boxview_text_left"><?php echo $value['release_time'] ?></span>
+                <span class="boxview_text_right"><?php echo $value['author_name'] ?></span>
               </div>
             </div>
           </div>

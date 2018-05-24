@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.1
+* @version 1.2
 */
 
 Class ViewUser404 {
@@ -173,7 +173,7 @@ Class ViewUser404 {
 	private function text() {
 		try {
 ?>
-<h1 class="page_title">404 Not Found</h1>
+<h1 id="page_title">404 Not Found</h1>
 
 <p class="policy_text">
 お探しのページは見つかりませんでした。<br>
