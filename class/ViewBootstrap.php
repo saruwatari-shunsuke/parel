@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 
 Class ViewBootstrap {
@@ -15,7 +15,6 @@ Class ViewBootstrap {
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 		}
 	}
-
 
 	/*
 	* CSS
@@ -27,17 +26,15 @@ Class ViewBootstrap {
 	public function css() {
 		try {
 ?>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<!--
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
--->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    -->
 <?php
 		} catch(Exception $e) {
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 		}
 	}
-
-
 
 	/*
 	* JS

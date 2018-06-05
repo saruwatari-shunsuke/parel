@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.2
+* @version 1.3
 */
 
 Class ViewAdminArticleAll {
@@ -63,10 +63,7 @@ echo $_COOKIE['LoginAuth'];
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/simplePagination.css">
     <link rel="shortcut icon" href="/img/adm-parel.ico">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
-    <link rel="alternate" type="application/rss+xml" title="" href="">
-
     <link rel="canonical" href="<?php echo ADMIN_URL ?>">
-    <link rel="next" href="">
  
   </head>
   <body>
@@ -97,7 +94,7 @@ echo $_COOKIE['LoginAuth'];
                   <a class="btn btn-xs btn-default" href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'] ?>/" target="_blank"><img src="<?php echo MAIN_URL ?>img/common/logo_8.png" height=15></a>
                   <a class="btn btn-xs btn-success" href="/edit/?id=<?php echo $value['article_id'] ?>#noback"><span class="glyphicon glyphicon-pencil"></span> 編集</a>
 <?php if($value['status']==1){ ?>
-                  <a class="btn btn-xs btn-info" href="/view/?i=<?php echo $value['article_id'] ?>&r=2"><span class="glyphicon glyphicon-eye-open"></span> 公開中</a>
+                  <a class="btn btn-xs btn-primary" href="/view/?i=<?php echo $value['article_id'] ?>&r=2"><span class="glyphicon glyphicon-eye-open"></span> 公開中</a>
 <?php } else if($value['status']==2){ ?>
                   <a class="btn btn-xs btn-default" href="/view/?i=<?php echo $value['article_id'] ?>&r=1"><span class="glyphicon glyphicon-eye-close"></span> 非公開</a>
 <?php } else { ?>

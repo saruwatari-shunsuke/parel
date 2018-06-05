@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.4
+* @version 1.5
 */
 
 Class ViewUserTop {
@@ -94,14 +94,21 @@ Class ViewUserTop {
         <div class="main_bar">
 
 <?php if($category_id || $_GET['a'] || $_GET['s']) { ?>
-      <ol class="breadcrumb">
-        <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-          <a itemprop="url" href="<?php echo MAIN_URL ?>"><span itemprop="title"><?php echo $setting_data['site_name_short'] ?></span></a>
-        </li>
-        <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb" class="active">
-          <span itemprop="title"><?php echo CATEGORY_NAME[$category_id]; ?></span>
-        </li>
-      </ol>
+          <ol class="breadcrumb">
+            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+              <a itemprop="url" href="<?php echo MAIN_URL ?>"><span itemprop="title"><?php echo $setting_data['site_name_short'] ?></span></a>
+            </li>
+            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb" class="active">
+              <span itemprop="title"><?php
+  if ($_GET['s']) {
+    echo '「'.$_GET['s'].'」で検索';
+  } else if ($category_id) {
+    echo CATEGORY_NAME[$category_id];
+  } else if ($_GET['a']) {
+    echo 'ライターさんの記事';
+  } ?></span>
+            </li>
+          </ol>
 <?php } ?>
 
           <div id="article_area">
@@ -143,7 +150,7 @@ Class ViewUserTop {
 
         </div> <!-- /main_bar -->
 
-<?php new ViewUserPcRightSideBar(5); ?>
+<?php new ViewUserPcRightSideBar(5, null); ?>
             
       </div> <!-- /overflow -->
     </div> <!-- /container -->
@@ -290,7 +297,7 @@ Class ViewUserTop {
       <button class="boxview_nextbtn" onclick="showArticle()">もっとみる</button>
 <?php } ?>
 
-<?php new ViewUserSpSubContents(); ?>
+<?php new ViewUserSpSubContents(5, null); ?>
 
     </div><!-- /content-wrapper -->
 

@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.3
+* @version 1.4
 */
 
 Class ViewAdminFooter {
@@ -28,7 +28,7 @@ Class ViewAdminFooter {
 		try {
 ?>
     <!-- header1 -->
-    <nav class="navbar navbar-default navbar-info navbar-fixed-top header_bar bg_cyan opacity85" role="navigation" id="header">
+    <nav class="navbar navbar-default navbar-info navbar-fixed-top header_bar bg_cyan" role="navigation" id="header">
       <div class="nav_bar_wrapper">
         <div class="container-fluid">
           <div class="navbar-header">

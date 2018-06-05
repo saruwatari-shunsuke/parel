@@ -5,16 +5,16 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.2
+* @version 1.3
 */
 
 Class ViewUserSpSubContents {
-	public function __construct($rank=5) {
+	public function __construct($rank=5, $article_data) {
 		try {
 			$object_cvi = new ControllerView();
 			$ranking_data = $object_cvi->getDailyRanking($rank);
 			$object_car = new ControllerArticle();
-			$myfavolite_data = $object_car->getMyFavolite();
+			$myfavolite_data = $object_car->getMyFavolite($article_data);
 
 			self::body($ranking_data, $myfavolite_data);
 		} catch(Exception $e) {

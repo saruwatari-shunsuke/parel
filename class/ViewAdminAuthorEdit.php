@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 
 Class ViewAdminAuthorEdit {
@@ -53,18 +53,11 @@ Class ViewAdminAuthorEdit {
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-
-    <!-- Generic page styles -->
     <link rel="stylesheet" href="/jquery_file_upload/css/style.css">
-    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
     <link rel="stylesheet" href="/jquery_file_upload/css/jquery.fileupload.css">
-
     <link rel="shortcut icon" href="/img/adm-parel.ico">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
-    <link rel="alternate" type="application/rss+xml" title="" href="">
-
     <link rel="canonical" href="<?php echo ADMIN_URL ?>">
-    <link rel="next" href="">
  
   </head>
   <body>

@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.3
+* @version 1.4
 */
 
 Class ViewAdminArticleEdit {
@@ -60,16 +60,11 @@ Class ViewAdminArticleEdit {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-
     <link rel="stylesheet" href="/jquery_file_upload/css/style.css">
     <link rel="stylesheet" href="/jquery_file_upload/css/jquery.fileupload.css">
-
     <link rel="shortcut icon" href="/img/adm-parel.ico">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
-    <link rel="alternate" type="application/rss+xml" title="" href="">
-
     <link rel="canonical" href="<?php echo ADMIN_URL ?>">
-    <link rel="next" href="">
  
   </head>
   <body>
@@ -302,6 +297,7 @@ Class ViewAdminArticleEdit {
                   <span data-toggle="tooltip" data-placement="bottom" data-original-title="本文中のリンクを張りたい部分をクリックした後、このボタンを押してください。">
                     <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#ModalExternalLink"><span class="link">外部リンク</span> <span class="glyphicon glyphicon-new-window linkmark"></span><br><code>&lt;a&gt;</code></a>
                   </span>
+                  <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['a','ma'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の住所の部分を囲って、このボタンを押してください。"><span class="link"><span class="glyphicon glyphicon-map-marker"></span>地図</span><br><code>&lt;a&gt;</code></a>
                   <span data-toggle="tooltip" data-placement="bottom" data-original-title="本文中の画像を貼りたい部分をクリックした後、テキストエリアに画像をドラッグ＆ドロップしてください。">
                     <a class="btn btn-sm btn-default"><span class="graphic"><span class="glyphicon glyphicon-picture"></span> 画像</span><br><code>&lt;img&gt;</code></a>
                   </span>
@@ -425,7 +421,7 @@ $(function () {
         imageCrop: true,
         autoUpload: true,
         acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-        maxFileSize: 999000,
+        maxFileSize: 2999000,
         disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator.userAgent),
         dropZone: $('#dropzone-mainimage')
     }).on('fileuploadprocessalways', function (e, data) {
@@ -482,7 +478,7 @@ $(function () {
         imageCrop: true,
         autoUpload: true,
         acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-        maxFileSize: 999000,
+        maxFileSize: 2999000,
         disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator.userAgent),
         dropZone: $('#dropzone-mainimage')
     }).on('fileuploadsubmit', function (e, data) {
@@ -544,7 +540,7 @@ $(function () {
         imageCrop: false,
         autoUpload: true,
         acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-        maxFileSize: 999000,
+        maxFileSize: 2999000,
         disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator.userAgent),
         dropZone: $('#text_body')
     }).on('fileuploaddone', function (e, data) {

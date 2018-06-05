@@ -5,7 +5,7 @@
 * @package Controller
 * @author Saruwatari Shunsuke
 * @since PHP 7.0
-* @version 1.3
+* @version 1.4
 */
 Class ControllerArticle extends CommonBase{
 	/*
@@ -447,10 +447,24 @@ Class ControllerArticle extends CommonBase{
 	* @access public
 	* @return array
 	*/
-	public function getMyFavolite(){
+	public function getMyFavolite($eject_data){
 		try{
+			$where_not = '';
+			if($eject_data) {
+				$where_not .= 'AND article_id<>'.$eject_data['article_id'].' ';
+				foreach($eject_data['related'] as $key => $value) {
+					$where_not .= 'AND article_id<>'.$value['article_id'].' ';
+				}
+			}
+			//被らないようにする
+			$object_cvi = new ControllerView();
+			$ranking_data = $object_cvi->getDailyRanking(5);
+			foreach ($ranking_data as $key2 => $value2) {
+				$where_not .= 'AND dar.article_id<>'.$value2['article_id'].' ';
+			}
+
 			$setting_data = parse_ini_file(SETTING_DIRECTORY.'myfavolite.ini');
-			$where = 'AND dar.status=1 AND dar.article_id IN ('.$setting_data['my_favolite'].') ORDER BY dar.release_time DESC';
+			$where = 'AND dar.status=1 AND dar.article_id IN ('.$setting_data['my_favolite'].') '.$where_not.'ORDER BY dar.release_time DESC LIMIT 6';
 			$object_mdar = new ModelDataArticles();
 			if(!$article_data = $object_mdar->selectSome($where)){
 				return false;
@@ -519,12 +533,18 @@ Class ControllerArticle extends CommonBase{
 			$setting_data = parse_ini_file(SETTING_DIRECTORY.'related.ini');
 			$object_mdar = new ModelDataArticles();
 
+			//被らないようにする
+			$object_cvi = new ControllerView();
+			$ranking_data = $object_cvi->getDailyRanking(5);
+			$where_not = '';
+			foreach ($ranking_data as $key => $value) {
+				$where_not .= 'AND dar.article_id<>'.$value['article_id'].' ';
+			}
+
 			//最新記事XX件
-			$where = 'AND dar.status=1 AND dar.article_id<>'.$article_id.' ORDER BY dar.release_time DESC LIMIT '.$setting_data['related_latest_posted_quantity'];
+			$where = $where_not.'AND dar.status=1 AND dar.article_id<>'.$article_id.' ORDER BY dar.release_time DESC LIMIT '.$setting_data['related_latest_posted_quantity'];
 			$article_data[$setting_data['related_latest_posted_priority']] = $object_mdar->selectSome($where);
 
-			//被らないようにする
-			$where_not = '';
 			foreach ($article_data[$setting_data['related_latest_posted_priority']] as $key => $value) {
 				$where_not .= 'AND dar.article_id<>'.$value['article_id'].' ';
 			}

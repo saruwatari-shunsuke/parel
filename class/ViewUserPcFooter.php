@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.2
+* @version 1.3
 */
 
 Class ViewUserPcFooter {
@@ -28,7 +28,7 @@ Class ViewUserPcFooter {
 		try {
 ?>
     <!-- header1 -->
-    <nav class="navbar navbar-default navbar-fixed-top header_bar bg_coral opacity85" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top header_bar bg_coral" role="navigation">
       <div class="nav_bar_wrapper">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -49,7 +49,7 @@ Class ViewUserPcFooter {
     </nav>
 
     <!-- header2 -->
-    <nav class="navbar-default navbar-fixed-top opacity85 category_nav" role="navigation">
+    <nav class="navbar-default navbar-fixed-top category_nav" role="navigation">
       <div class="nav_bar_wrapper overflow">
         <ul>
           <li class="left hover-light" style="width:18%;"><a href="<?php echo MAIN_URL ?>">Top</a></li>

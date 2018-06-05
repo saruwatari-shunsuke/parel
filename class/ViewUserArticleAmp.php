@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.4
+* @version 1.5
 */
 
 Class ViewUserArticleAmp {
@@ -134,19 +134,6 @@ ul{
 	margin:0;
 	padding:0;
 }
-p.footer_copyright{
-	background:#333;
-	color:#ccc;
-	padding:3px 0;
-	text-align:center;
-	font-size:60%;
-	font-weight:normal;
-	margin:0;
-	border-right:1px solid #fff;
-}
-p.footer_copyright a{
-	color: #fff;
-}
 /* header */
 .header_left{
 	margin:5px 10px ;
@@ -174,12 +161,6 @@ p.footer_copyright a{
 	position:fixed;
 	z-index:9999;
 	border-bottom:0.5px solid #dbd;
-}
-.left{
-	float:left;
-}
-.right{
-	float:right;
 }
 /* mb_header */
 .mobile_header_left{
@@ -231,30 +212,6 @@ p.footer_copyright a{
     float: right;
     color: #999;
     font-size: 0.8em;
-}
-.boxview_writeuser{
-	margin-right:10px;
-	margin-top:2px;
-	font-size:12px;
-}
-.boxview_writeuser > .boxview_info {
-	text-align: right;
-}
-.boxview_writeuser > .boxview_info > li {
-	padding: 0;
-	vertical-align: middle;
-	height: 20px;
-	line-height: 20px;
-}
-.boxview_writeuser > .boxview_info > li > small,
-.boxview_writeuser > .boxview_info > li > span,
-.boxview_writeuser > .boxview_info > li > i {
-	line-height: 20px;
-}
-.boxview_writeuser .writer {
-	display: inline-block;
-	max-width: 120px;
-	color: #666;
 }
 .boxview_nextbtn{
 	display: block;
@@ -375,20 +332,6 @@ p.footer_copyright a{
 .footer_desc a{
 	color: #999;
 }
-.footnav_li{
-	font-size:90%;
-	text-align:center;
-	padding:7px;
-	float:left;
-	width:50%;
-	border-bottom:1px solid #fff;
-	border-right:1px solid #fff;
-	background: #333;
-	color: #fff;
-}
-.footnav_li a{
-	color: #fff;
-}
 .mb_footer{
 	margin-top:10px;
 }
@@ -408,7 +351,7 @@ h1 {
 	border-bottom:1px solid #eee;
 	background:#fff;
 }
-div.mobile_article_index_text{
+.mobile_article_index_text{
 	background:#fff;
 	padding:10px 5px;
 	margin-left:95px;
@@ -417,12 +360,6 @@ ul,li{
 	list-style:none;
 }
 /* article->view */
-.article_bar{
-	/*margin-top:-5px;*/
-	margin: -5px -10px 0px;
-	height:2px;
-	background: #999;
-}
 .article_view_area{
 	/*border-right:1px solid #ccc;*/
 	/*border-left:1px solid #ccc;*/
@@ -484,10 +421,6 @@ ul,li{
 	font-size:13px;
 	color:#666;
 	line-height:180%;
-}
-.article_more_read_view_desc1{
-	font-size:12px;
-	line-height:140%;
 }
 /* policy */
 #page_title{
@@ -828,7 +761,7 @@ amp-sidebar amp-img {
 <?php } ?>
       </div>
 
-<?php new ViewUserAmpSubContents(); ?>
+<?php new ViewUserAmpSubContents(5, $article_data); ?>
 
     </div><!-- /content-wrapper -->
 

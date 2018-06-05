@@ -36,6 +36,8 @@ function makeNode(tag, range) {
       document.getElementById('modal_external_title').value = '';
       document.getElementById("modal_external_geturl").innerHTML = '';
       return '<a href="' + url + '" title="' + title + '" target="_blank">' + title + '<span class="glyphicon glyphicon-new-window external-link"></span></a>';
+    } else if (tag[1]=='ma') {
+      return range + ' <a href="https://www.google.com/maps/place/' + encodeURIComponent(range) + '" title="' + range + ' | Google マップ"><span class="glyphicon glyphicon-map-marker"></span>地図</a>';
     }
   } else if (tag[0]=='img') {
       return '<img src="' + tag[1] + '">';

@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.3
+* @version 1.4
 */
 
 Class ViewUserArticle {
@@ -147,7 +147,7 @@ Class ViewUserArticle {
           </div> <!-- article_view -->
         </div> <!-- left main_bar -->
 
-<?php new ViewUserPcRightSideBar(); ?>
+<?php new ViewUserPcRightSideBar(5, $article_data); ?>
             
       </div> <!-- /overflow -->
     </div> <!-- /container -->
@@ -302,7 +302,7 @@ Class ViewUserArticle {
 <?php } ?>
       </div>
 
-<?php new ViewUserSpSubContents(); ?>
+<?php new ViewUserSpSubContents(5, $article_data); ?>
 
     </div><!-- /content-wrapper -->
 
