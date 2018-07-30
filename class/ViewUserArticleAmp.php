@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.5
+* @version 1.6
 */
 
 Class ViewUserArticleAmp {
@@ -57,41 +57,6 @@ body {
 	font-family: Helvetica, Arial, sans-serif;
 	line-height: 140%;
 }
-#main-image {
-	width: 100%;
-	height: 260px;
-	overflow: hidden;
-	position: relative;
-}
-#main-image .main-image {
-	position: absolute;
-	display: block;
-	top: 50%;
-	left: 50%;
-	margin: auto;
-	-webkit-transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
-	transform: translate(-50%,-50%);
-}
-#top-author-area {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 40px;
-	color: #666;
-	font-size: 12px;
-	display: inline-block;
-	vertical-align: middle;
-	background: rgba(255, 255, 255, 0.7);
-}
-#top-author-area img {
-	margin: 5px;
-	float: left;
-}
-.top-author-text {
-	color: #666;
-	margin: 12px;
-}
 .center{
 	margin: 0 auto;
 	text-align:center;
@@ -106,14 +71,12 @@ body {
 	clear:both;
 	overflow:hidden;
 }
-.clearfix{
-	clear :both;
-}
-.txt-right{
-	text-align:right;
-}
 .bg_coral{
+    color: #c9a;
     background: #ffe0f3;
+}
+.bg_coral a{
+    color: #c9a;
 }
 .not_auto_br{
 	word-break: break-all;
@@ -244,9 +207,6 @@ ul{
 	font-size:11px;
 }
 /* article boc view */
-.box_article_head_photo{
-	position:relative;
-}
 .box_article_head_img{
 	width:100%;
 	height:215px;
@@ -260,14 +220,66 @@ ul{
 	text-shadow: .5px .5px 2px #999, -.5px -.5px 2px #999, .5px -.5px 2px #999, -.5px .5px 2px #999;
 }
 /* article head */
-.article_head_main_img{
-	position:relative;
-	margin: 30px -10px 0;
+#article-head-area1{
+        z-index: -2;
+        margin: -16px -10px 0;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 42px;
+}
+#article-head-eyecatch{
+        width: 100%;
+        height: 260px;
+        background-image:url("../<?php echo IMAGE_MAIN_LARGE ?>?a=1");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+}
+#article-head-area2{
+	height: 50px;
+        z-index: -1;
+        background: rgba(255, 255, 255, 0.7);
+        margin: -50px -10px 0;
+        padding: 5px 10px;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 42px;
+}
+.img-circle{
+	border-radius: 50%;
+}
+.article_head_author_img{
+	display: inline-block;
+	float: left;
+}
+.article_head_author_name{
+	display: inline-block;
+	float: left;
+	margin: 0 10px;
+	line-height: 34px;
+	vertical-align: middle;
+        color: #666;
+        font-size: 0.9em;
+}
+#article-head-cover{
+        z-index: -1;
+        height: 260px;
+        background: #fff;
+        margin: 0 -10px -260px;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 42px;
 }
 .article_head_share{
 	width: 100%;
 	height: 50px;
 	text-align: center;
+}
+.article_head_views{
+	color: #666;
+	font-size: 0.9em;
+	float: right;
+	margin: 10px;
 }
 .article_head_release{
 	color: #666;
@@ -285,10 +297,6 @@ ul{
 .article_head_img{
 	width:100%;
 	height:260px;
-}
-.article_head_author_img{
-	margin: 0 10px;
-	width: 40px;
 }
 /* mb_footer */
 .footer{
@@ -311,7 +319,6 @@ ul{
 .footer_nav_category li a,
 .footer_nav_link li a{
 	display: block;
-	color: #999;
 	font-size: 13px;
 }
 .footer_nav_category img{
@@ -322,15 +329,12 @@ ul{
 	margin: 15px;
 	padding: 0;
 }
-.footer_desc{
+.copyright{
 	text-align: center;
 	color: #999;
 	font-size: 10px;
 	margin: 10px 0;
 	line-height: 160%;
-}
-.footer_desc a{
-	color: #999;
 }
 .mb_footer{
 	margin-top:10px;
@@ -361,8 +365,6 @@ ul,li{
 }
 /* article->view */
 .article_view_area{
-	/*border-right:1px solid #ccc;*/
-	/*border-left:1px solid #ccc;*/
 	padding:0 10px;
 	margin: 0 -10px 15px;
 }
@@ -374,7 +376,7 @@ ul,li{
 	padding:5px;
 	background:#fff;
 }
-.article_row h3{
+#article-body h3{
 	font-weight:bold;
         margin: 50px 0 0;
 	text-align: center;
@@ -382,7 +384,7 @@ ul,li{
 	line-height:130%;
 	font-size:17px;
 }
-.article_row h4{
+#article-body h4{
 	font-weight:bold;
         margin: 30px 0 0;
 	text-align: center;
@@ -390,7 +392,7 @@ ul,li{
 	line-height:110%;
 	font-size:15px;
 }
-.article_row h5{
+#article-body h5{
 	font-weight:bold;
         margin: 25px 0 0;
 	text-align: center;
@@ -398,7 +400,7 @@ ul,li{
 	line-height:100%;
 	font-size:13px;
 }
-.article_row h6{
+#article-body h6{
 	font-weight:bold;
         margin: 20px 0 0;
 	text-align: center;
@@ -406,7 +408,7 @@ ul,li{
 	line-height:100%;
 	font-size:11px;
 }
-.article_row{
+#article-body{
 	line-height:180%;
 	font-size:15px;
 	margin: 0 0 50px;
@@ -416,7 +418,7 @@ ul,li{
 	word-wrap:break-word;
 	overflow:hidden;
 }
-.article_row_ex{
+#article-introduction, #article-summary{
 	margin: 0 0 30px;
 	font-size:13px;
 	color:#666;
@@ -441,44 +443,11 @@ ul,li{
 	-webkit-transform: translate3d(240px, 0px, 1px);
 	min-width: 320px;
 }
-.article_view_title_index_text{
-	padding:0 0 0 5px;
-	margin-left:68px;
-}
-.mobile_article_view_title,
-.mobile_article_view_title a{
+#article-title{
 	font-size: 19px;
 	font-weight:bold;
 	line-height: 160%;
 	color: #333;
-}
-/* item related article */
-.item-related-article {
-    display: block;
-    border: 1px solid #bbb;
-    padding: 15px;
-    margin: 10px 0;
-}
-.item-related-article .item-thumbnail {
-    float: left;
-    margin-right: 20px;
-    width: 73px;
-    height: 73px;
-}
-.item-content {
-    overflow: hidden;
-}
-.item-related-article .item-title {
-    line-height: 1.4;
-    color: #000;
-    font-size: 14px;
-    font-weight: bold;
-}
-.item-related-article .item-description {
-    line-height: 1.4;
-    color: #999;
-    font-size: 10px;
-    margin-bottom: 0;
 }
 /* side_ranking */
 .subcontents_area {
@@ -545,17 +514,6 @@ ul,li{
     vertical-align: middle;
     padding: 0 10px 0 0;
 }
-.side_ranking_left{
-    float:left;
-    width:30%;
-}
-.side_ranking_left_image{
-    width:60px;
-    height:60px;
-}
-.side_ranking_right{
-    float:left; width:65%;
-}
 /* Pagetitle */
 .text-line-1 {
     overflow: hidden;
@@ -578,24 +536,24 @@ ul,li{
     -webkit-box-shadow: 2px 0 5px 3px rgba(0,0,0,.1);
     box-shadow: 2px 0 5px 3px rgba(0,0,0,.1);
 }
-.article_row img, .article_row_ex img {
+#article-introduction img, #article-body img, #article-summary img {
   width: calc(100% - 10px);
   max-height: 500px;
   margin: 20px 5px;
   object-fit: contain;
 }
-.article_row table, .article_row_ex table {
+#article-introduction table, #article-body table, #article-summary table {
   font-size: 0.8em;
   border: solid 1px #333;
   border-collapse: collapse;
 }
-.article_row table th, .article_row table td,
-.article_row_ex table th, .article_row_ex table td {
+#article-introduction table th, #article-body table th, #article-summary table th,
+#article-introduction table td, #article-body table td, #article-summary table td{
   padding: 5px;
   border: solid 1px #333;
 }
-.article_row a, .article_row a:hover,
-.article_row_ex a, .article_row_ex a:hover{
+#article-introduction a, #article-body a, #article-summary a,
+#article-introduction a:hover, #article-body a:hover, #article-summary a:hover{
   text-decoration: underline;
 }
 video {
@@ -684,19 +642,28 @@ amp-sidebar amp-img {
   </head>
   <body>
     <div class="content-wrapper js-main">
-      <div class="article_head_main_img">
-        <div id="main-image">
-          <amp-img class="main-image" src="../<?php echo IMAGE_MAIN_LARGE ?>" alt="<?php echo $article_data['title'] ?>" width="800" height="800"></amp-img>
-          <div id="top-author-area">
-            <a href="<?php echo MAIN_URL.'?a='.$article_data['author_id'] ?>">
-              <amp-img src="<?php echo $article_data['author_image'] ?>" alt="<?php echo $article_data['author_name'] ?>" width="34" height="34"></amp-img> <span class="top-author-text"><?php echo $article_data['author_name'] ?></span>
-            </a>
+
+      <div id="article-head-area1">
+        <div id="article-head-eyecatch"></div>
+      </div>
+
+      <div id="article-head-area2">
+        <a href="<?php echo MAIN_URL.'?a='.$article_data['author_id'] ?>">
+          <div class="article_head_author_img">
+            <amp-img src="<?php echo $article_data['author_image'] ?>" class="img-circle" alt="<?php echo $article_data['author_name'] ?>" width="34" height="34"></amp-img>
           </div>
-        </div>
+          <div class="article_head_author_name">
+            <?php echo $article_data['author_name'] ?>
+          </div>
+        </a>
+        <div class="article_head_views"><?php echo $article_data['views'] ?> views</div>
+      </div>
+
+      <div id="article-head-cover">
       </div>
 
       <div class="article_view_area">
-        <h1 class="mobile_article_view_title not_auto_br"><?php echo $article_data['title'] ?></h1>
+        <h1 id="article-title" class="not_auto_br"><?php echo $article_data['title'] ?></h1>
 
         <div class="article_head_share">
           <div class="btn-social">
@@ -715,7 +682,7 @@ amp-sidebar amp-img {
           <?php echo $article_data['release_time'] ?>
         </div>
 
-        <div id="article-introduction" class="article_row_ex">
+        <div id="article-introduction">
 
 <?php echo $article_data['introduction']; ?>
 
@@ -723,7 +690,7 @@ amp-sidebar amp-img {
 
         <hr>
 
-        <div id="article-body" class="article_row">
+        <div id="article-body">
 
 <?php echo $article_data['body']; ?>
 
@@ -731,7 +698,7 @@ amp-sidebar amp-img {
 
         <hr>
 
-        <div id="article-summary" class="article_row_ex">
+        <div id="article-summary">
 
 <?php echo $article_data['summary']; ?>
 
@@ -788,7 +755,7 @@ amp-sidebar amp-img {
           <li><a href="<?php echo CATEGORY_URL[3] ?>">Health</a></li>
           <li><a href="<?php echo CATEGORY_URL[4] ?>">Fashion</a></li>
           <li><a href="<?php echo CATEGORY_URL[5] ?>">Feature</a></li>
-          <li><a href="//twitter.com/parel_beauty">Twitter</a></li>
+          <li><a href="//twitter.com/<?php echo $setting_data['twitter'] ?>">Twitter</a></li>
         </ul>
         <hr class="footer_bar">
 
@@ -799,7 +766,7 @@ amp-sidebar amp-img {
           <li><a href="//www.agentgate.jp/contact.html" target="_blank">お問い合わせ</a></li>
           <li><a href="//hito-shigoto.jp/" target="_blank">ヒトシゴト</a></li>
         </ul>
-        <p class="footer_desc">このサイトに掲載された記事の無断転載を禁じます。<br>PAREL(パルール) &copy; 2017. All Rights Reserved.</p>
+        <p class="copyright">このサイトに掲載された記事の無断転載を禁じます。<br>PAREL(パルール) &copy; 2017. All Rights Reserved.</p>
       </div>
     </div>
 

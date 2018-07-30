@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.4
+* @version 1.5
 */
 
 Class ViewAdminArticleEdit {
@@ -28,12 +28,13 @@ Class ViewAdminArticleEdit {
 	}
 	private function body($article_data, $category_data, $author_data) {
 		try {
+			global $setting_data;
 ?>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title><?php echo SITE_TITLE_ADMIN ?></title>
+    <title><?php echo $article_data['title']; ?> 編集中 | <?php echo SITE_TITLE_ADMIN ?></title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="description" content="<?php echo $setting_data['site_description'] ?>">
@@ -50,13 +51,13 @@ Class ViewAdminArticleEdit {
     <meta property="al:web:url" content="<?php echo ADMIN_URL ?>">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@parel_beauty">
+    <meta name="twitter:site" content="@<?php echo $setting_data['twitter'] ?>">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
  
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/html5reset-1.6.1.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<?php ViewBootstrap::css(); ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
@@ -90,10 +91,10 @@ Class ViewAdminArticleEdit {
           </div>
 <?php if($article_data['status']!=1){ ?>
           <div class="col-md-3 mb20">
-            <a data-toggle="modal" data-target="#ModalDelete" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-trash"></span> 記事の削除</a>
+            <a data-toggle="modal" data-target="#modal-delete" class="btn btn-lg btn-danger"><span class="glyphicon glyphicon-trash"></span> 記事の削除</a>
           </div>
 
-          <div class="modal fade" id="ModalDelete" tabindex="-1">
+          <div class="modal fade" id="modal-delete" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -106,13 +107,13 @@ Class ViewAdminArticleEdit {
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-lg btn-default" data-dismiss="modal">削除しない</button>
-                  <a data-toggle="modal" data-target="#ModalDelete2" class="btn btn-lg btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-trash"></span> 削除する</a>
+                  <a data-toggle="modal" data-target="#modal-delete2" class="btn btn-lg btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-trash"></span> 削除する</a>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="modal fade" id="ModalDelete2" tabindex="-1">
+          <div class="modal fade" id="modal-delete2" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -219,7 +220,6 @@ Class ViewAdminArticleEdit {
               <div class="panel-body">
                 <input name="keyword" class="form-controll max-width no-enter" type="text" placeholder="ダイエット,食事,..." value="<?php echo $article_data['keyword']; ?>">
               </div>
-              <div class="panel-footer">カンマ区切りで入力してください。</div>
             </div>
           </div>
 
@@ -292,15 +292,19 @@ Class ViewAdminArticleEdit {
                   <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['h3'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の見出しにしたい一行を囲って、このボタンを押してください。"><span class="heading">●見出し</span><br><code>&lt;h3&gt;</code></a>
                   <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['h4'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の小見出しにしたい一行を囲って、このボタンを押してください。"><strong>小見出し</strong><br><code>&lt;h4&gt;</code></a>
                   <span data-toggle="tooltip" data-placement="bottom" data-original-title="本文中のリンクを張りたい部分をクリックした後、このボタンを押してください。">
-                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#ModalInternalLink" data-load-url="/edit/internal-links.php"><span class="link">内部リンク</span><br><code>&lt;a&gt;</code></a>
+                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#modal-internallink" data-load-url="/edit/internal-links.php"><span class="link">内部リンク</span><br><code>&lt;a&gt;</code></a>
                   </span>
                   <span data-toggle="tooltip" data-placement="bottom" data-original-title="本文中のリンクを張りたい部分をクリックした後、このボタンを押してください。">
-                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#ModalExternalLink"><span class="link">外部リンク</span> <span class="glyphicon glyphicon-new-window linkmark"></span><br><code>&lt;a&gt;</code></a>
+                    <a class="btn btn-sm btn-default" data-toggle="modal" data-target="#modal-externallink"><span class="link">外部リンク</span> <span class="glyphicon glyphicon-new-window linkmark"></span><br><code>&lt;a&gt;</code></a>
                   </span>
                   <a class="btn btn-sm btn-default" href="javascript:void(0);" onFocus="this.blur()" onclick="surroundHTML(['a','ma'],'text_body');" data-toggle="tooltip" data-placement="right" data-original-title="本文中の住所の部分を囲って、このボタンを押してください。"><span class="link"><span class="glyphicon glyphicon-map-marker"></span>地図</span><br><code>&lt;a&gt;</code></a>
                   <span data-toggle="tooltip" data-placement="bottom" data-original-title="本文中の画像を貼りたい部分をクリックした後、テキストエリアに画像をドラッグ＆ドロップしてください。">
                     <a class="btn btn-sm btn-default"><span class="graphic"><span class="glyphicon glyphicon-picture"></span> 画像</span><br><code>&lt;img&gt;</code></a>
                   </span>
+                  <span data-toggle="tooltip" data-placement="bottom" data-original-title="動画をアップロードして、埋め込み用コードを本文中に貼り付けてください。">
+                    <a class="btn btn-sm btn-default" href="https://www.youtube.com/channel/UC-l9FFcCq0fcOrLYKavnZFw?view_as=subscriber" target="_blank"><span class="video"><span class="glyphicon glyphicon-facetime-video"></span> 動画</span><br><code>&lt;iframe&gt;</code></a>
+                  </span>
+
                   <span class="toolbar_text" id="toolbar_text">ツールバー</span>
                 </div>
 
@@ -325,7 +329,7 @@ Class ViewAdminArticleEdit {
         </form>
 
           <!-- Modal Internal Link -->
-          <div class="modal fade" id="ModalInternalLink" tabindex="-1">
+          <div class="modal fade" id="modal-internallink" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -343,7 +347,7 @@ Class ViewAdminArticleEdit {
           </div>
 
           <!-- Modal External Link -->
-          <div class="modal fade" id="ModalExternalLink" tabindex="-1">
+          <div class="modal fade" id="modal-externallink" tabindex="-1">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -382,10 +386,10 @@ Class ViewAdminArticleEdit {
 <?php new ViewAdminFooter(); ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<?php ViewBootstrap::js(); ?>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
-    <script type="text/javascript" src="/js/jquery.exflexfixed-0.3.0.js"></script><!-- toolbar move -->
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/jquery.exflexfixed-0.3.0.js"></script><!-- toolbar move -->
     <script type="text/javascript" src="/js/editor.js"></script>
     <script type="text/javascript" src="/js/surroundhtml.js"></script>
 

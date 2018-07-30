@@ -5,8 +5,16 @@
   display: none;
 }
 .bg_cyan{
-  background: #e0f3ff;
+    color: #6bc;
+    background: #e0f3ff;
 }
+.bg_cyan a{
+    color: #6bc;
+}
+.bg_cyan a:hover{
+    color: #6df;
+}
+
 .header_logo{
   width: 220px;
 }
@@ -70,6 +78,17 @@ table.article-table td.article-tool {
   overflow: hidden;
   width: 50px;
 }
+.btn-parel {
+  color: #e9c;
+  background: #ffe0f3;
+  border-color: #e9c;
+  font-size: 0.8em;
+}
+.btn-parel:hover, .btn-parel:focus {
+  color: #e7a;
+  background: #ffd0f3;
+  border-color: #e7a;
+}
 .url-change {
   color: #e36;
 }
@@ -121,24 +140,27 @@ table.article-table td.article-tool {
 .toolbar .graphic {
   color: #183;
 }
+.toolbar .video {
+  color: #d00;
+}
 code {
   background: transparent;
   font-size: 1.0em;
 }
-#ModalInternalLink .modal-body a {
+#modal-internallink .modal-body a {
   text-align: left;
   overflow: hidden;
 }
-#ModalInternalLink .modal-body .article {
+#modal-internallink .modal-body .article {
   text-align: left;
   text-overflow: ellipsis;
   overflow: hidden;
 }
-#ModalInternalLink .modal-body input[type="text"] {
+#modal-internallink .modal-body input[type="text"] {
   margin: 6px 0;
   padding: 3px 10px;
 }
-#ModalExternalLink #modal_external_geturl {
+#modal-externallink #modal_external_geturl {
   margin-left: 10px;
   color: #888;
   font-size: 0.8em;

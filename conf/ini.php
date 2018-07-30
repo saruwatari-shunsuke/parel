@@ -19,17 +19,17 @@
 
 	//URL設定
 	if(PRODUCT) {
-		define('MAIN_URL', 'http://parel.site/');
+		define('MAIN_URL', 'https://parel.site/');
 		define('CATEGORY_URL', array(
-					'http://parel.site/',
-					'http://food.parel.site/',
-					'http://exercise.parel.site/',
-					'http://health.parel.site/',
-					'http://fashion.parel.site/',
-					'http://feature.parel.site/',
-					'http://adm.parel.site/',
+					'https://parel.site/',
+					'https://food.parel.site/',
+					'https://exercise.parel.site/',
+					'https://health.parel.site/',
+					'https://fashion.parel.site/',
+					'https://feature.parel.site/',
+					'https://adm.parel.site/',
 					));
-		define('ADMIN_URL', 'http://adm.parel.site/');
+		define('ADMIN_URL', 'https://adm.parel.site/');
 		define('CATEGORY_NAME', array('', 'Food', 'Exercise', 'Health', 'Fashion', '特集', '管理',));
 	} else {
 		define('MAIN_URL', 'http://ec2-52-199-5-120.ap-northeast-1.compute.amazonaws.com/');

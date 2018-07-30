@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.1
+* @version 1.2
 */
 
 Class ViewAdminAuthorAll {
@@ -24,6 +24,7 @@ Class ViewAdminAuthorAll {
 	}
 	private function body($author_data) {
 		try {
+			global $setting_data;
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -46,13 +47,13 @@ Class ViewAdminAuthorAll {
     <meta property="al:web:url" content="<?php echo ADMIN_URL ?>">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@parel_beauty">
+    <meta name="twitter:site" content="@<?php echo $setting_data['twitter'] ?>">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
  
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>/css/html5reset-1.6.1.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<?php ViewBootstrap::css(); ?>
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/simplePagination.css">
@@ -94,7 +95,7 @@ Class ViewAdminAuthorAll {
 <?php new ViewAdminFooter(); ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<?php ViewBootstrap::js(); ?>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script>
 </body>
 </html>

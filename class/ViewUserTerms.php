@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.2
+* @version 1.3
 */
 
 Class ViewUserTerms {
@@ -54,7 +54,7 @@ Class ViewUserTerms {
     <meta property="al:web:url" content="<?php echo MAIN_URL ?>terms/">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@parel_beauty">
+    <meta name="twitter:site" content="@<?php echo $setting_data['twitter'] ?>">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
@@ -70,10 +70,10 @@ Class ViewUserTerms {
       <div class="overflow">
 
         <ol class="breadcrumb">
-          <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+          <li itemscope="itemscope" itemtype="https://developers.google.com/structured-data/breadcrumbs">
             <a itemprop="url" href="<?php echo MAIN_URL ?>"><span itemprop="title"><?php echo $setting_data['site_name_short'] ?></span></a>
           </li>
-          <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb" class="active">
+          <li itemscope="itemscope" itemtype="https://developers.google.com/structured-data/breadcrumbs" class="active">
             <span itemprop="title">利用規約</span>
           </li>
         </ol>
@@ -138,7 +138,7 @@ Class ViewUserTerms {
     <meta property="al:web:url" content="<?php echo MAIN_URL ?>terms/">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@parel_beauty">
+    <meta name="twitter:site" content="@<?php echo $setting_data['twitter'] ?>">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
@@ -162,8 +162,7 @@ Class ViewUserTerms {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><!-- for wideslider.js & slidemenu.js -->
 <?php ViewBootstrap::js(); ?>
 <?php new ViewAnalytics(); ?>
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-sp.js"></script>
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js" defer></script>
 
   </body>
 </html>
@@ -251,7 +250,17 @@ Class ViewUserTerms {
 <br>
 本規約またはサービスに関する一切の紛争関し訴訟を提訴する場合には、東京地方裁判所を第一審の専属の管轄裁判所とします。<br>
 <br>
+<br>
+第９条（リンク先の商品について）<br>
+<br>
+当サイトではアフィリエイトプログラムを利用しています。<br>
+<br>
+リンク先の商品・サービスは当サイトが販売しているのではなく、各リンク先サイトでのサービス・販売となります。購入方法、その他お問い合わせは各サイトにてご確認ください。商品購入・サービスなどに関するトラブルに関しては、当サイトでは一切の責任を負いかねますのでご了承ください。<br>
+<br>
+また、当サイトをご利用になったことにより生じるいかなる損失・損害についても当方では責任を負うものではありませんのでご了承くださいませ。<br>
+<br>
 2017年12月15日制定<br>
+2018年7月11日改定<br>
 </p>
 
 <?php

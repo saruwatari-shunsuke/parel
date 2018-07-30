@@ -5,7 +5,7 @@
 * @package Controller
 * @author Saruwatari Shunsuke
 * @since PHP 7.0
-* @version 1.4
+* @version 1.5
 */
 Class ControllerArticle extends CommonBase{
 	/*
@@ -116,6 +116,9 @@ Class ControllerArticle extends CommonBase{
 				throw new Exception();
 			}
 
+			$object_mdvi = new ModelDataViews();
+			$article_data['views'] = number_format($object_mdvi->selectAllById($article_id));
+
 			$article_data['author_name'] = $author_data['name'];
 			$article_data['author_image'] = MAIN_URL.'img/author/'.$author_data['author_id'].'.jpg';
 			$article_data['author_profile'] = $author_data['profile'];
@@ -129,8 +132,11 @@ Class ControllerArticle extends CommonBase{
 			$article_data['introduction'] = nl2br($article_data['introduction']);
 			$article_data['introduction'] = str_replace('<img ', '<img alt="'.$article_data['title'].'" ', $article_data['introduction']);
 			$article_data['body'] = preg_replace('/(<table.*?>|<tr.*?>|<\/tr>|<\/th>|<\/td>)\s*\n*/', '$1', $article_data['body']);
+			$article_data['body'] = $this->replaceInternalLink($article_data['body']);
 			$article_data['body'] = nl2br($article_data['body']);
 			$article_data['body'] = str_replace('<img ', '<img alt="'.$article_data['title'].'" ', $article_data['body']);
+			$article_data['body'] = preg_replace('/<img(.*?)src="(.*?)"(.*?)>/', '<img$1src="'.MAIN_URL.'img/common/loading-article.gif" data-echo="$2"$3>', $article_data['body']);
+
 			$article_data['summary'] = nl2br($article_data['summary']);
 			$article_data['summary'] = str_replace('<img ', '<img alt="'.$article_data['title'].'" ', $article_data['summary']);
 
@@ -168,6 +174,9 @@ Class ControllerArticle extends CommonBase{
 				throw new Exception();
 			}
 
+			$object_mdvi = new ModelDataViews();
+			$article_data['views'] = number_format($object_mdvi->selectAllById($article_id));
+
 			$article_data['author_name'] = $author_data['name'];
 			$article_data['author_image'] = MAIN_URL.'img/author/'.$author_data['author_id'].'.jpg';
 			$article_data['author_profile'] = $author_data['profile'];
@@ -180,6 +189,7 @@ Class ControllerArticle extends CommonBase{
 
 			$article_data['introduction'] = $this->replaceAmpText($article_data['introduction']);
 			$article_data['body'] = $this->replaceAmpText($article_data['body']);
+			$article_data['body'] = $this->replaceInternalLink($article_data['body']);
 			$article_data['summary'] = $this->replaceAmpText($article_data['summary']);
 
 			$article_data['url'] = CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/';
@@ -249,6 +259,32 @@ Class ControllerArticle extends CommonBase{
 	}
 
 	/*
+	* 記事リンク変換
+	*
+	* @param string
+	* @access public
+	* @return string
+	*/
+	private function replaceInternalLink($text){
+		try{
+			$object_mdar = new ModelDataArticles();
+			if(!$link_data = $object_mdar->selectAllLink()){
+				throw new Exception();
+			}
+
+			$text = preg_replace_callback('/\[\[link:(\d{4})\]\]/',
+							function($m) use ($link_data) {
+								return '<a href="'.$link_data[$m[1]]['url'].'" title="'.$link_data[$m[1]]['title'].'">'.$link_data[$m[1]]['title'].'</a>';
+							},
+							$text);
+			return $text;
+		} catch (Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
+		}
+	}
+
+	/*
 	* 1記事表示管理用
 	*
 	* @param
@@ -285,9 +321,10 @@ Class ControllerArticle extends CommonBase{
 			$update_data['description'] = h($_POST['description']);
 			$update_data['keyword'] = h($_POST['keyword']);
 
-			$update_data['introduction'] = str_replace(array("\r\n","\r","\n"), "\n", $_POST['introduction']);
-			$update_data['body'] = str_replace(array("\r\n","\r","\n"), "\n", $_POST['body']);
-			$update_data['summary'] = str_replace(array("\r\n","\r","\n"), "\n", $_POST['summary']);
+			$eol_array = array("\r\n","\r","\n","\0x000A","\0x000B","\0x000C","\0x000D","\0x0085","\0x2028","\0x2029","\0x0D0A","\0x000A","\0x000A","\0x000A","\0x0A","\0x0D","\0x1E","\0x15");
+			$update_data['introduction'] = str_replace($eol_array, "\n", $_POST['introduction']);
+			$update_data['body'] = str_replace($eol_array, "\n", $_POST['body']);
+			$update_data['summary'] = str_replace($eol_array, "\n", $_POST['summary']);
 
 			if(empty($update_data['path'])) {
 				$update_data['error'] = "URLを入力してください。";
@@ -355,7 +392,6 @@ Class ControllerArticle extends CommonBase{
 			}
 
 			$object_mdar = new ModelDataArticles();
-
 			if(!$article_data = $object_mdar->selectAllByAdmin()){
 				throw new Exception();
 			}
@@ -384,6 +420,9 @@ Class ControllerArticle extends CommonBase{
 	*/
 	public function showAllByUser($category_id){
 		try{
+			$object_mdvi = new ModelDataViews();
+			$view_data = $object_mdvi->selectAll();
+
 			if($search=$_GET['s']) {
 				CreateLog::putDebugLog('search word :'.$search);
 				$search = mb_convert_kana($search, 's');
@@ -392,6 +431,10 @@ Class ControllerArticle extends CommonBase{
 				if(!$article_data = $object_mdar->selectSomeByWord($search_array)){
 					throw new Exception();
 				}
+				foreach($article_data as $key => $value){
+					$article_data[$key]['view'] = $view_data[$value['article_id']];
+				}
+
 				return $article_data;
 			}
 
@@ -407,6 +450,9 @@ Class ControllerArticle extends CommonBase{
 			$object_mdar = new ModelDataArticles();
 			if(!$article_data = $object_mdar->selectSome($where)){
 				throw new Exception();
+			}
+			foreach($article_data as $key => $value){
+				$article_data[$key]['view'] = $view_data[$value['article_id']];
 			}
 
 			return $article_data;
@@ -559,11 +605,15 @@ Class ControllerArticle extends CommonBase{
 
 			//article_idだけをORDER BY RAND()で検索して、後で他カラムをID指定で取得するとさらに検索が速くなるらしい
 
+			$object_mdvi = new ModelDataViews();
+			$view_data = $object_mdvi->selectAll();
+
 			$num = 0;
 			for ($i=1; $i<=3; $i++) {
 				foreach ($article_data[$i] as $key2 => $value2) {
 					$related_data[$num] = $value2;
                                         $related_data[$num]['release_time'] = date('Y年n月j日', strtotime($value2['release_time']));
+                                        $related_data[$num]['views'] = $view_data[$value2['article_id']];
 					$num++;
 				}
 			}

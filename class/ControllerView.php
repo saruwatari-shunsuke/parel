@@ -5,7 +5,7 @@
 * @package Controller
 * @author Saruwatari Shunsuke
 * @since PHP 7.0
-* @version 1.1
+* @version 1.2
 */
 Class ControllerView extends CommonBase{
 	/*
@@ -17,6 +17,14 @@ Class ControllerView extends CommonBase{
 	*/
 	public function add($article_id){
 		try{
+			$object_mdar = new ModelDataArticles();
+			if(!$article_data = $object_mdar->select1ById($article_id)){
+				throw new Exception();
+			}
+			if($article_data['status']!=1){
+				return false;
+			}
+
 			$object_mdvi = new ModelDataViews();
 			$term = date('Y-m-d');
 			if(!$object_mdvi->select1ById($article_id, $term)){

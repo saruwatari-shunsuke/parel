@@ -71,7 +71,7 @@ $(function() {
 });
 
 // 内部リンクボタンのモーダル内容表示
-$('#ModalInternalLink').on('show.bs.modal', function (e) {
+$('#modal-internallink').on('show.bs.modal', function (e) {
     var loadurl = $(e.relatedTarget).data('load-url');
     $(this).find('.modal-body').load(loadurl);
 });

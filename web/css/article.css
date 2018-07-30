@@ -12,7 +12,7 @@
 }
 #toc ol,
 #toc ol li {
-  margin: 0 15px 0;
+  margin: 0 7px 0;
   padding: 0;
 }
 #toc a {
@@ -29,24 +29,24 @@
   color: #3366ff;
 }
 
-.article_row img, .article_row_ex img {
+#article-introduction img, #article-body img, #article-summary img{
   width: calc(100% - 10px);
   max-height: 500px;
   margin: 20px 5px;
   object-fit: contain;
 }
-.article_row table, .article_row_ex table {
+#article-introduction table, #article-body table, #article-summary table{
   font-size: 0.8em;
   border: solid 1px #333;
   border-collapse: collapse;
 }
-.article_row table th, .article_row table td,
-.article_row_ex table th, .article_row_ex table td {
+#article-introduction table th, #article-body table th, #article-summary table th,
+#article-introduction table td, #article-body table td, #article-summary table td{
   padding: 5px;
   border: solid 1px #333;
 }
-.article_row a, .article_row a:hover,
-.article_row_ex a, .article_row_ex a:hover{
+#article-introduction a, #article-body a, #article-summary a,
+#article-introduction a:hover, #article-body a:hover, #article-summary a:hover{
   text-decoration: underline;
 }
 video {
@@ -56,4 +56,67 @@ video {
   font-size: 0.8em;
   text-decoration: none;
   margin: 0 4px;
+}
+.balloon {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: -25px;
+}
+.balloon .faceicon1 {
+    float: right;
+    margin-left: -70px;
+    width: 60px;
+}
+.baloon-img1{
+    border: solid 3px #f7a;
+    border-radius: 50%;
+}
+.balloon .faceicon2 {
+    float: left;
+    margin-right: -70px;
+    width: 60px;
+}
+.baloon-img2{
+    border: solid 3px #7af;
+    border-radius: 50%;
+}
+
+.balloon .chatting {
+    width: 100%;
+}
+.says1 {
+    display: inline-block;
+    position: relative; 
+    float: right;
+    margin: 5px 75px 0 0;
+    padding: 17px 13px;
+    border-radius: 12px;
+    background: #fce;
+}
+.says1:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 18px; 
+    right: -24px;
+    border: 12px solid transparent;
+    border-left: 12px solid #fce;
+}
+.says2 {
+    display: inline-block;
+    position: relative; 
+    float: left;
+    margin: 5px 0 0 75px;
+    padding: 17px 13px;
+    border-radius: 12px;
+    background: #cef;
+}
+.says2:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 18px; 
+    left: -24px;
+    border: 12px solid transparent;
+    border-right: 12px solid #cef;
 }

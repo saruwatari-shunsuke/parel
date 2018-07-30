@@ -54,9 +54,6 @@ ul.share li{
 #overflow{
     overflow:hidden;
 }
-.txt-right{
-    text-align: right;
-}
 .center{
     text-align: center;
 }
@@ -94,14 +91,11 @@ ul.share li{
     text-align: center;
     height: 42px;
 }
-.top_logo{
-    margin: 0 auto;
-}
 .header_text{
     margin-top:10px;
     color:#666;
 }
-.category_nav{
+#header2{
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     margin-top: 60px;
@@ -111,9 +105,14 @@ ul.share li{
     -moz-opacity: 0.75;
     opacity: 0.75;
 }
-.category_nav a{
+#header2 a{
     display: block;
     color: #666;
+}
+#header2 li{
+    float: left;
+    text-align: center;
+    width: 16%;
     font-size: 0.9em;
 }
 /* hover */
@@ -123,15 +122,15 @@ ul.share li{
     opacity:0.85;
 }
 /* side bar */
-.side_bar{
-    float: right;
-    margin: 0;
-    width: 25%;
-}
-.main_bar{
+#main-contents{
     float: left;
     margin: 0;
     width: 75%;
+}
+#sub-contents{
+    float: right;
+    margin: 0;
+    width: 25%;
 }
 /* header_nav */
 .nav_bar_wrapper{
@@ -167,23 +166,10 @@ ul.share li{
 .footer_logo{
     width:130px; margin:-5px 0 0;
 }
-#copyright{
-    color:#999;
-    text-align:right;
-    margin:10px 30px 10px 0;
+.copyright{
+    font-size: 0.8em;
 }
 /* side_ranking */
-.side_ranking_left{
-    float:left;
-    width:30%;
-}
-.side_ranking_left_image{
-    width:60px;
-    height:60px;
-}
-.side_ranking_right{
-    float:left; width:65%;
-}
 .subcontents_area {
     margin: 0 0 10px;
 }
@@ -192,19 +178,9 @@ ul.share li{
     width: 100%;
 }
 /* Pages > article.ctp */
-h1#article_title{
-    margin: 45px 0 15px;
-    font-size: 1.8em;
-    line-height: 1.4;
-}
 .article_row_head{
     overflow: hidden;
     margin: 20px 0;
-}
-/* Articles > index.ctp */
-p.article_index_author{
-    margin: -5px 0 -5px;
-    font-size: 85%;
 }
 /* Carousel */
 .carousel_item_img{
@@ -287,17 +263,6 @@ p.article_index_author{
     display:table-cell;
     vertical-align:middle;
 }
-.side_ranking_left{
-    float:left;
-    width:30%;
-}
-.side_ranking_left_image{
-    width:60px;
-    height:60px;
-}
-.side_ranking_right{
-    float:left; width:65%;
-}
 /* boxview */
 .points_text{
     color:#999;
@@ -312,31 +277,22 @@ p.article_index_author{
     margin: 0 10px 10px 5px;
     padding: 0 0 10px;
 }
-.article_row_ex{
+#article-introduction, #article-summary{
     margin:20px 30px;
     font-size:90%;
     color:#666;
 }
-.favorite{
-    margin-left:-40px;
-    border:0px;
-}
 /* article->view */
-.article_row h3{
+#article-body h3{
     font-size:16px;
     font-weight:bold;
     margin: -70px 0 0;
     padding: 140px 10px 10px; 
     border-bottom:2px solid #dc8791;
 }
-.article_row h4, .article_row h5, .article_row h6{
+#article-body h4, #article-body h5, #article-body h6{
     margin: -100px 0 0;
     padding: 130px 0 0;
-}
-.article_text{
-    font-size:110%;;
-    font-color:#999;
-    line-height:150%;
 }
 .article_written_box{
     color: #888;
@@ -362,11 +318,6 @@ p.article_index_author{
     font-weight: bold;
     margin: 5px 0;
     padding: 0;
-}
-.category_title{
-    background:#fff;
-    padding:10px 20px;
-    margin:5px 15px;
 }
 /* policy */
 .policy_text{
@@ -398,12 +349,6 @@ p.footer_text a{
 }
 p.footer_text a:hover{
     color: #ccc;
-}
-/* article edit */
-.select_article_view_desc{
-    margin:20px 10px;
-    font-size:90%;
-    color:#666;
 }
 /* dokumo */
 .error{
@@ -448,28 +393,6 @@ p.footer_text a:hover{
 }
 .ranking_text_box a{
     color:#999;
-}
-/* loading */
-#loading {
-    border:1px solid #ddd;
-    padding: 15px;
-    position: fixed;
-    margin-top: -100px;
-    margin-left: -100px;
-    top: 50%;
-    left: 50%;
-    background-color: #FFF;
-    filter: alpha(opacity=85);
-    -moz-opacity: 0.85;
-    opacity: 0.85;
-}
-#loading .loadingMessage {
-    text-align:center;
-    padding-top:100px;
-    width:100px;
-    background-image:url("/img/common/loading_light.gif");
-    background-position: center top;
-    background-repeat: no-repeat;
 }
 /* boxview */
 .boxview_box{
@@ -546,12 +469,6 @@ p.footer_text a:hover{
 }
 .item-thumbnail img {
     width: 60%;
-}
-/* top_section */
-.top_section_headline{
-    text-align: center;
-    font-size: 20px;
-    margin: 15px auto;
 }
 /* Pagetitle */
 .breadcrumb {

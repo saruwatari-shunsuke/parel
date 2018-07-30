@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.2
+* @version 1.3
 */
 
 Class ViewUserRanking{
@@ -55,7 +55,7 @@ Class ViewUserRanking{
     <meta property="al:web:url" content="<?php echo MAIN_URL ?>ranking/">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@parel_beauty">
+    <meta name="twitter:site" content="@<?php echo $setting_data['twitter'] ?>">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
@@ -131,7 +131,7 @@ Class ViewUserRanking{
     <meta property="al:web:url" content="<?php echo MAIN_URL ?>ranking/">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@parel_beauty">
+    <meta name="twitter:site" content="@<?php echo $setting_data['twitter'] ?>">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
@@ -155,8 +155,7 @@ Class ViewUserRanking{
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><!-- for wideslider.js & slidemenu.js -->
 <?php ViewBootstrap::js(); ?>
 <?php new ViewAnalytics(); ?>
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-sp.js"></script>
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js" defer></script>
 
   </body>
 </html>

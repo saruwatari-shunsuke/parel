@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 
 Class ViewUserCampaignTokyoIcl {
@@ -46,16 +46,16 @@ Class ViewUserCampaignTokyoIcl {
 
     <meta property="og:title" content="フォトジェニックリツイートキャンペーン | <?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://feature.parel.site/tokyoicl2018cp/">
+    <meta property="og:url" content="https://feature.parel.site/tokyoicl2018cp/">
     <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:description" content="100名につき1名様にパンフォーユー500円割引クーポンがアタル!!">
-    <meta property="og:image" content="http://feature.parel.site/tokyoicl2018cp/img/ogp_img.png">
+    <meta property="og:image" content="https://feature.parel.site/tokyoicl2018cp/img/ogp_img.png">
     <meta property="og:locale" content="ja_JP">
     <meta property="al:web:url" content="<?php echo MAIN_URL ?>terms/">
-    <meta property="al:web:url" content="http://feature.parel.site/tokyoicl2018cp/">
+    <meta property="al:web:url" content="https://feature.parel.site/tokyoicl2018cp/">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@parel_beauty">
+    <meta name="twitter:site" content="@<?php echo $setting_data['twitter'] ?>">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
@@ -75,7 +75,7 @@ Class ViewUserCampaignTokyoIcl {
 
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
-    <link rel="canonical" href="http://feature.parel.site/tokyoicl2018cp/">
+    <link rel="canonical" href="https://feature.parel.site/tokyoicl2018cp/">
   </head>
   <body>
 
@@ -135,15 +135,15 @@ Class ViewUserCampaignTokyoIcl {
 
     <meta property="og:title" content="フォトジェニックリツイートキャンペーン | <?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="http://feature.parel.site/tokyoicl2018cp/">
+    <meta property="og:url" content="https://feature.parel.site/tokyoicl2018cp/">
     <meta property="og:site_name" content="<?php echo $setting_data['site_name_short'] ?>">
     <meta property="og:description" content="100名につき1名様にパンフォーユー500円割引クーポンがアタル!!">
-    <meta property="og:image" content="http://feature.parel.site/tokyoicl2018cp/img/ogp_img.png">
+    <meta property="og:image" content="https://feature.parel.site/tokyoicl2018cp/img/ogp_img.png">
     <meta property="og:locale" content="ja_JP">
-    <meta property="al:web:url" content="http://feature.parel.site/tokyoicl2018cp/">
+    <meta property="al:web:url" content="https://feature.parel.site/tokyoicl2018cp/">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@parel_beauty">
+    <meta name="twitter:site" content="@<?php echo $setting_data['twitter'] ?>">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
@@ -163,7 +163,7 @@ Class ViewUserCampaignTokyoIcl {
 
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
-    <link rel="canonical" href="http://feature.parel.site/tokyoicl2018cp/">
+    <link rel="canonical" href="https://feature.parel.site/tokyoicl2018cp/">
   </head>
   <body>
 
@@ -183,7 +183,6 @@ Class ViewUserCampaignTokyoIcl {
 <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>--><!-- for wideslider.js & slidemenu.js -->
 <?php ViewBootstrap::js(); ?>
 <?php new ViewAnalytics(); ?>
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-sp.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js"></script>
 
   </body>

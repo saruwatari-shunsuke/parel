@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.2
+* @version 1.3
 */
 
 Class ViewUserArchives {
@@ -56,7 +56,7 @@ Class ViewUserArchives {
     <meta property="al:web:url" content="<?php echo MAIN_URL.'archives/'.$article_data['path'].'/' ?>">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@parel_beauty">
+    <meta name="twitter:site" content="@<?php echo $setting_data['twitter'] ?>">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
@@ -72,7 +72,7 @@ Class ViewUserArchives {
       <div class="overflow">
         <h1 id="page_title">このページは移動しました。</h1>
         <div class="policy_view">
-          <a href="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/' ?>" class="item-related-article overflow">
+          <a href="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/' ?>" class="item-related-article">
             <div class="item-thumbnail"><img src="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/'.IMAGE_MAIN_SMALL ?>"></div>
             <div class="item-content">
               <p class="item-title"><?php echo $article_data['title'] ?></p>
@@ -137,7 +137,7 @@ Class ViewUserArchives {
     <meta property="al:web:url" content="<?php echo MAIN_URL.'archives/'.$article_data['path'].'/' ?>">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@parel_beauty">
+    <meta name="twitter:site" content="@<?php echo $setting_data['twitter'] ?>">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
@@ -180,8 +180,7 @@ Class ViewUserArchives {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><!-- for wideslider.js & slidemenu.js -->
 <?php ViewBootstrap::js(); ?>
 <?php new ViewAnalytics(); ?>
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-sp.js"></script>
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js" defer></script>
 
   </body>
 </html>

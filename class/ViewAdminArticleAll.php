@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.3
+* @version 1.4
 */
 
 Class ViewAdminArticleAll {
@@ -29,6 +29,7 @@ echo $_COOKIE['LoginAuth'];
 	}
 	private function body($article_data) {
 		try {
+			global $setting_data;
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -51,13 +52,13 @@ echo $_COOKIE['LoginAuth'];
     <meta property="al:web:url" content="<?php echo ADMIN_URL ?>">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@parel_beauty">
+    <meta name="twitter:site" content="@<?php echo $setting_data['twitter'] ?>">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
  
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>/css/html5reset-1.6.1.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<?php ViewBootstrap::css(); ?>
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/simplePagination.css">
@@ -70,8 +71,12 @@ echo $_COOKIE['LoginAuth'];
     <div class="container-fruid">
       <div class="row">
 
-        <h1 class="col-md-3">記事一覧</h1>
-<a href="/edit/" class="col-md-2 col-md-offset-6 btn btn-lg btn-success">_<span class="glyphicon glyphicon-pencil"></span> 記事を書く</a>
+        <h1 class="col-xs-6">記事一覧</h1>
+        <div class="col-xs-6">
+          <div class="right">
+            <a href="/edit/" class="btn btn-lg btn-success">_<span class="glyphicon glyphicon-pencil"></span> 記事を書く</a>
+          </div>
+        </div>
 
 <?php if($article_data['error']) { ?>
         <div class="col-md-12">
@@ -91,7 +96,7 @@ echo $_COOKIE['LoginAuth'];
                 <td class="article-header"><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" height="20"> <?php echo $value['title'] ?></td>
                 <td class="article-keyword"><span class="glyphicon glyphicon-tags"></span> <?php echo $value['keyword']; ?></td>
                 <td class="article-tool">
-                  <a class="btn btn-xs btn-default" href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'] ?>/" target="_blank"><img src="<?php echo MAIN_URL ?>img/common/logo_8.png" height=15></a>
+                  <a class="btn btn-xs btn-parel" href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'] ?>/" target="_blank"><img src="<?php echo MAIN_URL ?>img/common/logo_8.png" height=15> <span class="glyphicon glyphicon-new-window"></span></a>
                   <a class="btn btn-xs btn-success" href="/edit/?id=<?php echo $value['article_id'] ?>#noback"><span class="glyphicon glyphicon-pencil"></span> 編集</a>
 <?php if($value['status']==1){ ?>
                   <a class="btn btn-xs btn-primary" href="/view/?i=<?php echo $value['article_id'] ?>&r=2"><span class="glyphicon glyphicon-eye-open"></span> 公開中</a>
@@ -113,7 +118,7 @@ echo $_COOKIE['LoginAuth'];
 <?php new ViewAdminFooter(); ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<?php ViewBootstrap::js(); ?>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.0.1/js/bootstrap-switch.min.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/trunk8.min.js"></script>
     <script>

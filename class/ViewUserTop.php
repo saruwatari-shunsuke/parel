@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.5
+* @version 1.6
 */
 
 Class ViewUserTop {
@@ -59,7 +59,7 @@ Class ViewUserTop {
     <meta property="al:web:url" content="<?php echo CATEGORY_URL[$category_id] ?>">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@parel_beauty">
+    <meta name="twitter:site" content="@<?php echo $setting_data['twitter'] ?>">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
@@ -91,21 +91,21 @@ Class ViewUserTop {
 <?php } ?>
 
       <div class="overflow">
-        <div class="main_bar">
+        <div id="main-contents">
 
 <?php if($category_id || $_GET['a'] || $_GET['s']) { ?>
           <ol class="breadcrumb">
-            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <li itemscope="itemscope" itemtype="https://developers.google.com/structured-data/breadcrumbs">
               <a itemprop="url" href="<?php echo MAIN_URL ?>"><span itemprop="title"><?php echo $setting_data['site_name_short'] ?></span></a>
             </li>
-            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb" class="active">
+            <li itemscope="itemscope" itemtype="https://developers.google.com/structured-data/breadcrumbs" class="active">
               <span itemprop="title"><?php
   if ($_GET['s']) {
     echo '「'.$_GET['s'].'」で検索';
   } else if ($category_id) {
     echo CATEGORY_NAME[$category_id];
   } else if ($_GET['a']) {
-    echo 'ライターさんの記事';
+    echo $article_data[0]['author_name'].'さんの記事';
   } ?></span>
             </li>
           </ol>
@@ -122,7 +122,7 @@ Class ViewUserTop {
                   <p class="boxview_text_title trunk2"><?php echo $value['title'] ?></p>
                   <ul class="article_list_info list-inline overflow">
                     <li class="not_auto_br left">
-                      <div class="article_list_point"></div>
+                      <div class="article_list_point"><?php echo $value['view'] ?> view</div>
                     </li>
                     <li class="not_auto_br right">
                       <div class="boxview_text_author">
@@ -148,7 +148,7 @@ Class ViewUserTop {
           <div class="pagination"></div>
 <?php } ?>
 
-        </div> <!-- /main_bar -->
+        </div> <!-- /main-contents -->
 
 <?php new ViewUserPcRightSideBar(5, null); ?>
             
@@ -160,6 +160,7 @@ Class ViewUserTop {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <?php ViewBootstrap::js(); ?>
 <?php new ViewAnalytics(); ?>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/jquery.exflexfixed-0.3.0.js"></script><!-- sidebar move -->
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-pc.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/jquery.simplePagination.js"></script>
     <script type="text/javascript">
@@ -190,7 +191,6 @@ Class ViewUserTop {
           $('.trunk3').trunk8({lines:3});
       });
     </script>
-
 
   </body>
 </html>
@@ -235,7 +235,7 @@ Class ViewUserTop {
     <meta property="al:web:url" content="<?php echo CATEGORY_URL[$category_id] ?>">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@parel_beauty">
+    <meta name="twitter:site" content="@<?php echo $setting_data['twitter'] ?>">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
@@ -259,7 +259,7 @@ Class ViewUserTop {
 <?php foreach ($recommend_data as $key => $value) { ?>
               <li>
                 <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
-                  <div class="box_article_head_photo">
+                  <div class="recommend_item">
                     <img class="sp-head" src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_LARGE ?>" alt="<?php echo $value['title'] ?>">
                     <div class="box_article_head_text">
                       <p class="box_carousel_title text-line-2"><?php echo $value['title'] ?></p>
@@ -283,7 +283,7 @@ Class ViewUserTop {
             <div class="boxview_right">
               <div class="mobile_article_index_text">
                 <p class="boxview_title not_auto_br text-line-2"><?php echo $value['title'] ?></p>
-                <span class="boxview_text_left"></span>
+                <span class="boxview_text_left"><?php echo $value['view'] ?> view</span>
                 <span class="boxview_text_right"><?php echo $value['author_name'] ?></span>
               </div>
             </div>
@@ -306,10 +306,9 @@ Class ViewUserTop {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><!-- for wideslider.js & slidemenu.js -->
 <?php ViewBootstrap::js(); ?>
 <?php new ViewAnalytics(); ?>
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-sp.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/jquery.easing.1.3.js"></script><!-- for wideslider.js -->
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js"></script>
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/wideslider.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/wideslider.js" defer></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js" defer></script>
     <script>
       function showArticle() {
         $('.article_more').show();

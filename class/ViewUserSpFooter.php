@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.3
+* @version 1.4
 */
 
 Class ViewUserSpFooter {
@@ -26,9 +26,10 @@ Class ViewUserSpFooter {
 	*/
 	private function body() {
 		try {
+			global $setting_data;
 ?>
     <!-- header -->
-    <div class="mobile_header js-header bg_coral">
+    <div class="mobile_header js-header bg_coral" role="banner">
       <div class="overflow">
         <div class="mobile_header_left js-menu-trigger">
           ≡
@@ -49,8 +50,8 @@ Class ViewUserSpFooter {
       <div class="modal-dialog">
         <div class="modal-content" id="modal_search_content">
           <p class="modal_search_close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></p>
-          <form action="<?php echo MAIN_URL ?>" controller="articles" class="form-inline header_left" id="ArticleSearchForm" method="GET" accept-charset="utf-8">
-            <input name="s" class="form-control header_key max-width" placeholder="気になるワードを入れてみましょう" id="ArticleKeyword" type="text" value="<?php echo $_GET['s'] ?>">
+          <form action="<?php echo MAIN_URL ?>" controller="articles" class="form-inline header_left" method="GET" accept-charset="utf-8">
+            <input name="s" class="form-control header_key max-width" placeholder="気になるワードを入れてみましょう" type="text" value="<?php echo $_GET['s'] ?>">
             <input class="btn btn-default btn-block" id="header_search_submit" value="検索" type="submit">
           </form>
         </div>
@@ -59,7 +60,7 @@ Class ViewUserSpFooter {
 
     <!-- footer -->
     <div class="js-footer">
-      <div class="footer bg_coral">
+      <div class="footer bg_coral" role="contentinfo">
         <ul class="footer_nav_category">
           <li><a href="<?php echo MAIN_URL ?>">Top</a></li>
           <li><a href="<?php echo MAIN_URL ?>ranking/">Ranking</a></li>
@@ -68,7 +69,7 @@ Class ViewUserSpFooter {
           <li><a href="<?php echo CATEGORY_URL[3] ?>">Health</a></li>
           <li><a href="<?php echo CATEGORY_URL[4] ?>">Fashion</a></li>
           <li><a href="<?php echo CATEGORY_URL[5] ?>">Feature</a></li>
-          <li><a href="//twitter.com/parel_beauty">Twitter</a></li>
+          <li><a href="//twitter.com/<?php echo $setting_data['twitter'] ?>">Twitter</a></li>
         </ul>
         <hr class="footer_bar">
         <ul class="footer_nav_link">
@@ -78,13 +79,13 @@ Class ViewUserSpFooter {
           <li><a href="//www.agentgate.jp/contact.html" target="_blank">お問い合わせ</a></li>
           <li><a href="//hito-shigoto.jp/" target="_blank">ヒトシゴト</a></li>
         </ul>
-        <p class="footer_desc">このサイトに掲載された記事の無断転載を禁じます。<br>PAREL(パルール) &copy; 2017. All Rights Reserved.</p>
+        <p class="copyright">このサイトに掲載された記事の無断転載を禁じます。<br>PAREL(パルール) &copy; 2017. All Rights Reserved.</p>
       </div>
     </div>
 
     <!-- slide menu -->
-    <div id="mobile_side_down_menu" class="is_browser js-panel">
-      <ul class="left_menu_ul">
+    <div id="slide-menu" class="js-panel" role="navigation">
+      <ul>
         <li class="top"><a href="<?php echo MAIN_URL ?>">Top<br><span class="menu-text">トップ</span></a></li>
         <li class="food"><a href="<?php echo CATEGORY_URL[1] ?>">Food<br><span class="menu-text">食事</span></a></li>
         <li class="excercise"><a href="<?php echo CATEGORY_URL[2] ?>">Exercise<br><span class="menu-text">運動</span></a></li>

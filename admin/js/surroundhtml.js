@@ -23,9 +23,7 @@ function getAreaRange(obj) {
 function makeNode(tag, range) {
   if (tag[0]=='a') {
     if (tag[1]=='in') {
-      var url = tag[2];
-      var title = tag[3];
-      return '<a href="' + url + '" title="' + title + '">' + title + '</a>';
+      return '[[link:' + tag[2] + ']]';
     } else if (tag[1]=='ex') {
       var url = document.getElementById('modal_external_url').value;
       var title = document.getElementById('modal_external_title').value;

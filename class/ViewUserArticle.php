@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.4
+* @version 1.5
 */
 
 Class ViewUserArticle {
@@ -60,7 +60,7 @@ Class ViewUserArticle {
     <meta property="al:web:url" content="<?php echo $article_data['url'] ?>">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@parel_beauty">
+    <meta name="twitter:site" content="@<?php echo $setting_data['twitter'] ?>">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
@@ -76,15 +76,15 @@ Class ViewUserArticle {
   <body>
     <div class="container">
       <div class="overflow">
-        <div class="main_bar">
+        <div id="main-contents">
           <ol class="breadcrumb">
-            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <li itemscope="itemscope" itemtype="https://developers.google.com/structured-data/breadcrumbs">
               <a itemprop="url" href="<?php echo MAIN_URL ?>"><span itemprop="title"><?php echo $setting_data['site_name_short'] ?></span></a>
             </li>
-            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+            <li itemscope="itemscope" itemtype="https://developers.google.com/structured-data/breadcrumbs">
               <a itemprop="url" href="<?php echo CATEGORY_URL[$article_data['category_id']] ?>"><span itemprop="title"><?php echo $article_data['category_name']; ?></span></a>
             </li>
-            <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb" class="active">
+            <li itemscope="itemscope" itemtype="https://developers.google.com/structured-data/breadcrumbs" class="active">
               <span itemprop="title"><?php echo $article_data['title']; ?></span>
             </li>
           </ol>
@@ -92,12 +92,13 @@ Class ViewUserArticle {
             <div class="article_row_head"><!-- Start of Article head -->
               <div class="col-md-4 col-sm-4"><img class="img-circle max-width" src="<?php echo IMAGE_MAIN_LARGE; ?>" alt=""></div>
               <div class="col-md-8 col-sm-8">
-                <h1 id="article_title"><?php echo $article_data['title']; ?></h1>
+                <h1 id="article-title"><?php echo $article_data['title']; ?></h1>
+                <div class="article_views"><?php echo $article_data['views'] ?> views</div>
                 <div class="addthis_inline_share_toolbox center"></div>
               </div>
             </div><!-- End of Article head -->
 
-            <div id="article-introduction" class="article_row_ex">
+            <div id="article-introduction">
 <?php echo $article_data['introduction']; ?>
             </div>
 
@@ -105,20 +106,20 @@ Class ViewUserArticle {
 
             <div id="toc"><!-- 目次 --></div>
 
-            <div id="article-body" class="article_row">
+            <div id="article-body">
 <?php echo $article_data['body']; ?>
             </div>
 
             <hr>
 
-            <div id="article-summary" class="article_row_ex">
+            <div id="article-summary">
 <?php echo $article_data['summary']; ?>
             </div>
 
             <div>
 <?php foreach ($article_data['related'] as $key => $value) { ?>
-              <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>" class="item-related-article overflow hover-light">
-                <div class="item-thumbnail"><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>"></div>
+              <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>" class="item-related-article hover-light">
+                <div class="item-thumbnail"><img src="<?php echo MAIN_URL ?>img/common/loading-thumb.gif" data-echo="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>"></div>
                 <div class="item-content">
                   <p class="item-title"><?php echo $value['title'] ?></p>
                   <p class="item-description trunk3"><?php echo $value['description'] ?></p>
@@ -145,10 +146,10 @@ Class ViewUserArticle {
             <!-- End of Author -->
 
           </div> <!-- article_view -->
-        </div> <!-- left main_bar -->
+        </div> <!-- main-contents -->
 
 <?php new ViewUserPcRightSideBar(5, $article_data); ?>
-            
+
       </div> <!-- /overflow -->
     </div> <!-- /container -->
 
@@ -157,7 +158,12 @@ Class ViewUserArticle {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <?php ViewBootstrap::js(); ?>
 <?php if($article_data['status']){ new ViewAnalytics(); } ?>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/jquery.exflexfixed-0.3.0.js"></script><!-- sidebar move -->
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-pc.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/echo.min.js"></script><!-- image async load  -->
+    <script>
+      echo.init();
+    </script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/trunk8.min.js"></script>
     <script>
       $(function(){
@@ -165,7 +171,6 @@ Class ViewUserArticle {
           $('.trunk3').trunk8({lines:3});
       });
     </script>
-
     <script src="<?php echo MAIN_URL ?>js/jquery.toc.js"></script>
     <script>
         $(function(){
@@ -219,7 +224,7 @@ Class ViewUserArticle {
     <meta property="al:web:url" content="<?php echo $article_data['url'] ?>">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@parel_beauty">
+    <meta name="twitter:site" content="@<?php echo $setting_data['twitter'] ?>">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
@@ -236,24 +241,29 @@ Class ViewUserArticle {
 
     <div class="content-wrapper js-main">
 
-      <div class="article_head_main_img">
-        <div class="article_head_img" style="background-image:url('<?php echo IMAGE_MAIN_LARGE ?>');"></div>
-        <div class="article_head_text">
-          <a class="article_head_author"  href="<?php echo MAIN_URL.'?a='.$article_data['author_id'] ?>">
-            <img src="<?php echo $article_data['author_image'] ?>" class="img-circle article_head_author_img" alt="<?php echo $article_data['author_name'] ?>"> <?php echo $article_data['author_name'] ?>
-          </a>
-        </div>
+      <div id="article-head-area1">
+        <div id="article-head-eyecatch" style="background-image:url('<?php echo IMAGE_MAIN_LARGE ?>');"></div>
+      </div>
+
+      <div id="article-head-area2">
+        <a class="article_head_author"  href="<?php echo MAIN_URL.'?a='.$article_data['author_id'] ?>">
+          <img src="<?php echo $article_data['author_image'] ?>" class="img-circle article_head_author_img" alt="<?php echo $article_data['author_name'] ?>"> <?php echo $article_data['author_name'] ?>
+        </a>
+        <div class="article_head_views"><?php echo $article_data['views'] ?> views</div>
+      </div>
+
+      <div id="article-head-cover">
       </div>
 
       <div class="article_view_area">
-        <h1 class="mobile_article_view_title not_auto_br"><?php echo $article_data['title'] ?></h1>
+        <h1 id="article-title" class="not_auto_br"><?php echo $article_data['title'] ?></h1>
 
         <div class="article_head_share">
           <div class="addthis_inline_share_toolbox"></div>
         </div>
 	<div class="article_head_release"><?php echo $article_data['release_time'] ?></div>
 
-        <div id="article-introduction" class="article_row_ex">
+        <div id="article-introduction">
 
 <?php echo $article_data['introduction']; ?>
 
@@ -261,9 +271,9 @@ Class ViewUserArticle {
 
         <hr>
 
-        <div id="toc"><!-- 目次 --></div>
+        <div id="toc"></div>
 
-        <div id="article-body" class="article_row">
+        <div id="article-body">
 
 <?php echo $article_data['body']; ?>
 
@@ -271,7 +281,7 @@ Class ViewUserArticle {
 
         <hr>
 
-        <div id="article-summary" class="article_row_ex">
+        <div id="article-summary">
 
 <?php echo $article_data['summary']; ?>
 
@@ -287,14 +297,14 @@ Class ViewUserArticle {
           <div class="mobile_article_index_box2">
             <div class="boxview_left">
               <div class="boxview_leftimg">
-                <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="70" height="70" alt="<?php echo $value['title'] ?>">
+                <img src="<?php echo MAIN_URL ?>img/common/loading-thumb.gif" data-echo="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="70" height="70" alt="<?php echo $value['title'] ?>">
               </div>
             </div>
             <div class="boxview_right">
               <div class="mobile_article_index_text">
                 <p class="boxview_title not_auto_br text-line-2"><?php echo $value['title'] ?></p>
                 <span class="boxview_text_left"><?php echo $value['release_time'] ?></span>
-                <span class="boxview_text_right"><?php echo $value['author_name'] ?></span>
+                <span class="boxview_text_right"><?php echo $value['views'] ?> view</span>
               </div>
             </div>
           </div>
@@ -311,9 +321,12 @@ Class ViewUserArticle {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><!-- for wideslider.js & slidemenu.js -->
 <?php ViewBootstrap::js(); ?>
 <?php if($article_data['status']){ new ViewAnalytics(); } ?>
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-sp.js"></script>
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js"></script>
-
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js" defer></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/echo.min.js"></script>
+    <script>
+      echo.init();
+    </script>
+ 
     <script src="<?php echo MAIN_URL ?>js/jquery.toc.js"></script>
     <script>
         $(function(){

@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.3
+* @version 1.4
 */
 
 Class ViewUserSpSubContents {
@@ -89,6 +89,11 @@ Class ViewUserSpSubContents {
       </div>
 
       <img src="<?php echo MAIN_URL ?>img/common/dot.png" alt="">
+
+      <!-- back -->
+      <div class="subcontents_area">
+        <a href="#" id="page-top" class="btn btn-lg btn-block btn-default"><span class="glyphicon glyphicon-chevron-up"></span> ページトップに戻る</a>
+      </div>
 
 <?php
 		} catch(Exception $e) {

@@ -13,11 +13,11 @@ $(function(){
   $("#close").click(function () {
     $("div#out").fadeOut("fast");
   });
-  //Loading img
-  $(".display-loading").click( function() {
-    var message = "処理中...";
-    if($("#loading").size() == 0){
-      $("body").append("<div id='loading'><div class='loadingMessage'>" + message + "</div></div>");
-    }
+// 画面スクロールに合わせてツールバー移動（先にjquery.exflexfixed-0.3.0.jsを読み込むこと）
+  $('#sub-contents-inner').exFlexFixed({
+    container : '.container',
+    fixedHeader : '#header2',
   });
 });
+
+

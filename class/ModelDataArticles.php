@@ -5,7 +5,7 @@
 * @package Model
 * @author Saruwatari Shunsuke
 * @since PHP 7.0
-* @version 1.1
+* @version 1.2
 */
 Class ModelDataArticles extends CommonBase{
 	/*
@@ -344,4 +344,45 @@ Class ModelDataArticles extends CommonBase{
 			return false;
 		}
 	}
+
+	/*
+	* リンク全データ取得
+	*
+	* @param
+	* @access public
+	* @return array
+	*/
+	public function selectAllLink(){
+		try{
+            		$sql = 'SELECT '.
+					'dar.article_id, '.
+					'dar.path, '.
+					'dar.category_id, '.
+					'dar.title, '.
+					'mca.name_domain sub_domain '.
+				'FROM '.
+					'data_articles dar, '.
+					'master_categories mca '.
+				'WHERE '.
+					'dar.deleted=0 '.
+				'AND dar.category_id=mca.category_id '.
+				';';
+	
+			if(!$result = mysqli_query($this->getDatabaseLink(), $sql)){
+				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
+			}
+			if(!mysqli_num_rows($result)){
+				return false;
+			}
+			while($row = mysqli_fetch_assoc($result)){
+				$data[$row['article_id']]['title'] = $row['title'];
+				$data[$row['article_id']]['url'] = 'https://'.$row['sub_domain'].'.parel.site/'.$row['path'].'/';
+			}
+			return $data;
+		} catch(Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
+		}
+	}
+
 }

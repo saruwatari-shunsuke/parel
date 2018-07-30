@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.4
+* @version 1.5
 */
 
 Class ViewAdminFooter {
@@ -61,7 +61,7 @@ Class ViewAdminFooter {
             <p class="footer_text"><a href="/"><img class="footer_logo" src="<?php echo LOGO ?>"></a></p>
           </div>
           <div class="col-xs-4">
-            <p class="footer_text"><a href="//twitter.com/parel_beauty" target="_blank">Twitter</a></p>
+            <p class="footer_text"><a href="//twitter.com/<?php echo $setting_data['twitter'] ?>" target="_blank">Twitter</a></p>
             <p class="footer_text"><a href="//www.agentgate.jp/contact.html" target="_blank">お問い合わせ</a></p>
           </div>
           <div class="col-xs-4">
@@ -70,7 +70,7 @@ Class ViewAdminFooter {
             <p class="footer_text"><a href="//www.agentgate.jp/company.html" target="_blank">運営会社</a></p>
           </div>
         </div>
-        <div id="copyright">
+        <div class="copyright">
           <p class="left">このサイトに掲載された記事の無断転載を禁じます。</p>
           <p class="right">PAREL(パルール) &copy; 2017. All Rights Reserved.</p>
         </div>

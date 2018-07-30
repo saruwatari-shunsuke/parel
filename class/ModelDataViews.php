@@ -5,7 +5,7 @@
 * @package Model
 * @author Saruwatari Shunsuke
 * @since PHP 7.0
-* @version 1.0
+* @version 1.1
 */
 Class ModelDataViews extends CommonBase{
 	/*
@@ -92,7 +92,7 @@ Class ModelDataViews extends CommonBase{
 		}
 	}
 	/*
-	* 全データ取得（記事指定）
+	* 合計取得（記事指定）
 	*
 	* @param int
 	* @access public
@@ -101,17 +101,15 @@ Class ModelDataViews extends CommonBase{
 	public function selectAllById($article_id){
 		try{
 			$article_id = $this->escapeSql($article_id);
-			$sql = 'SELECT term, view FROM data_views WHERE article_id="'.$article_id.'";';
+			$sql = 'SELECT sum(view) views FROM data_views WHERE article_id="'.$article_id.'";';
 			if(!$result = mysqli_query($this->getDatabaseLink(), $sql)){
 				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
 			}
 			if(!mysqli_num_rows($result)){
-				return false;
+				return 0;
 			}
-			while($row = mysqli_fetch_assoc($result)){
-				$data[$row['term']] = $row['view'];
-			}
-			return $data;
+			$row = mysqli_fetch_assoc($result);
+			return $row['views'];
 		} catch(Exception $e){
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 			return false;
@@ -145,7 +143,7 @@ Class ModelDataViews extends CommonBase{
 	}
 
 	/*
-	* 全データ取得
+	* 全合計取得
 	*
 	* @param
 	* @access public
@@ -153,7 +151,7 @@ Class ModelDataViews extends CommonBase{
 	*/
 	public function selectAll(){
 		try{
-			$sql = 'SELECT * FROM data_views;';
+			$sql = 'SELECT article_id, sum(view) views FROM data_views GROUP BY article_id;';
 			if(!$result = mysqli_query($this->getDatabaseLink(), $sql)){
 				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
 			}
@@ -161,7 +159,7 @@ Class ModelDataViews extends CommonBase{
 				return false;
 			}
 			while($row = mysqli_fetch_assoc($result)){
-				$data[] = $row;
+				$data[$row['article_id']] = $row['views'];
 			}
 			return $data;
 		} catch(Exception $e){

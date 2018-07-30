@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.3
+* @version 1.4
 */
 
 Class ViewUserPcRightSideBar {
@@ -32,46 +32,47 @@ Class ViewUserPcRightSideBar {
 	private function body($ranking_data, $myfavolite_data) {
 		try {
 ?>
-        <div class="side_bar">
-          <!-- ranking -->
-          <div class="subcontents_area">
-            <img src="<?php echo MAIN_URL ?>img/common/ranking-title.png" alt="人気の記事" class="subcontents_title">
+        <div id="sub-contents">
+          <div id="sub-contents-inner">
+
+            <!-- ranking -->
+            <div class="subcontents_area">
+              <img src="<?php echo MAIN_URL ?>img/common/ranking-title.png" alt="人気の記事" class="subcontents_title">
 <?php foreach ($ranking_data as $key => $value) { ?>
-            <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
-              <div class="ranking_wrapper hover-light">
-                <div class="ranking_img_area">
-                  <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>">
-                </div>
-                <div class="ranking_text">
-                  <div class="ranking_text_left">
-                    <img src="<?php echo MAIN_URL ?>img/common/rank-<?php echo $key+1 ?>.png" alt="<?php echo $key+1 ?>位" class="max-width">
+              <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
+                <div class="ranking_wrapper hover-light">
+                  <div class="ranking_img_area">
+                    <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>">
                   </div>
-                  <div class="ranking_text_right">
-                    <div class="ranking_text_right_title"><div class="trunk3"><?php echo $value['title'] ?></div></div>
+                  <div class="ranking_text">
+                    <div class="ranking_text_left">
+                      <img src="<?php echo MAIN_URL ?>img/common/rank-<?php echo $key+1 ?>.png" alt="<?php echo $key+1 ?>位" class="max-width">
+                    </div>
+                    <div class="ranking_text_right">
+                      <div class="ranking_text_right_title"><span class="trunk3"><?php echo $value['title'] ?></span></div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </a>
+              </a>
 <?php } ?>
-          </div>
+            </div>
 
-          <!-- sponsored -->
-          <div class="subcontents_area">
-            <img src="<?php echo MAIN_URL ?>img/common/sponsored-title.png" alt="スポンサード" class="subcontents_title">
-            <a href="//tokyophotogenicteam.com/">
-              <div class="overflow hover-light">
-                <img src="<?php echo MAIN_URL ?>img/common/bnr_tokyoicecreamland_pc.png" alt="東京アイスクリームランド">
-              </div>
-            </a>
-          </div>
+            <!-- sponsored -->
+            <div class="subcontents_area">
+              <img src="<?php echo MAIN_URL ?>img/common/sponsored-title.png" alt="スポンサード" class="subcontents_title">
+              <a href="//tokyophotogenicteam.com/">
+                <div class="overflow hover-light">
+                  <img src="<?php echo MAIN_URL ?>img/common/bnr_tokyoicecreamland_pc.png" alt="東京アイスクリームランド">
+                </div>
+              </a>
+            </div>
 
-          <!-- my favolite -->
-          <div class="subcontents_area">
-            <img src="<?php echo MAIN_URL ?>img/common/myfavolite-title.png" alt="おすすめ記事" class="subcontents_title">
+            <!-- my favolite -->
+            <div class="subcontents_area">
+              <img src="<?php echo MAIN_URL ?>img/common/myfavolite-title.png" alt="おすすめ記事" class="subcontents_title">
 <?php foreach ($myfavolite_data as $key => $value) { ?>
-            <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
-              <div class="overflow hover-light">
-                <div class="mobile_article_index_box2">
+              <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
+                <div class="overflow hover-light">
                   <div class="boxview_left">
                     <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>" width="60" height="60">
                   </div>
@@ -83,12 +84,17 @@ Class ViewUserPcRightSideBar {
                     </div>
                   </div>
                 </div>
-              </div>
-            </a>
+              </a>
 <?php } ?>
-          </div>
+            </div>
 
-        </div><!-- right side_bar -->
+            <!-- my favolite -->
+            <div class="subcontents_area">
+              <a href="#" id="page-top" class="btn btn-lg btn-block btn-default"><span class="glyphicon glyphicon-chevron-up"></span></a>
+            </div>
+
+          </div><!-- sub-contents-inner -->
+        </div><!-- sub-contents -->
 <?php
 		} catch(Exception $e) {
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
