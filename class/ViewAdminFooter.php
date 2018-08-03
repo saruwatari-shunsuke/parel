@@ -28,7 +28,7 @@ Class ViewAdminFooter {
 		try {
 ?>
     <!-- header1 -->
-    <nav class="navbar navbar-default navbar-info navbar-fixed-top header_bar bg_cyan" role="navigation" id="header">
+    <nav id="header1" class="navbar navbar-default navbar-info navbar-fixed-top bg_cyan" role="navigation">
       <div class="nav_bar_wrapper">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -54,7 +54,7 @@ Class ViewAdminFooter {
     </nav>
 
     <!-- footer -->
-    <footer class="navbar navbar-default bg_cyan" role="banner" id="footer_wrapper">
+    <footer id="footer" class="navbar navbar-default bg_cyan" role="banner">
       <div class="container">
         <div class="row">
           <div class="col-xs-4">

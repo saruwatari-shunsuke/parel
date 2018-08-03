@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.4
+* @version 1.5
 */
 
 Class ViewUserSpSubContents {
@@ -73,7 +73,8 @@ Class ViewUserSpSubContents {
           <div class="mobile_article_index_box2">
             <div class="boxview_left">
               <div class="boxview_leftimg">
-                <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>" width="78" height="78">
+                <!--<img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>" width="78" height="78">-->
+                <img src="<?php echo MAIN_URL ?>img/common/loading-thumb.gif" data-echo="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78" alt="<?php echo $value['title'] ?>">
               </div>
             </div>
             <div class="boxview_right">
@@ -90,7 +91,7 @@ Class ViewUserSpSubContents {
 
       <img src="<?php echo MAIN_URL ?>img/common/dot.png" alt="">
 
-      <!-- back -->
+      <!-- go back top -->
       <div class="subcontents_area">
         <a href="#" id="page-top" class="btn btn-lg btn-block btn-default"><span class="glyphicon glyphicon-chevron-up"></span> ページトップに戻る</a>
       </div>

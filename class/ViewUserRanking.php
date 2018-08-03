@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.3
+* @version 1.4
 */
 
 Class ViewUserRanking{
@@ -146,7 +146,7 @@ Class ViewUserRanking{
 
     <div class="content-wrapper js-main">
 
-<?php new ViewUserSpSubContents($rank); ?>
+<?php new ViewUserSpSubContents($rank, null); ?>
 
     </div><!-- /content-wrapper -->
 
@@ -156,6 +156,10 @@ Class ViewUserRanking{
 <?php ViewBootstrap::js(); ?>
 <?php new ViewAnalytics(); ?>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js" defer></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/echo.min.js"></script><!-- image async load  -->
+    <script>
+      echo.init();
+    </script>
 
   </body>
 </html>

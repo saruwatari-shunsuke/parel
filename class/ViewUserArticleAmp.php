@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.6
+* @version 1.7
 */
 
 Class ViewUserArticleAmp {
@@ -230,7 +230,7 @@ ul{
 #article-head-eyecatch{
         width: 100%;
         height: 260px;
-        background-image:url("../<?php echo IMAGE_MAIN_LARGE ?>?a=1");
+        background-image:url("../<?php echo IMAGE_MAIN_LARGE ?>");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;

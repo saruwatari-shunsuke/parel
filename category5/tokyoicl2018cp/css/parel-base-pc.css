@@ -73,7 +73,7 @@ ul.share li{
     height: 50px;
     overflow:hidden;
 }
-.header_bar{
+#header1{
     border-color: #000;
     border-style:solid;
     border-bottom-width:0;
@@ -134,7 +134,9 @@ ul.share li{
 }
 /* header_nav */
 .nav_bar_wrapper{
-    width:980px; margin:0 auto;
+    overflow: hidden;
+    width:980px;
+    margin:0 auto;
 }
 #head_nav_search{
     margin:5px 10px ; padding:0;
@@ -336,7 +338,7 @@ ul.share li{
     background:#fff;
 }
 /* footer */
-#footer_wrapper{
+#footer{
     margin:0;
     padding:20px 0 10px;
 }

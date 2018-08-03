@@ -61,7 +61,7 @@ jQuery.each(jQuery('textarea'), function() {
 $(function() {
   $('#toolbar').exFlexFixed({
     container : '#text_body',
-    fixedHeader : '#header',
+    fixedHeader : '#header1',
   });
 });
 

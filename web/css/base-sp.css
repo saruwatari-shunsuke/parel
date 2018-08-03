@@ -328,8 +328,6 @@ ul,li{
 }
 /* article->view */
 .article_view_area{
-	/*border-right:1px solid #ccc;*/
-	/*border-left:1px solid #ccc;*/
 	padding: 0 10px;
 	margin: 0 -10px 15px;
         background: #fff;

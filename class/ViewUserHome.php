@@ -1,14 +1,14 @@
 <?php
 /**
-* ViewUserTop
-* トップ画面
+* ViewUserHome
+* ホーム画面
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.6
+* @version 1.7
 */
 
-Class ViewUserTop {
+Class ViewUserHome {
 	public function __construct($category_id=0) {
 		try {
 			session_start();
@@ -160,7 +160,6 @@ Class ViewUserTop {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <?php ViewBootstrap::js(); ?>
 <?php new ViewAnalytics(); ?>
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/jquery.exflexfixed-0.3.0.js"></script><!-- sidebar move -->
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-pc.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/jquery.simplePagination.js"></script>
     <script type="text/javascript">
@@ -278,7 +277,10 @@ Class ViewUserTop {
         <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?><?php if($_GET['s']){ echo '?s='.urlencode($_GET['s']); } ?>" <?php if($key>=$page_items){ echo ' class="article_more"'; } ?>>
           <div class="mobile_article_index_box2">
             <div class="boxview_left">
-              <div class="boxview_leftimg"><img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78" alt="<?php echo $value['title'] ?>"></div>
+              <div class="boxview_leftimg">
+                <!--<img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78" alt="<?php echo $value['title'] ?>">-->
+                <img src="<?php echo MAIN_URL ?>img/common/loading-thumb.gif" data-echo="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78" alt="<?php echo $value['title'] ?>">
+              </div>
             </div>
             <div class="boxview_right">
               <div class="mobile_article_index_text">
@@ -309,6 +311,10 @@ Class ViewUserTop {
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/jquery.easing.1.3.js"></script><!-- for wideslider.js -->
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/wideslider.js" defer></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/slidemenu.js" defer></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/echo.min.js"></script><!-- image async load  -->
+    <script>
+      echo.init();
+    </script>
     <script>
       function showArticle() {
         $('.article_more').show();

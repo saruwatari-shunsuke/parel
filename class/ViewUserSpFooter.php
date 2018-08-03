@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.4
+* @version 1.5
 */
 
 Class ViewUserSpFooter {
@@ -62,7 +62,7 @@ Class ViewUserSpFooter {
     <div class="js-footer">
       <div class="footer bg_coral" role="contentinfo">
         <ul class="footer_nav_category">
-          <li><a href="<?php echo MAIN_URL ?>">Top</a></li>
+          <li><a href="<?php echo MAIN_URL ?>">Home</a></li>
           <li><a href="<?php echo MAIN_URL ?>ranking/">Ranking</a></li>
           <li><a href="<?php echo CATEGORY_URL[1] ?>">Food</a></li>
           <li><a href="<?php echo CATEGORY_URL[2] ?>">Exercise</a></li>
@@ -86,7 +86,7 @@ Class ViewUserSpFooter {
     <!-- slide menu -->
     <div id="slide-menu" class="js-panel" role="navigation">
       <ul>
-        <li class="top"><a href="<?php echo MAIN_URL ?>">Top<br><span class="menu-text">トップ</span></a></li>
+        <li class="top"><a href="<?php echo MAIN_URL ?>">Home<br><span class="menu-text">ホーム</span></a></li>
         <li class="food"><a href="<?php echo CATEGORY_URL[1] ?>">Food<br><span class="menu-text">食事</span></a></li>
         <li class="excercise"><a href="<?php echo CATEGORY_URL[2] ?>">Exercise<br><span class="menu-text">運動</span></a></li>
         <li class="health"><a href="<?php echo CATEGORY_URL[3] ?>">Health<br><span class="menu-text">健康</span></a></li>

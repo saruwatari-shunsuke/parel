@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.5
+* @version 1.6
 */
 
 Class ViewUserArticle {
@@ -159,6 +159,14 @@ Class ViewUserArticle {
 <?php ViewBootstrap::js(); ?>
 <?php if($article_data['status']){ new ViewAnalytics(); } ?>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/jquery.exflexfixed-0.3.0.js"></script><!-- sidebar move -->
+    <script>
+      $(function(){
+        $('#sub-contents-inner').exFlexFixed({
+          container : '.container',
+          fixedHeader : '#header2',
+        });
+      });
+    </script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-pc.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/echo.min.js"></script><!-- image async load  -->
     <script>

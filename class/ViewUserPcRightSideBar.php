@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.4
+* @version 1.5
 */
 
 Class ViewUserPcRightSideBar {
@@ -88,7 +88,7 @@ Class ViewUserPcRightSideBar {
 <?php } ?>
             </div>
 
-            <!-- my favolite -->
+            <!-- go back top -->
             <div class="subcontents_area">
               <a href="#" id="page-top" class="btn btn-lg btn-block btn-default"><span class="glyphicon glyphicon-chevron-up"></span></a>
             </div>

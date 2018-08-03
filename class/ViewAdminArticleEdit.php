@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.5
+* @version 1.6
 */
 
 Class ViewAdminArticleEdit {
@@ -56,7 +56,6 @@ Class ViewAdminArticleEdit {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no">
  
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/html5reset-1.6.1.css">
 <?php ViewBootstrap::css(); ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">

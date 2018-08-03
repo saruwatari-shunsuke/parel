@@ -1,3 +1,3 @@
 <?php
 require_once(dirname(__FILE__).'/../conf/ini.php');
-new ViewUserTop(4);
+new ViewUserHome(4);
