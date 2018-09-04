@@ -1,24 +1,27 @@
 <?php
 /**
-* ViewAdminMenu
-* 管理画面入口
+* ViewAdminKeyword
+* Googleキーワード検索
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.6
+* @version 1.0
 */
 
-Class ViewAdminMenu {
+Class ViewAdminKeyword {
 	public function __construct() {
 		try {
 			session_start();
 
-			self::body();
+			$object_cse = new ControllerSearch();
+			$search_file = $object_cse->searchAPI();
+
+			self::body($search_file);
 		} catch(Exception $e) {
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 		}
 	}
-	private function body() {
+	private function body($search_file) {
 		try {
 			global $setting_data;
 ?>
@@ -57,15 +60,31 @@ Class ViewAdminMenu {
 
      <div class="container-fruid">
       <div class="row">
+
+        <h1 class="col-md-12 mb20">Googleキーワード検索</h1>
+
+        <form action="/keyword/" method="GET">
+          <div class="col-md-12 mb20">
+            <input name="q" class="form-controll" type="text" placeholder="キーワードを入力してください" value="<?php echo $_GET['q'] ?>">
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span> 検索</button>
+          </div>
+          <div class="col-md-12 mb20">
+            <a class="btn btn-default btn-sm" data-toggle="collapse" href="#collapseExample"><span class="glyphicon glyphicon-plus"></span> 検索オプション</a>
+            <div class="collapse" id="collapseExample">
+              <div class="well">
+                見出しを抽出 … 検索上位<input name="r" class="form-controll" type="number"  min="0" max="30" value="<?php echo ($_GET['r']) ? $_GET['r'] : 3; ?>">位以内 ※0にすると検索が速くなります。
+              </div>
+            </div>
+          </div>
+        </form>
+
+<?php if($search_file){ ?>
         <div class="col-md-12 mb20">
-          <h1>パルール 管理画面</h1>
-          <h2><a href="/edit/"><span class="glyphicon glyphicon-pencil"></span> 記事を書く</a></h2>
-          <h2><a href="/view/"><span class="glyphicon glyphicon-file"></span> 記事一覧</a></h2>
-          <h2><a href="/author/"><span class="glyphicon glyphicon-user"></span> ライター</a></h2>
-          <h2><a href="/myfavolite/"><span class="glyphicon glyphicon-star-empty"></span> おすすめ</a></h2>
-          <h2><a href="/keyword/"><span class="glyphicon glyphicon-search"></span> Google検索</a></h2>
-          <h2><a href="<?php echo MAIN_URL ?>" target="_blank"><img src="<?php echo FAVICON ?>"> パルール</a></h2>
+          <?php echo $_GET['q'] ?> の検索結果
+          <a href="/log/<?php echo $search_file ?>" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-download"></span> ダウンロード</a>
         </div>
+<?php } ?>
+
       </div><!-- /row -->
     </div><!-- /container-fruid -->
 

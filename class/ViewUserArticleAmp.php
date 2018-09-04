@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.7
+* @version 1.8
 */
 
 Class ViewUserArticleAmp {
@@ -202,30 +202,14 @@ ul{
 	padding:5px;
 	font-size:90%;
 }
-.points_text{
-	color:#333;
-	font-size:11px;
-}
-/* article boc view */
-.box_article_head_img{
-	width:100%;
-	height:215px;
-}
-.box_carousel_title{
-	font-weight:bold;
-	margin:5px 10px;
-	color: #fff;
-	line-height:150%;
-	font-size:140%;
-	text-shadow: .5px .5px 2px #999, -.5px -.5px 2px #999, .5px -.5px 2px #999, -.5px .5px 2px #999;
-}
 /* article head */
 #article-head-area1{
         z-index: -2;
         margin: -16px -10px 0;
+/*        transform: translate3d(0, 0, 0);
         position: -webkit-sticky;
         position: sticky;
-        top: 42px;
+        top: 42px;*/
 }
 #article-head-eyecatch{
         width: 100%;
@@ -241,9 +225,10 @@ ul{
         background: rgba(255, 255, 255, 0.7);
         margin: -50px -10px 0;
         padding: 5px 10px;
+/*        transform: translate3d(0, 0, 0);
         position: -webkit-sticky;
         position: sticky;
-        top: 42px;
+        top: 42px;*/
 }
 .img-circle{
 	border-radius: 50%;
@@ -266,9 +251,10 @@ ul{
         height: 260px;
         background: #fff;
         margin: 0 -10px -260px;
+/*        transform: translate3d(0, 0, 0);
         position: -webkit-sticky;
         position: sticky;
-        top: 42px;
+        top: 42px;*/
 }
 .article_head_share{
 	width: 100%;
@@ -336,9 +322,6 @@ ul{
 	margin: 10px 0;
 	line-height: 160%;
 }
-.mb_footer{
-	margin-top:10px;
-}
 /* article-> title */
 .close{
 	font-weight:normal;
@@ -367,14 +350,6 @@ ul,li{
 .article_view_area{
 	padding:0 10px;
 	margin: 0 -10px 15px;
-}
-.article_written_user{
-	padding:0 0 0 10px;
-}
-.article_written_box{
-	border:1px solid #ddd;
-	padding:5px;
-	background:#fff;
 }
 #article-body h3{
 	font-weight:bold;
@@ -539,7 +514,7 @@ ul,li{
 #article-introduction img, #article-body img, #article-summary img {
   width: calc(100% - 10px);
   max-height: 500px;
-  margin: 20px 5px;
+/*  margin: 20px 5px; */
   object-fit: contain;
 }
 #article-introduction table, #article-body table, #article-summary table {
@@ -563,6 +538,75 @@ video {
   font-size: 0.8em;
   text-decoration: none;
   margin: 0 4px;
+}
+.balloon {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: -25px;
+}
+.balloon .faceicon1 {
+    float: right;
+    margin-left: -70px;
+    width: 60px;
+    height: 60px;
+}
+.baloon-img1{
+    border: solid 3px #f7a;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.balloon .faceicon2 {
+    float: left;
+    margin-right: -70px;
+    width: 60px;
+    height: 60px;
+}
+.baloon-img2{
+    border: solid 3px #7af;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.balloon .chatting {
+    width: 100%;
+}
+.says1 {
+    display: inline-block;
+    position: relative; 
+    float: right;
+    margin: 5px 75px 0 0;
+    padding: 17px 13px;
+    border-radius: 12px;
+    background: #fce;
+}
+.says1:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 18px; 
+    right: -24px;
+    border: 12px solid transparent;
+    border-left: 12px solid #fce;
+}
+.says2 {
+    display: inline-block;
+    position: relative; 
+    float: left;
+    margin: 5px 0 0 75px;
+    padding: 17px 13px;
+    border-radius: 12px;
+    background: #cef;
+}
+.says2:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 18px; 
+    left: -24px;
+    border: 12px solid transparent;
+    border-right: 12px solid #cef;
 }
 .btn-social amp-social-share {
   float: left;
@@ -658,10 +702,10 @@ amp-sidebar amp-img {
         </a>
         <div class="article_head_views"><?php echo $article_data['views'] ?> views</div>
       </div>
-
+<!--
       <div id="article-head-cover">
       </div>
-
+-->
       <div class="article_view_area">
         <h1 id="article-title" class="not_auto_br"><?php echo $article_data['title'] ?></h1>
 
@@ -779,7 +823,7 @@ amp-sidebar amp-img {
         width="30"
         height="30"
         alt=""></amp-img>
-        Top
+        Home
     </li>
     <li>
       <a href="<?php echo CATEGORY_URL[1] ?>">

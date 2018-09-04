@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.5
+* @version 1.6
 */
 
 Class ViewAdminFooter {
@@ -44,6 +44,7 @@ Class ViewAdminFooter {
               <li><a class="btn btn-sm" href="/view/"><span class="glyphicon glyphicon-file"></span> 記事</a></li>
               <li><a class="btn btn-sm" href="/author/"><span class="glyphicon glyphicon-user"></span> ライター</a></li>
               <li><a class="btn btn-sm" href="/myfavolite/"><span class="glyphicon glyphicon-star-empty"></span> おすすめ</a></li>
+              <li><a class="btn btn-sm" href="/keyword/"><span class="glyphicon glyphicon-search"></span> Google</a></li>
             </ul>
             <div class="header_logo">
               <a href="<?php echo ADMIN_URL ?>"><img src="<?php echo LOGO ?>"></a>

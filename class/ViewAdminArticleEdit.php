@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.6
+* @version 1.7
 */
 
 Class ViewAdminArticleEdit {
@@ -58,7 +58,7 @@ Class ViewAdminArticleEdit {
  
 <?php ViewBootstrap::css(); ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/pc/common.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" href="/jquery_file_upload/css/style.css">
     <link rel="stylesheet" href="/jquery_file_upload/css/jquery.fileupload.css">

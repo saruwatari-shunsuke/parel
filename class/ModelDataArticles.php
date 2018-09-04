@@ -5,7 +5,7 @@
 * @package Model
 * @author Saruwatari Shunsuke
 * @since PHP 7.0
-* @version 1.2
+* @version 1.3
 */
 Class ModelDataArticles extends CommonBase{
 	/*
@@ -377,6 +377,41 @@ Class ModelDataArticles extends CommonBase{
 			while($row = mysqli_fetch_assoc($result)){
 				$data[$row['article_id']]['title'] = $row['title'];
 				$data[$row['article_id']]['url'] = 'https://'.$row['sub_domain'].'.parel.site/'.$row['path'].'/';
+			}
+			return $data;
+		} catch(Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
+		}
+	}
+
+	/*
+	* 最新キーワード取得
+	*
+	* @param
+	* @access public
+	* @return array
+	*/
+	public function selectKeywords(){
+        	try {
+			$where = $this->escapeSql($where);
+            		$sql = 'SELECT '.
+					'dar.keyword '.
+				'FROM '.
+					'data_articles dar '.
+				'WHERE '.
+					'dar.deleted=0 '.
+				'AND dar.status=1 '.
+				'AND keyword<>"" '.
+				'ORDER BY release_time DESC LIMIT 20;';
+			if(!$result = mysqli_query($this->getDatabaseLink(), $sql)){
+				throw new Exception(mysqli_error($this->getDatabaseLink()).$sql);
+			}
+			if(!mysqli_num_rows($result)){
+				return false;
+			}
+			while($row = mysqli_fetch_assoc($result)){
+				$data[] = $row['keyword'];
 			}
 			return $data;
 		} catch(Exception $e){

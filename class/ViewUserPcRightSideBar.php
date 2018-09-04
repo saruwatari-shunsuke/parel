@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.5
+* @version 1.6
 */
 
 Class ViewUserPcRightSideBar {
@@ -35,6 +35,8 @@ Class ViewUserPcRightSideBar {
         <div id="sub-contents">
           <div id="sub-contents-inner">
 
+<?php ViewGoogletag::pcBody(); ?>
+
             <!-- ranking -->
             <div class="subcontents_area">
               <img src="<?php echo MAIN_URL ?>img/common/ranking-title.png" alt="人気の記事" class="subcontents_title">
@@ -60,11 +62,9 @@ Class ViewUserPcRightSideBar {
             <!-- sponsored -->
             <div class="subcontents_area">
               <img src="<?php echo MAIN_URL ?>img/common/sponsored-title.png" alt="スポンサード" class="subcontents_title">
-              <a href="//tokyophotogenicteam.com/">
-                <div class="overflow hover-light">
-                  <img src="<?php echo MAIN_URL ?>img/common/bnr_tokyoicecreamland_pc.png" alt="東京アイスクリームランド">
-                </div>
-              </a>
+              <div class="overflow">
+                <img src="<?php echo MAIN_URL ?>img/common/bnr_tokyoicecreamland_pc.png" alt="東京アイスクリームランド">
+              </div>
             </div>
 
             <!-- my favolite -->
@@ -87,6 +87,20 @@ Class ViewUserPcRightSideBar {
               </a>
 <?php } ?>
             </div>
+
+<?php /*
+            <!-- keyword -->
+            <div class="subcontents_area">
+<!--              <img src="<?php echo MAIN_URL ?>img/common/myfavolite-title.png" alt="キーワード" class="subcontents_title">-->
+              <div class="keyword_area">
+<?php foreach ($keyword_data as $key => $value) { ?>
+                <a href="<?php echo MAIN_URL.'?s='.$value; ?>">
+                  <span class="hover-light"><?php echo $value ?></span>
+                </a>
+<?php } ?>
+              </div>
+            </div>
+*/ ?>
 
             <!-- go back top -->
             <div class="subcontents_area">

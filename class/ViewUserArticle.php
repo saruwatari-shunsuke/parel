@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.6
+* @version 1.7
 */
 
 Class ViewUserArticle {
@@ -66,12 +66,13 @@ Class ViewUserArticle {
     <meta name="format-detection" content="telephone=no">
  
 <?php ViewBootstrap::css(); ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/article.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/pc/common.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/pc/article.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="canonical" href="<?php echo $article_data['url'] ?>">
     <link rel="amphtml" href="<?php echo $article_data['url'] ?>amp/">
+<?php ViewGoogletag::pcHeader(); ?>
   </head>
   <body>
     <div class="container">
@@ -167,7 +168,7 @@ Class ViewUserArticle {
         });
       });
     </script>
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-pc.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/common.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/echo.min.js"></script><!-- image async load  -->
     <script>
       echo.init();
@@ -238,12 +239,13 @@ Class ViewUserArticle {
     <meta name="format-detection" content="telephone=no">
  
 <?php ViewBootstrap::css(); ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-sp.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/article.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/sp/common.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/sp/article.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="canonical" href="<?php echo $article_data['url'] ?>">
     <link rel="amphtml" href="<?php echo $article_data['url'] ?>amp/">
+<?php ViewGoogletag::spHeader(); ?>
   </head>
   <body>
 
@@ -298,7 +300,9 @@ Class ViewUserArticle {
         <div class="addthis_inline_share_toolbox_ribm"></div>
       </div><!-- /article_view_area -->
 
-      <div>
+<?php ViewGoogletag::spBody(); ?>
+
+      <div class="subcontents_area">
         <p class="articles_heading">関連記事</p>
 <?php foreach ($article_data['related'] as $key => $value) { ?>
         <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">

@@ -35,12 +35,6 @@ ul,li{
 #close{
     cursor:pointer;
 }
-ul.share{
-    overflow:hidden;
-}
-ul.share li{
-    float:left;
-}
 .left{
     float:left;
 }
@@ -90,10 +84,6 @@ ul.share li{
 .header_logo img{
     text-align: center;
     height: 42px;
-}
-.header_text{
-    margin-top:10px;
-    color:#666;
 }
 #header2{
     border-top: 1px solid #ddd;
@@ -208,9 +198,6 @@ ul.share li{
     line-height:160%;
     font-size: 17px;
 }
-.carousel_area{
-    margin:5px 5px 5px;
-}
 /* side_ranking */
 .ranking_wrapper{
     position: relative;
@@ -266,10 +253,6 @@ ul.share li{
     vertical-align:middle;
 }
 /* boxview */
-.points_text{
-    color:#999;
-    font-weight: bold;
-}
 #out{
     clear:both; margin:10px;
 }
@@ -314,12 +297,6 @@ ul.share li{
     width: calc(100% - 100px);
     float: right;
     margin: 0 10px 0;
-}
-.article_written_username{
-    color: #dc8791;
-    font-weight: bold;
-    margin: 5px 0;
-    padding: 0;
 }
 /* policy */
 .policy_text{
@@ -381,11 +358,6 @@ p.footer_text a:hover{
     background:#fff;
     padding:0px 0px;
     margin-left:65px;
-}
-.points_text{
-    color:#999;
-    font-weight: bold;
-    font-size:11px;
 }
 .ranking_text_box{
     font-size:12px;

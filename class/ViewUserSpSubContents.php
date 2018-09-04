@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.5
+* @version 1.6
 */
 
 Class ViewUserSpSubContents {
@@ -60,9 +60,7 @@ Class ViewUserSpSubContents {
       <!-- sponsored -->
       <div class="subcontents_area">
         <img src="<?php echo MAIN_URL ?>img/common/sponsored-title.png" alt="スポンサード" class="subcontents_title">
-        <a href="//tokyophotogenicteam.com/">
-          <img src="<?php echo MAIN_URL ?>img/common/bnr_tokyoicecreamland_sp.png" class="max-width" alt="東京アイスクリームランド">
-        </a>
+        <img src="<?php echo MAIN_URL ?>img/common/bnr_tokyoicecreamland_sp.png" class="max-width" alt="東京アイスクリームランド">
       </div>
 
       <!-- my favolite -->
@@ -93,7 +91,7 @@ Class ViewUserSpSubContents {
 
       <!-- go back top -->
       <div class="subcontents_area">
-        <a href="#" id="page-top" class="btn btn-lg btn-block btn-default"><span class="glyphicon glyphicon-chevron-up"></span> ページトップに戻る</a>
+        <a href="#" id="page-top" class="btn btn-lg btn-block btn-default"><span class="glyphicon glyphicon-chevron-up"></span></a>
       </div>
 
 <?php

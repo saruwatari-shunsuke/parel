@@ -5,7 +5,7 @@
 * @package Controller
 * @author Saruwatari Shunsuke
 * @since PHP 7.0
-* @version 1.5
+* @version 1.6
 */
 Class ControllerArticle extends CommonBase{
 	/*
@@ -140,6 +140,7 @@ Class ControllerArticle extends CommonBase{
 			$article_data['summary'] = nl2br($article_data['summary']);
 			$article_data['summary'] = str_replace('<img ', '<img alt="'.$article_data['title'].'" ', $article_data['summary']);
 
+			$article_data['release_time'] = date('Y/m/d', strtotime($article_data['release_time']));
 			$article_data['url'] = CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/';
 			$article_data['related'] = $this->getRelated($article_data['article_id'], $article_data['category_id']);
 
@@ -223,7 +224,7 @@ Class ControllerArticle extends CommonBase{
 						$text);
 
 			// タグを消す
-			$text = strip_tags($text, '<a><img><h3><h4><h5><h6><strong><table><tr><th><td><amp-instagram><amp-youtube>');
+			$text = strip_tags($text, '<a><img><h3><h4><h5><h6><strong><div><table><tr><th><td><amp-instagram><amp-youtube>');
 
 			// table内改行除去
 			$text = preg_replace('/(<table.*?>|<tr.*?>|<\/tr>|<\/th>|<\/td>)\s*\n*/', '$1', $text);
@@ -456,6 +457,32 @@ Class ControllerArticle extends CommonBase{
 			}
 
 			return $article_data;
+		} catch (Exception $e){
+			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
+			return false;
+		}
+	}
+
+	/* 最新キーワード取得
+	* 
+	*
+	* @param
+	* @access public
+	* @return array
+	*/
+	public function getKeywords(){
+		try{
+			$object_mdar = new ModelDataArticles();
+			if(!$article_data = $object_mdar->selectKeywords()){
+				return false;
+			}
+			foreach($article_data as $key => $value) {
+				$keywords = preg_split("/[\s,]+/", $value);
+				foreach($keywords as $key => $value) {
+					$keyword_data[$value] = $value;
+				}
+			}
+			return $keyword_data;
 		} catch (Exception $e){
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 			return false;

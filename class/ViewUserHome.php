@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.7
+* @version 1.8
 */
 
 Class ViewUserHome {
@@ -65,11 +65,13 @@ Class ViewUserHome {
     <meta name="format-detection" content="telephone=no">
  
 <?php ViewBootstrap::css(); ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-pc.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/pc/common.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/pc/index.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/simplePagination.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="canonical" href="<?php echo CATEGORY_URL[$category_id] ?>">
+<?php ViewGoogletag::pcHeader(); ?>
   </head>
   <body>
     <div class="container">
@@ -78,7 +80,7 @@ Class ViewUserHome {
       <div class="recommend_area">
 <?php foreach ($recommend_data as $key => $value) { ?>
         <div class="recommend_item hover-light">
-          <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>" class="push-click" id="topbtn-left" data-article-id="#">
+          <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
             <img class="carousel_item_img" src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_LARGE ?>" alt="<?php echo $value['title'] ?>">
             <div class="carousel_logo_wrapper">
               <p class="carousel_category"><img src="<?php echo MAIN_URL ?>img/common/category-<?php echo $value['category_id'] ?>.png" alt="<?php echo $value['category_name'] ?>"></p>
@@ -160,7 +162,7 @@ Class ViewUserHome {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <?php ViewBootstrap::js(); ?>
 <?php new ViewAnalytics(); ?>
-    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/base-pc.js"></script>
+    <script type="text/javascript" src="<?php echo MAIN_URL ?>js/common.js"></script>
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/jquery.simplePagination.js"></script>
     <script type="text/javascript">
       $(function(){
@@ -240,64 +242,68 @@ Class ViewUserHome {
     <meta name="format-detection" content="telephone=no">
  
 <?php ViewBootstrap::css(); ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/base-sp.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/sp/common.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/sp/index.css">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/wideslider.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="canonical" href="<?php echo CATEGORY_URL[$category_id] ?>">
+<?php ViewGoogletag::spHeader(); ?>
   </head>
   <body>
 
     <div class="content-wrapper js-main">
 
-      <div class="boxview_wrapper">
 <?php if(!$category_id && !$_GET['a'] && !$_GET['s']) { ?>
-        <div class="boxview_wideslider">
-          <div class="wideslider">
-            <ul class="slides">
+      <div id="recommend-area">
+        <div class="wideslider">
+          <ul class="slides">
 <?php foreach ($recommend_data as $key => $value) { ?>
-              <li>
-                <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
-                  <div class="recommend_item">
-                    <img class="sp-head" src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_LARGE ?>" alt="<?php echo $value['title'] ?>">
-                    <div class="box_article_head_text">
-                      <p class="box_carousel_title text-line-2"><?php echo $value['title'] ?></p>
-                      <span class="box_carousel_user"><?php echo $value['author_name'] ?></span>
-                    </div>
+            <li>
+              <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
+                <div class="recommend-item">
+                  <img class="recommend-img" src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_LARGE ?>" alt="<?php echo $value['title'] ?>">
+                  <div class="recommend-text">
+                    <p class="recommend-title text-line-2"><?php echo $value['title'] ?></p>
+                    <span class="recommend-user"><?php echo $value['author_name'] ?></span>
                   </div>
-                </a>
-              </li>
+                </div>
+              </a>
+            </li>
 <?php } ?>
-            </ul>
-          </div><!-- /wideslider -->
-        </div><!-- /boxview -->
+          </ul>
+        </div><!-- /wideslider -->
+      </div><!-- /recommend-area -->
 <?php } ?>
 
 <?php foreach ($article_data as $key => $value) { ?>
-        <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?><?php if($_GET['s']){ echo '?s='.urlencode($_GET['s']); } ?>" <?php if($key>=$page_items){ echo ' class="article_more"'; } ?>>
-          <div class="mobile_article_index_box2">
-            <div class="boxview_left">
-              <div class="boxview_leftimg">
-                <!--<img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78" alt="<?php echo $value['title'] ?>">-->
-                <img src="<?php echo MAIN_URL ?>img/common/loading-thumb.gif" data-echo="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78" alt="<?php echo $value['title'] ?>">
-              </div>
-            </div>
-            <div class="boxview_right">
-              <div class="mobile_article_index_text">
-                <p class="boxview_title not_auto_br text-line-2"><?php echo $value['title'] ?></p>
-                <span class="boxview_text_left"><?php echo $value['view'] ?> view</span>
-                <span class="boxview_text_right"><?php echo $value['author_name'] ?></span>
-              </div>
+      <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?><?php if($_GET['s']){ echo '?s='.urlencode($_GET['s']); } ?>" <?php if($key>=$page_items){ echo ' class="article_more"'; } ?>>
+        <div class="mobile_article_index_box2">
+          <div class="boxview_left">
+            <div class="boxview_leftimg">
+              <img src="<?php echo MAIN_URL ?>img/common/loading-thumb.gif" data-echo="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78" alt="<?php echo $value['title'] ?>">
             </div>
           </div>
-        </a>
+          <div class="boxview_right">
+            <div class="mobile_article_index_text">
+              <p class="boxview_title not_auto_br text-line-2"><?php echo $value['title'] ?></p>
+              <span class="boxview_text_left"><?php echo $value['view'] ?> view</span>
+              <span class="boxview_text_right"><?php echo $value['author_name'] ?></span>
+            </div>
+          </div>
+        </div>
+      </a>
 <?php } ?>
-
-      </div><!-- /boxview_wrapper -->
 
 <?php if($sum_items>$page_items){ ?>
-      <button class="boxview_nextbtn" onclick="showArticle()">もっとみる</button>
+      <button id="article_more" class="boxview_nextbtn" onclick="showArticle()">もっとみる</button>
 <?php } ?>
+
+      <!-- ad -->
+      <div class="subcontents_area">
+<?php ViewGoogletag::spBody(); ?>
+        <img src="<?php echo MAIN_URL ?>img/common/dot.png" alt="">
+      </div>
 
 <?php new ViewUserSpSubContents(5, null); ?>
 
@@ -318,7 +324,7 @@ Class ViewUserHome {
     <script>
       function showArticle() {
         $('.article_more').show();
-        $('#article_more').hide();
+        $('#article_more').css("visibility","hidden");
       }
     </script>
   </body>
