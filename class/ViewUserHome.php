@@ -77,14 +77,14 @@ Class ViewUserHome {
     <div class="container">
 
 <?php if(!$category_id && !$_GET['a'] && !$_GET['s']) { ?>
-      <div class="recommend_area">
+      <div id="recommend-area">
 <?php foreach ($recommend_data as $key => $value) { ?>
-        <div class="recommend_item hover-light">
+        <div class="recommend-item hover-light">
           <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
-            <img class="carousel_item_img" src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_LARGE ?>" alt="<?php echo $value['title'] ?>">
-            <div class="carousel_logo_wrapper">
-              <p class="carousel_category"><img src="<?php echo MAIN_URL ?>img/common/category-<?php echo $value['category_id'] ?>.png" alt="<?php echo $value['category_name'] ?>"></p>
-              <p class="carousel_text trunk2"><?php echo $value['title'] ?></p>
+            <img class="recommend-img" src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_LARGE ?>" alt="<?php echo $value['title'] ?>">
+            <div class="recommend-text">
+              <span class="recommend-category"><?php echo $value['category_name'] ?></span>
+              <p class="recommend-title trunk2"><?php echo $value['title'] ?></p>
             </div>
           </a>
         </div>

@@ -212,67 +212,6 @@ ul,li{
 	list-style: none;
 }
 /* article->view */
-.article_view_area{
-	/*border-right:1px solid #ccc;*/
-	/*border-left:1px solid #ccc;*/
-	padding: 0 10px;
-	margin: 0 -10px 15px;
-}
-.article_written_box{
-	border: 1px solid #ddd;
-	padding: 5px;
-	background: #fff;
-}
-#article-body h3{
-	font-weight: bold;
-        margin: 30px 0 0;
-        padding: 50px 0 0;
-	text-align: center;
-	color: #333;
-	line-height: 130%;
-	font-size: 17px;
-}
-#article-body h4{
-	font-weight: bold;
-        margin: 10px 0 0;
-        padding: 50px 0 0;
-	text-align: center;
-	color: #333;
-	line-height: 110%;
-	font-size: 15px;
-}
-#article-body h5{
-	font-weight: bold;
-        margin: 5px 0 ;
-        padding: 50px 0 0;
-	text-align: center;
-	color: #333;
-	line-height: 100%;
-	font-size: 13px;
-}
-#article-body h6{
-	font-weight: bold;
-        margin: 0;
-        padding: 50px 0 0;
-	text-align: center;
-	color: #333;
-	line-height: 100%;
-	font-size: 11px;
-}
-#article-body{
-	line-height: 180%;
-	font-size: 15px;
-	padding: 0 3px;
-	color: #333;
-	word-break: break-all;
-	word-wrap: break-word;
-	overflow: hidden;
-}
-#article-introduction, #article-summary{
-	font-size: 13px;
-	color: #666;
-	line-height: 180%;
-}
 /* policy */
 #policy_border{
 	border: 1px solid #ccc;
@@ -293,52 +232,70 @@ ul,li{
 }
 /** slidemenu ****************************************************************/
 #slide-menu{
-	top: 42px;
-	width: 260px;
-	position: fixed;
-	display: none;
-	background-color: #fff;
-	z-index: 9999;
+  top: 42px;
+  width: 260px;
+  position: fixed; 
+  display: none;
+  background-color: #fff;
+  z-index: 9999;
 }
 #slide-menu li{
-	line-height: 90%;
-	background-repeat: no-repeat;
-	background-position: 10px 50%;
-	background-size: 29px 29px;
-	display: block;
+  padding: 10px 20px 5px 20px;
+  display: block;
+  color: #777;
 }
 #slide-menu li > a {
-	display: block;
-	padding: 10px 20px 5px 50px;
+  display: block;
+  color: #777;
 }
-#slide-menu li.top{
-	background-image: url('http://parel.site/img/common/icon-curtain.png');
+#slide-menu li .menu-icon{
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  overflow: hidden;
+  background-image: url('/img/common/menu-icon.png');
+  background-repeat: no-repeat;
+  background-size: 240px 30px;
 }
-#slide-menu li.food{
-	background-image: url('http://parel.site/img/common/icon-meal.png');
+#slide-menu li .icon-top{
+  background-position: -30px 0;
 }
-#slide-menu li.excercise{
-	background-image: url('http://parel.site/img/common/icon-fitnes.png');
+#slide-menu li .icon-food{
+  background-position: -60px 0;
 }
-#slide-menu li.health{
-	background-image: url('http://parel.site/img/common/icon-pill.png');
+#slide-menu li .icon-exercise{
+  background-position: -90px 0;
 }
-#slide-menu li.fashion{
-	background-image: url('http://parel.site/img/common/icon-jacket.png');
+#slide-menu li .icon-health{
+  background-position: -120px 0;
 }
-#slide-menu li.feature{
-	background-image: url('http://parel.site/img/common/icon-present.png');
+#slide-menu li .icon-fashion{
+  background-position: -150px 0;
 }
-#slide-menu li.ranking{
-	background-image: url('http://parel.site/img/common/icon-top.png');
+#slide-menu li .icon-feature{
+  background-position: -180px 0;
 }
-#slide-menu li.option{
-	padding: 7px 20px 5px;
-	border-bottom: 0;
+#slide-menu li .icon-ranking{
+  background-position: -210px 0;
+}
+#slide-menu li .option{
+  padding: 7px 20px 5px;
+  border-bottom: 0;
 }
 #slide-menu li .menu-text{
-	color: #666;
-	font-size: 0.6em;
+  display: inline-block;
+  margin: 0 10px;
+  line-height: 30px;
+}
+#slide-menu li .menu-text-en{
+  margin: 0;
+  line-height: 18px;
+  font-size: 1.0em;
+}
+#slide-menu li .menu-text-jp{
+  margin: 0;
+  line-height: 6px;
+  font-size: 0.6em;
 }
 #container {
 	z-index: 1;

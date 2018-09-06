@@ -48,7 +48,7 @@ Class ViewUserPcRightSideBar {
                   </div>
                   <div class="ranking_text">
                     <div class="ranking_text_left">
-                      <img src="<?php echo MAIN_URL ?>img/common/rank-<?php echo $key+1 ?>.png" alt="<?php echo $key+1 ?>位" class="max-width">
+                      <?php echo $key+1; ?>
                     </div>
                     <div class="ranking_text_right">
                       <div class="ranking_text_right_title"><span class="trunk3"><?php echo $value['title'] ?></span></div>

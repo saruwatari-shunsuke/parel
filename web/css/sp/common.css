@@ -34,8 +34,7 @@ body{
 .max-width{
   width: 100%;
 }
-a,
-a:hover{
+a, a:hover{
   text-decoration:none;
 }
 ul{
@@ -244,43 +243,61 @@ ul,li{
   z-index: 9999;
 }
 #slide-menu li{
-  line-height: 90%;
-  background-repeat: no-repeat;
-  background-position: 10px 50%;
-  background-size: 29px 29px;
+  padding: 10px 20px 5px 20px;
   display: block;
+  color: #777;
 }
 #slide-menu li > a {
   display: block;
-  padding: 10px 20px 5px 50px;
   color: #777;
 }
-#slide-menu li.top{
-  background-image: url('/img/common/icon-curtain.png');
+#slide-menu li .menu-icon{
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  overflow: hidden;
+  background-image: url('/img/common/menu-icon.png');
+  background-repeat: no-repeat;
+  background-size: 240px 30px;
 }
-#slide-menu li.food{
-  background-image: url('/img/common/icon-meal.png');
+#slide-menu li .icon-top{
+  background-position: -30px 0;
 }
-#slide-menu li.excercise{
-  background-image: url('/img/common/icon-fitnes.png');
+#slide-menu li .icon-food{
+  background-position: -60px 0;
 }
-#slide-menu li.health{
-  background-image: url('/img/common/icon-pill.png');
+#slide-menu li .icon-exercise{
+  background-position: -90px 0;
 }
-#slide-menu li.fashion{
-  background-image: url('/img/common/icon-jacket.png');
+#slide-menu li .icon-health{
+  background-position: -120px 0;
 }
-#slide-menu li.feature{
-  background-image: url('/img/common/icon-present.png');
+#slide-menu li .icon-fashion{
+  background-position: -150px 0;
 }
-#slide-menu li.ranking{
-  background-image: url('/img/common/icon-top.png');
+#slide-menu li .icon-feature{
+  background-position: -180px 0;
 }
-#slide-menu li.option{
+#slide-menu li .icon-ranking{
+  background-position: -210px 0;
+}
+#slide-menu li .option{
   padding: 7px 20px 5px;
   border-bottom: 0;
 }
 #slide-menu li .menu-text{
+  display: inline-block;
+  margin: 0 10px;
+  line-height: 30px;
+}
+#slide-menu li .menu-text-en{
+  margin: 0;
+  line-height: 18px;
+  font-size: 1.0em;
+}
+#slide-menu li .menu-text-jp{
+  margin: 0;
+  line-height: 6px;
   font-size: 0.6em;
 }
 #container {
@@ -288,7 +305,7 @@ ul,li{
   margin-top: 0;
 }
 #container.show {
-  -webkit-transform: translate3d(240px, 0px, 1px);
+  -webkit-transform: translate3d(240px, 0, 1px);
   min-width: 320px;
 }
 /* side bar */

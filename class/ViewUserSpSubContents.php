@@ -71,7 +71,6 @@ Class ViewUserSpSubContents {
           <div class="mobile_article_index_box2">
             <div class="boxview_left">
               <div class="boxview_leftimg">
-                <!--<img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>" width="78" height="78">-->
                 <img src="<?php echo MAIN_URL ?>img/common/loading-thumb.gif" data-echo="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78" alt="<?php echo $value['title'] ?>">
               </div>
             </div>

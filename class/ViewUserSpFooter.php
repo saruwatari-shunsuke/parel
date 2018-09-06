@@ -86,13 +86,70 @@ Class ViewUserSpFooter {
     <!-- slide menu -->
     <div id="slide-menu" class="js-panel" role="navigation">
       <ul>
-        <li class="top"><a href="<?php echo MAIN_URL ?>">Home<br><span class="menu-text">ホーム</span></a></li>
-        <li class="food"><a href="<?php echo CATEGORY_URL[1] ?>">Food<br><span class="menu-text">食事</span></a></li>
-        <li class="excercise"><a href="<?php echo CATEGORY_URL[2] ?>">Exercise<br><span class="menu-text">運動</span></a></li>
-        <li class="health"><a href="<?php echo CATEGORY_URL[3] ?>">Health<br><span class="menu-text">健康</span></a></li>
-        <li class="fashion"><a href="<?php echo CATEGORY_URL[4] ?>">Fashion<br><span class="menu-text">ファッション</span></a></li>
-        <li class="feature"><a href="<?php echo CATEGORY_URL[5] ?>">Feature<br><span class="menu-text">特集</span></a></li>
-        <li class="ranking"><a href="<?php echo MAIN_URL ?>ranking/">Ranking<br><span class="menu-text">人気の記事</span></a></li>
+        <li class="center">- Menu -</li>
+        <li>
+          <a href="<?php echo MAIN_URL ?>">
+            <div class="menu-icon icon-top"></div>
+            <div class="menu-text">
+              <p class="menu-text-en">Home</p>
+              <p class="menu-text-jp">ホーム</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo CATEGORY_URL[1] ?>">
+            <div class="menu-icon icon-food"></div>
+            <div class="menu-text">
+              <p class="menu-text-en">Food</p>
+              <p class="menu-text-jp">食事</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo CATEGORY_URL[2] ?>">
+            <div class="menu-icon icon-exercise"></div>
+            <div class="menu-text">
+              <p class="menu-text-en">Exercise</p>
+              <p class="menu-text-jp">運動</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo CATEGORY_URL[3] ?>">
+            <div class="menu-icon icon-health"></div>
+            <div class="menu-text">
+              <p class="menu-text-en">Health</p>
+              <p class="menu-text-jp">健康</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo CATEGORY_URL[4] ?>">
+            <div class="menu-icon icon-fashion"></div>
+            <div class="menu-text">
+              <p class="menu-text-en">Fashion</p>
+              <p class="menu-text-jp">ファッション</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo CATEGORY_URL[5] ?>">
+            <div class="menu-icon icon-feature"></div>
+            <div class="menu-text">
+              <p class="menu-text-en">Feature</p>
+              <p class="menu-text-jp">特集</p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="<?php echo MAIN_URL ?>ranking/">
+            <div class="menu-icon icon-ranking"></div>
+            <div class="menu-text">
+              <p class="menu-text-en">Ranking</p>
+              <p class="menu-text-jp">人気の記事</p>
+            </div>
+          </a>
+        </li>
       </ul>
     </div>
     <div id="overlay" style="display:none;"></div>
