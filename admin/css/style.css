@@ -15,30 +15,18 @@
     color: #6df;
 }
 
-.header_logo{
+#header1  #header-logo{
   width: 220px;
 }
-.navbar_search_form_input{
-  height:28px;
-  padding:0px 10px;
+#keyword-search-form .keyword-search-input{
   color: #468;
-  width:240px;
-  font-size:80%;
   background:rgba(240, 249, 255, 0.9);
   border:1px solid #bde;
-  -webkit-border-radius: 1px;
-    -moz-border-radius: 1px;
-      border-radius: 1px;
 }
-.navbar_search_submit{
-  margin: 0 0 0 5px;
-  font-size: 80%;
+#keyword-search-form .keyword-search-submit{
   color: #468;
   background: rgba(240, 249, 255, 0.9);
   border: 1px solid #bde;
-  -webkit-border-radius: 1px;
-    -moz-border-radius: 1px;
-      border-radius: 1px;
 }
 .panel-heading {
   font-size: 1.2em;

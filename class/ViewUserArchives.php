@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.4
+* @version 1.5
 */
 
 Class ViewUserArchives {
@@ -71,16 +71,16 @@ Class ViewUserArchives {
   <body>
     <div class="container">
       <div class="overflow">
-        <h1 id="page_title">このページは移動しました。</h1>
-        <div class="policy_view">
-          <a href="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/' ?>" class="item-related-article">
+        <div id="information-form">
+          <h1>このページは移動しました。</h1>
+          <a href="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/' ?>" class="related-article">
             <div class="item-thumbnail"><img src="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/'.IMAGE_MAIN_SMALL ?>"></div>
             <div class="item-content">
               <p class="item-title"><?php echo $article_data['title'] ?></p>
               <p class="item-description trunk3"><?php echo $article_data['description'] ?></p>
             </div>
           </a>
-        </div> <!-- /policy_view -->
+        </div> <!-- /information-form -->
       </div> <!-- /overflow -->
     </div> <!-- /container -->
 
@@ -152,28 +152,24 @@ Class ViewUserArchives {
   <body>
 
     <div class="content-wrapper js-main">
-      <div class="policy_view">
-        <h1 id="page_title">このページは移動しました。</h1>
+      <div id="information-form">
+        <h1>このページは移動しました。</h1>
 
         <a href="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/' ?>">
-          <div class="mobile_article_index_box2">
-            <div class="boxview_left">
-              <div class="boxview_leftimg">
-                <img src="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78">
-              </div>
+          <div class="article-link">
+            <div class="article-link-img">
+              <img src="<?php echo CATEGORY_URL[$article_data['category_id']].$article_data['path'].'/'.IMAGE_MAIN_SMALL ?>">
             </div>
-            <div class="boxview_right">
-              <div class="mobile_article_index_text">
-                <p class="boxview_title not_auto_br text-line-2"><?php echo $article_data['title'] ?></p>
-                <span class="boxview_text_left"><?php echo $article_data['release_time'] ?></span>
-                <span class="boxview_text_right"><?php echo $article_data['author_name'] ?></span>
-              </div>
+            <div class="article-link-text">
+              <p class="article-link-title not_auto_br text-line-2"><?php echo $article_data['title'] ?></p>
+              <span class="article-link-text-left"><?php echo $article_data['release_time'] ?></span>
+              <span class="article-link-text-right"><?php echo $article_data['author_name'] ?></span>
             </div>
           </div>
         </a>
 
       <img src="<?php echo MAIN_URL ?>img/common/dot.png">
-      </div> <!-- /policy_view -->
+      </div> <!-- /information-form -->
     </div><!-- /content-wrapper -->
 
 <?php new ViewUserSpFooter(); ?>

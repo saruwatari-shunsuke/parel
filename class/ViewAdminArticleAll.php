@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.6
+* @version 1.7
 */
 
 Class ViewAdminArticleAll {
@@ -58,8 +58,8 @@ echo $_COOKIE['LoginAuth'];
     <meta name="format-detection" content="telephone=no">
  
 <?php ViewBootstrap::css(); ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/pc/common.css">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/pc/common.css?x=1">
+    <link rel="stylesheet" type="text/css" href="/css/style.css?x=1">
     <link rel="shortcut icon" href="/img/adm-parel.ico">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="canonical" href="<?php echo ADMIN_URL ?>">

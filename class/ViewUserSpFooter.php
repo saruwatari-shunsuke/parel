@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.5
+* @version 1.6
 */
 
 Class ViewUserSpFooter {
@@ -29,58 +29,54 @@ Class ViewUserSpFooter {
 			global $setting_data;
 ?>
     <!-- header -->
-    <div class="mobile_header js-header bg_coral" role="banner">
-      <div class="overflow">
-        <div class="mobile_header_left js-menu-trigger">
-          ≡
-        </div>
-        <div class="left mobile_header_center">
-          <a href="<?php echo MAIN_URL ?>"><img src="<?php echo LOGO ?>" alt="パルール"></a>
-        </div>
-        <a href="#" data-toggle="modal" data-target="#ModalSearch">
-          <div class="mobile_header_right">
-            <span class="glyphicon glyphicon-search"></span>
-          </div>
-        </a>
+    <div id="header1" class="overflow js-header bg_coral" role="banner">
+      <div id="header-left" class="js-menu-trigger">
+        ≡
       </div>
+      <div id="header-center">
+        <a href="<?php echo MAIN_URL ?>"><img src="<?php echo LOGO ?>" alt="パルール"></a>
+      </div>
+      <a href="#" data-toggle="modal" data-target="#modal-search">
+        <div id="header-right">
+          <span class="glyphicon glyphicon-search"></span>
+        </div>
+      </a>
     </div>
 
-    <!-- search box -->
-    <div class="modal fade" id="ModalSearch">
+    <!-- modal search -->
+    <div class="modal fade" id="modal-search">
       <div class="modal-dialog">
-        <div class="modal-content" id="modal_search_content">
-          <p class="modal_search_close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></p>
-          <form action="<?php echo MAIN_URL ?>" controller="articles" class="form-inline header_left" method="GET" accept-charset="utf-8">
-            <input name="s" class="form-control header_key max-width" placeholder="気になるワードを入れてみましょう" type="text" value="<?php echo $_GET['s'] ?>">
-            <input class="btn btn-default btn-block" id="header_search_submit" value="検索" type="submit">
+        <div class="modal-content" id="keyword-search-form">
+          <p class="modal-close" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span></p>
+          <form action="<?php echo MAIN_URL ?>" rcontroller="articles" class="form-inline" method="GET" accept-charset="utf-8">
+            <input name="s" class="form-control" placeholder="気になるワードを入れてみましょう" type="text" value="<?php echo $_GET['s'] ?>">
+            <input id="keyword-search-submit" class="btn btn-default btn-block" value="検索" type="submit">
           </form>
         </div>
       </div>
     </div>
 
     <!-- footer -->
-    <div class="js-footer">
-      <div class="footer bg_coral" role="contentinfo">
-        <ul class="footer_nav_category">
-          <li><a href="<?php echo MAIN_URL ?>">Home</a></li>
-          <li><a href="<?php echo MAIN_URL ?>ranking/">Ranking</a></li>
-          <li><a href="<?php echo CATEGORY_URL[1] ?>">Food</a></li>
-          <li><a href="<?php echo CATEGORY_URL[2] ?>">Exercise</a></li>
-          <li><a href="<?php echo CATEGORY_URL[3] ?>">Health</a></li>
-          <li><a href="<?php echo CATEGORY_URL[4] ?>">Fashion</a></li>
-          <li><a href="<?php echo CATEGORY_URL[5] ?>">Feature</a></li>
-          <li><a href="//twitter.com/<?php echo $setting_data['twitter'] ?>">Twitter</a></li>
-        </ul>
-        <hr class="footer_bar">
-        <ul class="footer_nav_link">
-          <li><a href="<?php echo MAIN_URL ?>terms/">利用規約</a></li>
-          <li><a href="//www.agentgate.jp/company.html" target="_blank">運営会社</a></li>
-          <li><a href="//www.agentgate.jp/privacy.html" target="_blank">プライバシーポリシー</a></li>
-          <li><a href="//www.agentgate.jp/contact.html" target="_blank">お問い合わせ</a></li>
-          <li><a href="//hito-shigoto.jp/" target="_blank">ヒトシゴト</a></li>
-        </ul>
-        <p class="copyright">このサイトに掲載された記事の無断転載を禁じます。<br>PAREL(パルール) &copy; 2017. All Rights Reserved.</p>
-      </div>
+    <div id="footer" class="js-footer bg_coral" role="contentinfo">
+      <ul>
+        <li><a href="<?php echo MAIN_URL ?>">Home</a></li>
+        <li><a href="<?php echo MAIN_URL ?>ranking/">Ranking</a></li>
+        <li><a href="<?php echo CATEGORY_URL[1] ?>">Food</a></li>
+        <li><a href="<?php echo CATEGORY_URL[2] ?>">Exercise</a></li>
+        <li><a href="<?php echo CATEGORY_URL[3] ?>">Health</a></li>
+        <li><a href="<?php echo CATEGORY_URL[4] ?>">Fashion</a></li>
+        <li><a href="<?php echo CATEGORY_URL[5] ?>">Feature</a></li>
+        <li><a href="//twitter.com/<?php echo $setting_data['twitter'] ?>">Twitter</a></li>
+      </ul>
+      <hr>
+      <ul>
+        <li><a href="<?php echo MAIN_URL ?>terms/">利用規約</a></li>
+        <li><a href="//www.agentgate.jp/company.html" target="_blank">運営会社</a></li>
+        <li><a href="//www.agentgate.jp/privacy.html" target="_blank">プライバシーポリシー</a></li>
+        <li><a href="//www.agentgate.jp/contact.html" target="_blank">お問い合わせ</a></li>
+        <li><a href="//hito-shigoto.jp/" target="_blank">ヒトシゴト</a></li>
+      </ul>
+      <p class="copyright">このサイトに掲載された記事の無断転載を禁じます。<br>PAREL(パルール) &copy; 2017. All Rights Reserved.</p>
     </div>
 
     <!-- slide menu -->
@@ -158,5 +154,4 @@ Class ViewUserSpFooter {
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());
 		}
 	}
-
 }

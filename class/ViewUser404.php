@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.4
+* @version 1.5
 */
 
 Class ViewUser404 {
@@ -60,7 +60,7 @@ Class ViewUser404 {
     <meta name="format-detection" content="telephone=no">
  
 <?php ViewBootstrap::css(); ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/pc/common.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/pc/common.css?x=1">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="canonical" href="<?php echo MAIN_URL ?>">
@@ -68,9 +68,9 @@ Class ViewUser404 {
   <body>
     <div class="container">
       <div class="overflow">
-        <div class="policy_view">
+        <div id="information-form">
 <?php self::text(); ?>
-        </div> <!-- /policy_view -->
+        </div> <!-- /information-form -->
       </div> <!-- /overflow -->
     </div> <!-- /container -->
 
@@ -134,7 +134,7 @@ Class ViewUser404 {
     <meta name="format-detection" content="telephone=no">
  
 <?php ViewBootstrap::css(); ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/sp/common.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/sp/common.css?x=1">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="">
     <link rel="canonical" href="<?php echo MAIN_URL ?>">
@@ -142,9 +142,9 @@ Class ViewUser404 {
   <body>
 
     <div class="content-wrapper js-main">
-      <div class="policy_view">
+      <div id="information-form">
 <?php self::text(); ?>
-      </div> <!-- /policy_view -->
+      </div> <!-- /information-form -->
     </div><!-- /content-wrapper -->
 
 <?php new ViewUserSpFooter(); ?>
@@ -172,13 +172,9 @@ Class ViewUser404 {
 	private function text() {
 		try {
 ?>
-<h1 id="page_title">404 Not Found</h1>
-
-<p class="policy_text">
-お探しのページは見つかりませんでした。<br>
-一時的にアクセスできない状況にあるか、本サイトがダイエットして消えた可能性があります。
-</p>
-
+<h1>404 Not Found</h1>
+<p>お探しのページは見つかりませんでした。</p>
+<p>一時的にアクセスできない状況にあるか、本サイトがダイエットして消えた可能性があります。</p>
 <?php
 		} catch(Exception $e) {
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());

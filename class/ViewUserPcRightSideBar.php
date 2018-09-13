@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.6
+* @version 1.7
 */
 
 Class ViewUserPcRightSideBar {
@@ -38,20 +38,20 @@ Class ViewUserPcRightSideBar {
 <?php ViewGoogletag::pcBody(); ?>
 
             <!-- ranking -->
-            <div class="subcontents_area">
-              <img src="<?php echo MAIN_URL ?>img/common/ranking-title.png" alt="人気の記事" class="subcontents_title">
+            <div class="subcontents-area">
+              <img src="<?php echo MAIN_URL ?>img/common/ranking-title.png" alt="人気の記事" class="subcontents-title">
 <?php foreach ($ranking_data as $key => $value) { ?>
               <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
-                <div class="ranking_wrapper hover-light">
-                  <div class="ranking_img_area">
+                <div class="ranking-wrapper hover-light">
+                  <div class="ranking-img-area">
                     <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>">
                   </div>
-                  <div class="ranking_text">
-                    <div class="ranking_text_left">
+                  <div class="ranking-text">
+                    <div class="ranking-text-left">
                       <?php echo $key+1; ?>
                     </div>
-                    <div class="ranking_text_right">
-                      <div class="ranking_text_right_title"><span class="trunk3"><?php echo $value['title'] ?></span></div>
+                    <div class="ranking-text-right">
+                      <div class="ranking-text-right-title"><span class="trunk3"><?php echo $value['title'] ?></span></div>
                     </div>
                   </div>
                 </div>
@@ -60,28 +60,25 @@ Class ViewUserPcRightSideBar {
             </div>
 
             <!-- sponsored -->
-            <div class="subcontents_area">
-              <img src="<?php echo MAIN_URL ?>img/common/sponsored-title.png" alt="スポンサード" class="subcontents_title">
+            <div class="subcontents-area">
+              <img src="<?php echo MAIN_URL ?>img/common/sponsored-title.png" alt="スポンサード" class="subcontents-title">
               <div class="overflow">
                 <img src="<?php echo MAIN_URL ?>img/common/bnr_tokyoicecreamland_pc.png" alt="東京アイスクリームランド">
               </div>
             </div>
 
             <!-- my favolite -->
-            <div class="subcontents_area">
-              <img src="<?php echo MAIN_URL ?>img/common/myfavolite-title.png" alt="おすすめ記事" class="subcontents_title">
+            <div class="subcontents-area">
+              <img src="<?php echo MAIN_URL ?>img/common/myfavolite-title.png" alt="おすすめ記事" class="subcontents-title">
 <?php foreach ($myfavolite_data as $key => $value) { ?>
               <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?>">
-                <div class="overflow hover-light">
-                  <div class="boxview_left">
-                    <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>" width="60" height="60">
+                <div class="myfavolite-article hover-light">
+                  <div class="myfavolite-left">
+                    <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>">
                   </div>
-                  <div class="boxview_right">
-                    <div class="mobile_article_index_text">
-                      <div class="ranking_text_box not_auto_br">
-                        <span class="trunk3"><?php echo $value['title'] ?></span>
-                      </div>
-                    </div>
+                  <div class="myfavolite-right">
+                    <!--<span class="trunk3"><?php echo $value['title'] ?></span>-->
+                    <?php echo $value['title'] ?>
                   </div>
                 </div>
               </a>
@@ -90,9 +87,9 @@ Class ViewUserPcRightSideBar {
 
 <?php /*
             <!-- keyword -->
-            <div class="subcontents_area">
-<!--              <img src="<?php echo MAIN_URL ?>img/common/myfavolite-title.png" alt="キーワード" class="subcontents_title">-->
-              <div class="keyword_area">
+            <div class="subcontents-area">
+<!--              <img src="<?php echo MAIN_URL ?>img/common/myfavolite-title.png" alt="キーワード" class="subcontents-title">-->
+              <div class="keyword-area">
 <?php foreach ($keyword_data as $key => $value) { ?>
                 <a href="<?php echo MAIN_URL.'?s='.$value; ?>">
                   <span class="hover-light"><?php echo $value ?></span>
@@ -103,7 +100,7 @@ Class ViewUserPcRightSideBar {
 */ ?>
 
             <!-- go back top -->
-            <div class="subcontents_area">
+            <div class="subcontents-area">
               <a href="#" id="page-top" class="btn btn-lg btn-block btn-default"><span class="glyphicon glyphicon-chevron-up"></span></a>
             </div>
 

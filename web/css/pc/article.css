@@ -1,100 +1,4 @@
-/* header */
-h1#article-title{
-  margin: 45px 0 15px;
-  font-size: 1.8em;
-  line-height: 1.4;
-}
-.article_row_head{
-  overflow: hidden;
-  margin: 20px 0;
-}
-/* text */
-.article_views{
-  color: #999;
-  font-size: 1.1em;
-}
-.article_view{
-  background: #fff;
-  margin: 0 10px 10px 5px;
-  padding: 0 0 10px;
-}
-#article-introduction, #article-summary{
-  margin: 20px 30px;
-  font-size: 90%;
-  color: #666;
-}
-#article-body h3{
-  font-size: 16px;
-  font-weight: bold;
-  margin: -70px 0 0;
-  padding: 140px 10px 10px; 
-  border-bottom: 2px solid #dc8791;
-}
-#article-body h4, #article-body h5, #article-body h6{
-  margin: -100px 0 0;
-  padding: 130px 0 0;
-}
-#article-body {
-  margin: 0 0 50px;
-}
-.article_written_box{
-  color: #888;
-  line-height: 100%;
-  border:1px solid #ddd;
-  margin:20px;
-  padding:5px;
-}
-.article_written_box_left{
-  width: 80px;
-  float: left;
-}
-.article_written_box_left img{
-  width: 100%;
-}
-.article_written_box_right{
-  width: calc(100% - 100px);
-  float: right;
-  margin: 0 10px 0;
-}
-.article_written_username{
-  color: #dc8791;
-  font-weight: bold;
-  margin: 5px 0;
-  padding: 0;
-}
-/* related */
-.item-content {
-  overflow: hidden;
-}
-.item-related-article {
-  overflow: hidden;
-  display: block;
-  border: 1px solid #bbb;
-  padding: 7px;
-  margin: 15px 0;
-}
-.item-related-article .item-thumbnail img{
-  float: left;
-  margin-right: 20px;
-  width: 80px;
-  height: 80px;
-}
-.item-related-article .item-title {
-  line-height: 1.4em;
-  color: #333;
-  font-size: 15px;
-  font-weight: bold;
-}
-.item-related-article .item-description {
-  line-height: 1.3em;
-  color: #555;
-  font-size: 11px;
-  margin-bottom: 0;
-}
-.item-thumbnail img {
-  width: 60%;
-}
-/* special */
+/* toc */
 #toc:before {
   content: "目次";
   color: #999;
@@ -102,13 +6,13 @@ h1#article-title{
 }
 #toc {
   border: 1px solid #999;
-  margin-bottom: 10px;
+  margin: 10px;
   padding: 15px;
   width: auto;
 }
 #toc ol,
 #toc ol li {
-  margin: 0 7px 0;
+  margin: 0 7px;
   padding: 0;
 }
 #toc a {
@@ -117,13 +21,88 @@ h1#article-title{
 #toc a:hover {
   color: #f99;
 }
-
-._pi {
-  background-color: #f7bae9;
+/* header */
+h1#article-title{
+  margin: 45px 0 15px;
+  font-size: 1.8em;
+  line-height: 1.4em;
 }
-.-bl {
-  color: #3366ff;
+#article-overview-area{
+  overflow: hidden;
+  margin: 20px 10px;
 }
+#article-overview-area .article-views{
+  color: #999;
+  font-size: 1.1em;
+}
+#article-introduction, #article-summary{
+  margin: 40px 30px;
+  font-size: 0.9em;
+  color: #666;
+}
+#article-body {
+  margin: 0 10px 50px;
+}
+/* writer */
+.article-writer{
+  overflow: hidden;
+  color: #888;
+  line-height: 100%;
+  border: 1px solid #ddd;
+  margin: 20px;
+  padding: 5px;
+}
+.article-writer .article-writer-img{
+  width: 80px;
+  float: left;
+}
+.article-writer .article-writer-img img{
+  width: 100%;
+}
+.article-writer .article-writer-text{
+  width: calc(100% - 100px);
+  float: right;
+  margin: 0 10px;
+}
+.article-writer .article-writer-text .article-writer-name{
+  color: #dc8791;
+  font-weight: bold;
+  margin: 5px 0;
+  padding: 0;
+}
+/* related articles */
+.item-content {
+  overflow: hidden;
+}
+.related-article {
+  overflow: hidden;
+  display: block;
+  border: 1px solid #bbb;
+  padding: 7px;
+  margin: 15px 10px;
+}
+.related-article .item-thumbnail img{
+  float: left;
+  margin-right: 20px;
+  width: 80px;
+  height: 80px;
+}
+.related-article .item-title {
+  line-height: 1.4em;
+  color: #333;
+  font-size: 15px;
+  font-weight: bold;
+}
+.related-article .item-description {
+  line-height: 1.3em;
+  color: #555;
+  font-size: 11px;
+  margin-bottom: 0;
+}
+.item-thumbnail img {
+  width: 60%;
+}
+/* text decollate */
 #article-introduction img, #article-body img, #article-summary img{
   width: calc(100% - 10px);
   max-height: 500px;
@@ -144,6 +123,17 @@ h1#article-title{
 #article-introduction a:hover, #article-body a:hover, #article-summary a:hover{
   text-decoration: underline;
 }
+#article-body h3{
+  font-size: 16px;
+  font-weight: bold;
+  margin: -70px 0 0;
+  padding: 140px 10px 10px; 
+  border-bottom: 2px solid #dc8791;
+}
+#article-body h4, #article-body h5, #article-body h6{
+  margin: -100px 0 0;
+  padding: 130px 0 0;
+}
 video {
   width:100%;
 }
@@ -152,6 +142,13 @@ video {
   text-decoration: none;
   margin: 0 4px;
 }
+._pi {
+  background-color: #f7bae9;
+}
+.-bl {
+  color: #3366ff;
+}
+/* text decollate talk parts */
 .balloon {
   width: 100%;
   overflow: hidden;

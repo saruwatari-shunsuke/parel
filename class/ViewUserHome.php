@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.8
+* @version 1.9
 */
 
 Class ViewUserHome {
@@ -65,8 +65,8 @@ Class ViewUserHome {
     <meta name="format-detection" content="telephone=no">
  
 <?php ViewBootstrap::css(); ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/pc/common.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/pc/index.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/pc/common.css?x=1">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/pc/index.css?x=1">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/simplePagination.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
@@ -113,35 +113,25 @@ Class ViewUserHome {
           </ol>
 <?php } ?>
 
-          <div id="article_area">
+          <div id="article-area">
 <?php foreach ($article_data as $key => $value) { ?>
-            <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?><?php if($_GET['s']){ echo '?s='.urlencode($_GET['s']); } ?>" class="article_box_list article_box-<?php echo floor($key/$page_items) ?>">
-              <div class="boxview_box hover-light">
-                <div class="boxview_img_area">
-                  <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>">
-                </div>
-                <div class="boxview_text">
-                  <p class="boxview_text_title trunk2"><?php echo $value['title'] ?></p>
-                  <ul class="article_list_info list-inline overflow">
-                    <li class="not_auto_br left">
-                      <div class="article_list_point"><?php echo $value['view'] ?> view</div>
-                    </li>
-                    <li class="not_auto_br right">
-                      <div class="boxview_text_author">
-                        <em><?php echo $value['author_name'] ?></em>
-                      </div>
-                    </li>
+            <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?><?php if($_GET['s']){ echo '?s='.urlencode($_GET['s']); } ?>" class="article-search article-search-<?php echo floor($key/$page_items) ?>">
+              <div class="article-link hover-light">
+                <img src="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>" class="max-width">
+                <div class="article-link-text">
+                  <p class="article-link-title trunk2"><?php echo $value['title'] ?></p>
+                  <ul class="article-link-info">
+                    <li class="not_auto_br left"><?php echo $value['view'] ?> view</li>
+                    <li class="not_auto_br right"><?php echo $value['author_name'] ?></li>
                   </ul>
                 </div>
               </div>
             </a>
 <?php } ?>
 <?php while($key++ % $page_items) { ?>
-            <a class="article_box_list article_box-<?php echo floor($key/$page_items) ?> transparent">
-              <div class="boxview_box">
-                <div class="boxview_img_area">
-                  <img src="<?php echo MAIN_URL ?>img/common/thumb-blank.png" alt="">
-                </div>
+            <a class="article-search article-search-<?php echo floor($key/$page_items) ?> transparent">
+              <div class="article-link">
+                <img src="<?php echo MAIN_URL ?>img/common/thumb-blank.png" alt="" class="max-width">
               </div>
             </a>
 <?php } ?>
@@ -166,7 +156,7 @@ Class ViewUserHome {
     <script type="text/javascript" src="<?php echo MAIN_URL ?>js/jquery.simplePagination.js"></script>
     <script type="text/javascript">
       $(function(){
-        $('.article_box-0').show();//1ページ目を表示
+        $('.article-search-0').show();//1ページ目を表示
         $(".pagination").pagination({//ページ基本設定
           items: <?php echo $sum_items ?>,
           displayedPages: 4,
@@ -180,8 +170,8 @@ Class ViewUserHome {
         })
       });
       function showArticle(num) {
-        $('.article_box_list').hide();
-        $('.article_box-'+num).show();
+        $('.article-search').hide();
+        $('.article-search-'+num).show();
         $('.trunk2').trunk8({lines:2});
       }
     </script>
@@ -242,8 +232,8 @@ Class ViewUserHome {
     <meta name="format-detection" content="telephone=no">
  
 <?php ViewBootstrap::css(); ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/sp/common.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/sp/index.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/sp/common.css?x=1">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/sp/index.css?x=1">
     <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/wideslider.css">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
@@ -277,30 +267,26 @@ Class ViewUserHome {
 <?php } ?>
 
 <?php foreach ($article_data as $key => $value) { ?>
-      <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?><?php if($_GET['s']){ echo '?s='.urlencode($_GET['s']); } ?>" <?php if($key>=$page_items){ echo ' class="article_more"'; } ?>>
-        <div class="mobile_article_index_box2">
-          <div class="boxview_left">
-            <div class="boxview_leftimg">
-              <img src="<?php echo MAIN_URL ?>img/common/loading-thumb.gif" data-echo="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" width="78" height="78" alt="<?php echo $value['title'] ?>">
-            </div>
+      <a href="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/' ?><?php if($_GET['s']){ echo '?s='.urlencode($_GET['s']); } ?>" <?php if($key>=$page_items){ echo ' class="article-more"'; } ?>>
+        <div class="article-link">
+          <div class="article-link-img">
+            <img src="<?php echo MAIN_URL ?>img/common/loading-thumb.gif" data-echo="<?php echo CATEGORY_URL[$value['category_id']].$value['path'].'/'.IMAGE_MAIN_SMALL ?>" alt="<?php echo $value['title'] ?>">
           </div>
-          <div class="boxview_right">
-            <div class="mobile_article_index_text">
-              <p class="boxview_title not_auto_br text-line-2"><?php echo $value['title'] ?></p>
-              <span class="boxview_text_left"><?php echo $value['view'] ?> view</span>
-              <span class="boxview_text_right"><?php echo $value['author_name'] ?></span>
-            </div>
+          <div class="article-link-text">
+            <p class="article-link-title not_auto_br text-line-2"><?php echo $value['title'] ?></p>
+            <span class="article-link-text-left"><?php echo $value['view'] ?> view</span>
+            <span class="article-link-text-right"><?php echo $value['author_name'] ?></span>
           </div>
         </div>
       </a>
 <?php } ?>
 
 <?php if($sum_items>$page_items){ ?>
-      <button id="article_more" class="boxview_nextbtn" onclick="showArticle()">もっとみる</button>
+      <button id="article-more" class="btn-more" onclick="showArticle()">もっとみる</button>
 <?php } ?>
 
       <!-- ad -->
-      <div class="subcontents_area">
+      <div class="subcontents-area">
 <?php ViewGoogletag::spBody(); ?>
         <img src="<?php echo MAIN_URL ?>img/common/dot.png" alt="">
       </div>
@@ -323,8 +309,8 @@ Class ViewUserHome {
     </script>
     <script>
       function showArticle() {
-        $('.article_more').show();
-        $('#article_more').css("visibility","hidden");
+        $('.article-more').show();
+        $('#article-more').css("visibility","hidden");
       }
     </script>
   </body>

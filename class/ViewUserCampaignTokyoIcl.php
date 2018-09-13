@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.2
+* @version 1.3
 */
 
 Class ViewUserCampaignTokyoIcl {
@@ -204,7 +204,6 @@ Class ViewUserCampaignTokyoIcl {
 	private function text() {
 		try {
 ?>
-  
   <header>
     <div class="header_inner">
       <p class="period text_shadow_pink">キャンペーン期間：4月28日～5月27日</p>
@@ -336,7 +335,6 @@ Class ViewUserCampaignTokyoIcl {
       </div>
     </section>
   </main>
-
 <?php
 		} catch(Exception $e) {
 			CreateLog::putErrorLog(get_class()." ".$e->getMessage());

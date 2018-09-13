@@ -5,7 +5,7 @@
 * @package View
 * @author Shunsuke Saruwatari
 * @since PHP 7.0
-* @version 1.5
+* @version 1.6
 */
 
 Class ViewUserRanking{
@@ -137,7 +137,7 @@ Class ViewUserRanking{
     <meta name="format-detection" content="telephone=no">
  
 <?php ViewBootstrap::css(); ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/sp/common.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo MAIN_URL ?>css/sp/common.css?x=1">
     <link rel="shortcut icon" href="<?php echo FAVICON ?>">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo IMAGE_SITE_MAIN ?>">
     <link rel="canonical" href="<?php echo MAIN_URL ?>ranking/">
